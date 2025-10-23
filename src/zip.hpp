@@ -4,7 +4,7 @@
 #include <filesystem>
 
 #include <sys/stat.h>
-#include <zlib.h>
+#include <zlib/zlib.h>
 #include <onut/Json.h>
 
 class GroupedOutput
