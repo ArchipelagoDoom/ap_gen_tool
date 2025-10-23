@@ -1,6 +1,3 @@
-# Project name
-project(ap_gen_tool)
-
 list(APPEND libs PUBLIC libonut)
 list(APPEND includes PUBLIC ./thirdparty/onut/include/)
 
