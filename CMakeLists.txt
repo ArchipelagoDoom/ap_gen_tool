@@ -11,7 +11,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD 17) # C++17
 if (MSVC)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" "/MP /FS")
-else()
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     # Spare me -Wall's wrath
     set(CXX_ONLY_FLAGS -Wno-class-memaccess -Wno-pessimizing-move)
     add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:${CXX_ONLY_FLAGS}>")

@@ -214,7 +214,7 @@ public:
     }
 };
 
-class game_t;
+struct game_t;
 
 extern std::stringstream& Py_CreateInitPy(game_t *game);
 extern std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption>& opts);

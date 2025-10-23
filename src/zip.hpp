@@ -303,7 +303,7 @@ public:
 			throw std::runtime_error("Folder does not appear to be a valid worlds folder.");
 		}
 
-		output_world_name = std::string(base_path) + world;
+		output_world_name = base_path.string() + world;
 	}
 
 	bool Finalize(void) override { return true; } // No operation.
