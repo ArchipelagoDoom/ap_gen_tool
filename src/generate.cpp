@@ -528,6 +528,8 @@ int generate(game_t* game)
     OLog("AP Gen Tool version 2.0");
     long runtime_start = get_runtime_us();
 
+    world = nullptr;
+
     for (int i = 0; i < (int)OArguments.size(); ++i)
     {
         if (OArguments[i] == "--world-folder")
