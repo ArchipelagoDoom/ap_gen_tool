@@ -212,8 +212,7 @@ std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption> &opts)
     option_groups["Randomizer Options"].push_back("id1Options.RandomMonsters");
     option_groups["Randomizer Options"].push_back("id1Options.RandomPickups");
     option_groups["Randomizer Options"].push_back("id1Options.RandomMusic");
-    if (game->iwad_name != "HERETIC.WAD")
-	    option_groups["Randomizer Options"].push_back("id1Options.FlipLevels");
+    option_groups["Randomizer Options"].push_back("id1Options.FlipLevels");
     for (const auto &option : opts)
     {
         if (!option.option_group.empty())
