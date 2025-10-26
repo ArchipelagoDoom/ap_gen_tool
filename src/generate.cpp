@@ -525,7 +525,7 @@ Json::Value generate_game_defs_json(game_t *game, level_map_t& levels_map)
 // This function is bulky... I've tried to split it up where I can, but there's still a lot. -KS
 int generate(game_t* game)
 {
-    OLog("AP Gen Tool version 2.0");
+    OLog("AP Gen Tool version " APGENTOOL_VERSION);
     long runtime_start = get_runtime_us();
 
     world = nullptr;

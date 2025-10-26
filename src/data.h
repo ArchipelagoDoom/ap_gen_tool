@@ -1,5 +1,6 @@
 #pragma once
 
+#define APGENTOOL_VERSION "2.0.20251026"
 
 #include <onut/Maths.h>
 #include <onut/Vector2.h>

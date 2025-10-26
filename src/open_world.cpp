@@ -520,7 +520,7 @@ void redo()
 
 void initSettings()
 {
-    oSettings->setGameName("APDoom Gen Tool v2.0");
+    oSettings->setGameName("APDoom Gen Tool v" APGENTOOL_VERSION);
     oSettings->setResolution({ 1600, 900 });
     oSettings->setBorderlessFullscreen(false);
     oSettings->setIsFixedStep(false);
@@ -613,7 +613,7 @@ void init()
 
     regen();
 
-    OnScreenMessages::Add("Welcome to the APDoom Gen Tool");
+    OnScreenMessages::Add("Welcome to the APDoom Gen Tool - version " APGENTOOL_VERSION);
 }
 
 
