@@ -54,16 +54,20 @@ class RandomMonsters(Choice):
     """Choose how monsters are randomized.
 
     **off**: Monsters are left unchanged.
-    **shuffle**: Monsters are shuffled with each other in each level.
-    **random_balanced**: Monsters are completely randomized; the game will try to preserve the ratio of "small", "medium", and "big" monsters present in each level.
-    **random_chaotic**: Monsters are completely randomized.
+    **shuffle**: Monsters in the level are shuffled around.
+    **same_type**: Each "small" monster in the level is replaced with a different "small" monster; same for "medium" and "big" monsters.
+    **balanced**: All monsters in the level are randomized. The ratio of "small", "medium", and "big" monsters in the level will be preserved.
+    **chaotic**: All monsters in the level are completely randomized. This can make levels *significantly* harder!
     """
     display_name = "Random Monsters"
     option_off = 0
     option_shuffle = 1
-    option_random_balanced = 2
-    option_random_chaotic = 3
+    option_same_type = 2
+    option_balanced = 3
+    option_chaotic = 4
     alias_vanilla = 0
+    alias_random_balanced = 3
+    alias_random_chaotic = 4
     default = 0
 
 
@@ -71,14 +75,20 @@ class RandomPickups(Choice):
     """Choose how pickups (medkits, ammo, etc.) are randomized.
 
     **off**: Pickups are left unchanged.
-    **shuffle**: Pickups are shuffled with each other in each level.
-    **random_balanced**: Pickups are completely randomized; the game will try to preserve the ratio of "small" and "big" pickups present in each level.
+    **shuffle**: Pickups in the level are shuffled around.
+    **same_type**: Each "small" pickup in the level is replaced with a different "small" pickup; same for "medium" and "big" pickups.
+    **balanced**: All pickups in the level are randomized. The ratio of "small", "medium", and "big" pickups in the level will be preserved.
+    **chaotic**: All pickups in the level are completely randomized.
     """
     display_name = "Random Pickups"
     option_off = 0
     option_shuffle = 1
-    option_random_balanced = 2
+    option_same_type = 2
+    option_balanced = 3
+    option_chaotic = 4
     alias_vanilla = 0
+    alias_random_balanced = 3
+    alias_random_chaotic = 4
     default = 0
 
 
