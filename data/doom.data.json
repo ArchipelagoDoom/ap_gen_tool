@@ -39,7 +39,7 @@
                "death_logic" : false,
                "description" : "The secret area accessible from the ZigZag room",
                "index" : 98,
-               "name" : "Closet",
+               "name" : "Zigzag Closet",
                "unreachable" : false
             }
          ],
@@ -186,7 +186,7 @@
                "death_logic" : false,
                "description" : "On the pillar, in a secret area, with a view on the outside",
                "index" : 4,
-               "name" : "Chainsaw",
+               "name" : "Balcony Pillar",
                "unreachable" : false
             },
             {
@@ -194,7 +194,7 @@
                "death_logic" : false,
                "description" : "spawn, straight, left, up the elevator",
                "index" : 5,
-               "name" : "Shotgun",
+               "name" : "Enclosed Elevator",
                "unreachable" : false
             },
             {
@@ -202,7 +202,7 @@
                "death_logic" : false,
                "description" : "The secret at the spawn",
                "index" : 20,
-               "name" : "Armor",
+               "name" : "Courtyard Switch Closet",
                "unreachable" : false
             },
             {
@@ -210,7 +210,7 @@
                "death_logic" : false,
                "description" : "Out side, in the middle",
                "index" : 22,
-               "name" : "Supercharge",
+               "name" : "Courtyard",
                "unreachable" : false
             },
             {
@@ -218,7 +218,7 @@
                "death_logic" : false,
                "description" : "Outside, in the back",
                "index" : 25,
-               "name" : "Chaingun",
+               "name" : "Courtyard",
                "unreachable" : false
             },
             {
@@ -226,7 +226,7 @@
                "death_logic" : false,
                "description" : "In the tower area where you can go outside",
                "index" : 41,
-               "name" : "Red keycard",
+               "name" : "Panopticon",
                "unreachable" : false
             },
             {
@@ -234,7 +234,7 @@
                "death_logic" : false,
                "description" : "Across the room from spawn",
                "index" : 43,
-               "name" : "Armor",
+               "name" : "Computer Alcove",
                "unreachable" : false
             },
             {
@@ -242,7 +242,7 @@
                "death_logic" : false,
                "description" : "Down the elevator near the exit",
                "index" : 53,
-               "name" : "Mega Armor",
+               "name" : "Fight Pit",
                "unreachable" : false
             },
             {
@@ -250,7 +250,7 @@
                "death_logic" : false,
                "description" : "In Front of a secret in the maze",
                "index" : 119,
-               "name" : "Armor",
+               "name" : "Maze",
                "unreachable" : false
             },
             {
@@ -258,7 +258,7 @@
                "death_logic" : false,
                "description" : "The secret area at the spawn",
                "index" : 139,
-               "name" : "Backpack",
+               "name" : "Courtyard Switch Closet",
                "unreachable" : false
             },
             {
@@ -266,7 +266,7 @@
                "death_logic" : false,
                "description" : "A secret in the maze",
                "index" : 200,
-               "name" : "Backpack",
+               "name" : "Secret Maze Closet",
                "unreachable" : false
             }
          ],
@@ -531,7 +531,7 @@
                "death_logic" : false,
                "description" : "Sewer secret area",
                "index" : 8,
-               "name" : "Armor",
+               "name" : "Sewer Secret",
                "unreachable" : false
             },
             {
@@ -539,7 +539,7 @@
                "death_logic" : false,
                "description" : "Top of the pillard in dark room, secret area",
                "index" : 9,
-               "name" : "Supercharge",
+               "name" : "Pillar Secret",
                "unreachable" : false
             },
             {
@@ -547,7 +547,7 @@
                "death_logic" : false,
                "description" : "In the diagonal structure",
                "index" : 18,
-               "name" : "Yellow keycard",
+               "name" : "Mainframe",
                "unreachable" : false
             },
             {
@@ -555,7 +555,7 @@
                "death_logic" : false,
                "description" : "On the trap that turns off lights",
                "index" : 19,
-               "name" : "Blue keycard",
+               "name" : "Lights Off",
                "unreachable" : false
             },
             {
@@ -563,7 +563,7 @@
                "death_logic" : false,
                "description" : "Right at spawn",
                "index" : 64,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -571,7 +571,7 @@
                "death_logic" : false,
                "description" : "Beside the closed wall leading to sewer area",
                "index" : 77,
-               "name" : "Shotgun",
+               "name" : "Elevator Corridor",
                "unreachable" : false
             },
             {
@@ -579,7 +579,7 @@
                "death_logic" : false,
                "description" : "On elevator leader to \"locked\" sewer area",
                "index" : 85,
-               "name" : "Armor",
+               "name" : "Elevator",
                "unreachable" : false
             },
             {
@@ -587,7 +587,7 @@
                "death_logic" : false,
                "description" : "Sewer secret area",
                "index" : 107,
-               "name" : "Rocket launcher",
+               "name" : "Sewer Secret",
                "unreachable" : false
             },
             {
@@ -595,7 +595,7 @@
                "death_logic" : false,
                "description" : "Sewer secret area, on elevator leaving secret area",
                "index" : 109,
-               "name" : "Chaingun",
+               "name" : "Sewer Back Hallway",
                "unreachable" : false
             },
             {
@@ -603,7 +603,7 @@
                "death_logic" : false,
                "description" : "Sewer secret area, near the button",
                "index" : 112,
-               "name" : "Backpack",
+               "name" : "Sewer Switch",
                "unreachable" : false
             },
             {
@@ -611,7 +611,7 @@
                "death_logic" : false,
                "description" : "Yellow door area",
                "index" : 259,
-               "name" : "Supercharge",
+               "name" : "Yellow Secret",
                "unreachable" : false
             },
             {
@@ -619,7 +619,7 @@
                "death_logic" : false,
                "description" : "Yellow door area",
                "index" : 260,
-               "name" : "Partial invisibility",
+               "name" : "Yellow Secret",
                "unreachable" : false
             },
             {
@@ -627,7 +627,7 @@
                "death_logic" : false,
                "description" : "Up the stairs in the secret area leading to yellow door",
                "index" : 261,
-               "name" : "Chainsaw",
+               "name" : "Secret Mezzanine",
                "unreachable" : false
             },
             {
@@ -635,7 +635,7 @@
                "death_logic" : false,
                "description" : "Yellow door area",
                "index" : 265,
-               "name" : "Mega Armor",
+               "name" : "Yellow Secret",
                "unreachable" : false
             },
             {
@@ -643,7 +643,7 @@
                "death_logic" : false,
                "description" : "After entering the blue door, right in front",
                "index" : 323,
-               "name" : "Armor",
+               "name" : "By Blue Door",
                "unreachable" : false
             }
          ],
@@ -931,7 +931,7 @@
                "death_logic" : false,
                "description" : "circular room in the middle",
                "index" : 11,
-               "name" : "Chaingun",
+               "name" : "Control Room",
                "unreachable" : false
             },
             {
@@ -939,7 +939,7 @@
                "death_logic" : false,
                "description" : "near the exit, yellow door",
                "index" : 39,
-               "name" : "Armor",
+               "name" : "Maze Exit",
                "unreachable" : false
             },
             {
@@ -947,7 +947,7 @@
                "death_logic" : false,
                "description" : "near the exit, yellow door. Overlooking the nukage",
                "index" : 61,
-               "name" : "Yellow keycard",
+               "name" : "Maze Exit",
                "unreachable" : false
             },
             {
@@ -955,7 +955,7 @@
                "death_logic" : false,
                "description" : "circular room in the middle",
                "index" : 62,
-               "name" : "Blue keycard",
+               "name" : "Control Room",
                "unreachable" : false
             },
             {
@@ -963,7 +963,7 @@
                "death_logic" : true,
                "description" : "Nukage canal exit elevator",
                "index" : 63,
-               "name" : "",
+               "name" : "Skylight Room Tease",
                "unreachable" : false
             },
             {
@@ -971,7 +971,7 @@
                "death_logic" : false,
                "description" : "Nukage canal exit area",
                "index" : 64,
-               "name" : "Rocket launcher",
+               "name" : "Nukage Canal, Exit",
                "unreachable" : false
             },
             {
@@ -979,7 +979,7 @@
                "death_logic" : true,
                "description" : "Mezzanine, right path at start.",
                "index" : 100,
-               "name" : "",
+               "name" : "Mezzanine",
                "unreachable" : false
             },
             {
@@ -987,7 +987,7 @@
                "death_logic" : false,
                "description" : "secret right at spawn, left wall",
                "index" : 107,
-               "name" : "Backpack",
+               "name" : "Spawn Secret",
                "unreachable" : false
             },
             {
@@ -995,7 +995,7 @@
                "death_logic" : false,
                "description" : "At start, middle path",
                "index" : 129,
-               "name" : "Shotgun",
+               "name" : "Middle Corridor",
                "unreachable" : false
             }
          ],
@@ -1275,7 +1275,7 @@
                "death_logic" : false,
                "description" : "Middle of top room",
                "index" : 4,
-               "name" : "Blue keycard",
+               "name" : "Grimy Switch Room",
                "unreachable" : false
             },
             {
@@ -1283,7 +1283,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 10,
-               "name" : "Yellow keycard",
+               "name" : "Candelabra Room",
                "unreachable" : false
             },
             {
@@ -1291,7 +1291,7 @@
                "death_logic" : false,
                "description" : "Nukage secret left",
                "index" : 11,
-               "name" : "Mega Armor",
+               "name" : "Nukage Escape",
                "unreachable" : false
             },
             {
@@ -1299,7 +1299,7 @@
                "death_logic" : false,
                "description" : "Nukage secret right",
                "index" : 60,
-               "name" : "Rocket launcher",
+               "name" : "Nukage Escape",
                "unreachable" : false
             },
             {
@@ -1307,7 +1307,7 @@
                "death_logic" : false,
                "description" : "Secret door behind barrels",
                "index" : 75,
-               "name" : "Shotgun",
+               "name" : "Barrels Closet",
                "unreachable" : false
             },
             {
@@ -1315,7 +1315,7 @@
                "death_logic" : false,
                "description" : "Nukage docks",
                "index" : 83,
-               "name" : "Shotgun",
+               "name" : "Dock",
                "unreachable" : false
             },
             {
@@ -1323,7 +1323,7 @@
                "death_logic" : false,
                "description" : "Secret leading to ouside",
                "index" : 167,
-               "name" : "Chainsaw",
+               "name" : "Exit to Courtyard",
                "unreachable" : false
             },
             {
@@ -1331,7 +1331,7 @@
                "death_logic" : false,
                "description" : "Outside",
                "index" : 169,
-               "name" : "Supercharge",
+               "name" : "Courtyard",
                "unreachable" : false
             },
             {
@@ -1339,7 +1339,7 @@
                "death_logic" : false,
                "description" : "Secret area left of fake exit",
                "index" : 173,
-               "name" : "Chaingun",
+               "name" : "Lab Secret",
                "unreachable" : false
             },
             {
@@ -1347,7 +1347,7 @@
                "death_logic" : false,
                "description" : "Secret area left of fake exit",
                "index" : 174,
-               "name" : "Backpack",
+               "name" : "Lab Secret",
                "unreachable" : false
             },
             {
@@ -1355,7 +1355,7 @@
                "death_logic" : false,
                "description" : "Secret area left of fake exit",
                "index" : 176,
-               "name" : "Computer area map",
+               "name" : "Lab Secret",
                "unreachable" : false
             },
             {
@@ -1363,7 +1363,7 @@
                "death_logic" : false,
                "description" : "Horseshoe nukage",
                "index" : 206,
-               "name" : "Mega Armor",
+               "name" : "Pillar Jump",
                "unreachable" : false
             },
             {
@@ -1371,7 +1371,7 @@
                "death_logic" : false,
                "description" : "Spawn, front",
                "index" : 208,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -1379,7 +1379,7 @@
                "death_logic" : false,
                "description" : "Spawn, front left",
                "index" : 279,
-               "name" : "Armor",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -1387,7 +1387,7 @@
                "death_logic" : false,
                "description" : "In the corner of the top room",
                "index" : 280,
-               "name" : "Armor",
+               "name" : "Grimy Switch Room",
                "unreachable" : false
             },
             {
@@ -1395,7 +1395,7 @@
                "death_logic" : false,
                "description" : "Pentagram",
                "index" : 282,
-               "name" : "Partial invisibility",
+               "name" : "Pentagram",
                "unreachable" : false
             }
          ],
@@ -1659,7 +1659,7 @@
                "death_logic" : false,
                "description" : "At the end of the diagonal nukage pool",
                "index" : 4,
-               "name" : "Supercharge",
+               "name" : "Nukage Pool, Elevator",
                "unreachable" : false
             },
             {
@@ -1667,7 +1667,7 @@
                "death_logic" : false,
                "description" : "On the ledge, nukage pool behind",
                "index" : 5,
-               "name" : "Blue keycard",
+               "name" : "Nukage Pool",
                "unreachable" : false
             },
             {
@@ -1675,7 +1675,7 @@
                "death_logic" : false,
                "description" : "Trap area at start, this one triggers the trap",
                "index" : 9,
-               "name" : "Red keycard",
+               "name" : "Mainframe Trap Room",
                "unreachable" : false
             },
             {
@@ -1683,7 +1683,7 @@
                "death_logic" : false,
                "description" : "Window overseeing bridge, center",
                "index" : 10,
-               "name" : "Yellow keycard",
+               "name" : "Bridge Overview Room",
                "unreachable" : false
             },
             {
@@ -1691,7 +1691,7 @@
                "death_logic" : false,
                "description" : "Secret behind suit, second",
                "index" : 22,
-               "name" : "Partial invisibility",
+               "name" : "Bridge Secret Hall",
                "unreachable" : false
             },
             {
@@ -1699,7 +1699,7 @@
                "death_logic" : false,
                "description" : "Trap area at start",
                "index" : 23,
-               "name" : "Chaingun",
+               "name" : "Mainframe Trap Room",
                "unreachable" : false
             },
             {
@@ -1707,7 +1707,7 @@
                "death_logic" : false,
                "description" : "Secret behind suit, first",
                "index" : 24,
-               "name" : "Backpack",
+               "name" : "Bridge Secret Hall",
                "unreachable" : false
             },
             {
@@ -1715,7 +1715,7 @@
                "death_logic" : false,
                "description" : "Secret behind suit, third",
                "index" : 63,
-               "name" : "Rocket launcher",
+               "name" : "Bridge Secret Hall",
                "unreachable" : false
             },
             {
@@ -1723,7 +1723,7 @@
                "death_logic" : false,
                "description" : "At spawn, left of you",
                "index" : 64,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -1731,7 +1731,7 @@
                "death_logic" : false,
                "description" : "Jump in diagonal nukage pool, go hard left",
                "index" : 81,
-               "name" : "Mega Armor",
+               "name" : "Nukage Pool, Escape",
                "unreachable" : false
             },
             {
@@ -1739,7 +1739,7 @@
                "death_logic" : false,
                "description" : "Door in front of spawn, go up stairs, right. Little computer area",
                "index" : 82,
-               "name" : "Armor",
+               "name" : "Computer Nook",
                "unreachable" : false
             },
             {
@@ -1747,7 +1747,7 @@
                "death_logic" : false,
                "description" : "Window overseeing bridge, right",
                "index" : 123,
-               "name" : "Backpack",
+               "name" : "Bridge Overview Room",
                "unreachable" : false
             },
             {
@@ -1755,7 +1755,7 @@
                "death_logic" : false,
                "description" : "Secret in blue area, pointed by pickups forming an arrow",
                "index" : 124,
-               "name" : "Computer area map",
+               "name" : "Blue Halls, Secret Compartment",
                "unreachable" : false
             },
             {
@@ -1763,7 +1763,7 @@
                "death_logic" : false,
                "description" : "At the exit of the diagonal nukage pool secret",
                "index" : 131,
-               "name" : "Partial invisibility",
+               "name" : "Nukage Pool, Escape",
                "unreachable" : false
             },
             {
@@ -1771,7 +1771,7 @@
                "death_logic" : false,
                "description" : "Window overseeing bridge, left",
                "index" : 214,
-               "name" : "Armor",
+               "name" : "Bridge Overview Room",
                "unreachable" : false
             },
             {
@@ -1779,7 +1779,7 @@
                "death_logic" : false,
                "description" : "Near the exit, in front of the 3 stairs paths",
                "index" : 291,
-               "name" : "Armor",
+               "name" : "Tri-Stairs Landing",
                "unreachable" : false
             },
             {
@@ -1787,7 +1787,7 @@
                "death_logic" : false,
                "description" : "Secret across the bridge, left of spawn",
                "index" : 381,
-               "name" : "Armor",
+               "name" : "Supply Room",
                "unreachable" : false
             },
             {
@@ -1795,7 +1795,7 @@
                "death_logic" : false,
                "description" : "Outdoor, after nukage secret",
                "index" : 392,
-               "name" : "Supercharge",
+               "name" : "Courtyard",
                "unreachable" : false
             },
             {
@@ -1803,7 +1803,7 @@
                "death_logic" : false,
                "description" : "End of nukage secret, before the door",
                "index" : 395,
-               "name" : "Backpack",
+               "name" : "Nukage Canal",
                "unreachable" : false
             }
          ],
@@ -2191,7 +2191,7 @@
                "death_logic" : false,
                "description" : "Pillar on bridge, jump in pool left. On sidewalk",
                "index" : 18,
-               "name" : "Chaingun",
+               "name" : "Pillar Dive, South Ledge",
                "unreachable" : false
             },
             {
@@ -2199,7 +2199,7 @@
                "death_logic" : false,
                "description" : "Pillar on bridge, right right, secret room there",
                "index" : 20,
-               "name" : "Computer area map",
+               "name" : "Pillar Dive, North Ledge",
                "unreachable" : false
             },
             {
@@ -2207,7 +2207,7 @@
                "death_logic" : false,
                "description" : "At pool's exit",
                "index" : 21,
-               "name" : "Supercharge",
+               "name" : "Pillar Dive, North Canal",
                "unreachable" : false
             },
             {
@@ -2215,7 +2215,7 @@
                "death_logic" : false,
                "description" : "Start, Left, elevator, backroom",
                "index" : 25,
-               "name" : "Yellow keycard",
+               "name" : "Elevator Dark Room",
                "unreachable" : false
             },
             {
@@ -2223,7 +2223,7 @@
                "death_logic" : false,
                "description" : "On the ledge of docks",
                "index" : 26,
-               "name" : "Blue keycard",
+               "name" : "Dock Ledge",
                "unreachable" : false
             },
             {
@@ -2231,7 +2231,7 @@
                "death_logic" : false,
                "description" : "At window over seeing docks",
                "index" : 27,
-               "name" : "Red keycard",
+               "name" : "Dock Overview",
                "unreachable" : false
             },
             {
@@ -2239,7 +2239,7 @@
                "death_logic" : false,
                "description" : "\"8\" room",
                "index" : 53,
-               "name" : "Chainsaw",
+               "name" : "Mainframe 8",
                "unreachable" : false
             },
             {
@@ -2247,7 +2247,7 @@
                "death_logic" : false,
                "description" : "Near exit, beside switch that open last area",
                "index" : 87,
-               "name" : "Shotgun",
+               "name" : "Green Button Room",
                "unreachable" : false
             },
             {
@@ -2255,7 +2255,7 @@
                "death_logic" : false,
                "description" : "At spawn",
                "index" : 122,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -2263,7 +2263,7 @@
                "death_logic" : false,
                "description" : "Computers mezzanine",
                "index" : 309,
-               "name" : "Rocket launcher",
+               "name" : "Computer Mezzanine",
                "unreachable" : false
             },
             {
@@ -2271,7 +2271,7 @@
                "death_logic" : false,
                "description" : "spawn, front, midway to the stairs",
                "index" : 310,
-               "name" : "Armor",
+               "name" : "Lobby",
                "unreachable" : false
             },
             {
@@ -2279,7 +2279,7 @@
                "death_logic" : false,
                "description" : "Donnut room",
                "index" : 311,
-               "name" : "Armor",
+               "name" : "Donut Room",
                "unreachable" : false
             },
             {
@@ -2287,7 +2287,7 @@
                "death_logic" : false,
                "description" : "Hidden in column, in pool",
                "index" : 312,
-               "name" : "Mega Armor",
+               "name" : "Pillar Dive, North Canal",
                "unreachable" : false
             },
             {
@@ -2295,7 +2295,7 @@
                "death_logic" : false,
                "description" : "Pillar on bridge, jump in pool left. Exit of secret",
                "index" : 314,
-               "name" : "Backpack",
+               "name" : "Pillar Dive, South Ledge",
                "unreachable" : false
             },
             {
@@ -2303,7 +2303,7 @@
                "death_logic" : false,
                "description" : "Outside",
                "index" : 337,
-               "name" : "Partial invisibility",
+               "name" : "Courtyard",
                "unreachable" : false
             }
          ],
@@ -2604,7 +2604,7 @@
                "death_logic" : false,
                "description" : "Secret in first stairs to the left",
                "index" : 15,
-               "name" : "Supercharge",
+               "name" : "Stair Secret",
                "unreachable" : false
             },
             {
@@ -2612,7 +2612,7 @@
                "death_logic" : false,
                "description" : "Left octogonal room",
                "index" : 49,
-               "name" : "Shotgun",
+               "name" : "West Side Room",
                "unreachable" : false
             },
             {
@@ -2620,7 +2620,7 @@
                "death_logic" : false,
                "description" : "Bottom right point of star",
                "index" : 52,
-               "name" : "Shotgun",
+               "name" : "Pentagram",
                "unreachable" : false
             },
             {
@@ -2628,7 +2628,7 @@
                "death_logic" : false,
                "description" : "Middle octogonal room",
                "index" : 53,
-               "name" : "Armor",
+               "name" : "Central Room",
                "unreachable" : false
             },
             {
@@ -2636,7 +2636,7 @@
                "death_logic" : false,
                "description" : "Right octogonal room",
                "index" : 65,
-               "name" : "Chaingun",
+               "name" : "East Side Room",
                "unreachable" : false
             },
             {
@@ -2644,7 +2644,7 @@
                "death_logic" : false,
                "description" : "left point of star",
                "index" : 70,
-               "name" : "Partial invisibility",
+               "name" : "Pentagram",
                "unreachable" : false
             },
             {
@@ -2652,7 +2652,7 @@
                "death_logic" : false,
                "description" : "Elevator in front of spawn",
                "index" : 94,
-               "name" : "Computer area map",
+               "name" : "Spawn Elevator",
                "unreachable" : false
             }
          ],
@@ -2797,7 +2797,7 @@
                "death_logic" : false,
                "description" : "Spawn then left",
                "index" : 13,
-               "name" : "Yellow keycard",
+               "name" : "Western Flashing Lights",
                "unreachable" : false
             },
             {
@@ -2805,7 +2805,7 @@
                "death_logic" : false,
                "description" : "Yellow corner, trap item",
                "index" : 20,
-               "name" : "Red keycard",
+               "name" : "Yellow Trap Room",
                "unreachable" : false
             },
             {
@@ -2813,7 +2813,7 @@
                "death_logic" : false,
                "description" : "Secret yellow bypass passage",
                "index" : 87,
-               "name" : "Chaingun",
+               "name" : "Secret Tunnel",
                "unreachable" : false
             },
             {
@@ -2821,7 +2821,7 @@
                "death_logic" : false,
                "description" : "Bottom area with 3 high pillars",
                "index" : 139,
-               "name" : "Armor",
+               "name" : "Toxic Pillar Room",
                "unreachable" : false
             },
             {
@@ -2829,7 +2829,7 @@
                "death_logic" : false,
                "description" : "Pentagram",
                "index" : 172,
-               "name" : "Rocket launcher",
+               "name" : "Pentagram",
                "unreachable" : false
             },
             {
@@ -2837,7 +2837,7 @@
                "death_logic" : false,
                "description" : "spawn then right. Locked pillard/room",
                "index" : 188,
-               "name" : "Blue keycard",
+               "name" : "Southern Demon Cage",
                "unreachable" : false
             },
             {
@@ -2845,7 +2845,7 @@
                "death_logic" : false,
                "description" : "Platforming,fourth pillar",
                "index" : 222,
-               "name" : "Backpack",
+               "name" : "Pillar Jumps",
                "unreachable" : false
             },
             {
@@ -2853,7 +2853,7 @@
                "death_logic" : false,
                "description" : "Platforming, third pillar",
                "index" : 223,
-               "name" : "Shotgun",
+               "name" : "Pillar Jumps",
                "unreachable" : false
             },
             {
@@ -2861,7 +2861,7 @@
                "death_logic" : false,
                "description" : "Platforming, fith pillar",
                "index" : 225,
-               "name" : "Chainsaw",
+               "name" : "Pillar Jumps",
                "unreachable" : false
             }
          ],
@@ -3126,7 +3126,7 @@
                "death_logic" : false,
                "description" : "Dark room secret area",
                "index" : 44,
-               "name" : "Plasma gun",
+               "name" : "Secret Catacomb",
                "unreachable" : false
             },
             {
@@ -3134,7 +3134,7 @@
                "death_logic" : false,
                "description" : "Lookout tower thing overlooking the horseshoe section",
                "index" : 51,
-               "name" : "Blue keycard",
+               "name" : "Panopticon",
                "unreachable" : false
             },
             {
@@ -3142,7 +3142,7 @@
                "death_logic" : false,
                "description" : "Devil's triangle?",
                "index" : 54,
-               "name" : "Shotgun",
+               "name" : "Devil's Triangle",
                "unreachable" : false
             },
             {
@@ -3150,7 +3150,7 @@
                "death_logic" : false,
                "description" : "On a square in the blood river",
                "index" : 57,
-               "name" : "Armor",
+               "name" : "Blood River",
                "unreachable" : false
             },
             {
@@ -3158,7 +3158,7 @@
                "death_logic" : false,
                "description" : "Secret corridor openned by the switch coming out of floor",
                "index" : 83,
-               "name" : "Red keycard",
+               "name" : "Secret Corridor",
                "unreachable" : false
             },
             {
@@ -3166,7 +3166,7 @@
                "death_logic" : false,
                "description" : "Red door room, right",
                "index" : 84,
-               "name" : "Computer area map",
+               "name" : "Blood Room",
                "unreachable" : false
             },
             {
@@ -3174,7 +3174,7 @@
                "death_logic" : false,
                "description" : "Red door room left",
                "index" : 86,
-               "name" : "Mega Armor",
+               "name" : "Blood Room",
                "unreachable" : false
             },
             {
@@ -3182,7 +3182,7 @@
                "death_logic" : false,
                "description" : "At spawn",
                "index" : 99,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             }
          ],
@@ -3373,7 +3373,7 @@
                "death_logic" : false,
                "description" : "Pillar in yellow area with nukage surounding it",
                "index" : 8,
-               "name" : "Chaingun",
+               "name" : "Nukage Pool Pillar",
                "unreachable" : false
             },
             {
@@ -3381,7 +3381,7 @@
                "death_logic" : false,
                "description" : "Tucked inside a bunch of crate maze",
                "index" : 9,
-               "name" : "Armor",
+               "name" : "Warehouse, East Crate Maze",
                "unreachable" : false
             },
             {
@@ -3389,7 +3389,7 @@
                "death_logic" : false,
                "description" : "At spawn, second",
                "index" : 20,
-               "name" : "Armor",
+               "name" : "Warehouse, Spawn",
                "unreachable" : false
             },
             {
@@ -3397,7 +3397,7 @@
                "death_logic" : false,
                "description" : "At the end of the 3 elongated blue chambers",
                "index" : 66,
-               "name" : "Backpack",
+               "name" : "Nested Secret Rooms",
                "unreachable" : false
             },
             {
@@ -3405,7 +3405,7 @@
                "death_logic" : true,
                "description" : "Elevator that goes down when going into light (Death logic)",
                "index" : 80,
-               "name" : "",
+               "name" : "Lit Corner Secret",
                "unreachable" : false
             },
             {
@@ -3413,7 +3413,7 @@
                "death_logic" : false,
                "description" : "In the secret under a crusher",
                "index" : 81,
-               "name" : "Chainsaw",
+               "name" : "Crusher Secret Room",
                "unreachable" : false
             },
             {
@@ -3421,7 +3421,7 @@
                "death_logic" : false,
                "description" : "In the room before the exit area",
                "index" : 100,
-               "name" : "Armor",
+               "name" : "Room Before Exit",
                "unreachable" : false
             },
             {
@@ -3429,7 +3429,7 @@
                "death_logic" : false,
                "description" : "4 secret deep.",
                "index" : 109,
-               "name" : "Computer area map",
+               "name" : "Nested Secret Rooms",
                "unreachable" : false
             },
             {
@@ -3437,7 +3437,7 @@
                "death_logic" : false,
                "description" : "On a shelve in the wall",
                "index" : 125,
-               "name" : "Mega Armor",
+               "name" : "Side Room Shelf",
                "unreachable" : false
             },
             {
@@ -3445,7 +3445,7 @@
                "death_logic" : true,
                "description" : "On top of a elevator in center of the room, kind of computer room.",
                "index" : 127,
-               "name" : "Plasma gun",
+               "name" : "Mainframe, One-Time Switch",
                "unreachable" : false
             },
             {
@@ -3453,7 +3453,7 @@
                "death_logic" : false,
                "description" : "Middle \"Secret\" room in the yellow area",
                "index" : 138,
-               "name" : "Rocket launcher",
+               "name" : "Showroom, Closet",
                "unreachable" : false
             },
             {
@@ -3461,7 +3461,7 @@
                "death_logic" : false,
                "description" : "The room with 2 square block in acid",
                "index" : 143,
-               "name" : "Blue keycard",
+               "name" : "Two Island Nukage Pool",
                "unreachable" : false
             },
             {
@@ -3469,7 +3469,7 @@
                "death_logic" : false,
                "description" : "Blood pool maze where you have to walk following a pattern on ceiling",
                "index" : 144,
-               "name" : "Yellow keycard",
+               "name" : "Ceiling Path Blood Pool",
                "unreachable" : false
             },
             {
@@ -3477,7 +3477,7 @@
                "death_logic" : false,
                "description" : "Behind blue door",
                "index" : 153,
-               "name" : "Red keycard",
+               "name" : "Behind Blue Door",
                "unreachable" : false
             },
             {
@@ -3485,7 +3485,7 @@
                "death_logic" : false,
                "description" : "On the pillar at spawn",
                "index" : 160,
-               "name" : "Shotgun",
+               "name" : "Warehouse, Top of Spawn Crate",
                "unreachable" : false
             },
             {
@@ -3493,7 +3493,7 @@
                "death_logic" : false,
                "description" : "At spawn, first",
                "index" : 161,
-               "name" : "Shotgun",
+               "name" : "Warehouse, Spawn",
                "unreachable" : false
             },
             {
@@ -3501,7 +3501,7 @@
                "death_logic" : false,
                "description" : "On top of crates",
                "index" : 165,
-               "name" : "Armor",
+               "name" : "Warehouse, East Crate Maze",
                "unreachable" : false
             },
             {
@@ -3509,7 +3509,7 @@
                "death_logic" : false,
                "description" : "in the corder of warehouse",
                "index" : 250,
-               "name" : "Berserk",
+               "name" : "Warehouse, Shadow Corner",
                "unreachable" : false
             },
             {
@@ -3517,7 +3517,7 @@
                "death_logic" : false,
                "description" : "Middle Pillar in the yellow are with 3 pillar",
                "index" : 291,
-               "name" : "Backpack",
+               "name" : "Showroom, Pillar",
                "unreachable" : false
             }
          ],
@@ -3897,7 +3897,7 @@
                "death_logic" : false,
                "description" : "In stairs from the blood pool",
                "index" : 12,
-               "name" : "Plasma gun",
+               "name" : "Blood Pool Staircase",
                "unreachable" : false
             },
             {
@@ -3905,7 +3905,7 @@
                "death_logic" : false,
                "description" : "Secret area in acid where we can walk around and see inside with vines crawling on it",
                "index" : 37,
-               "name" : "Backpack",
+               "name" : "Vine Room",
                "unreachable" : false
             },
             {
@@ -3913,7 +3913,7 @@
                "death_logic" : false,
                "description" : "In the room with pentagon in the middle",
                "index" : 40,
-               "name" : "Mega Armor",
+               "name" : "Nukage Poolside",
                "unreachable" : false
             },
             {
@@ -3921,7 +3921,7 @@
                "death_logic" : false,
                "description" : "At spawn, first room on right.The one tucked inside the wall",
                "index" : 57,
-               "name" : "Armor",
+               "name" : "UAC Room",
                "unreachable" : false
             },
             {
@@ -3929,7 +3929,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 67,
-               "name" : "Partial invisibility",
+               "name" : "Wall Marquee Room",
                "unreachable" : false
             },
             {
@@ -3937,7 +3937,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 87,
-               "name" : "Supercharge",
+               "name" : "Deep Nukage Room",
                "unreachable" : false
             },
             {
@@ -3945,7 +3945,7 @@
                "death_logic" : false,
                "description" : "The room with 1 pillar in the middle, where stairs fall into the room from higher up",
                "index" : 90,
-               "name" : "Blue keycard",
+               "name" : "Green Marble Fireplace",
                "unreachable" : false
             },
             {
@@ -3953,7 +3953,7 @@
                "death_logic" : false,
                "description" : "In front of spawn there is a \"prison\", this one is behind the prison",
                "index" : 110,
-               "name" : "Partial invisibility",
+               "name" : "Behind Prison",
                "unreachable" : false
             },
             {
@@ -3961,7 +3961,7 @@
                "death_logic" : false,
                "description" : "At the end of the nukage area with archs on each side. It's on a little blue stand",
                "index" : 113,
-               "name" : "Shotgun",
+               "name" : "FIREBLU Pedestal",
                "unreachable" : false
             },
             {
@@ -3969,7 +3969,7 @@
                "death_logic" : false,
                "description" : "At spawn, first room on right. First one in shadow area",
                "index" : 221,
-               "name" : "Berserk",
+               "name" : "UAC Room",
                "unreachable" : false
             },
             {
@@ -3977,7 +3977,7 @@
                "death_logic" : false,
                "description" : "At spawn, first room on right. The one completely at the back",
                "index" : 223,
-               "name" : "Chaingun",
+               "name" : "UAC Room",
                "unreachable" : false
             }
          ],
@@ -4189,7 +4189,7 @@
                "death_logic" : false,
                "description" : "left - Behind the acid donut central building",
                "index" : 7,
-               "name" : "Armor",
+               "name" : "Nukage Moat, Nook",
                "unreachable" : false
             },
             {
@@ -4197,7 +4197,7 @@
                "death_logic" : false,
                "description" : "right - Behind the acid donut central building",
                "index" : 8,
-               "name" : "Partial invisibility",
+               "name" : "Nukage Moat, Nook",
                "unreachable" : false
             },
             {
@@ -4205,7 +4205,7 @@
                "death_logic" : false,
                "description" : "Second item, serounded by 8 pillars that go down",
                "index" : 39,
-               "name" : "Computer area map",
+               "name" : "Pillar Room",
                "unreachable" : false
             },
             {
@@ -4213,7 +4213,7 @@
                "death_logic" : false,
                "description" : "First item, serounded by 8 pillars that go down",
                "index" : 40,
-               "name" : "Armor",
+               "name" : "Pillar Room",
                "unreachable" : false
             },
             {
@@ -4221,7 +4221,7 @@
                "death_logic" : false,
                "description" : "The elevator after the fight with Barron of Hell",
                "index" : 74,
-               "name" : "Blue keycard",
+               "name" : "Chest High Wall",
                "unreachable" : false
             },
             {
@@ -4229,7 +4229,7 @@
                "death_logic" : false,
                "description" : "in the middle of a room with 4 pillars",
                "index" : 86,
-               "name" : "Yellow keycard",
+               "name" : "Crusher Trap",
                "unreachable" : false
             },
             {
@@ -4237,7 +4237,7 @@
                "death_logic" : false,
                "description" : "At the exit, there is an item accessible by a bridge that you can raise",
                "index" : 107,
-               "name" : "Supercharge",
+               "name" : "End Bridge Alcove",
                "unreachable" : false
             },
             {
@@ -4245,7 +4245,7 @@
                "death_logic" : false,
                "description" : "Secret to the right of spawn",
                "index" : 109,
-               "name" : "Shotgun",
+               "name" : "Spawn Secret",
                "unreachable" : false
             },
             {
@@ -4253,7 +4253,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 129,
-               "name" : "Mega Armor",
+               "name" : "Barrel Storage",
                "unreachable" : false
             },
             {
@@ -4261,7 +4261,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 130,
-               "name" : "Plasma gun",
+               "name" : "Temple, Secret Crawl Space",
                "unreachable" : false
             },
             {
@@ -4269,7 +4269,7 @@
                "death_logic" : false,
                "description" : "When seeing the blue door, go left corridor. In the back there",
                "index" : 159,
-               "name" : "Backpack",
+               "name" : "Mainframe Nook",
                "unreachable" : false
             },
             {
@@ -4277,7 +4277,7 @@
                "death_logic" : false,
                "description" : "Bellow, right of the zigzag bridge",
                "index" : 174,
-               "name" : "Berserk",
+               "name" : "Zigzag Bridge",
                "unreachable" : false
             },
             {
@@ -4285,7 +4285,7 @@
                "death_logic" : false,
                "description" : "First into in The room accessible from a switch from the room with crusher",
                "index" : 175,
-               "name" : "Partial invisibility",
+               "name" : "Secret Server Room",
                "unreachable" : false
             },
             {
@@ -4293,7 +4293,7 @@
                "death_logic" : false,
                "description" : "In the room with the crusher",
                "index" : 186,
-               "name" : "Armor",
+               "name" : "Crusher Lab",
                "unreachable" : false
             },
             {
@@ -4301,7 +4301,7 @@
                "death_logic" : false,
                "description" : "Second into in The room accessible from a switch from the room with crusher",
                "index" : 189,
-               "name" : "Chaingun",
+               "name" : "Secret Server Room",
                "unreachable" : false
             },
             {
@@ -4309,7 +4309,7 @@
                "death_logic" : false,
                "description" : "Dark secret area with tons of monsters",
                "index" : 244,
-               "name" : "Supercharge",
+               "name" : "Nukage Moat, Secret Side Room",
                "unreachable" : false
             }
          ],
@@ -4624,7 +4624,7 @@
                "death_logic" : false,
                "description" : "Spawn, second floor, front door, left item",
                "index" : 3,
-               "name" : "Backpack",
+               "name" : "Central Closet",
                "unreachable" : false
             },
             {
@@ -4632,7 +4632,7 @@
                "death_logic" : false,
                "description" : "Just before the exit, middle room",
                "index" : 53,
-               "name" : "Mega Armor",
+               "name" : "Ending Tech Room",
                "unreachable" : false
             },
             {
@@ -4640,7 +4640,7 @@
                "death_logic" : false,
                "description" : "Spawn, second floor, front door, right item",
                "index" : 57,
-               "name" : "Berserk",
+               "name" : "Central Closet",
                "unreachable" : false
             },
             {
@@ -4648,7 +4648,7 @@
                "death_logic" : false,
                "description" : "the \"epic bridge\", middle room. Right item",
                "index" : 69,
-               "name" : "Chaingun",
+               "name" : "Battle Bridge Pillars",
                "unreachable" : false
             },
             {
@@ -4656,7 +4656,7 @@
                "death_logic" : false,
                "description" : "Pass the \"epic bridge\", door on the left",
                "index" : 79,
-               "name" : "Chainsaw",
+               "name" : "Skull Candle Closet",
                "unreachable" : false
             },
             {
@@ -4664,7 +4664,7 @@
                "death_logic" : false,
                "description" : "on a tall pillar with a raisable bridge, surrounded by acid",
                "index" : 109,
-               "name" : "Plasma gun",
+               "name" : "Satanic Door",
                "unreachable" : false
             },
             {
@@ -4672,7 +4672,7 @@
                "death_logic" : false,
                "description" : "the \"epic bridge\", middle room. Left item",
                "index" : 176,
-               "name" : "Computer area map",
+               "name" : "Battle Bridge Pillars",
                "unreachable" : false
             },
             {
@@ -4680,7 +4680,7 @@
                "death_logic" : false,
                "description" : "Spawn, second floor, left door",
                "index" : 197,
-               "name" : "Armor",
+               "name" : "Scepter Room",
                "unreachable" : false
             },
             {
@@ -4688,7 +4688,7 @@
                "death_logic" : false,
                "description" : "Long room with 3 pillars, first door to the left",
                "index" : 233,
-               "name" : "Armor",
+               "name" : "Grime Brick Room",
                "unreachable" : false
             },
             {
@@ -4696,7 +4696,7 @@
                "death_logic" : false,
                "description" : "Long room with 3 pillars, second door to the left",
                "index" : 256,
-               "name" : "Partial invisibility",
+               "name" : "Grime Brick Room",
                "unreachable" : false
             }
          ],
@@ -4999,7 +4999,7 @@
                "death_logic" : false,
                "description" : "Across the hazard river. Raised stairs",
                "index" : 10,
-               "name" : "Berserk",
+               "name" : "Outdoor Switch",
                "unreachable" : false
             },
             {
@@ -5007,7 +5007,7 @@
                "death_logic" : false,
                "description" : "door right to blue door, left at the branch. Left item",
                "index" : 13,
-               "name" : "Blue skull key",
+               "name" : "Grimy Halls",
                "unreachable" : false
             },
             {
@@ -5015,7 +5015,7 @@
                "death_logic" : false,
                "description" : "Wooden dark maze, inside wall",
                "index" : 26,
-               "name" : "Backpack",
+               "name" : "Dark Maze, Front Room",
                "unreachable" : false
             },
             {
@@ -5023,7 +5023,7 @@
                "death_logic" : false,
                "description" : "wooden dark maze, on the right",
                "index" : 39,
-               "name" : "Mega Armor",
+               "name" : "Dark Maze, Front Room",
                "unreachable" : false
             },
             {
@@ -5031,7 +5031,7 @@
                "death_logic" : false,
                "description" : "Fake exit escape corridor",
                "index" : 48,
-               "name" : "Computer area map",
+               "name" : "Fake Exit",
                "unreachable" : false
             },
             {
@@ -5039,7 +5039,7 @@
                "death_logic" : false,
                "description" : "octagonal room, right item",
                "index" : 49,
-               "name" : "Armor",
+               "name" : "Gear Room",
                "unreachable" : false
             },
             {
@@ -5047,7 +5047,7 @@
                "death_logic" : false,
                "description" : "Octagonal room, left item",
                "index" : 57,
-               "name" : "Partial invisibility",
+               "name" : "Gear Room",
                "unreachable" : false
             },
             {
@@ -5055,7 +5055,7 @@
                "death_logic" : false,
                "description" : "one way yellow key area, center",
                "index" : 125,
-               "name" : "Yellow skull key",
+               "name" : "Yellow Key Room",
                "unreachable" : false
             },
             {
@@ -5063,7 +5063,7 @@
                "death_logic" : false,
                "description" : "Downstairs the fake exit",
                "index" : 142,
-               "name" : "Supercharge",
+               "name" : "Fake Exit",
                "unreachable" : false
             },
             {
@@ -5071,7 +5071,7 @@
                "death_logic" : false,
                "description" : "\"T\" room with crusher at entrance",
                "index" : 143,
-               "name" : "Chaingun",
+               "name" : "Crusher Room",
                "unreachable" : false
             },
             {
@@ -5079,7 +5079,7 @@
                "death_logic" : false,
                "description" : "completely at the end of the wooden dark maze",
                "index" : 173,
-               "name" : "Plasma gun",
+               "name" : "Dark Maze, Back Room",
                "unreachable" : false
             },
             {
@@ -5087,7 +5087,7 @@
                "death_logic" : false,
                "description" : "one way yellow key are, corner item",
                "index" : 217,
-               "name" : "Partial invisibility",
+               "name" : "Yellow Key Room",
                "unreachable" : false
             },
             {
@@ -5095,7 +5095,7 @@
                "death_logic" : false,
                "description" : "Wooden dark maze, back door, to the right then left",
                "index" : 220,
-               "name" : "Red skull key",
+               "name" : "Dark Maze, Back Room",
                "unreachable" : false
             },
             {
@@ -5103,7 +5103,7 @@
                "death_logic" : false,
                "description" : "at spawn, right item",
                "index" : 230,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -5111,7 +5111,7 @@
                "death_logic" : false,
                "description" : "at spawn, left item",
                "index" : 232,
-               "name" : "Rocket launcher",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -5119,7 +5119,7 @@
                "death_logic" : false,
                "description" : "door right to blue door, left at the branch. right item (in secret)",
                "index" : 286,
-               "name" : "Chainsaw",
+               "name" : "Grimy Halls, Secret Compartment",
                "unreachable" : false
             },
             {
@@ -5127,7 +5127,7 @@
                "death_logic" : false,
                "description" : "Wooden dark maze, inside a monster closet",
                "index" : 320,
-               "name" : "Partial invisibility",
+               "name" : "Dark Maze, Back Room",
                "unreachable" : false
             }
          ],
@@ -5443,7 +5443,7 @@
                "death_logic" : false,
                "description" : "secret passage in the room with 7 enclosures with acid",
                "index" : 29,
-               "name" : "Rocket launcher",
+               "name" : "Secret Teleporter",
                "unreachable" : false
             },
             {
@@ -5451,7 +5451,7 @@
                "death_logic" : false,
                "description" : "Mezzanine",
                "index" : 49,
-               "name" : "Backpack",
+               "name" : "Mezzanine",
                "unreachable" : false
             },
             {
@@ -5459,7 +5459,7 @@
                "death_logic" : false,
                "description" : "Elevator lookout area of the \"S\" room. Secret area in the back, first item",
                "index" : 79,
-               "name" : "Partial invisibility",
+               "name" : "Mainframe Closet",
                "unreachable" : false
             },
             {
@@ -5467,7 +5467,7 @@
                "death_logic" : false,
                "description" : "Room with rectangular pillar and octagonal ditch around it",
                "index" : 94,
-               "name" : "Mega Armor",
+               "name" : "Server Room",
                "unreachable" : false
             },
             {
@@ -5475,7 +5475,7 @@
                "death_logic" : false,
                "description" : "Enter Blue door, on the right",
                "index" : 128,
-               "name" : "Chaingun",
+               "name" : "Stairs to Displays",
                "unreachable" : false
             },
             {
@@ -5483,7 +5483,7 @@
                "death_logic" : false,
                "description" : "Very secret room from cloning room. Go right",
                "index" : 131,
-               "name" : "Armor",
+               "name" : "Secret Courtyard",
                "unreachable" : false
             },
             {
@@ -5491,7 +5491,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 140,
-               "name" : "Red keycard",
+               "name" : "Computer Showcase",
                "unreachable" : false
             },
             {
@@ -5499,7 +5499,7 @@
                "death_logic" : false,
                "description" : "elevator \"speaker\" ledge",
                "index" : 141,
-               "name" : "Yellow keycard",
+               "name" : "Display Peninsula",
                "unreachable" : false
             },
             {
@@ -5507,7 +5507,7 @@
                "death_logic" : false,
                "description" : "\"S\" room with 9 pillars. At the end",
                "index" : 142,
-               "name" : "Blue keycard",
+               "name" : "\"Z\" Room",
                "unreachable" : false
             },
             {
@@ -5515,7 +5515,7 @@
                "death_logic" : false,
                "description" : "Storage room, on top of crate",
                "index" : 146,
-               "name" : "Invulnerability",
+               "name" : "Storage Room",
                "unreachable" : false
             },
             {
@@ -5523,7 +5523,7 @@
                "death_logic" : false,
                "description" : "Storage room",
                "index" : 160,
-               "name" : "Berserk",
+               "name" : "Storage Room",
                "unreachable" : false
             },
             {
@@ -5531,7 +5531,7 @@
                "death_logic" : false,
                "description" : "Very secret room from cloning room. Secret room within",
                "index" : 174,
-               "name" : "Chainsaw",
+               "name" : "Secret Courtyard, Closet",
                "unreachable" : false
             },
             {
@@ -5539,7 +5539,7 @@
                "death_logic" : false,
                "description" : "Spawn secret that requires blue and red keycards",
                "index" : 199,
-               "name" : "Supercharge",
+               "name" : "Spawn Secret",
                "unreachable" : false
             },
             {
@@ -5547,7 +5547,7 @@
                "death_logic" : false,
                "description" : "cloning tank room (Circular columns in wall)",
                "index" : 200,
-               "name" : "Invulnerability",
+               "name" : "Cloning Tank Room",
                "unreachable" : false
             },
             {
@@ -5555,7 +5555,7 @@
                "death_logic" : false,
                "description" : "Elevator lookout area of the \"S\" room. Secret area in the back, second item",
                "index" : 201,
-               "name" : "Computer area map",
+               "name" : "Mainframe Closet",
                "unreachable" : false
             },
             {
@@ -5563,7 +5563,7 @@
                "death_logic" : false,
                "description" : "Very secret room from cloning room. Go left",
                "index" : 203,
-               "name" : "Plasma gun",
+               "name" : "Secret Courtyard",
                "unreachable" : false
             }
          ],
@@ -6040,7 +6040,7 @@
                "death_logic" : false,
                "description" : "East room",
                "index" : 16,
-               "name" : "Rocket launcher",
+               "name" : "East Room",
                "unreachable" : false
             },
             {
@@ -6048,7 +6048,7 @@
                "death_logic" : false,
                "description" : "South room",
                "index" : 17,
-               "name" : "Supercharge",
+               "name" : "South Room",
                "unreachable" : false
             },
             {
@@ -6056,7 +6056,7 @@
                "death_logic" : false,
                "description" : "West room",
                "index" : 18,
-               "name" : "Supercharge",
+               "name" : "West Room",
                "unreachable" : false
             },
             {
@@ -6064,7 +6064,7 @@
                "death_logic" : false,
                "description" : "At spawn",
                "index" : 36,
-               "name" : "Mega Armor",
+               "name" : "Spawn",
                "unreachable" : false
             }
          ],
@@ -6146,7 +6146,7 @@
                "death_logic" : false,
                "description" : "Middle of second room in cross shape",
                "index" : 18,
-               "name" : "Supercharge",
+               "name" : "Central Cross",
                "unreachable" : false
             },
             {
@@ -6154,7 +6154,7 @@
                "death_logic" : false,
                "description" : "Near exit, the door without key required",
                "index" : 27,
-               "name" : "Blue skull key",
+               "name" : "North Skull Door",
                "unreachable" : false
             },
             {
@@ -6162,7 +6162,7 @@
                "death_logic" : false,
                "description" : "Near exit, blue door",
                "index" : 28,
-               "name" : "Red skull key",
+               "name" : "South Skull Door",
                "unreachable" : false
             },
             {
@@ -6170,7 +6170,7 @@
                "death_logic" : false,
                "description" : "NEar exit, red door",
                "index" : 29,
-               "name" : "Yellow skull key",
+               "name" : "East Skull Door",
                "unreachable" : false
             },
             {
@@ -6178,7 +6178,7 @@
                "death_logic" : false,
                "description" : "snowflake room, W",
                "index" : 30,
-               "name" : "Backpack",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6186,7 +6186,7 @@
                "death_logic" : false,
                "description" : "snowflake room, NW",
                "index" : 31,
-               "name" : "Chaingun",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6194,7 +6194,7 @@
                "death_logic" : false,
                "description" : "snowflake room, N",
                "index" : 32,
-               "name" : "Plasma gun",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6202,7 +6202,7 @@
                "death_logic" : false,
                "description" : "snowflake room, NE",
                "index" : 33,
-               "name" : "Rocket launcher",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6210,7 +6210,7 @@
                "death_logic" : false,
                "description" : "snowflake room, SW",
                "index" : 34,
-               "name" : "Shotgun",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6218,7 +6218,7 @@
                "death_logic" : false,
                "description" : "snowflake room, S",
                "index" : 35,
-               "name" : "Chainsaw",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6226,7 +6226,7 @@
                "death_logic" : false,
                "description" : "snowflake room, SW",
                "index" : 36,
-               "name" : "Computer area map",
+               "name" : "Spawn Room",
                "unreachable" : false
             },
             {
@@ -6234,7 +6234,7 @@
                "death_logic" : false,
                "description" : "Center of spawn room",
                "index" : 44,
-               "name" : "Mega Armor",
+               "name" : "Spawn Room",
                "unreachable" : false
             }
          ],
@@ -6388,7 +6388,7 @@
                "death_logic" : false,
                "description" : "blood bridge",
                "index" : 20,
-               "name" : "Shotgun",
+               "name" : "Blood Bridge",
                "unreachable" : false
             },
             {
@@ -6396,7 +6396,7 @@
                "death_logic" : false,
                "description" : "near end secret",
                "index" : 46,
-               "name" : "Rocket launcher",
+               "name" : "Exit Secret",
                "unreachable" : false
             }
          ],
@@ -6510,7 +6510,7 @@
                "death_logic" : false,
                "description" : "thumb",
                "index" : 32,
-               "name" : "Chaingun",
+               "name" : "Thumb",
                "unreachable" : false
             },
             {
@@ -6518,7 +6518,7 @@
                "death_logic" : false,
                "description" : "palm, bottom",
                "index" : 37,
-               "name" : "Berserk",
+               "name" : "Palm Nooks",
                "unreachable" : false
             },
             {
@@ -6526,7 +6526,7 @@
                "death_logic" : false,
                "description" : "palm left",
                "index" : 76,
-               "name" : "Mega Armor",
+               "name" : "Palm Nooks",
                "unreachable" : false
             },
             {
@@ -6534,7 +6534,7 @@
                "death_logic" : false,
                "description" : "wrist",
                "index" : 77,
-               "name" : "Armor",
+               "name" : "Wrist",
                "unreachable" : false
             },
             {
@@ -6542,7 +6542,7 @@
                "death_logic" : false,
                "description" : "palm middle",
                "index" : 80,
-               "name" : "Rocket launcher",
+               "name" : "Palm Nooks",
                "unreachable" : false
             },
             {
@@ -6550,7 +6550,7 @@
                "death_logic" : false,
                "description" : "The secret pointed by the arrow",
                "index" : 88,
-               "name" : "Plasma gun",
+               "name" : "Palm Nooks, Arrow Secret",
                "unreachable" : false
             },
             {
@@ -6558,7 +6558,7 @@
                "death_logic" : false,
                "description" : "pinky secret",
                "index" : 154,
-               "name" : "Computer area map",
+               "name" : "Pinky",
                "unreachable" : false
             },
             {
@@ -6566,7 +6566,7 @@
                "death_logic" : false,
                "description" : "pinky",
                "index" : 181,
-               "name" : "Blue skull key",
+               "name" : "Pinky",
                "unreachable" : false
             },
             {
@@ -6574,7 +6574,7 @@
                "death_logic" : false,
                "description" : "middle finger",
                "index" : 182,
-               "name" : "Supercharge",
+               "name" : "Middle Finger",
                "unreachable" : false
             }
          ],
@@ -6724,7 +6724,7 @@
                "death_logic" : false,
                "description" : "lava bridge room",
                "index" : 11,
-               "name" : "Berserk",
+               "name" : "Lava Bridge Room",
                "unreachable" : false
             },
             {
@@ -6732,7 +6732,7 @@
                "death_logic" : false,
                "description" : "in the nukage room",
                "index" : 14,
-               "name" : "Chaingun",
+               "name" : "Nukage Nook",
                "unreachable" : false
             },
             {
@@ -6740,7 +6740,7 @@
                "death_logic" : false,
                "description" : "lavel maze, south",
                "index" : 22,
-               "name" : "BFG9000",
+               "name" : "Bloody Maze",
                "unreachable" : false
             },
             {
@@ -6748,7 +6748,7 @@
                "death_logic" : false,
                "description" : "lava maze, north",
                "index" : 23,
-               "name" : "Supercharge",
+               "name" : "Bloody Maze, Lava Nook",
                "unreachable" : false
             },
             {
@@ -6756,7 +6756,7 @@
                "death_logic" : false,
                "description" : "down the serpent hole",
                "index" : 26,
-               "name" : "Invulnerability",
+               "name" : "Spicy Water Stairs",
                "unreachable" : false
             },
             {
@@ -6764,7 +6764,7 @@
                "death_logic" : false,
                "description" : "bunker",
                "index" : 49,
-               "name" : "Blue skull key",
+               "name" : "Steel Basement",
                "unreachable" : false
             },
             {
@@ -6772,7 +6772,7 @@
                "death_logic" : true,
                "description" : "flesh paths at the top",
                "index" : 66,
-               "name" : "",
+               "name" : "Hellstone Overlook",
                "unreachable" : false
             },
             {
@@ -6780,7 +6780,7 @@
                "death_logic" : false,
                "description" : "pillar in the middle room",
                "index" : 73,
-               "name" : "Shotgun",
+               "name" : "Temple Pillar",
                "unreachable" : false
             },
             {
@@ -6788,7 +6788,7 @@
                "death_logic" : false,
                "description" : "north east room passed lava bridge, north item",
                "index" : 85,
-               "name" : "Armor",
+               "name" : "Jester Room",
                "unreachable" : false
             },
             {
@@ -6796,7 +6796,7 @@
                "death_logic" : false,
                "description" : "north east room passed lava bridge, south left",
                "index" : 88,
-               "name" : "Backpack",
+               "name" : "Jester Room",
                "unreachable" : false
             },
             {
@@ -6804,7 +6804,7 @@
                "death_logic" : false,
                "description" : "behind the wall where the control panel brings it down.",
                "index" : 92,
-               "name" : "Computer area map",
+               "name" : "Sit on the Throne",
                "unreachable" : false
             },
             {
@@ -6812,7 +6812,7 @@
                "death_logic" : false,
                "description" : "on a balcony",
                "index" : 113,
-               "name" : "Mega Armor",
+               "name" : "Candle Balcony",
                "unreachable" : false
             },
             {
@@ -6820,7 +6820,7 @@
                "death_logic" : false,
                "description" : "spawn, second alcove from the right",
                "index" : 118,
-               "name" : "Shotgun",
+               "name" : "Spawn Alcoves",
                "unreachable" : false
             },
             {
@@ -6828,7 +6828,7 @@
                "death_logic" : false,
                "description" : "north east room passed lava bridge, south east",
                "index" : 183,
-               "name" : "Rocket launcher",
+               "name" : "Jester Room",
                "unreachable" : false
             }
          ],
@@ -7097,7 +7097,7 @@
                "death_logic" : false,
                "description" : "spawn, go right, secret at the back of the room",
                "index" : 5,
-               "name" : "Shotgun",
+               "name" : "Flesh Creek Closet",
                "unreachable" : false
             },
             {
@@ -7105,7 +7105,7 @@
                "death_logic" : false,
                "description" : "spawn, go left, room passed the zigzag room. second/left",
                "index" : 15,
-               "name" : "Berserk",
+               "name" : "Jester Room",
                "unreachable" : false
             },
             {
@@ -7113,7 +7113,7 @@
                "death_logic" : false,
                "description" : "spawn, go left, room passed the zigzag room. First/Right",
                "index" : 17,
-               "name" : "Mega Armor",
+               "name" : "Jester Room",
                "unreachable" : false
             },
             {
@@ -7121,7 +7121,7 @@
                "death_logic" : true,
                "description" : "west crusher pit",
                "index" : 46,
-               "name" : "",
+               "name" : "Crusher Pits, West",
                "unreachable" : false
             },
             {
@@ -7129,7 +7129,7 @@
                "death_logic" : true,
                "description" : "east crusher pit",
                "index" : 51,
-               "name" : "",
+               "name" : "Crusher Pits, East",
                "unreachable" : false
             },
             {
@@ -7137,7 +7137,7 @@
                "death_logic" : false,
                "description" : "Big \"E\" room, right most branch",
                "index" : 87,
-               "name" : "Blue skull key",
+               "name" : "Forked Hallway",
                "unreachable" : false
             },
             {
@@ -7145,7 +7145,7 @@
                "death_logic" : false,
                "description" : "Big \"E\" room, right most branch, right little room",
                "index" : 100,
-               "name" : "Armor",
+               "name" : "Forked Hallway, Left Closet",
                "unreachable" : false
             },
             {
@@ -7153,7 +7153,7 @@
                "death_logic" : false,
                "description" : "pillar switches, Left path, second room",
                "index" : 114,
-               "name" : "Yellow skull key",
+               "name" : "Skull Switch Chambers",
                "unreachable" : false
             },
             {
@@ -7161,7 +7161,7 @@
                "death_logic" : false,
                "description" : "pillar switches, Left path, first room",
                "index" : 121,
-               "name" : "Invulnerability",
+               "name" : "Skull Switch Chambers",
                "unreachable" : false
             },
             {
@@ -7169,7 +7169,7 @@
                "death_logic" : false,
                "description" : "pillar switches, right path, second room",
                "index" : 134,
-               "name" : "Red skull key",
+               "name" : "Skull Switch Chambers, Yellow Door",
                "unreachable" : false
             },
             {
@@ -7177,7 +7177,7 @@
                "death_logic" : false,
                "description" : "in a fancy corner in blood area",
                "index" : 160,
-               "name" : "Backpack",
+               "name" : "Hell Windows",
                "unreachable" : false
             },
             {
@@ -7185,7 +7185,7 @@
                "death_logic" : false,
                "description" : "near exit, there is a secret left of the entrance to the room with 4 pillars",
                "index" : 170,
-               "name" : "Mega Armor",
+               "name" : "Four Pillar Switch Closet",
                "unreachable" : false
             },
             {
@@ -7193,7 +7193,7 @@
                "death_logic" : false,
                "description" : "passed blue door, first left. first room",
                "index" : 182,
-               "name" : "Partial invisibility",
+               "name" : "Dull Hallway",
                "unreachable" : false
             },
             {
@@ -7201,7 +7201,7 @@
                "death_logic" : false,
                "description" : "passed blue door, first left. little room north where you drop to press a switch",
                "index" : 206,
-               "name" : "BFG9000",
+               "name" : "Lava Drop Nook",
                "unreachable" : false
             },
             {
@@ -7209,7 +7209,7 @@
                "death_logic" : false,
                "description" : "passed blue door, first left. last room in a series of room in a cul de sac",
                "index" : 220,
-               "name" : "Supercharge",
+               "name" : "Blood Altar",
                "unreachable" : false
             },
             {
@@ -7217,7 +7217,7 @@
                "death_logic" : false,
                "description" : "spawn second",
                "index" : 242,
-               "name" : "Armor",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -7225,7 +7225,7 @@
                "death_logic" : false,
                "description" : "spawn first",
                "index" : 243,
-               "name" : "Rocket launcher",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -7233,7 +7233,7 @@
                "death_logic" : false,
                "description" : "blue area, door that trigger open by going into lava, there is water there also beside",
                "index" : 318,
-               "name" : "Armor",
+               "name" : "Double Door Puzzle Secret",
                "unreachable" : false
             }
          ],
@@ -7537,7 +7537,7 @@
                "death_logic" : false,
                "description" : "Crab shaped room, north west item",
                "index" : 54,
-               "name" : "Blue skull key",
+               "name" : "Cathedral, Altars",
                "unreachable" : false
             },
             {
@@ -7545,7 +7545,7 @@
                "death_logic" : false,
                "description" : "Crab shaped room, north east item",
                "index" : 55,
-               "name" : "Chaingun",
+               "name" : "Cathedral, Altars",
                "unreachable" : false
             },
             {
@@ -7553,7 +7553,7 @@
                "death_logic" : false,
                "description" : "snowflake, right item",
                "index" : 86,
-               "name" : "Plasma gun",
+               "name" : "Snowflake Room",
                "unreachable" : false
             },
             {
@@ -7561,7 +7561,7 @@
                "death_logic" : false,
                "description" : "snowflake, left item",
                "index" : 87,
-               "name" : "Supercharge",
+               "name" : "Snowflake Room",
                "unreachable" : false
             },
             {
@@ -7569,7 +7569,7 @@
                "death_logic" : false,
                "description" : "middle cross, south chamber",
                "index" : 89,
-               "name" : "Yellow skull key",
+               "name" : "Central Cross Chambers, South",
                "unreachable" : false
             },
             {
@@ -7577,7 +7577,7 @@
                "death_logic" : false,
                "description" : "middle cross, east chamber",
                "index" : 90,
-               "name" : "Invulnerability",
+               "name" : "Central Cross Chambers, West",
                "unreachable" : false
             },
             {
@@ -7585,7 +7585,7 @@
                "death_logic" : false,
                "description" : "room we always get teleported to... seconditem",
                "index" : 126,
-               "name" : "Berserk",
+               "name" : "Teleport Exit Room",
                "unreachable" : false
             },
             {
@@ -7593,7 +7593,7 @@
                "death_logic" : false,
                "description" : "room we always get teleported to... first item",
                "index" : 129,
-               "name" : "Partial invisibility",
+               "name" : "Teleport Exit Room",
                "unreachable" : false
             },
             {
@@ -7601,7 +7601,7 @@
                "death_logic" : false,
                "description" : "yellow secret, right item",
                "index" : 133,
-               "name" : "Chainsaw",
+               "name" : "Yellow Secret Closet",
                "unreachable" : false
             },
             {
@@ -7609,7 +7609,7 @@
                "death_logic" : true,
                "description" : "death trap, BFG location",
                "index" : 180,
-               "name" : "BFG9000",
+               "name" : "Teleporter Trap Closet",
                "unreachable" : false
             },
             {
@@ -7617,7 +7617,7 @@
                "death_logic" : false,
                "description" : "spawn",
                "index" : 187,
-               "name" : "Shotgun",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -7625,7 +7625,7 @@
                "death_logic" : false,
                "description" : "middle big room, under the weird red symbols",
                "index" : 190,
-               "name" : "Shotgun",
+               "name" : "Impaled Zombie",
                "unreachable" : false
             },
             {
@@ -7633,7 +7633,7 @@
                "death_logic" : false,
                "description" : "Crab shaped room, east item",
                "index" : 218,
-               "name" : "Rocket launcher",
+               "name" : "Cathedral, East Alcove",
                "unreachable" : false
             },
             {
@@ -7641,7 +7641,7 @@
                "death_logic" : false,
                "description" : "yellow secret, left item",
                "index" : 285,
-               "name" : "Supercharge",
+               "name" : "Yellow Secret Closet",
                "unreachable" : false
             }
          ],
@@ -7967,7 +7967,7 @@
                "death_logic" : false,
                "description" : "nook in lava, south",
                "index" : 38,
-               "name" : "Mega Armor",
+               "name" : "Outer Lava Structures, South",
                "unreachable" : false
             },
             {
@@ -7975,7 +7975,7 @@
                "death_logic" : false,
                "description" : "middle west nook",
                "index" : 53,
-               "name" : "Armor",
+               "name" : "Central Skull Pile",
                "unreachable" : false
             },
             {
@@ -7983,7 +7983,7 @@
                "death_logic" : false,
                "description" : "inside the building to the east of the island",
                "index" : 90,
-               "name" : "Backpack",
+               "name" : "Outer Lava Structures, East Building",
                "unreachable" : false
             },
             {
@@ -7991,7 +7991,7 @@
                "death_logic" : false,
                "description" : "middle east nook",
                "index" : 100,
-               "name" : "Invulnerability",
+               "name" : "Central Red Stone Nook",
                "unreachable" : false
             },
             {
@@ -7999,7 +7999,7 @@
                "death_logic" : false,
                "description" : "sacrifical area, west item",
                "index" : 103,
-               "name" : "Chaingun",
+               "name" : "Outdoor Altar",
                "unreachable" : false
             },
             {
@@ -8007,7 +8007,7 @@
                "death_logic" : false,
                "description" : "sacrifical area, south item",
                "index" : 104,
-               "name" : "Shotgun",
+               "name" : "Outdoor Altar",
                "unreachable" : false
             },
             {
@@ -8015,7 +8015,7 @@
                "death_logic" : false,
                "description" : "sacrifical area, north item",
                "index" : 105,
-               "name" : "Rocket launcher",
+               "name" : "Outdoor Altar",
                "unreachable" : false
             },
             {
@@ -8023,7 +8023,7 @@
                "death_logic" : false,
                "description" : "on the ledge of small building with 2 teleports inside",
                "index" : 168,
-               "name" : "Plasma gun",
+               "name" : "Vine Building",
                "unreachable" : false
             },
             {
@@ -8031,7 +8031,7 @@
                "death_logic" : false,
                "description" : "inside small building with 2 teleports",
                "index" : 180,
-               "name" : "Armor",
+               "name" : "Vine Building",
                "unreachable" : false
             },
             {
@@ -8039,7 +8039,7 @@
                "death_logic" : false,
                "description" : "inside room of vines building",
                "index" : 206,
-               "name" : "Berserk",
+               "name" : "Lyceum",
                "unreachable" : false
             },
             {
@@ -8047,7 +8047,7 @@
                "death_logic" : false,
                "description" : "In front of the stairs where there is sacrifical",
                "index" : 207,
-               "name" : "Invulnerability",
+               "name" : "Outdoor Altar, Behind Stairs",
                "unreachable" : false
             },
             {
@@ -8055,7 +8055,7 @@
                "death_logic" : false,
                "description" : "nook beside blue door",
                "index" : 249,
-               "name" : "Supercharge",
+               "name" : "Outer Lava Structures, West",
                "unreachable" : false
             },
             {
@@ -8063,7 +8063,7 @@
                "death_logic" : false,
                "description" : "Inside the \"Y\" building",
                "index" : 250,
-               "name" : "Blue skull key",
+               "name" : "Tri-Directional Breezeway",
                "unreachable" : false
             },
             {
@@ -8071,7 +8071,7 @@
                "death_logic" : false,
                "description" : "in front of vines building",
                "index" : 251,
-               "name" : "Blue skull key",
+               "name" : "Lyceum",
                "unreachable" : false
             },
             {
@@ -8079,7 +8079,7 @@
                "death_logic" : false,
                "description" : "nook north west of island",
                "index" : 267,
-               "name" : "Computer area map",
+               "name" : "Outer Lava Structures, Northwest",
                "unreachable" : false
             },
             {
@@ -8087,7 +8087,7 @@
                "death_logic" : true,
                "description" : "teleport destination north of the map",
                "index" : 273,
-               "name" : "Chainsaw",
+               "name" : "Red Pillar Dias",
                "unreachable" : false
             },
             {
@@ -8095,7 +8095,7 @@
                "death_logic" : false,
                "description" : "nook north north west of island",
                "index" : 326,
-               "name" : "Supercharge",
+               "name" : "Outer Lava Structures, North-northwest",
                "unreachable" : false
             }
          ],
@@ -8298,7 +8298,7 @@
                "death_logic" : false,
                "description" : "in a corner with 2 little bridges that collapse",
                "index" : 22,
-               "name" : "Blue skull key",
+               "name" : "Blood Bridge Corner",
                "unreachable" : false
             },
             {
@@ -8306,7 +8306,7 @@
                "death_logic" : false,
                "description" : "middle of pentagram",
                "index" : 49,
-               "name" : "Supercharge",
+               "name" : "Pentagram",
                "unreachable" : false
             },
             {
@@ -8314,7 +8314,7 @@
                "death_logic" : false,
                "description" : "top right of pentagram",
                "index" : 51,
-               "name" : "Rocket launcher",
+               "name" : "Pentagram",
                "unreachable" : false
             },
             {
@@ -8322,7 +8322,7 @@
                "death_logic" : false,
                "description" : "end of blood maze, west",
                "index" : 57,
-               "name" : "Red skull key",
+               "name" : "Bloody Maze, West Exit",
                "unreachable" : false
             },
             {
@@ -8330,7 +8330,7 @@
                "death_logic" : false,
                "description" : "behind spawn",
                "index" : 60,
-               "name" : "Backpack",
+               "name" : "Behind Spawn",
                "unreachable" : false
             },
             {
@@ -8338,7 +8338,7 @@
                "death_logic" : false,
                "description" : "end area, west of north-east item",
                "index" : 65,
-               "name" : "Plasma gun",
+               "name" : "Blood Sauna, North Platform",
                "unreachable" : false
             },
             {
@@ -8346,7 +8346,7 @@
                "death_logic" : false,
                "description" : "end area, east of north-east item",
                "index" : 67,
-               "name" : "Armor",
+               "name" : "Blood Sauna, North Platform",
                "unreachable" : false
             },
             {
@@ -8354,7 +8354,7 @@
                "death_logic" : false,
                "description" : "end area, east item",
                "index" : 69,
-               "name" : "Yellow skull key",
+               "name" : "Blood Sauna, East Platform",
                "unreachable" : false
             },
             {
@@ -8362,7 +8362,7 @@
                "death_logic" : false,
                "description" : "little room/nook in south of the map, there are 2 switches in front of it.",
                "index" : 83,
-               "name" : "Armor",
+               "name" : "Supply Room",
                "unreachable" : false
             },
             {
@@ -8370,7 +8370,7 @@
                "death_logic" : false,
                "description" : "inside the monster closet, near the pentagram room",
                "index" : 112,
-               "name" : "Mega Armor",
+               "name" : "Monster Cage",
                "unreachable" : false
             },
             {
@@ -8378,7 +8378,7 @@
                "death_logic" : false,
                "description" : "in blood maze, completely east",
                "index" : 128,
-               "name" : "BFG9000",
+               "name" : "Bloody Maze, East Exit",
                "unreachable" : false
             }
          ],
@@ -8688,7 +8688,7 @@
                "death_logic" : false,
                "description" : "after the long corridor at spawn",
                "index" : 7,
-               "name" : "Rocket launcher",
+               "name" : "Spawn Corridor",
                "unreachable" : false
             },
             {
@@ -8696,7 +8696,7 @@
                "death_logic" : false,
                "description" : "middle circular room, south east",
                "index" : 8,
-               "name" : "Plasma gun",
+               "name" : "Center Room",
                "unreachable" : false
             },
             {
@@ -8704,7 +8704,7 @@
                "death_logic" : false,
                "description" : "middle circular room, north west",
                "index" : 34,
-               "name" : "Mega Armor",
+               "name" : "Center Room",
                "unreachable" : false
             }
          ],
@@ -8767,7 +8767,7 @@
                "death_logic" : false,
                "description" : "blood bridge",
                "index" : 20,
-               "name" : "Shotgun",
+               "name" : "Blood Bridge",
                "unreachable" : false
             },
             {
@@ -8775,7 +8775,7 @@
                "death_logic" : false,
                "description" : "secret near the \"exit\" (Fake exit)",
                "index" : 46,
-               "name" : "Rocket launcher",
+               "name" : "Exit Secret...?",
                "unreachable" : false
             },
             {
@@ -8783,7 +8783,7 @@
                "death_logic" : false,
                "description" : "north of cyberdemon room, first",
                "index" : 99,
-               "name" : "Rocket launcher",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -8791,7 +8791,7 @@
                "death_logic" : false,
                "description" : "middle of cyberdemon room",
                "index" : 101,
-               "name" : "Supercharge",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -8799,7 +8799,7 @@
                "death_logic" : false,
                "description" : "north of cyberdemon room, second",
                "index" : 108,
-               "name" : "Blue skull key",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -8807,7 +8807,7 @@
                "death_logic" : false,
                "description" : "On way back, blood area nook, south item",
                "index" : 114,
-               "name" : "Berserk",
+               "name" : "Blood Cobblestone Nook",
                "unreachable" : false
             },
             {
@@ -8815,7 +8815,7 @@
                "death_logic" : false,
                "description" : "north of cyberdemon room, third",
                "index" : 120,
-               "name" : "Invulnerability",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -8823,7 +8823,7 @@
                "death_logic" : false,
                "description" : "west of cyberdemon room",
                "index" : 121,
-               "name" : "Partial invisibility",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -8831,7 +8831,7 @@
                "death_logic" : false,
                "description" : "On way back, blood area nook, north item",
                "index" : 122,
-               "name" : "Chaingun",
+               "name" : "Blood Cobblestone Nook",
                "unreachable" : false
             },
             {
@@ -8839,7 +8839,7 @@
                "death_logic" : false,
                "description" : "secret opening in the room following spawn. straight then right",
                "index" : 135,
-               "name" : "Plasma gun",
+               "name" : "Tree Courtyard, Secret Corner",
                "unreachable" : false
             },
             {
@@ -8847,7 +8847,7 @@
                "death_logic" : false,
                "description" : "on way back, outdoor area with thin ledge. First",
                "index" : 138,
-               "name" : "Invulnerability",
+               "name" : "Outdoor Runway",
                "unreachable" : false
             },
             {
@@ -8855,7 +8855,7 @@
                "death_logic" : false,
                "description" : "on way back, outdoor area with thin ledge. second",
                "index" : 139,
-               "name" : "Armor",
+               "name" : "Outdoor Runway",
                "unreachable" : false
             },
             {
@@ -8863,7 +8863,7 @@
                "death_logic" : false,
                "description" : "on way back, outdoor area with thin ledge. third",
                "index" : 140,
-               "name" : "Chainsaw",
+               "name" : "Outdoor Runway",
                "unreachable" : false
             },
             {
@@ -8871,7 +8871,7 @@
                "death_logic" : false,
                "description" : "secret corner in blood area",
                "index" : 141,
-               "name" : "BFG9000",
+               "name" : "Blood Bridge, Secret Corner",
                "unreachable" : false
             },
             {
@@ -8879,7 +8879,7 @@
                "death_logic" : false,
                "description" : "the zipper area, near the end",
                "index" : 143,
-               "name" : "Red skull key",
+               "name" : "Zipper Hallway",
                "unreachable" : false
             },
             {
@@ -8887,7 +8887,7 @@
                "death_logic" : false,
                "description" : "zipper area, last room after",
                "index" : 188,
-               "name" : "Supercharge",
+               "name" : "Zipper Hallway",
                "unreachable" : false
             }
          ],
@@ -9048,7 +9048,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 6,
-               "name" : "",
+               "name" : "Prison",
                "unreachable" : false
             },
             {
@@ -9056,7 +9056,7 @@
                "death_logic" : false,
                "description" : "Secret bellow",
                "index" : 23,
-               "name" : "",
+               "name" : "Hidden Nukage Nook",
                "unreachable" : false
             },
             {
@@ -9064,7 +9064,7 @@
                "death_logic" : false,
                "description" : "NIN",
                "index" : 33,
-               "name" : "",
+               "name" : "Nine Inch Nails",
                "unreachable" : false
             },
             {
@@ -9072,7 +9072,7 @@
                "death_logic" : false,
                "description" : "Spawn",
                "index" : 47,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -9080,7 +9080,7 @@
                "death_logic" : false,
                "description" : "In the corridor between both main sections",
                "index" : 90,
-               "name" : "",
+               "name" : "Central Corridor",
                "unreachable" : false
             },
             {
@@ -9088,7 +9088,7 @@
                "death_logic" : false,
                "description" : "Stair case",
                "index" : 97,
-               "name" : "",
+               "name" : "Prison",
                "unreachable" : false
             }
          ],
@@ -9246,7 +9246,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "Balcony Room",
                "unreachable" : false
             },
             {
@@ -9254,7 +9254,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 10,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -9262,7 +9262,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 14,
-               "name" : "",
+               "name" : "Path to Northwest Perch",
                "unreachable" : false
             },
             {
@@ -9270,7 +9270,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 17,
-               "name" : "",
+               "name" : "Central Lava Pool",
                "unreachable" : false
             },
             {
@@ -9278,7 +9278,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 20,
-               "name" : "",
+               "name" : "Northwest Perch",
                "unreachable" : false
             },
             {
@@ -9286,7 +9286,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 29,
-               "name" : "",
+               "name" : "Balcony Room",
                "unreachable" : false
             },
             {
@@ -9294,7 +9294,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 46,
-               "name" : "",
+               "name" : "East Platforms",
                "unreachable" : false
             },
             {
@@ -9302,7 +9302,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 93,
-               "name" : "",
+               "name" : "East Platforms, Yellow Key Locked",
                "unreachable" : false
             },
             {
@@ -9310,7 +9310,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 126,
-               "name" : "",
+               "name" : "Cave",
                "unreachable" : false
             },
             {
@@ -9318,7 +9318,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 151,
-               "name" : "",
+               "name" : "Cave",
                "unreachable" : false
             },
             {
@@ -9326,7 +9326,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 167,
-               "name" : "",
+               "name" : "Cave, Near Exit Teleporter",
                "unreachable" : false
             },
             {
@@ -9334,7 +9334,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 217,
-               "name" : "",
+               "name" : "Cyberdemon Enclosure",
                "unreachable" : false
             }
          ],
@@ -9596,7 +9596,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 9,
-               "name" : "",
+               "name" : "Spawn Platform, Corner",
                "unreachable" : false
             },
             {
@@ -9604,7 +9604,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 21,
-               "name" : "",
+               "name" : "Spawn Platform Dive",
                "unreachable" : false
             },
             {
@@ -9612,7 +9612,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 22,
-               "name" : "",
+               "name" : "Spawn Platform Dive",
                "unreachable" : false
             },
             {
@@ -9620,7 +9620,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 23,
-               "name" : "",
+               "name" : "Spawn Platform Dive",
                "unreachable" : false
             },
             {
@@ -9628,7 +9628,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 25,
-               "name" : "",
+               "name" : "Exit",
                "unreachable" : false
             },
             {
@@ -9636,7 +9636,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 27,
-               "name" : "",
+               "name" : "Lava Room Platform",
                "unreachable" : false
             },
             {
@@ -9644,7 +9644,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 28,
-               "name" : "",
+               "name" : "Across the Bridge",
                "unreachable" : false
             },
             {
@@ -9652,7 +9652,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 29,
-               "name" : "",
+               "name" : "Upstairs Secret Closet",
                "unreachable" : false
             },
             {
@@ -9660,7 +9660,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 38,
-               "name" : "",
+               "name" : "Upstairs Secret Closet",
                "unreachable" : false
             },
             {
@@ -9668,7 +9668,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 39,
-               "name" : "",
+               "name" : "Upstairs Secret Closet",
                "unreachable" : false
             },
             {
@@ -9676,7 +9676,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 94,
-               "name" : "",
+               "name" : "Secret Stairway Supply",
                "unreachable" : false
             },
             {
@@ -9684,7 +9684,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 157,
-               "name" : "",
+               "name" : "Hidden Window",
                "unreachable" : false
             },
             {
@@ -9692,7 +9692,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 178,
-               "name" : "",
+               "name" : "Main Outdoor Deadend",
                "unreachable" : false
             },
             {
@@ -9700,7 +9700,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 254,
-               "name" : "",
+               "name" : "Spawn Platform",
                "unreachable" : false
             },
             {
@@ -9708,7 +9708,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 299,
-               "name" : "",
+               "name" : "Double Secret Hub",
                "unreachable" : false
             },
             {
@@ -9716,7 +9716,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 304,
-               "name" : "",
+               "name" : "Ledge Crawl",
                "unreachable" : false
             }
          ],
@@ -9967,7 +9967,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 9,
-               "name" : "",
+               "name" : "Torch Chambers, East",
                "unreachable" : false
             },
             {
@@ -9975,7 +9975,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 15,
-               "name" : "",
+               "name" : "Torch Chambers, West",
                "unreachable" : false
             },
             {
@@ -9983,7 +9983,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 16,
-               "name" : "",
+               "name" : "Flesh Altar",
                "unreachable" : false
             },
             {
@@ -9991,7 +9991,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 56,
-               "name" : "",
+               "name" : "Lower Hall",
                "unreachable" : false
             },
             {
@@ -9999,7 +9999,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 61,
-               "name" : "",
+               "name" : "Spawn Foyer",
                "unreachable" : false
             },
             {
@@ -10007,7 +10007,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 68,
-               "name" : "",
+               "name" : "Lava Teleporter Alcove",
                "unreachable" : false
             },
             {
@@ -10015,7 +10015,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 115,
-               "name" : "",
+               "name" : "Lava Islands Harbor",
                "unreachable" : false
             },
             {
@@ -10023,7 +10023,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 116,
-               "name" : "",
+               "name" : "Lava Islands Harbor",
                "unreachable" : false
             }
          ],
@@ -10224,7 +10224,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 17,
-               "name" : "",
+               "name" : "Exit Room, Balance Test",
                "unreachable" : false
             },
             {
@@ -10232,7 +10232,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 20,
-               "name" : "",
+               "name" : "Blood River Corner",
                "unreachable" : false
             },
             {
@@ -10240,7 +10240,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 21,
-               "name" : "",
+               "name" : "Sanguineduct Lift",
                "unreachable" : false
             },
             {
@@ -10248,7 +10248,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 31,
-               "name" : "",
+               "name" : "Exit Room, Acrobatics Test",
                "unreachable" : false
             },
             {
@@ -10256,7 +10256,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 137,
-               "name" : "",
+               "name" : "Upper Concourse",
                "unreachable" : false
             },
             {
@@ -10264,7 +10264,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 140,
-               "name" : "",
+               "name" : "Teleporter Balcony",
                "unreachable" : false
             },
             {
@@ -10272,7 +10272,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 155,
-               "name" : "",
+               "name" : "Teleporter Balcony",
                "unreachable" : false
             },
             {
@@ -10280,7 +10280,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 177,
-               "name" : "",
+               "name" : "Blood Reservoir Lookout",
                "unreachable" : false
             },
             {
@@ -10288,7 +10288,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 193,
-               "name" : "",
+               "name" : "Bloodfalls",
                "unreachable" : false
             },
             {
@@ -10296,7 +10296,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 199,
-               "name" : "",
+               "name" : "Exit Room, Corner",
                "unreachable" : false
             },
             {
@@ -10304,7 +10304,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 256,
-               "name" : "",
+               "name" : "Blood Canal Alcove",
                "unreachable" : false
             }
          ],
@@ -10607,7 +10607,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 30,
-               "name" : "",
+               "name" : "Secret Cliff Stairs",
                "unreachable" : false
             },
             {
@@ -10615,7 +10615,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 39,
-               "name" : "",
+               "name" : "Turret",
                "unreachable" : false
             },
             {
@@ -10623,7 +10623,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 47,
-               "name" : "",
+               "name" : "North Pinnacle",
                "unreachable" : false
             },
             {
@@ -10631,7 +10631,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 48,
-               "name" : "",
+               "name" : "Cliff Perch",
                "unreachable" : false
             },
             {
@@ -10639,7 +10639,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 49,
-               "name" : "",
+               "name" : "North Pinnacle, Switch",
                "unreachable" : false
             },
             {
@@ -10647,7 +10647,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 54,
-               "name" : "",
+               "name" : "West Teleport Landing",
                "unreachable" : false
             },
             {
@@ -10655,7 +10655,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 56,
-               "name" : "",
+               "name" : "South Moat Secret Chamber",
                "unreachable" : false
             },
             {
@@ -10663,7 +10663,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 77,
-               "name" : "",
+               "name" : "Arcade",
                "unreachable" : false
             },
             {
@@ -10671,7 +10671,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 78,
-               "name" : "",
+               "name" : "Red Pillars",
                "unreachable" : false
             },
             {
@@ -10679,7 +10679,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 89,
-               "name" : "",
+               "name" : "Cyberdemon's Room",
                "unreachable" : false
             },
             {
@@ -10687,7 +10687,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 99,
-               "name" : "",
+               "name" : "Arcade Balcony",
                "unreachable" : false
             },
             {
@@ -10695,7 +10695,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 102,
-               "name" : "",
+               "name" : "Red Pillars",
                "unreachable" : false
             },
             {
@@ -10703,7 +10703,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 256,
-               "name" : "",
+               "name" : "Arcade Balcony",
                "unreachable" : false
             },
             {
@@ -10711,7 +10711,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 278,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10719,7 +10719,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 292,
-               "name" : "",
+               "name" : "Western Dive",
                "unreachable" : false
             },
             {
@@ -10727,7 +10727,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 293,
-               "name" : "",
+               "name" : "Secret Cliff Stairs",
                "unreachable" : false
             }
          ],
@@ -11103,7 +11103,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 1,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -11111,7 +11111,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 33,
-               "name" : "",
+               "name" : "Narthex",
                "unreachable" : false
             },
             {
@@ -11119,7 +11119,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 58,
-               "name" : "",
+               "name" : "Blood Crosswalk",
                "unreachable" : false
             },
             {
@@ -11127,7 +11127,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 61,
-               "name" : "",
+               "name" : "Exit Courtyard Turrets, East",
                "unreachable" : false
             },
             {
@@ -11135,7 +11135,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 76,
-               "name" : "",
+               "name" : "Window Room",
                "unreachable" : false
             },
             {
@@ -11143,7 +11143,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 77,
-               "name" : "",
+               "name" : "Dark Room, Showcase",
                "unreachable" : false
             },
             {
@@ -11151,7 +11151,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 87,
-               "name" : "",
+               "name" : "Dark Room",
                "unreachable" : false
             },
             {
@@ -11159,7 +11159,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 122,
-               "name" : "",
+               "name" : "Chapel",
                "unreachable" : false
             },
             {
@@ -11167,7 +11167,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 156,
-               "name" : "",
+               "name" : "Window Room",
                "unreachable" : false
             },
             {
@@ -11175,7 +11175,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 172,
-               "name" : "",
+               "name" : "Blood Crosswalk",
                "unreachable" : false
             },
             {
@@ -11183,7 +11183,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 173,
-               "name" : "",
+               "name" : "Demon Hall",
                "unreachable" : false
             },
             {
@@ -11191,7 +11191,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 174,
-               "name" : "",
+               "name" : "Narthex",
                "unreachable" : false
             },
             {
@@ -11199,7 +11199,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 182,
-               "name" : "",
+               "name" : "Showroom",
                "unreachable" : false
             },
             {
@@ -11207,7 +11207,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 186,
-               "name" : "",
+               "name" : "Chapel",
                "unreachable" : false
             },
             {
@@ -11215,7 +11215,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 190,
-               "name" : "",
+               "name" : "Gallery",
                "unreachable" : false
             },
             {
@@ -11223,7 +11223,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 196,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Room",
                "unreachable" : false
             },
             {
@@ -11231,7 +11231,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 217,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Escape Chamber",
                "unreachable" : false
             },
             {
@@ -11239,7 +11239,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 235,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Room",
                "unreachable" : false
             },
             {
@@ -11247,7 +11247,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 236,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Room, Closet",
                "unreachable" : false
             },
             {
@@ -11255,7 +11255,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 237,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Room",
                "unreachable" : false
             },
             {
@@ -11263,7 +11263,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 243,
-               "name" : "",
+               "name" : "Cyberdemon Summoning Room",
                "unreachable" : false
             },
             {
@@ -11271,7 +11271,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 248,
-               "name" : "",
+               "name" : "Exit Courtyard Turrets, West",
                "unreachable" : false
             }
          ],
@@ -11659,7 +11659,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 80,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -11667,7 +11667,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 81,
-               "name" : "",
+               "name" : "Secondary Chambers",
                "unreachable" : false
             },
             {
@@ -11675,7 +11675,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 85,
-               "name" : "",
+               "name" : "Dual Key Room, North Closet",
                "unreachable" : false
             },
             {
@@ -11683,7 +11683,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 100,
-               "name" : "",
+               "name" : "Spiderdemon's Lair, Pillars",
                "unreachable" : false
             },
             {
@@ -11691,7 +11691,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 101,
-               "name" : "",
+               "name" : "Spiderdemon's Lair, Pillars",
                "unreachable" : false
             },
             {
@@ -11699,7 +11699,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 102,
-               "name" : "",
+               "name" : "Left Tower, Showcase",
                "unreachable" : false
             },
             {
@@ -11707,7 +11707,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 146,
-               "name" : "",
+               "name" : "Secondary Chambers, Showcase",
                "unreachable" : false
             },
             {
@@ -11715,7 +11715,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 148,
-               "name" : "",
+               "name" : "Waterfall Pillars",
                "unreachable" : false
             },
             {
@@ -11723,7 +11723,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 180,
-               "name" : "",
+               "name" : "Spiderdemon's Lair, Secret Closet",
                "unreachable" : false
             },
             {
@@ -11731,7 +11731,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 186,
-               "name" : "",
+               "name" : "Spiderdemon's Lair, Perch",
                "unreachable" : false
             },
             {
@@ -11739,7 +11739,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 187,
-               "name" : "",
+               "name" : "Spiderdemon's Lair, Perch",
                "unreachable" : false
             },
             {
@@ -11747,7 +11747,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 192,
-               "name" : "",
+               "name" : "Dual Key Room, North Closet",
                "unreachable" : false
             },
             {
@@ -11755,7 +11755,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 292,
-               "name" : "",
+               "name" : "Spawn Secret",
                "unreachable" : false
             },
             {
@@ -11763,7 +11763,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 304,
-               "name" : "",
+               "name" : "Waterfall Pillars",
                "unreachable" : false
             },
             {
@@ -11771,7 +11771,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 310,
-               "name" : "",
+               "name" : "Secret Balcony from Chambers",
                "unreachable" : false
             },
             {
@@ -11779,7 +11779,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 311,
-               "name" : "",
+               "name" : "Waterfall Pillars",
                "unreachable" : false
             },
             {
@@ -11787,7 +11787,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 312,
-               "name" : "",
+               "name" : "Left Tower, Base",
                "unreachable" : false
             }
          ],
@@ -12123,7 +12123,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 6,
-               "name" : "",
+               "name" : "Balance Test, East",
                "unreachable" : false
             },
             {
@@ -12131,7 +12131,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 37,
-               "name" : "",
+               "name" : "Goop Pile",
                "unreachable" : false
             },
             {
@@ -12139,7 +12139,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 40,
-               "name" : "",
+               "name" : "Box Jump",
                "unreachable" : false
             },
             {
@@ -12147,7 +12147,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 119,
-               "name" : "",
+               "name" : "Diaphragm",
                "unreachable" : false
             },
             {
@@ -12155,7 +12155,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 149,
-               "name" : "",
+               "name" : "Bronchial",
                "unreachable" : false
             },
             {
@@ -12163,7 +12163,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 151,
-               "name" : "",
+               "name" : "Exit Secret",
                "unreachable" : false
             },
             {
@@ -12171,7 +12171,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 220,
-               "name" : "",
+               "name" : "Balance Test, West",
                "unreachable" : false
             },
             {
@@ -12179,7 +12179,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 235,
-               "name" : "",
+               "name" : "North Teleporter Stairs",
                "unreachable" : false
             },
             {

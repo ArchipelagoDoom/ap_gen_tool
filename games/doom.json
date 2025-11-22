@@ -5,8 +5,10 @@
     "ap_world_name": "doom_1993_beta",
     "ap_class_name": "DOOM1993",
 
-	"iwad": "DOOM.WAD",
-    "settings": {},
+    "iwad": "DOOM.WAD",
+    "settings":{
+        "extended_names": true
+    },
 
     "episodes": [
         {

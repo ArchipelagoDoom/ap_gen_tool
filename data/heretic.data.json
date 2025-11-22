@@ -18424,6 +18424,11 @@
                         "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [ 73 ],
+                        "requirements_or" : [],
+                        "target_region" : 4
                      }
                   ],
                   "x" : -5391,
@@ -18522,11 +18527,6 @@
                         "requirements_and" : [ 73 ],
                         "requirements_or" : [],
                         "target_region" : 0
-                     },
-                     {
-                        "requirements_and" : [ 79 ],
-                        "requirements_or" : [],
-                        "target_region" : 4
                      }
                   ],
                   "x" : -3726,
@@ -18592,6 +18592,11 @@
                         "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [ 73 ],
+                        "requirements_or" : [],
+                        "target_region" : 1
                      }
                   ],
                   "x" : -3724,
@@ -21401,31 +21406,52 @@
                      {
                         "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : -1
+                        "target_region" : -2
                      },
                      {
                         "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : -2
+                        "target_region" : 1
                      }
                   ],
                   "x" : -3072,
                   "y" : 480
                },
-               "sectors" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ],
+               "sectors" : [ 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ],
                "tint" : [ 1, 1, 1, 1 ]
+            },
+            {
+               "name" : "Start",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [ 2004, 2002, 2003, 53, 2001, 2005 ],
+                        "requirements_or" : [],
+                        "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : -1
+                     }
+                  ],
+                  "x" : -3074,
+                  "y" : -873
+               },
+               "sectors" : [ 1 ],
+               "tint" : [ 0, 1, 0.88235282897949219, 1 ]
             }
          ],
          "world_rules" : {
             "connections" : [
                {
-                  "requirements_and" : [ 2001, 53, 2003, 2002, 2004, 2005 ],
+                  "requirements_and" : [],
                   "requirements_or" : [],
-                  "target_region" : 0
+                  "target_region" : 1
                }
             ],
             "x" : -3072,
-            "y" : -720
+            "y" : -1664
          }
       },
       {
@@ -22408,8 +22434,8 @@
          "world_rules" : {
             "connections" : [
                {
-                  "requirements_and" : [ 2001, 2003, 2005 ],
-                  "requirements_or" : [ 53, 2004, 2002 ],
+                  "requirements_and" : [ 2001, 2003, 2005, 53 ],
+                  "requirements_or" : [ 2004, 2002 ],
                   "target_region" : 0
                }
             ],
@@ -23011,7 +23037,7 @@
          "world_rules" : {
             "connections" : [
                {
-                  "requirements_and" : [ 2001 ],
+                  "requirements_and" : [ 2001, 2003 ],
                   "requirements_or" : [ 2004, 2002, 53 ],
                   "target_region" : 0
                }

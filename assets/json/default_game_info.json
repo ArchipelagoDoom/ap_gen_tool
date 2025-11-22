@@ -166,8 +166,16 @@
             {"name": "Gauntlets of the Necromancer"},
             {"name": "Chicken's Beak"}
         ],
-        "monsters": {},
-        "pickups": {},
+        "monsters": {
+            "small": [66, 5, 68, 69, 45, 46],
+            "medium": [64, 65, 15, 90, 70, 92],
+            "big": [6],
+            "boss": [9]
+        },
+        "pickups": {
+            "medium": [81, 10, 18, 54, 22, 20, 13],
+            "big": [34, 82, 12, 19, 55, 23, 21, 16]
+        },
         "obituaries": {
             "SOURCE_MOBJTYPE_99":          "%YOU% couldn't play chicken.",
             "SOURCE_DOOMEDNUM_66,MELEE":   "%YOU% was hacked by a gargoyle.",

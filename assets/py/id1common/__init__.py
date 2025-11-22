@@ -270,6 +270,9 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
             levels.sort(key=lambda value: 666 if value in self.starting_levels else 0)
         return levels[:count]
 
+    def warning(self, content: str) -> None:
+        logging.warning(f"{self.multiworld.get_player_name(self.player)}: {content}")
+
     # -------------------------------------------------------------------------
     # Goal completion rules, for each goal type
     def rule_complete_all_levels(self, state: "CollectionState") -> bool:
@@ -291,9 +294,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
         self.included_episodes = {ep for ep, option in self._episode_option_iterator() if option.value}
         if self.major_episode_count == 0:
             first_major = min(self.major_episodes)
-            logging.warning(f"{self.multiworld.get_player_name(self.player)}: "
-                            f"No major episodes were enabled.\n"
-                            f"Enabling Episode {first_major}.")
+            self.warning(f"No major episodes were enabled.\n"
+                         f"Enabling Episode {first_major}.")
             self.included_episodes.add(first_major)
 
         self.starting_levels = [name for (ep, name) in self.starting_levels_by_episode.items()
@@ -304,15 +306,14 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
         if self.options.difficulty.value == 4:
             skill_5_warning = getattr(self.options.difficulty, "skill_5_warning", "")
             if len(skill_5_warning) > 0:
-                logging.warning(f"{self.multiworld.get_player_name(self.player)}: {skill_5_warning}\n"
-                                f"Remember that the game difficulty can be turned down afterwards in the launcher.")
+                self.warning(f"{skill_5_warning}\n"
+                             f"Remember that the game difficulty can be turned down afterwards in the launcher.")
 
         # Do not allow the combination of ITYTD + Extreme tricks
         # Extreme tricks that require damage boosting may become impossible in ITYTD due to the damage reduction
         if self.options.difficulty.value == 0 and self.options.trick_difficulty.value >= 3:
             self.options.difficulty.value = 1
-            logging.warning(f"{self.multiworld.get_player_name(self.player)}: "
-                            f"Difficulty automatically raised to Easy (2) because Extreme tricks are enabled.")
+            self.warning("Difficulty automatically raised to Easy (2) because Extreme tricks are enabled.")
 
     def construct_regions(self) -> None:
         """
@@ -433,9 +434,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
                         self._required_level_complete_list.append(item_data.name)
 
             if len(self._required_level_complete_list) == 0:
-                logging.warning(f"{self.multiworld.get_player_name(self.player)}: "
-                                f"Either the goal level list was empty, or all levels in it were disabled.\n"
-                                f"Goal changed to 'Complete All Levels'.")
+                self.warning(f"Either the goal level list was empty, or all levels in it were disabled.\n"
+                             f"Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         elif self.options.goal == "complete_random_levels":
@@ -453,9 +453,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
             # This basically only happens with malformed or nonexistant options, but it's here to catch that.
             if len(self._required_level_complete_list) == 0:
-                logging.warning(f"{self.multiworld.get_player_name(self.player)}: "
-                                f"Attempted to use a 'Complete Random Levels' goal, but rolled no levels.\n"
-                                f"Goal changed to 'Complete All Levels'.")
+                self.warning(f"Attempted to use a 'Complete Random Levels' goal, but rolled no levels.\n"
+                             f"Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         elif self.options.goal == "complete_some_levels":
@@ -467,9 +466,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
             # This basically only happens with malformed or nonexistant options, but it's here to catch that.
             if self._required_level_complete_count == 0:
-                logging.warning(f"{self.multiworld.get_player_name(self.player)}: "
-                                f"Attempted to use a 'Complete Some Levels' goal with a count of zero.\n"
-                                f"Goal changed to 'Complete All Levels'.")
+                self.warning(f"Attempted to use a 'Complete Some Levels' goal with a count of zero.\n"
+                             f"Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":
