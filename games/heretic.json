@@ -292,10 +292,10 @@
         {"doom_type": 65005, "name": "Flame Orb Capacity",      "group": ["Capacity upgrades"], "sprite": "BAGHA0", "count": 0},
         {"doom_type": 65006, "name": "Mace Sphere Capacity",    "group": ["Capacity upgrades"], "sprite": "BAGHA0", "count": 0},
         {"doom_type": 84,    "name": "Ring of Invincibility",   "group": ["Artifacts"],         "sprite": "ARTIINVU"},
-        {"doom_type": 86,    "name": "Tome of Power",           "group": ["Artifacts"],         "sprite": "ARTIPWBK"},
+        {"doom_type": 86,    "name": "Tome of Power",           "group": ["Artifacts"],         "sprite": "ARTIPWBK"}
     ],
     "filler": [
-        {"doom_type": 75, "name": "Shadowsphere",              "group": ["Artifacts"],         "sprite": "ARTIINVS"}
+        {"doom_type": 75, "name": "Shadowsphere",              "group": ["Artifacts"],         "sprite": "ARTIINVS"},
         {"doom_type": 36, "name": "Chaos Device",              "group": ["Artifacts"],         "sprite": "ARTIATLP"},
         {"doom_type": 30, "name": "Morph Ovum",                "group": ["Artifacts"],         "sprite": "ARTIEGGC"},
         {"doom_type": 32, "name": "Mystic Urn",                "group": ["Artifacts"],         "sprite": "ARTISPHL"},
