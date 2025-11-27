@@ -8,6 +8,7 @@
 #   Options common to all id1 games.
 
 from dataclasses import dataclass
+from typing import ClassVar
 
 from Options import (
     Choice,
@@ -28,6 +29,33 @@ class Placeholder(FreeText):
     def __init__(self, value: str):
         raise Exception("Placeholder option was not overridden.\n"
                         "This is an error with the world, not the yaml.")
+
+
+class BoundedRandomRange(Range):
+    """Used to provide a Range option with a more tightly bounded random than what the ranges actually allow."""
+    random_start: ClassVar[int | None] = None
+    random_end: ClassVar[int | None] = None
+
+    @classmethod
+    def weighted_range(cls, text) -> Range:
+        range_min = cls.range_start if cls.random_start is None else max(cls.range_start, cls.random_start)
+        range_max = cls.range_end if cls.random_end is None else min(cls.range_end, cls.random_end)
+
+        if text == "random-low":
+            return cls(cls.triangular(range_min, range_max, 0.0))
+        elif text == "random-high":
+            return cls(cls.triangular(range_min, range_max, 1.0))
+        elif text == "random-middle":
+            return cls(cls.triangular(range_min, range_max))
+        elif text.startswith("random-range-"):
+            return cls.custom_range(text)
+        elif text == "random":
+            return cls(random.randint(range_min, range_max))
+        else:
+            raise Exception(f"random text \"{text}\" did not resolve to a recognized pattern. "
+                            f"Acceptable values are: random, random-high, random-middle, random-low, "
+                            f"random-range-low-<min>-<max>, random-range-middle-<min>-<max>, "
+                            f"random-range-high-<min>-<max>, or random-range-<min>-<max>.")
 
 
 ####################

@@ -271,17 +271,33 @@ void CustomAmmoCapacity_Init(game_t *game, const Json::Value& json)
 
 void CustomAmmoCapacity_InsertWorldHook(game_t *game, const std::string& hook_type, std::vector<std::string>& hook)
 {
-    if (hook_type != "fill_slot_data")
-        return;
-
-    hook.push_back("slot_data[\"ammo_start\"] = [");
-    for (const capacitytype_t& ammo_type : cac_ammo_types)
-        hook.push_back("    self.options.max_ammo_" + ammo_type.class_suffix + ".value,");
-    hook.push_back("]");
-    hook.push_back("slot_data[\"ammo_add\"] = [");
-    for (const capacitytype_t& ammo_type : cac_ammo_types)
-        hook.push_back("    self.options.added_ammo_" + ammo_type.class_suffix + ".value,");
-    hook.push_back("]");
+    if (hook_type == "generate_early")
+    {
+        bool first = true;
+        hook.push_back("if (");
+        for (const capacitytype_t& ammo_type : cac_ammo_types)
+        {
+            std::string condition = (first ? "    " : "    or ");
+            condition += "self.options.max_ammo_" + ammo_type.class_suffix + ".value < ";
+            condition += "self.options.max_ammo_" + ammo_type.class_suffix + ".random_start";
+            hook.push_back(condition);
+            first = false;
+        }
+        hook.push_back("):");
+        hook.push_back("    self.warning(\"Some ammo capacity options are set below their default values.\\n\"");
+        hook.push_back("                 \"This may make games significantly harder than intended; you have been warned.\")");
+    }
+    else if (hook_type == "fill_slot_data")
+    {
+        hook.push_back("slot_data[\"ammo_start\"] = [");
+        for (const capacitytype_t& ammo_type : cac_ammo_types)
+            hook.push_back("    self.options.max_ammo_" + ammo_type.class_suffix + ".value,");
+        hook.push_back("]");
+        hook.push_back("slot_data[\"ammo_add\"] = [");
+        for (const capacitytype_t& ammo_type : cac_ammo_types)
+            hook.push_back("    self.options.added_ammo_" + ammo_type.class_suffix + ".value,");
+        hook.push_back("]");
+    }
 }
 
 void CustomAmmoCapacity_InsertPyOptions(game_t *game, std::vector<PyOption>& options)
@@ -291,11 +307,14 @@ void CustomAmmoCapacity_InsertPyOptions(game_t *game, std::vector<PyOption>& opt
         PyOption& max_opt = options.emplace_back(
             "max_ammo_" + ammo_type.class_suffix,
             "Max Ammo - " + ammo_type.name,
-            PyOptionType::Range
+            PyOptionType::BoundedRandomRange
         );
         max_opt.docstring.push_back("Set the starting capacity for " + ammo_type.name + ".");
+        max_opt.docstring.push_back("");
+        max_opt.docstring.push_back("Setting this below the default of " + std::to_string(ammo_type.capacity) + " is allowed, but may be logically unsafe.");
         max_opt.option_group = "Ammo Capacity";
-        max_opt.range_start = ammo_type.capacity;
+        max_opt.range_start = ammo_type.capacity / 10;
+        max_opt.random_start = ammo_type.capacity;
         max_opt.range_end = 999;
         max_opt.default_int = ammo_type.capacity;
     }

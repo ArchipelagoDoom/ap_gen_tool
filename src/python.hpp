@@ -15,6 +15,7 @@ enum class PyOptionType {
     Range,
     OptionSet,
 
+    BoundedRandomRange,
     CheckSanity,
     Episode,
     InvisibilityTrap,
@@ -38,6 +39,9 @@ public:
 
     // Range options
     int range_start = 0, range_end = 0;
+
+    // Bounded Range options
+    int random_start = -9999, random_end = -9999;
 
     // Episode options
     bool is_minor_episode = false;
@@ -119,6 +123,8 @@ public:
             return "BaseOptions.Range";
         case PyOptionType::OptionSet:
             return "BaseOptions.OptionSet";
+        case PyOptionType::BoundedRandomRange:
+            return "id1Options.BoundedRandomRange";
         case PyOptionType::CheckSanity:
             return "id1Options.CheckSanity";
         case PyOptionType::Episode:
@@ -169,6 +175,12 @@ public:
             }
             output << "    default = " << std::to_string(default_int != -9999 ? default_int : 0) << std::endl;
             break;
+        case PyOptionType::BoundedRandomRange:
+            if (random_start != -9999)
+                output << "    random_start = " << std::to_string(random_start) << std::endl;
+            if (random_end != -9999)
+                output << "    random_end = " << std::to_string(random_end) << std::endl;
+            // fall through
         case PyOptionType::Range:
             output << "    range_start = " << std::to_string(range_start) << std::endl; 
             output << "    range_end = " << std::to_string(range_end) << std::endl;
