@@ -434,8 +434,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
                         self._required_level_complete_list.append(item_data.name)
 
             if len(self._required_level_complete_list) == 0:
-                self.warning(f"Either the goal level list was empty, or all levels in it were disabled.\n"
-                             f"Goal changed to 'Complete All Levels'.")
+                self.warning("Either the goal level list was empty, or all levels in it were disabled.\n"
+                             "Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         elif self.options.goal == "complete_random_levels":
@@ -453,8 +453,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
             # This basically only happens with malformed or nonexistant options, but it's here to catch that.
             if len(self._required_level_complete_list) == 0:
-                self.warning(f"Attempted to use a 'Complete Random Levels' goal, but rolled no levels.\n"
-                             f"Goal changed to 'Complete All Levels'.")
+                self.warning("Attempted to use a 'Complete Random Levels' goal, but rolled no levels.\n"
+                             "Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         elif self.options.goal == "complete_some_levels":
@@ -466,8 +466,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
             # This basically only happens with malformed or nonexistant options, but it's here to catch that.
             if self._required_level_complete_count == 0:
-                self.warning(f"Attempted to use a 'Complete Some Levels' goal with a count of zero.\n"
-                             f"Goal changed to 'Complete All Levels'.")
+                self.warning("Attempted to use a 'Complete Some Levels' goal with a count of zero.\n"
+                             "Goal changed to 'Complete All Levels'.")
                 self.options.goal.value = self.options.goal.option_complete_all_levels
 
         if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":

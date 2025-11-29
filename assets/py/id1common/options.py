@@ -7,6 +7,7 @@
 # Brief:
 #   Options common to all id1 games.
 
+import random
 from dataclasses import dataclass
 from typing import ClassVar
 
