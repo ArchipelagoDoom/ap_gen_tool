@@ -219,8 +219,11 @@ public:
     {
         std::stringstream output;
         output << data_name << ": " << GetClassName();
-        if (data_name == "goal_num_levels" || data_name == "goal_specific_levels" || data_name == "flip_levels")
+        if (data_name == "goal_num_levels" || data_name == "goal_specific_levels"
+            || data_name == "flip_levels" || data_name == "difficulty")
+        {
             output << "  # type: ignore[assignment]";
+        }
         output << std::endl;
         return output.str();
     }

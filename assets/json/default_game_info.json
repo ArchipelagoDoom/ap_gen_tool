@@ -66,7 +66,7 @@
         "ammo": [
             {"name": "Bullets", "max": 200},
             {"name": "Shells", "max": 50},
-            {"name": "Cells", "max": 300},
+            {"name": "Energy Cells", "max": 300},
             {"name": "Rockets", "max": 50}
         ],
         "weapons": [
@@ -75,8 +75,8 @@
             {"name": "Shotgun", "ammo_type": "Shells", "starting_ammo": 30},
             {"name": "Chaingun", "ammo_type": "Bullets"},
             {"name": "Rocket launcher", "ammo_type": "Rockets", "starting_ammo": 10},
-            {"name": "Plasma gun", "ammo_type": "Cells", "starting_ammo": 150},
-            {"name": "BFG9000", "ammo_type": "Cells", "starting_ammo": 150},
+            {"name": "Plasma gun", "ammo_type": "Energy Cells", "starting_ammo": 150},
+            {"name": "BFG9000", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "Chainsaw"},
             {"name": "Super shotgun", "ammo_type": "Shells"}
         ],
@@ -153,7 +153,7 @@
         "ammo": [
             {"name": "Bullets", "max": 200},
             {"name": "Shells", "max": 50},
-            {"name": "Cells", "max": 300},
+            {"name": "Energy Cells", "max": 300},
             {"name": "Rockets", "max": 50}
         ],
         "weapons": [
@@ -162,8 +162,8 @@
             {"name": "Shotgun", "ammo_type": "Shells", "starting_ammo": 30},
             {"name": "Chaingun", "ammo_type": "Bullets"},
             {"name": "Rocket launcher", "ammo_type": "Rockets", "starting_ammo": 10},
-            {"name": "Plasma gun", "ammo_type": "Cells", "starting_ammo": 150},
-            {"name": "BFG9000", "ammo_type": "Cells", "starting_ammo": 150},
+            {"name": "Plasma gun", "ammo_type": "Energy Cells", "starting_ammo": 150},
+            {"name": "BFG9000", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "Chainsaw"},
             {"name": "Super shotgun", "ammo_type": "Shells"}
         ],

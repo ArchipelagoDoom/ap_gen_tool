@@ -20,7 +20,7 @@ from .options import Episode, id1CommonOptions
 
 if typing.TYPE_CHECKING:
     from BaseClasses import CollectionState
-    from Options import OptionSet, Range
+    from Options import OptionSet, PerGameCommonOptions, Range
     from .options import CheckSanity
 
 DOOM_TYPE_LEVEL_UNLOCK = -1
@@ -168,8 +168,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
     filler_item_weight: typing.ClassVar[dict[str, int]]
     custom_pool_ratio: typing.ClassVar[dict[int, FillerPoolRatio]]
 
-    options_dataclass: typing.ClassVar[typing.Type[id1CommonOptions]] = id1CommonOptions
-    options: id1CommonOptions
+    options_dataclass: typing.ClassVar[typing.Type[PerGameCommonOptions]] = id1CommonOptions
+    options: id1CommonOptions  # type: ignore
 
     # Should be provided by subclass
     extra_connection_requirements: typing.ClassVar[dict[str, typing.Callable[[typing.Any], bool]]]
@@ -561,12 +561,13 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
             "trick_difficulty",
         )
 
-        slot_data["goal"] = { "type": int(self.options.goal.value) }
+        goal_data: dict[str, typing.Any] = { "type": int(self.options.goal.value) }
         if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":
-            slot_data["goal"]["levels"] = [[item.episode, item.gamemap] for item in self.item_table.values()
-                                           if item.name in self._required_level_complete_list]
+            goal_data["levels"] = [[item.episode, item.gamemap] for item in self.item_table.values()
+                                  if item.name in self._required_level_complete_list]
         elif self.options.goal == "complete_some_levels":
-            slot_data["goal"]["count"] = self._required_level_complete_count
+            goal_data["count"] = self._required_level_complete_count
+        slot_data["goal"] = goal_data
 
         # Track locations that *should* exist but don't in slot_data.
         extant_locations = {loc.address for loc in self.multiworld.get_locations(self.player)}
@@ -577,10 +578,10 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
         slot_data["episodes"] = list(self.included_episodes)
         return slot_data
 
-    def write_spoiler_header(self, handle: typing.TextIO):
+    def write_spoiler_header(self, spoiler_handle: typing.TextIO):
         if self.options.goal == "complete_random_levels":
             # This gets them in order from first to last.
             levels = [i.name for i in self.item_table.values() if i.name in self._required_level_complete_list]
 
-            handle.write("\nGoal levels for \"Complete Random Levels\":\n")
-            [handle.write(f"- {level.removesuffix(' - Complete')}\n") for level in levels]
+            spoiler_handle.write("\nGoal levels for \"Complete Random Levels\":\n")
+            [spoiler_handle.write(f"- {level.removesuffix(' - Complete')}\n") for level in levels]

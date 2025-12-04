@@ -279,12 +279,12 @@ void CustomAmmoCapacity_InsertWorldHook(game_t *game, const std::string& hook_ty
         {
             std::string condition = (first ? "    " : "    or ");
             condition += "self.options.max_ammo_" + ammo_type.class_suffix + ".value < ";
-            condition += "self.options.max_ammo_" + ammo_type.class_suffix + ".random_start";
+            condition += "self.options.max_ammo_" + ammo_type.class_suffix + ".default";
             hook.push_back(condition);
             first = false;
         }
         hook.push_back("):");
-        hook.push_back("    self.warning(\"Some ammo capacity options are set below their default values.\\n\"");
+        hook.push_back("    self.warning(\"Some starting ammo capacity options are set below their default values.\\n\"");
         hook.push_back("                 \"This may make games significantly harder than intended; you have been warned.\")");
     }
     else if (hook_type == "fill_slot_data")

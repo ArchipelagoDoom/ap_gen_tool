@@ -323,6 +323,7 @@ class StartWithComputerAreaMaps(Toggle):
 class StartWithMapScrolls(StartWithComputerAreaMaps):
     """If enabled, all Map Scrolls will be given to the player from the start."""
     display_name = "Start With Map Scrolls"
+    doom_type = 35
 
 
 class SplitBackpack(Toggle):

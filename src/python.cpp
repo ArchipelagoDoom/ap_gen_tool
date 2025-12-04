@@ -95,7 +95,7 @@ std::stringstream& Py_CreateInitPy(game_t *game)
     pystream << "    \"\"\"" << std::endl;
     pystream << "    game = game_name" << std::endl;
     pystream << "    options_dataclass = " << game->ap_class_name << "Options" << std::endl;
-    pystream << "    options: " << game->ap_class_name << "Options" << std::endl;
+    pystream << "    options: " << game->ap_class_name << "Options  # type: ignore" << std::endl;
     pystream << "    web = " << game->ap_class_name << "Web()" << std::endl;
     pystream << "    required_client_version = (0, 6, 3)  # APDoom version 2.0.0" << std::endl;
     pystream << std::endl;
