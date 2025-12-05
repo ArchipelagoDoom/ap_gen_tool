@@ -168,7 +168,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
     filler_item_weight: typing.ClassVar[dict[str, int]]
     custom_pool_ratio: typing.ClassVar[dict[int, FillerPoolRatio]]
 
-    options_dataclass: typing.ClassVar[typing.Type[PerGameCommonOptions]] = id1CommonOptions
+    options_dataclass: typing.ClassVar[typing.Type["PerGameCommonOptions"]] = id1CommonOptions
     options: id1CommonOptions  # type: ignore
 
     # Should be provided by subclass
