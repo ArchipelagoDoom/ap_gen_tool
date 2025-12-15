@@ -934,7 +934,7 @@ int generate(game_t* game)
     { // Locations
         Json::Value locations_json;
         Json::Value locgroups_json;
-        Json::Value deathlogic_json;
+        Json::Value deathlogic_json = Json::arrayValue;
 
         for (const auto& location : ap_locations)
         {
