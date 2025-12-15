@@ -187,10 +187,10 @@ public:
             output << "    default = " << std::to_string(default_int != -9999 ? default_int : range_end) << std::endl;
             break;
         case PyOptionType::OptionSet:
-            output << "    valid_keys = frozenset({" << std::endl;
+            output << "    valid_keys = [" << std::endl;
             for (const std::string &opt : option_list)
                 output << "        " << Py_QuoteString(opt) << "," << std::endl;
-            output << "    })" << std::endl;
+            output << "    ]" << std::endl;
             output << "    default = frozenset({" << std::endl;
             for (const std::string &opt : default_list)
                 output << "        " << Py_QuoteString(opt) << "," << std::endl;
