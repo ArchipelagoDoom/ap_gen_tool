@@ -9840,6 +9840,11 @@
                         "requirements_and" : [ 80 ],
                         "requirements_or" : [],
                         "target_region" : 1
+                     },
+                     {
+                        "requirements_and" : [ -2 ],
+                        "requirements_or" : [],
+                        "target_region" : 3
                      }
                   ],
                   "x" : -5888,
@@ -9951,6 +9956,11 @@
                         "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 3
                      }
                   ],
                   "x" : -5890,
@@ -9999,8 +10009,7 @@
                   135,
                   136,
                   139,
-                  140,
-                  141
+                  140
                ],
                "tint" : [ 1, 1, 0, 1 ]
             },
@@ -10115,6 +10124,16 @@
                   220
                ],
                "tint" : [ 0, 1, 0, 1 ]
+            },
+            {
+               "name" : "Yellow Grabbable",
+               "rules" : {
+                  "connections" : [],
+                  "x" : -4469,
+                  "y" : 3135
+               },
+               "sectors" : [ 141 ],
+               "tint" : [ 1, 0.5, 0, 1 ]
             }
          ],
          "world_rules" : {
@@ -20803,7 +20822,7 @@
                "description" : "",
                "index" : 6,
                "name" : "",
-               "unreachable" : true
+               "unreachable" : false
             },
             {
                "check_sanity" : false,
@@ -20981,12 +21000,17 @@
                         "requirements_and" : [ 80 ],
                         "requirements_or" : [],
                         "target_region" : 2
+                     },
+                     {
+                        "requirements_and" : [ -4, 2003 ],
+                        "requirements_or" : [],
+                        "target_region" : 4
                      }
                   ],
                   "x" : -5331,
                   "y" : -3570
                },
-               "sectors" : [ 6, 12, 14, 16, 17, 37, 38, 87, 115, 125 ],
+               "sectors" : [ 6, 12, 16, 17, 37, 38, 87, 115, 125 ],
                "tint" : [ 1, 1, 1, 1 ]
             },
             {
@@ -21170,34 +21194,16 @@
                      {
                         "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : 0
+                        "target_region" : 4
                      }
                   ],
-                  "x" : -3476,
-                  "y" : -4872
+                  "x" : -3455,
+                  "y" : -4794
                },
                "sectors" : [
-                  0,
-                  1,
-                  2,
-                  3,
-                  4,
-                  5,
-                  7,
-                  8,
-                  9,
-                  10,
-                  11,
-                  13,
-                  15,
                   18,
                   19,
-                  20,
-                  21,
                   22,
-                  23,
-                  24,
-                  25,
                   33,
                   34,
                   35,
@@ -21268,6 +21274,27 @@
                   145
                ],
                "tint" : [ 0, 1, 0, 1 ]
+            },
+            {
+               "name" : "Green River",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 2
+                     }
+                  ],
+                  "x" : -5329,
+                  "y" : -4781
+               },
+               "sectors" : [ 0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 20, 21, 23, 24, 25 ],
+               "tint" : [ 0.19559788703918457, 0.72549021244049072, 0.44495895504951477, 1 ]
             }
          ],
          "world_rules" : {
@@ -21278,8 +21305,8 @@
                   "target_region" : 0
                }
             ],
-            "x" : -5334,
-            "y" : -4880
+            "x" : -5323,
+            "y" : -2014
          }
       },
       {
