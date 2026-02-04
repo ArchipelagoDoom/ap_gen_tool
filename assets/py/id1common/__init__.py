@@ -7,20 +7,23 @@
 # Brief:
 #   Main library functions and custom world class.
 
-from copy import deepcopy
-from pkgutil import get_data
 import json
 import logging
 import typing
+from collections.abc import Iterable
+from copy import deepcopy
+from pkgutil import get_data
 
 from BaseClasses import Entrance, Item, ItemClassification, Location, LocationProgressType, MultiWorld, Region
 from Options import OptionError
 from worlds.AutoWorld import AutoWorldRegister, World
+
 from .options import Episode, id1CommonOptions
 
 if typing.TYPE_CHECKING:
     from BaseClasses import CollectionState
     from Options import OptionSet, PerGameCommonOptions, Range
+
     from .options import CheckSanity
 
 DOOM_TYPE_LEVEL_UNLOCK = -1
@@ -42,13 +45,10 @@ class ConnectionCriteriaData(typing.NamedTuple):
             if len(self.criteria_or) > 0:
                 return lambda state: state.has_all(self.criteria_and, player) \
                                      and state.has_any(self.criteria_or, player)
-            else:
-                return lambda state: state.has_all(self.criteria_and, player)
-        else:
-            if len(self.criteria_or) > 0:
-                return lambda state: state.has_any(self.criteria_or, player)
-            else:
-                return lambda state: True
+            return lambda state: state.has_all(self.criteria_and, player)
+        if len(self.criteria_or) > 0:
+            return lambda state: state.has_any(self.criteria_or, player)
+        return lambda state: True
 
 
 class ConnectionData:
@@ -153,7 +153,7 @@ class AutoLoadJsonData(AutoWorldRegister):
         return super().__new__(cls, name, bases, dct)
 
 
-class id1CommonWorld(World, metaclass=AutoLoadJsonData):
+class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
     # Data parsed from JSON
     item_table: typing.ClassVar[dict[int, ItemData]]
     location_table: typing.ClassVar[dict[int, LocationData]]
@@ -168,7 +168,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
     filler_item_weight: typing.ClassVar[dict[str, int]]
     custom_pool_ratio: typing.ClassVar[dict[int, FillerPoolRatio]]
 
-    options_dataclass: typing.ClassVar[typing.Type["PerGameCommonOptions"]] = id1CommonOptions
+    options_dataclass: typing.ClassVar[type["PerGameCommonOptions"]] = id1CommonOptions
     options: id1CommonOptions  # type: ignore
 
     # Should be provided by subclass
@@ -176,7 +176,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
     # This gets populated by construct_regions, and is local to us.
     # Contains only the regions and connections that are present in our world with our settings.
-    constructed_region_list: list[RegionData] 
+    constructed_region_list: list[RegionData]
 
     # This gets populated by init_episodes, usually in generate_early.
     # Contains all episodes the player has chosen in their options, e.g. {1, 2, 3, 5}
@@ -250,13 +250,11 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
         """
         return False if self.major_episode_count != 1 else (min(self.included_major_episodes) == episode)
 
-    def matching_items(self, *, doom_type: list[int] | int = []) -> dict[int, ItemData]:
+    def matching_items(self, *, doom_type: Iterable[int] | int = 0) -> dict[int, ItemData]:
         """Gets item data that matches specific criteria."""
-        doom_type = [doom_type] if type(doom_type) is int else doom_type
-        assert type(doom_type) is list  # mypy doesn't realize the above statement means there can be no ints
-
+        doomtype_list: list[int] = list(doom_type) if isinstance(doom_type, Iterable) else [doom_type]
         return {idx: item for (idx, item) in self.item_table.items()
-                if (len(doom_type) == 0 or item.doom_type in doom_type)}
+                if (len(doomtype_list) == 0 or item.doom_type in doomtype_list)}
 
     def get_random_levels(self, count: int) -> list[str]:
         """Returns count number of random level names that are present in our settings."""
@@ -367,7 +365,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
             check_sanity = bool(check_sanity_opt.value)
 
         # Get every location that we need to make.
-        locations_by_region: dict[str, dict[str, int | None]] = {region.name: {} for region in self.constructed_region_list}
+        locations_by_region: dict[str, dict[str, int | None]] = {re.name: {} for re in self.constructed_region_list}
         for loc_id, location in self.location_table.items():
             if location.check_sanity and not check_sanity:
                 continue
@@ -536,7 +534,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
 
             # Now mix in a bit of completely random, unweighted filler, for extra spice.
             set_filler = set(self.filler_item_weight.keys()) | set(self.item_name_groups["Junk"])
-            all_filler = sorted(list(set_filler))
+            all_filler = sorted(set_filler)
             item_pool.extend(self.random.choice(all_filler) for _ in range(random_count))
 
         # Any remaining slots get filled with items in the "Junk" group.
@@ -583,5 +581,5 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):
             # This gets them in order from first to last.
             levels = [i.name for i in self.item_table.values() if i.name in self._required_level_complete_list]
 
-            spoiler_handle.write("\nGoal levels for \"Complete Random Levels\":\n")
+            spoiler_handle.write('\nGoal levels for "Complete Random Levels":\n')
             [spoiler_handle.write(f"- {level.removesuffix(' - Complete')}\n") for level in levels]

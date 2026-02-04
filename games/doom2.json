@@ -69,13 +69,13 @@
             "generate_early":[
                 "# If soloing MAP01-MAP11, mark an earlier level as early to give generation a clue on how to proceed",
                 "if self.solo_episode(1):",
-                "    early_level = self.random.choice(['Underhalls (MAP02)', 'The Gantlet (MAP03)',",
-                "                                      'The Waste Tunnels (MAP05)', 'The Crusher (MAP06)'])",
+                "    early_level = self.random.choice([\"Underhalls (MAP02)\", \"The Gantlet (MAP03)\",",
+                "                                      \"The Waste Tunnels (MAP05)\", \"The Crusher (MAP06)\"])",
                 "    self.multiworld.early_items[self.player][early_level] = 1",
                 "",
                 "# If soloing MAP21-MAP30, we need to mark a weapon as early to help generation succeed",
                 "elif self.solo_episode(3):",
-                "    early_weapon = self.random.choice(['Super Shotgun', 'Plasma Gun'])",
+                "    early_weapon = self.random.choice([\"Super Shotgun\", \"Plasma Gun\"])",
                 "    self.multiworld.early_items[self.player][early_weapon] = 1"
             ]
         },

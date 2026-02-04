@@ -74,16 +74,16 @@
             "generate_early":[
                 "# Give the generator a clue on how to proceed out of solo Episode 1",
                 "if self.solo_episode(1):",
-                "    early_level = self.random.choice(['Nuclear Plant (E1M2)', 'Toxin Refinery (E1M3)', 'Command Control (E1M4)',",
-                "                                      'Phobos Lab (E1M5)', 'Military Base (E1M9)'])",
+                "    early_level = self.random.choice([\"Nuclear Plant (E1M2)\", \"Toxin Refinery (E1M3)\", \"Command Control (E1M4)\",",
+                "                                      \"Phobos Lab (E1M5)\", \"Military Base (E1M9)\"])",
                 "    self.multiworld.early_items[self.player][early_level] = 1",
                 "",
                 "# Solo Episode 3 presents a much bigger problem, because Hell Keep has only two locations.",
                 "# We have to give the player Slough of Despair (E3M2), and also mark a weapon early.",
                 "elif self.solo_episode(3):",
-                "    early_weapon = self.random.choice(['Shotgun', 'Chaingun'])",
+                "    early_weapon = self.random.choice([\"Shotgun\", \"Chaingun\"])",
                 "    self.multiworld.early_items[self.player][early_weapon] = 1",
-                "    self.starting_levels.append('Slough of Despair (E3M2)')"
+                "    self.starting_levels.append(\"Slough of Despair (E3M2)\")"
             ]
         },
         "world_options":[

@@ -187,10 +187,10 @@ public:
             output << "    default = " << std::to_string(default_int != -9999 ? default_int : range_end) << std::endl;
             break;
         case PyOptionType::OptionSet:
-            output << "    valid_keys = [" << std::endl;
+            output << "    valid_keys = (" << std::endl;
             for (const std::string &opt : option_list)
                 output << "        " << Py_QuoteString(opt) << "," << std::endl;
-            output << "    ]" << std::endl;
+            output << "    )" << std::endl;
             output << "    default = frozenset({" << std::endl;
             for (const std::string &opt : default_list)
                 output << "        " << Py_QuoteString(opt) << "," << std::endl;
@@ -231,7 +231,8 @@ public:
 
 struct game_t;
 
-extern std::stringstream& Py_CreateInitPy(game_t *game);
+extern void Py_SetCommonLibVendored(bool vendor);
+extern std::stringstream& Py_CreateInitPy(game_t *game, bool include_tutorials);
 extern std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption>& opts);
 
 // WorldOptions; it just winds up being most convenient to have these here

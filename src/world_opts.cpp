@@ -60,18 +60,18 @@ struct default_difficulty_t {
     const char *description;
 };
 const default_difficulty_t difficulties_doom[5] = {
-    {"baby",      "Damage taken is halved. Ammo received from pickups is doubled."},
-    {"easy",      "Lesser number or strength of monsters, and more pickups."},
-    {"medium",    "The default skill. Balanced monsters and pickups."},
-    {"hard",      "Greater number or strength of monsters, and less pickups."},
-    {"nightmare", "Monsters are faster, more aggressive, and respawn."}
+    {"Baby",      "Damage taken is halved. Ammo received from pickups is doubled."},
+    {"Easy",      "Lesser number or strength of monsters, and more pickups."},
+    {"Medium",    "The default skill. Balanced monsters and pickups."},
+    {"Hard",      "Greater number or strength of monsters, and less pickups."},
+    {"Nightmare", "Monsters are faster, more aggressive, and respawn."}
 };
 const default_difficulty_t difficulties_heretic[5] = {
-    {"wet nurse",    "Damage taken is halved. Ammo received from pickups is doubled. Quartz Flasks and Mystic Urns are automatically used when the player nears death."},
-    {"easy",         "Lesser number or strength of monsters, and more pickups."},
-    {"medium",       "The default skill. Balanced monsters and pickups."},
-    {"hard",         "Greater number or strength of monsters, and less pickups."},
-    {"black plague", "Monsters are faster and more aggressive."}
+    {"Wet nurse",    "Damage taken is halved. Ammo received from pickups is doubled. Quartz Flasks and Mystic Urns are automatically used when the player nears death."},
+    {"Easy",         "Lesser number or strength of monsters, and more pickups."},
+    {"Medium",       "The default skill. Balanced monsters and pickups."},
+    {"Hard",         "Greater number or strength of monsters, and less pickups."},
+    {"Black plague", "Monsters are faster and more aggressive."}
 };
 
 void Difficulty_Init(game_t *game, const Json::Value& json)
@@ -126,7 +126,7 @@ void Difficulty_InsertPyOptions(game_t *game, std::vector<PyOption>& options)
             if (full_name == "")
                 continue;
 
-            opt.docstring.push_back("**" + opt_name + "**: (" + full_name + ") - " + diff_strings[i].description);
+            opt.docstring.push_back("- **" + opt_name + "**: (" + full_name + ") - " + diff_strings[i].description);
             choices.push_back("option_" + to_snake_case(opt_name) + " = " + std::to_string(i));
             for (const auto& alias : diff_info.json[i].get("aliases", Json::arrayValue))
                 aliases.push_back("alias_" + to_snake_case(alias.asString()) + " = " + std::to_string(i));
@@ -366,8 +366,8 @@ void CapacityUpgrades_InsertWorldHook(game_t *game, const std::string& hook_type
         return;
 
     hook.push_back("split_opt = self.options." + capupg_info.split_class);
-    hook.push_back("split_items = [i for i in self.matching_items(doom_type=split_opt.split_doom_types).values()]");
-    hook.push_back("combined_items = [i for i in self.matching_items(doom_type=split_opt.doom_type).values()]");
+    hook.push_back("split_items = list(self.matching_items(doom_type=split_opt.split_doom_types).values())");
+    hook.push_back("combined_items = list(self.matching_items(doom_type=split_opt.doom_type).values())");
     hook.push_back("");
     hook.push_back("# Remove stray capacity upgrades of all types from the pool");
     hook.push_back("item_names = [i.name for i in split_items] + [i.name for i in combined_items]");

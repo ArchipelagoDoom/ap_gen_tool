@@ -5,6 +5,8 @@
 #include "data.h"
 #include "python.hpp"
 
+static bool vendored_id1common = false;
+
 static std::string Py_AutoGenHeader(const std::string &game_name)
 {
     std::stringstream header;
@@ -14,6 +16,13 @@ static std::string Py_AutoGenHeader(const std::string &game_name)
     header << "# For more information: https://github.com/ArchipelagoDoom/ap_gen_tool" << std::endl;
     header << std::endl;
     return header.str();
+}
+
+static std::string Py_id1Common(const std::string &import)
+{
+    if (vendored_id1common)
+        return std::string("from .id1common ") + import;
+    return std::string("from worlds._id1common ") + import;
 }
 
 std::string Py_IndentJoin(std::vector<std::string> lines, int indent_level)
@@ -58,7 +67,12 @@ std::string Py_QuoteString(const std::string& str)
 
 std::stringstream pystream;
 
-std::stringstream& Py_CreateInitPy(game_t *game)
+void Py_SetCommonLibVendored(bool vendor)
+{
+    vendored_id1common = vendor;
+}
+
+std::stringstream& Py_CreateInitPy(game_t *game, bool include_tutorials)
 {
 	pystream.str("");
 	pystream.clear();
@@ -66,10 +80,11 @@ std::stringstream& Py_CreateInitPy(game_t *game)
     pystream << Py_AutoGenHeader(game->ap_name);
     pystream << "import typing" << std::endl;
     pystream << std::endl;
-    pystream << "import BaseClasses as AP" << std::endl;
+    pystream << "import BaseClasses as AP  # noqa: N814" << std::endl;
+    pystream << Py_id1Common("import id1CommonWorld") << std::endl;
     pystream << "from worlds.AutoWorld import WebWorld" << std::endl;
-    pystream << "from .id1common import id1CommonWorld" << std::endl;
-    pystream << "from .options import " << game->ap_class_name << "Options, " << game->ap_class_name << "OptionGroups" << std::endl;
+    pystream << std::endl;
+    pystream << "from .options import " << game->ap_class_name << "OptionGroups, " << game->ap_class_name << "Options" << std::endl;
     pystream << std::endl;
     pystream << "game_name = " << Py_QuoteString(game->ap_name) << std::endl;
     pystream << std::endl << std::endl;
@@ -82,10 +97,23 @@ std::stringstream& Py_CreateInitPy(game_t *game)
     pystream << "class " << game->ap_class_name << "Web(WebWorld):" << std::endl;
     pystream << "    option_groups = " << game->ap_class_name << "OptionGroups" << std::endl;
     pystream << "    rich_text_options_doc = True" << std::endl;
+    pystream << "    bug_report_page = " << Py_QuoteString("https://github.com/ArchipelagoDoom/APDoom/issues") << std::endl;
     pystream << "    theme = " << Py_QuoteString("dirt") << std::endl;
-    pystream << "    tutorials = [" << std::endl;
-    // TODO: Tutorials?
-    pystream << "    ]" << std::endl;
+
+    if (include_tutorials)
+    {
+        pystream << "    tutorials = [AP.Tutorial(" << std::endl;
+        pystream << "        " << Py_QuoteString("Multiworld Setup Guide") << "," << std::endl;
+        pystream << "        f\"A guide to setting up the {game_name} randomizer connected to an Archipelago Multiworld.\"," << std::endl;
+        pystream << "        " << Py_QuoteString("English") << "," << std::endl;
+        pystream << "        " << Py_QuoteString("setup_en.md") << "," << std::endl;
+        pystream << "        " << Py_QuoteString("setup/en") << "," << std::endl;
+        pystream << "        [\"Daivuk\", \"Kaito Sinclaire\"]" << std::endl;
+        pystream << "    )]" << std::endl;
+    }
+    else
+        pystream << "    tutorials = []  # Not included" << std::endl;
+
     pystream << std::endl << std::endl;
 
     // Okay boilerplate over, now time for the real meaty class
@@ -102,10 +130,10 @@ std::stringstream& Py_CreateInitPy(game_t *game)
     pystream << Py_IndentJoin(WorldOptions_GetAllHooks(game, "class"), 4);
 
     pystream << "    extra_connection_requirements = {" << std::endl;
-    pystream << "        'deathlogic': lambda self: self.options.allow_death_logic.value == 1," << std::endl;
-    pystream << "        'trick_basic': lambda self: self.options.trick_difficulty.value >= 1," << std::endl;
-    pystream << "        'trick_pro': lambda self: self.options.trick_difficulty.value >= 2," << std::endl;
-    pystream << "        'trick_extreme': lambda self: self.options.trick_difficulty.value >= 3," << std::endl;
+    pystream << "        " << Py_QuoteString("deathlogic") << ": lambda self: self.options.allow_death_logic.value == 1," << std::endl;
+    pystream << "        " << Py_QuoteString("trick_basic") << ": lambda self: self.options.trick_difficulty.value >= 1," << std::endl;
+    pystream << "        " << Py_QuoteString("trick_pro") << ": lambda self: self.options.trick_difficulty.value >= 2," << std::endl;
+    pystream << "        " << Py_QuoteString("trick_extreme") << ": lambda self: self.options.trick_difficulty.value >= 3," << std::endl;
     pystream << Py_IndentJoin(WorldOptions_GetAllHooks(game, "extra_connection_requirements", 0), 8);
     pystream << "    }" << std::endl;
     pystream << std::endl;
@@ -169,9 +197,13 @@ std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption> &opts)
 	pystream.clear();
 
     pystream << Py_AutoGenHeader(game->ap_name);
+    pystream << "# Options docstrings may exceed the line length limit." << std::endl;
+    pystream << "# ruff: noqa: E501" << std::endl;
+    pystream << std::endl;
     pystream << "from dataclasses import dataclass" << std::endl;
+    pystream << std::endl;
     pystream << "import Options as BaseOptions" << std::endl;
-    pystream << "from .id1common import options as id1Options" << std::endl;
+    pystream << Py_id1Common("import options as id1Options  # noqa: N812") << std::endl;
     pystream << std::endl << std::endl;
 
     for (const auto& option : opts)

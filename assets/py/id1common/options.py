@@ -7,6 +7,9 @@
 # Brief:
 #   Options common to all id1 games.
 
+# Options docstrings may exceed the line length limit.
+# ruff: noqa: E501
+
 import random
 from dataclasses import dataclass
 from typing import ClassVar
@@ -15,11 +18,11 @@ from Options import (
     Choice,
     DeathLink,
     DefaultOnToggle,
-    PerGameCommonOptions,
     FreeText,
+    PerGameCommonOptions,
     Range,
     StartInventoryPool,
-    Toggle
+    Toggle,
 )
 
 
@@ -44,19 +47,18 @@ class BoundedRandomRange(Range):
 
         if text == "random-low":
             return cls(cls.triangular(range_min, range_max, 0.0))
-        elif text == "random-high":
+        if text == "random-high":
             return cls(cls.triangular(range_min, range_max, 1.0))
-        elif text == "random-middle":
+        if text == "random-middle":
             return cls(cls.triangular(range_min, range_max))
-        elif text.startswith("random-range-"):
+        if text.startswith("random-range-"):
             return cls.custom_range(text)
-        elif text == "random":
+        if text == "random":
             return cls(random.randint(range_min, range_max))
-        else:
-            raise Exception(f"random text \"{text}\" did not resolve to a recognized pattern. "
-                            f"Acceptable values are: random, random-high, random-middle, random-low, "
-                            f"random-range-low-<min>-<max>, random-range-middle-<min>-<max>, "
-                            f"random-range-high-<min>-<max>, or random-range-<min>-<max>.")
+        raise Exception(f'random text "{text}" did not resolve to a recognized pattern. '
+                        f'Acceptable values are: random, random-high, random-middle, random-low, '
+                        f'random-range-low-<min>-<max>, random-range-middle-<min>-<max>, '
+                        f'random-range-high-<min>-<max>, or random-range-<min>-<max>.')
 
 
 ####################
@@ -66,10 +68,11 @@ class BoundedRandomRange(Range):
 
 class Goal(Choice):
     """Choose the goal of the game.
-    **complete_all_levels**: Complete every level to win.
-    **complete_some_levels**: Complete some number of total levels to win.
-    **complete_random_levels**: Complete a set of randomly chosen levels to win.
-    **complete_specific_levels**: Complete a specific set of levels to win.
+
+    - **Complete All Levels**: Complete every level to win.
+    - **Complete Some Levels**: Complete some number of total levels to win.
+    - **Complete Random Levels**: Complete a set of randomly chosen levels to win.
+    - **Complete Specific Levels**: Complete a specific set of levels to win.
     """
     display_name = "Goal"
     option_complete_all_levels = 0
@@ -82,11 +85,11 @@ class Goal(Choice):
 class RandomMonsters(Choice):
     """Choose how monsters are randomized.
 
-    **off**: Monsters are left unchanged.
-    **shuffle**: Monsters in the level are shuffled around.
-    **same_type**: Each "small" monster in the level is replaced with a different "small" monster; same for "medium" and "big" monsters.
-    **balanced**: All monsters in the level are randomized. The ratio of "small", "medium", and "big" monsters in the level will be preserved.
-    **chaotic**: All monsters in the level are completely randomized. This can make levels *significantly* harder!
+    - **Off**: Monsters are left unchanged.
+    - **Shuffle**: Monsters in the level are shuffled around.
+    - **Same Type**: Each "small" monster in the level is replaced with a different "small" monster; same for "medium" and "big" monsters.
+    - **Balanced**: All monsters in the level are randomized. The ratio of "small", "medium", and "big" monsters in the level will be preserved.
+    - **Chaotic**: All monsters in the level are completely randomized. This can make levels *significantly* harder!
     """
     display_name = "Random Monsters"
     option_off = 0
@@ -103,11 +106,11 @@ class RandomMonsters(Choice):
 class RandomPickups(Choice):
     """Choose how pickups (medkits, ammo, etc.) are randomized.
 
-    **off**: Pickups are left unchanged.
-    **shuffle**: Pickups in the level are shuffled around.
-    **same_type**: Each "small" pickup in the level is replaced with a different "small" pickup; same for "medium" and "big" pickups.
-    **balanced**: All pickups in the level are randomized. The ratio of "small", "medium", and "big" pickups in the level will be preserved.
-    **chaotic**: All pickups in the level are completely randomized.
+    - **Off**: Pickups are left unchanged.
+    - **Shuffle**: Pickups in the level are shuffled around.
+    - **Same Type**: Each "small" pickup in the level is replaced with a different "small" pickup; same for "medium" and "big" pickups.
+    - **Balanced**: All pickups in the level are randomized. The ratio of "small", "medium", and "big" pickups in the level will be preserved.
+    - **Chaotic**: All pickups in the level are completely randomized.
     """
     display_name = "Random Pickups"
     option_off = 0
@@ -124,9 +127,9 @@ class RandomPickups(Choice):
 class RandomMusic(Choice):
     """Choose how music will be randomized.
 
-    **off**: The music tracks will be left unchanged.
-    **shuffle_selected**: All music tracks within the episodes you have selected will be shuffled together.
-    **shuffle_game**: All music in the entire game will be shuffled together.
+    - **Off**: The music tracks will be left unchanged.
+    - **Shuffle Selected**: All music tracks within the episodes you have selected will be shuffled together.
+    - **Shuffle Game**: All music in the entire game will be shuffled together.
     """
     display_name = "Random Music"
     option_off = 0
@@ -134,14 +137,14 @@ class RandomMusic(Choice):
     option_shuffle_game = 2
     alias_vanilla = 0
     default = 0
-    
+
 
 class FlipLevels(Choice):
     """Choose if levels should be randomly flipped (mirrored).
 
-    **off**: Levels won't be flipped.
-    **on**: All levels will be flipped.
-    **random_mix**: Each level has a random chance of being flipped.
+    - **Off**: Levels won't be flipped.
+    - **On**: All levels will be flipped.
+    - **Random Mix**: Each level has a random chance of being flipped.
     """
     display_name = "Flip Levels"
     option_off = 0
@@ -163,14 +166,14 @@ class AllowDeathLogic(Toggle):
     """
     display_name = "Allow Death Logic"
 
-    
+
 class TrickDifficulty(Choice):
     """Choose which tricks, if any, can be logically expected.
 
-    **none**: Assumes vanilla progression through levels.
-    **basic**: Some minor unintended strategies may be required.
-    **pro**: More advanced speedrunning strategies like wallruns, SR40/SR50 straferunning, and exploiting the Z axis may be required.
-    **extreme**: If it's feasible in real time, it's in logic. Includes tricks that require enabling vertical mouse movement, tricks that punish failure with death, or out-of-bounds movement.
+    - **None**: Assumes vanilla progression through levels.
+    - **Basic**: Some minor unintended strategies may be required.
+    - **Pro**: More advanced speedrunning strategies like wallruns, SR40/SR50 straferunning, and exploiting the Z axis may be required.
+    - **Extreme**: If it's feasible in real time, it's in logic. Includes tricks that require enabling vertical mouse movement, tricks that punish failure with death, or out-of-bounds movement.
     """
     display_name = "Trick Difficulty"
     option_none = 0
@@ -208,11 +211,11 @@ class CheckSanity(Toggle):
 class DifficultyDoom(Choice):
     """Choose the game difficulty (skill level).
 
-    **baby**: (I'm too young to die.) - Damage taken is halved. Ammo received from pickups is doubled.
-    **easy**: (Hey, not too rough.) - Lesser number or strength of monsters, and more pickups.
-    **medium**: (Hurt me plenty.) - The default skill. Balanced monsters and pickups.
-    **hard**: (Ultra-Violence.) - Greater number or strength of monsters, and less pickups.
-    **nightmare**: (Nightmare!) - Monsters are faster, more aggressive, and respawn.
+    - **Baby**: (I'm too young to die.) - Damage taken is halved. Ammo received from pickups is doubled.
+    - **Easy**: (Hey, not too rough.) - Lesser number or strength of monsters, and more pickups.
+    - **Medium**: (Hurt me plenty.) - The default skill. Balanced monsters and pickups.
+    - **Hard**: (Ultra-Violence.) - Greater number or strength of monsters, and less pickups.
+    - **Nightmare**: (Nightmare!) - Monsters are faster, more aggressive, and respawn.
     """
     display_name = "Difficulty"
     skill_5_warning = "Are you sure? This skill level isn't even remotely fair."
@@ -232,11 +235,11 @@ class DifficultyDoom(Choice):
 class DifficultyHeretic(Choice):
     """Choose the game difficulty (skill level).
 
-    **wet nurse**: (Thou needeth a wet-nurse) - Damage taken is halved. Ammo received from pickups is doubled. Quartz Flasks and Mystic Urns are automatically used when the player nears death.
-    **easy**: (Yellowbellies-r-us) - Lesser number or strength of monsters, and more pickups.
-    **medium**: (Bringest them oneth) - The default skill. Balanced monsters and pickups.
-    **hard**: (Thou art a smite-meister) - Greater number or strength of monsters, and less pickups.
-    **black plague**: (Black plague possesses thee) - Monsters are faster and more aggressive.
+    - **Wet nurse**: (Thou needeth a wet-nurse) - Damage taken is halved. Ammo received from pickups is doubled. Quartz Flasks and Mystic Urns are automatically used when the player nears death.
+    - **Easy**: (Yellowbellies-r-us) - Lesser number or strength of monsters, and more pickups.
+    - **Medium**: (Bringest them oneth) - The default skill. Balanced monsters and pickups.
+    - **Hard**: (Thou art a smite-meister) - Greater number or strength of monsters, and less pickups.
+    - **Black plague**: (Black plague possesses thee) - Monsters are faster and more aggressive.
     """
     display_name = "Difficulty"
     option_wet_nurse = 0
@@ -261,6 +264,7 @@ class Episode(Toggle):
     """This is an example episode that is disabled by default.
 
     This episode contains the following maps:
+
     (list)
     """
     is_major_episode = True
@@ -272,9 +276,10 @@ class Episode(Toggle):
 
 class MinorEpisode(Episode):
     """This is an example episode that is disabled by default.
-    This is a minor episode. Another episode must be played alongside this one.
 
+    This is a minor episode. Another episode must be played alongside this one.
     This episode contains the following maps:
+
     (list)
     """
     is_major_episode = False
@@ -284,6 +289,7 @@ class DefaultEpisode(Episode):
     """This is an example episode that is enabled by default.
 
     This episode contains the following maps:
+
     (list)
     """
     is_major_episode = True
@@ -292,9 +298,10 @@ class DefaultEpisode(Episode):
 
 class MinorDefaultEpisode(Episode):
     """This is an example episode that is enabled by default.
-    This is a minor episode. Another episode must be played alongside this one.
 
+    This is a minor episode. Another episode must be played alongside this one.
     This episode contains the following maps:
+
     (list)
     """
     is_major_episode = False
@@ -329,14 +336,14 @@ class StartWithMapScrolls(StartWithComputerAreaMaps):
 class SplitBackpack(Toggle):
     """Split the Backpack into four individual items, each one increasing ammo capacity for one type of weapon only."""
     display_name = "Split Backpack"
-    split_doom_types = [65001, 65002, 65003, 65004]
+    split_doom_types: tuple[int, ...] = (65001, 65002, 65003, 65004)
     doom_type = 8
 
 
 class SplitBagOfHolding(SplitBackpack):
     """Split the Bag of Holding into six individual items, each one increasing ammo capacity for one type of weapon only."""
     display_name = "Split Bag of Holding"
-    split_doom_types = [65001, 65002, 65003, 65004, 65005, 65006]
+    split_doom_types = (65001, 65002, 65003, 65004, 65005, 65006)
 
 
 #################
@@ -359,7 +366,7 @@ class BagOfHoldingCount(BackpackCount):
 
 
 @dataclass
-class id1CommonOptions(PerGameCommonOptions):
+class id1CommonOptions(PerGameCommonOptions):  # noqa: N801
     start_inventory_from_pool: StartInventoryPool
     death_link: DeathLink
 

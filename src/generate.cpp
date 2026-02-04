@@ -528,6 +528,7 @@ int generate(game_t* game)
 {
     OLog("AP Gen Tool version " APGENTOOL_VERSION);
     long runtime_start = get_runtime_us();
+    bool is_world_folder = true;
 
     world = nullptr;
 
@@ -556,6 +557,7 @@ int generate(game_t* game)
     {
         onut::createFolder("output");
         world = new ZipFile("./output/" + game->ap_world_name + ".apworld");
+        is_world_folder = false;
     }
 
     // ========================================================================
@@ -1093,10 +1095,11 @@ int generate(game_t* game)
             PyOption &opt_ep = opts.emplace_back("episode" + std::to_string(ep + 1), "Episode " + std::to_string(ep + 1), PyOptionType::Episode);
             opt_ep.option_group = "Episodes to Play";
             opt_ep.docstring.push_back(game->episode_info[ep].name + ".");
+            opt_ep.docstring.push_back("");
             if (game->episode_info[ep].is_minor_episode)
                 opt_ep.docstring.push_back("This is a minor episode. Another episode must be played alongside this one.");
-            opt_ep.docstring.push_back("");
             opt_ep.docstring.push_back("This episode includes the following levels:");
+            opt_ep.docstring.push_back("");
             for (auto level : levels_map[ep])
                 opt_ep.docstring.push_back("- " + level->name);
             opt_ep.is_minor_episode = game->episode_info[ep].is_minor_episode;
@@ -1114,15 +1117,20 @@ int generate(game_t* game)
 
     WorldOptions_MixinPyOptions(game, opts);
 
+    bool vendor_id1common = !is_world_folder; // May be an independent option later
+    Py_SetCommonLibVendored(vendor_id1common);
     world->AddSStream(zip_world_path + "options.py", Py_CreateOptionsPy(game, opts));
-    world->AddSStream(zip_world_path + "__init__.py", Py_CreateInitPy(game));
+    world->AddSStream(zip_world_path + "__init__.py", Py_CreateInitPy(game, is_world_folder));
 
-    int result = 0;
-    result += world->AddFile(zip_world_path + "id1common/__init__.py", "./assets/py/id1common/__init__.py");
-    result += world->AddFile(zip_world_path + "id1common/options.py", "./assets/py/id1common/options.py");
-    result += world->AddFile(zip_world_path + "id1common/LICENSE", "./assets/py/id1common/LICENSE");
-    if (result != 3)
-        OnScreenMessages::AddError("Couldn't add the id1common Python module to the APWorld!");
+    if (vendor_id1common)
+    {
+        int result = 0;
+        result += world->AddFile(zip_world_path + "id1common/__init__.py", "./assets/py/id1common/__init__.py");
+        result += world->AddFile(zip_world_path + "id1common/options.py", "./assets/py/id1common/options.py");
+        result += world->AddFile(zip_world_path + "id1common/LICENSE", "./assets/py/id1common/LICENSE");
+        if (result != 3)
+            OnScreenMessages::AddError("Couldn't add the id1common Python module to the APWorld!");
+    }
 
     // ========================================================================
 
