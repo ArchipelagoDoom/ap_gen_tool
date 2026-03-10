@@ -78,7 +78,7 @@
             {"name": "Plasma gun", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "BFG9000", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "Chainsaw"},
-            {"name": "Super shotgun", "ammo_type": "Shells"}
+            {"name": "Super shotgun", "ammo_type": "Shells", "starting_ammo": 30}
         ],
         "monsters": {
             "small": [3004, 9, 3001, 84, 65],
@@ -165,7 +165,7 @@
             {"name": "Plasma gun", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "BFG9000", "ammo_type": "Energy Cells", "starting_ammo": 150},
             {"name": "Chainsaw"},
-            {"name": "Super shotgun", "ammo_type": "Shells"}
+            {"name": "Super shotgun", "ammo_type": "Shells", "starting_ammo": 30}
         ],
         "monsters": {
             "small": [3004, 9, 3001, 84, 65],
