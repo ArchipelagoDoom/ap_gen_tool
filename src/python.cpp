@@ -257,6 +257,7 @@ std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption> &opts)
     option_groups["Difficulty Options"].push_back("id1Options.AllowDeathLogic");
     option_groups["Difficulty Options"].push_back("id1Options.ResetLevelOnDeath");
     option_groups["Difficulty Options"].push_back("BaseOptions.DeathLink");
+    option_groups["Difficulty Options"].push_back("id1Options.EnergyLink");
 
     // Now output
     pystream << game->ap_class_name << "OptionGroups = [" << std::endl;

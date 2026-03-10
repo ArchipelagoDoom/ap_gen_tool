@@ -506,6 +506,26 @@ Json::Value generate_game_defs_json(game_t *game, level_map_t& levels_map)
             defs_json["type_sprites"][std::to_string(key.item.doom_type)] = key.item.sprite;
     }
 
+    // Output EnergyLink Shop data
+    {
+        int idx = 0;
+        for (const auto& item : game->progression)
+        {
+            if (item.buyable)
+                defs_json["energy_link_shop"][idx++] = item.doom_type;
+        }
+        for (const auto& item : game->useful)
+        {
+            if (item.buyable)
+                defs_json["energy_link_shop"][idx++] = item.doom_type;
+        }
+        for (const auto& item : game->filler)
+        {
+            if (item.buyable)
+                defs_json["energy_link_shop"][idx++] = item.doom_type;
+        }
+    }
+
     // Output AP location types
     {
         int idx = 0;

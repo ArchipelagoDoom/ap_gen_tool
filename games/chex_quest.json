@@ -19,6 +19,7 @@
             ]
         }
     ],
+
     "world_info":{
         "world_options":[
             {
@@ -39,6 +40,7 @@
             "Supercharge breakfast": 6
         }
     },
+
     "game_info":{
         "ammo": [
             {"name": "Mini", "max": 200},
@@ -57,6 +59,7 @@
             {"name": "Super bootspork"}
         ]
     },
+
     "location_doom_types": {
         "5": "Blue key",
         "6": "Yellow key",
@@ -73,40 +76,44 @@
         "2001": "Large zorcher",
         "2026": "Computer area map"
     },
-    "extra_connection_requirements": [
-        {"doom_type": -1, "name": "deathlogic",    "sprite": "STFDEAD0"},
-        {"doom_type": -3, "name": "trick_basic",   "sprite": "STFKILL1"},
-        {"doom_type": -2, "name": "trick_pro",     "sprite": "STFKILL3"},
-        {"doom_type": -4, "name": "trick_extreme", "sprite": "STFKILL4"}
-    ],
-    "progression": [
-        {"doom_type": 2001, "name": "Large zorcher",   "group": ["Weapons"], "sprite": "SHOTA0"},
-        {"doom_type": 2003, "name": "Zorch propulsor", "group": ["Weapons"], "sprite": "LAUNA0"},
-        {"doom_type": 2004, "name": "Phasing zorcher", "group": ["Weapons"], "sprite": "PLASA0"},
-        {"doom_type": 2005, "name": "Super bootspork", "group": ["Weapons"], "sprite": "CSAWA0"},
-        {"doom_type": 2002, "name": "Rapid zorcher",   "group": ["Weapons"], "sprite": "MGUNA0"},
-        {"doom_type": 2006, "name": "LAZ device",      "group": ["Weapons"], "sprite": "BFUGA0"}
-    ],
-    "useful": [
-        {"doom_type": 8, "name": "Zorchpak", "group": ["Capacity upgrades"], "sprite": "BPAKA0"}
-    ],
-    "filler": [
-        {"doom_type": 2018, "name": "Chex armor",            "group": ["Powerups"],      "sprite": "ARM1A0"},
-        {"doom_type": 2019, "name": "Super Chex armor",      "group": ["Powerups"],      "sprite": "ARM2A0"},
-        {"doom_type": 2013, "name": "Supercharge breakfast", "group": ["Powerups"],      "sprite": "SOULA0"},
-        {"doom_type": 2012, "name": "Bowl of vegetables",    "group": ["Junk"],          "sprite": "MEDIA0"},
-        {"doom_type": 2048, "name": "Mini zorch pack",       "group": ["Junk", "Ammos"], "sprite": "AMMOA0"},
-        {"doom_type": 2046, "name": "Zorch propulsor pack",  "group": ["Junk", "Ammos"], "sprite": "BROKA0"},
-        {"doom_type": 2049, "name": "Large zorcher pack",    "group": ["Junk", "Ammos"], "sprite": "SBOXA0"},
-        {"doom_type": 17,   "name": "Phasing zorcher pack",  "group": ["Junk", "Ammos"], "sprite": "CELPA0"},
-        {"doom_type": 2025, "name": "Slimeproof suit",       "group": ["Powerups"],      "sprite": "SUITA0", "count": 0}
-    ],
-    "unique_filler": [
-        {"doom_type": 2026, "name": "Computer area map", "group": ["Computer area maps", "%MAP% Map"], "sprite": "PMAPA0"}
-    ],
-    "keys": [
-        {"doom_type": 5,  "name": "Blue key",   "group": ["Keys", "%MAP% Keys", "%MAP% Blue"],   "key": 0, "use_skull": false, "region_name": "Blue",   "color": [0, 0, 1], "sprite": "BKEYB0"},
-        {"doom_type": 6,  "name": "Yellow key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": false, "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YKEYB0"},
-        {"doom_type": 13, "name": "Red key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"}
-    ]
+
+    "items": {
+        "extra_connection_requirements": [
+            {"doom_type": -1, "name": "deathlogic",    "sprite": "STFDEAD0"},
+            {"doom_type": -3, "name": "trick_basic",   "sprite": "STFKILL1"},
+            {"doom_type": -2, "name": "trick_pro",     "sprite": "STFKILL3"},
+            {"doom_type": -4, "name": "trick_extreme", "sprite": "STFKILL4"}
+        ],
+        "progression": [
+            {"doom_type": 2001, "name": "Large zorcher",   "group": ["Weapons"], "sprite": "SHOTA0"},
+            {"doom_type": 2003, "name": "Zorch propulsor", "group": ["Weapons"], "sprite": "LAUNA0"},
+            {"doom_type": 2004, "name": "Phasing zorcher", "group": ["Weapons"], "sprite": "PLASA0"},
+            {"doom_type": 2005, "name": "Super bootspork", "group": ["Weapons"], "sprite": "CSAWA0"},
+            {"doom_type": 2002, "name": "Rapid zorcher",   "group": ["Weapons"], "sprite": "MGUNA0"},
+            {"doom_type": 2006, "name": "LAZ device",      "group": ["Weapons"], "sprite": "BFUGA0"}
+        ],
+        "useful": [
+            {"doom_type": 8,     "name": "Zorchpak",     "group": ["Capacity upgrades"], "sprite": "BPAKA0"},
+            {"doom_type": 65000, "name": "Zorch refill", "group": ["Ammos"],             "sprite": "BPAKA0", "count": 0, "buyable": true}
+        ],
+        "filler": [
+            {"doom_type": 2018, "name": "Chex armor",            "group": ["Powerups"],      "sprite": "ARM1A0", "buyable": true},
+            {"doom_type": 2019, "name": "Super Chex armor",      "group": ["Powerups"],      "sprite": "ARM2A0", "buyable": true},
+            {"doom_type": 2013, "name": "Supercharge breakfast", "group": ["Powerups"],      "sprite": "SOULA0", "buyable": true},
+            {"doom_type": 2012, "name": "Bowl of vegetables",    "group": ["Junk"],          "sprite": "MEDIA0"},
+            {"doom_type": 2048, "name": "Mini zorch pack",       "group": ["Junk", "Ammos"], "sprite": "AMMOA0"},
+            {"doom_type": 2046, "name": "Zorch propulsor pack",  "group": ["Junk", "Ammos"], "sprite": "BROKA0"},
+            {"doom_type": 2049, "name": "Large zorcher pack",    "group": ["Junk", "Ammos"], "sprite": "SBOXA0"},
+            {"doom_type": 17,   "name": "Phasing zorcher pack",  "group": ["Junk", "Ammos"], "sprite": "CELPA0"},
+            {"doom_type": 2025, "name": "Slimeproof suit",       "group": ["Powerups"],      "sprite": "SUITA0", "count": 0, "buyable": true}
+        ],
+        "unique_filler": [
+            {"doom_type": 2026, "name": "Computer area map", "group": ["Computer area maps", "%MAP% Map"], "sprite": "PMAPA0"}
+        ],
+        "keys": [
+            {"doom_type": 5,  "name": "Blue key",   "group": ["Keys", "%MAP% Keys", "%MAP% Blue"],   "key": 0, "use_skull": false, "region_name": "Blue",   "color": [0, 0, 1], "sprite": "BKEYB0"},
+            {"doom_type": 6,  "name": "Yellow key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": false, "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YKEYB0"},
+            {"doom_type": 13, "name": "Red key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"}
+        ]
+    }
 }

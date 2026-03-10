@@ -18,6 +18,7 @@ void parse_item(ap_item_def_t &item, const Json::Value &json)
     item.name = json["name"].asString();
     item.sprite = json["sprite"].asString();
     item.count = json.get("count", 1).asInt();
+    item.buyable = json.get("buyable", false).asBool();
 
     if (!json["group"].isNull())
     {
@@ -68,8 +69,12 @@ void init_data()
 
     // Load default game info
     Json::Value default_game_infos;
+    Json::Value default_items;
+
     if (!onut::loadJson(default_game_infos, "./assets/json/default_game_info.json"))
-        OnScreenMessages::AddError("Default game info file couldn't be loaded, expect issues.");
+        OnScreenMessages::AddError("default_game_info.json couldn't be loaded, expect issues.");
+    if (!onut::loadJson(default_items, "./assets/json/default_items.json"))
+        OnScreenMessages::AddError("default_items.json couldn't be loaded, expect issues.");
 
     // Load game files
     auto game_json_files = onut::findAllFiles("./games/", "json", false);
@@ -168,15 +173,23 @@ void init_data()
             game.location_doom_types[std::stoi(doom_types_id)] = game_json["location_doom_types"][doom_types_id].asString();
         }
 
-        parse_items(game.extra_connection_requirements, game_json["extra_connection_requirements"]);
-        parse_items(game.progression, game_json["progression"]);
-        parse_items(game.useful, game_json["useful"]);
-        parse_items(game.filler, game_json["filler"]);
-        parse_items(game.unique_progression, game_json["unique_progression"]);
-        parse_items(game.unique_useful, game_json["unique_useful"]);
-        parse_items(game.unique_filler, game_json["unique_filler"]);
+        // Merge in default items for iwad
+        Json::Value item_json = default_items.get(game.iwad_name, Json::objectValue);
+        if (game_json["items"].isObject())
+        {
+            for (const auto &element : game_json["items"].getMemberNames())
+                item_json[element] = game_json["items"][element];
+        }
 
-        for (const auto& key_json : game_json["keys"])
+        parse_items(game.extra_connection_requirements, item_json["extra_connection_requirements"]);
+        parse_items(game.progression, item_json["progression"]);
+        parse_items(game.useful, item_json["useful"]);
+        parse_items(game.filler, item_json["filler"]);
+        parse_items(game.unique_progression, item_json["unique_progression"]);
+        parse_items(game.unique_useful, item_json["unique_useful"]);
+        parse_items(game.unique_filler, item_json["unique_filler"]);
+
+        for (const auto& key_json : item_json["keys"])
         {
             ap_key_def_t item;
             parse_item(item.item, key_json);

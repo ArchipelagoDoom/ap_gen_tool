@@ -216,6 +216,7 @@ struct ap_item_def_t
 
     std::vector<std::string> groups;
     int count = 0;
+    bool buyable = false;
 };
 
 
