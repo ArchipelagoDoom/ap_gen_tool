@@ -549,6 +549,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
         # Fill in options guaranteed to exist.
         slot_data = self.options.as_dict(
             "death_link",
+            "energy_link",
             "difficulty",
             "reset_level_on_death",
             "random_monsters",
