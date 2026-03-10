@@ -251,18 +251,6 @@ void init_data()
         game.json_map_tweaks = game_json["map_tweaks"];
         game.json_level_select = game_json["level_select"];
 
-        // Temporarily support old ID remapping
-        if (game_json["loc_remap"].isObject())
-        {
-            for (const auto& loc_name : game_json["loc_remap"].getMemberNames())
-                game.location_remap[loc_name] = game_json["loc_remap"][loc_name].asInt64();
-        }
-        if (game_json["item_remap"].isObject())
-        {
-            for (const auto& loc_name : game_json["item_remap"].getMemberNames())
-                game.item_remap[loc_name] = game_json["item_remap"][loc_name].asInt64();
-        }
-
         if (init_maps(game))
             games[game.short_name] = game;
         else

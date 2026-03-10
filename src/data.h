@@ -259,9 +259,6 @@ struct game_t
     std::vector<ap_item_def_t> unique_useful;
     std::vector<ap_item_def_t> unique_filler;
     std::vector<ap_key_def_t> keys;
-    // Should remove these two after 2.0, as they're no longer necessary
-    std::map<std::string, int64_t> location_remap;
-    std::map<std::string, int64_t> item_remap;
 
     Color key_colors[3];
     int ep_count = -1;
