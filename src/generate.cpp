@@ -398,6 +398,12 @@ Json::Value generate_apworld_manifest(game_t *game, const Json::Value &apdoom_js
         json["version"] = 7;
         json["compatible_version"] = 7;        
     }
+    if (!game->authors.empty())
+    {
+        json["authors"] = Json::arrayValue;
+        for (std::string &author : game->authors)
+            json["authors"].append(author);
+    }
     json["game"] = game->ap_name;
     json["world_version"] = "2.0." + std::string(buf);
     json["minimum_ap_version"] = "0.6.3";

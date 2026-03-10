@@ -110,6 +110,7 @@ void init_data()
         game.ap_class_name = game_json.get("ap_class_name", "id1Game").asString();
         game.full_name = game_json.get("full_name", game.ap_name).asString();
         game.short_name = game_json["short_name"].asString();
+        stringarray_to_vector(game.authors, game_json["authors"]);
 
         game.iwad_name = game_json["iwad"].asString(); // The IWAD, lumps get loaded from this if missing in PWAD
         stringarray_to_vector(game.required_wads, game_json["required_wads"]);

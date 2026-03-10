@@ -4,6 +4,7 @@
     "ap_name": "Heretic (Beta)",
     "ap_world_name": "heretic_beta",
     "ap_class_name": "Heretic",
+    "authors": ["Daivuk", "Kaito Sinclaire", "Forsaken Angel"],
 
     "iwad": "HERETIC.WAD",
     "settings": {

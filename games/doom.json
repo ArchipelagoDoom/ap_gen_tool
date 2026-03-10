@@ -4,6 +4,7 @@
     "ap_name": "DOOM 1993 (Beta)",
     "ap_world_name": "doom_1993_beta",
     "ap_class_name": "DOOM1993",
+    "authors": ["Daivuk", "Kaito Sinclaire", "Devil's Advocado"],
 
     "iwad": "DOOM.WAD",
     "settings":{

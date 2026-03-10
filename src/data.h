@@ -243,6 +243,7 @@ struct game_t
     std::string ap_name; // Full name used on Archipelago.
     std::string ap_world_name; // Short name used by the apworld/directory.
     std::string ap_class_name; // Class name prefixed to python classes in the apworld.
+    std::vector<std::string> authors; // Stored in the manifest
     std::vector<std::string> description; // Docstring for the world class
     std::map<std::string, std::vector<std::string>> world_hooks;
     std::map<std::string, int> filler_item_weight;
