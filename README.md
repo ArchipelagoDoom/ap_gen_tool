@@ -9,4 +9,6 @@ Having this in the main repository was adding a _lot_ of extra complexity to the
 
 ## Legalese
 
-ap_gen_tool is © 2023-2024 David "Daivuk" St-Louis, © 2024-2025 Kay "Kaito" Sinclaire, and is released under the terms of the GPLv2.
+The code for ap_gen_tool is © 2023-2024 David "Daivuk" St-Louis, © 2024-2026 Kay "Kaito" Sinclaire, and is released under the terms of the GPLv2.
+
+The id1Common Python library (residing in `assets/py/id1Common`) is © 2025-2026 Kay "Kaito" Sinclaire, and is released under the terms of the zlib license.
