@@ -36,6 +36,7 @@
 #include "maps.h"
 #include "generate.h"
 #include "data.h"
+#include "defs.h"
 
 #include <algorithm>
 
@@ -638,7 +639,7 @@ int generate(game_t* game)
 
             if (
                 loc_it == game->location_doom_types.end() // Not a location
-                || (thing.flags & 0x0010) // Multiplayer only flag set
+                || (thing.flags & THING_FLAG_MP_ONLY) // Multiplayer only flag set
             )
                 continue;
 

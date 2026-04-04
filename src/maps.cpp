@@ -727,6 +727,11 @@ bool init_maps(game_t& game)
                 mt.type = tweak.get("type", mt.type).asInt();
                 mt.direction = tweak.get("angle", mt.direction).asInt();
                 mt.flags = tweak.get("flags", mt.flags).asInt();
+
+                // We interpret the "dont_randomize" flag differently here (just as another MP only flag)
+                // from how we do in the actual game (completely skip the item spawning code)
+                if (tweak.get("dont_randomize", false).asBool())
+                    mt.flags |= THING_FLAG_MP_ONLY;
             }
 
             map->sectors.resize(map->map_sectors.size());
@@ -854,10 +859,10 @@ bool init_maps(game_t& game)
                 const auto& thing = map->things[j];
 
                 // Count total thing count (Consider UV difficulty)
-                if (thing.flags & 0x0004)
+                if (thing.flags & THING_FLAG_HARD)
                     game.total_doom_types[thing.type]++;
 
-                if (thing.flags & 0x0010) continue; // Thing is not in single player
+                if (thing.flags & THING_FLAG_MP_ONLY) continue; // Thing is not in single player
                 auto it = game.location_doom_types.find(thing.type);
                 if (it == game.location_doom_types.end()) continue;
                 map->check_count++;

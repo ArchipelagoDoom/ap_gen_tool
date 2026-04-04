@@ -390,7 +390,7 @@ void load(game_t* game)
         for (int i = 0; i < (int)map->things.size(); ++i)
         {
             const auto& thing = map->things[i];
-            if (thing.flags & 0x0010) continue; // Thing is not in single player
+            if (thing.flags & THING_FLAG_MP_ONLY) continue; // Thing is not in single player
             if (game->location_doom_types.find(thing.type) != game->location_doom_types.end())
             {
                 location_t location;
@@ -404,7 +404,7 @@ void load(game_t* game)
             location_t location;
             int index = location_json["index"].asInt();
             const auto& thing = map->things[index];
-            if (thing.flags & 0x0010) continue; // Thing is not in single player
+            if (thing.flags & THING_FLAG_MP_ONLY) continue; // Thing is not in single player
             if (game->location_doom_types.find(thing.type) != game->location_doom_types.end())
             {
                 location.death_logic = location_json["death_logic"].asBool();
@@ -716,7 +716,7 @@ void reset_level()
     for (int i = 0; i < (int)map->things.size(); ++i)
     {
         const auto& thing = map->things[i];
-        if (thing.flags & 0x0010)
+        if (thing.flags & THING_FLAG_MP_ONLY)
         {
             continue; // Thing is not in single player
         }
@@ -851,7 +851,7 @@ int get_loc_at(const Vector2& pos)
     int index = 0;
     for (const auto& thing : map->things)
     {
-        if (thing.flags & 0x0010)
+        if (thing.flags & THING_FLAG_MP_ONLY)
         {
             ++index;
             continue; // Thing is not in single player
@@ -1838,7 +1838,7 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
     for (const auto& thing : map->things)
     {
         ++i;
-        if (thing.flags & 0x0010) continue; // Thing is not in single player
+        if (thing.flags & THING_FLAG_MP_ONLY) continue; // Thing is not in single player
         if (game->location_doom_types.find(thing.type) != game->location_doom_types.end())
         {
             //ap_deathlogic_icon
@@ -2400,7 +2400,7 @@ void renderUI()
             int index = 0;
             for (const auto& thing : map->things)
             {
-                if (thing.flags & 0x0010)
+                if (thing.flags & THING_FLAG_MP_ONLY)
                 {
                     index++;
                     continue; // Thing is not in single player
@@ -2471,7 +2471,7 @@ void renderUI()
                     push_undo();
                 }
 
-                if (ImGui::Checkbox("check_sanity", &location.check_sanity))
+                if (ImGui::Checkbox("Check Sanity", &location.check_sanity))
                 {
                     if (location.check_sanity) map_state->check_sanity_count++;
                     else map_state->check_sanity_count--;
