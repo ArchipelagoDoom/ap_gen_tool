@@ -125,11 +125,24 @@ struct subsector_t
 };
 
 
+enum arrowtype_t
+{
+    ARROW_DOOR_SR,
+    ARROW_DOOR_WR,
+    ARROW_LIFT_SR,
+    ARROW_LIFT_WR,
+    ARROW_STAIR,
+    ARROW_CRUSHER,
+    ARROW_TELEPORT,
+    ARROW_OTHER
+};
+
 struct arrow_t
 {
     Vector2 from;
     Vector2 to;
     Color color;
+    arrowtype_t type;
 };
 
 

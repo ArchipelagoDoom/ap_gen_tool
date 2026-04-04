@@ -454,7 +454,22 @@ OTextureRef load_sprite(const std::vector<game_wad_t>& wad_list, const char* lum
     return OTexture::createFromData(img_data.data(), {header.width, header.height}, false);
 }
 
-Color get_color_for_line_type(int special)
+Color get_color_for_arrow_type(arrowtype_t type)
+{
+    switch (type)
+    {
+        case ARROW_DOOR_SR:  return Color(1, 0, 1);
+        case ARROW_DOOR_WR:  return Color(1, 0.5f, 1);
+        case ARROW_LIFT_SR:  return Color(0, 1, 1);
+        case ARROW_LIFT_WR:  return Color(0.5f, 1, 1);
+        case ARROW_CRUSHER:  return Color(1, 0, 0);
+        case ARROW_STAIR:    return Color(0, 0, 1);
+        case ARROW_TELEPORT: return Color(1, 1, 0.5f);
+        default:             return Color(1, 1, 1);
+    }
+}
+
+arrowtype_t get_arrow_type(int special)
 {
     switch (special)
     {
@@ -487,7 +502,7 @@ Color get_color_for_line_type(int special)
         case LT_S1_DOOR_BLUE_OPEN_STAY_FAST:
         case LT_S1_DOOR_RED_OPEN_STAY_FAST:
         case LT_S1_DOOR_YELLOW_OPEN_STAY_FAST:
-            return Color(1, 0, 1);
+            return ARROW_DOOR_SR;
 
         case LT_WR_DOOR_OPEN_WAIT_CLOSE:
         case LT_WR_DOOR_OPEN_WAIT_CLOSE_FAST:
@@ -503,7 +518,7 @@ Color get_color_for_line_type(int special)
         case LT_W1_DOOR_CLOSE_FAST:
         case LT_WR_DOOR_CLOSE_STAY_OPEN:
         case LT_W1_DOOR_CLOSE_WAIT_OPEN:
-            return Color(1, 0.5f, 1);
+            return ARROW_DOOR_WR;
 
         case LT_SR_FLOOR_LOWER_TO_LOWEST_FLOOR:
         case LT_S1_FLOOR_LOWER_TO_LOWEST_FLOOR:
@@ -535,7 +550,7 @@ Color get_color_for_line_type(int special)
         case LT_G1_FLOOR_RAISE_TO_NEXT_HIGHER_FLOOR_CHANGES_TEXTURE:
         case LT_SR_LIFT_LOWER_WAIT_RAISE:
         case LT_S1_LIFT_LOWER_WAIT_RAISE:
-            return Color(0, 1, 1);
+            return ARROW_LIFT_SR;
 
         case LT_WR_FLOOR_RAISE_TO_8_BELLOW_LOWEST_CEILING_CRUSHES:
         case LT_W1_FLOOR_RAISE_TO_8_BELLOW_LOWEST_CEILING_CRUSHES:
@@ -573,7 +588,7 @@ Color get_color_for_line_type(int special)
         case LT_W1_LIFT_LOWER_WAIT_RAISE:
         case LT_WR_LIFT_LOWER_WAIT_RAISE_FAST:
         case LT_W1_LIFT_LOWER_WAIT_RAISE_FAST:
-            return Color(0.5f, 1, 1);
+            return ARROW_LIFT_WR;
 
         // Crusher types
         case LT_S1_CEILING_LOWER_TO_8_ABOVE_FLOOR_PERPETUAL_SLOW_CHRUSHER_DAMAGE:
@@ -584,24 +599,24 @@ Color get_color_for_line_type(int special)
         case LT_W1_CRUSHER_START_WITH_SLOW_DAMAGE_SILENT:
         case LT_WR_CRUSHER_STOP:
         case LT_W1_CRUSHER_STOP:
-            return Color(1, 0, 0);
+            return ARROW_CRUSHER;
 
         // Stairs types
         case LT_S1_STAIRS_RAISE_BY_8:
         case LT_S1_STAIRS_RAISE_BY_16_FAST:
         case LT_W1_STAIRS_RAISE_BY_8:
         case LT_W1_STAIRS_RAISE_BY_16_FAST:
-            return Color(0, 0, 1);
+            return ARROW_STAIR;
 
         // Teleporter types
         case LT_WR_TELEPORT_ALSO_MONSTERS:
         case LT_W1_TELEPORT_ALSO_MONSTERS:
         case LT_WR_TELEPORT_MONSTERS_ONLY:
         case LT_W1_TELEPORT_MONSTERS_ONLY:
-            return Color(1, 1, 0.5f);
+            return ARROW_TELEPORT;
     }
 
-    return Color(1, 1, 1);
+    return ARROW_OTHER;
 }
 
 bool init_maps(game_t& game)
@@ -795,7 +810,8 @@ bool init_maps(game_t& game)
                 if (line_def.special_type != 0 && line_def.sector_tag != 0)
                 {
                     arrow_t arrow;
-                    arrow.color = get_color_for_line_type(line_def.special_type);
+                    arrow.type = get_arrow_type(line_def.special_type);
+                    arrow.color = get_color_for_arrow_type(arrow.type);
                     const auto& v1 = map->vertexes[line_def.start_vertex];
                     const auto& v2 = map->vertexes[line_def.end_vertex];
                     arrow.from = {

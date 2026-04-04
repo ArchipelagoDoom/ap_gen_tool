@@ -117,6 +117,7 @@ static int set_rule_rule = -3;
 static int set_rule_connection = -1;
 //static int mouse_hover_access = -1;
 static int mouse_hover_location = -1;
+static uint8_t disable_arrows = 0x00;
 
 
 map_view_t* get_view(const level_index_t& idx)
@@ -1754,6 +1755,18 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
     // Arrows
     for (const auto& arrow : map->arrows)
     {
+        switch (arrow.type)
+        {
+        case ARROW_DOOR_SR:  // fall through
+        case ARROW_DOOR_WR:  if (disable_arrows & 0x01) continue; break;
+        case ARROW_LIFT_SR:  // fall through
+        case ARROW_LIFT_WR:  if (disable_arrows & 0x02) continue; break;
+        case ARROW_CRUSHER:  if (disable_arrows & 0x04) continue; break;
+        case ARROW_STAIR:    if (disable_arrows & 0x08) continue; break;
+        case ARROW_TELEPORT: if (disable_arrows & 0x10) continue; break;
+        default: break;
+        }
+
         pb->draw(arrow.from, arrow.color);
         pb->draw(arrow.to, arrow.color);
 
@@ -2070,6 +2083,19 @@ void renderUI()
 
         ImGui::Separator();
         if (ImGui::MenuItem("Allow Window Movement", "", imgui_drag)) imgui_drag = !imgui_drag;
+
+        ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("View"))
+    {
+        if (ImGui::MenuItem("Toggle All", "")) disable_arrows = (!disable_arrows ? 0x1F : 0x00);
+        ImGui::Separator();
+        if (ImGui::MenuItem("Show Doors", "",       !(disable_arrows & 0x01))) disable_arrows ^= 0x01;
+        if (ImGui::MenuItem("Show Lifts", "",       !(disable_arrows & 0x02))) disable_arrows ^= 0x02;
+        if (ImGui::MenuItem("Show Stairs",      "", !(disable_arrows & 0x08))) disable_arrows ^= 0x08;
+        if (ImGui::MenuItem("Show Crushers", "",    !(disable_arrows & 0x04))) disable_arrows ^= 0x04;
+        if (ImGui::MenuItem("Show Teleporters", "", !(disable_arrows & 0x10))) disable_arrows ^= 0x10;
 
         ImGui::EndMenu();
     }
