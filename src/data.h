@@ -51,6 +51,11 @@ struct bb_t
     int x1, y1, x2, y2;
     int region = -1;
 
+    bool point_inside(const int px, const int py) const
+    {
+        return (px >= x1 && px <= x2 && py >= y1 && py <= y2);
+    }
+
     int overlaps(const bb_t& other) const
     {
         auto d1 = other.x2 - x1;

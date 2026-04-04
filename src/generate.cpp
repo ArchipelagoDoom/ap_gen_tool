@@ -83,24 +83,13 @@ struct ap_location_t
     int doom_thing_index;
     int doom_type;
     std::vector<int64_t> required_items;
-    int sector;
-    int region = -1;
     std::string region_name;
     bool check_sanity = false;
 };
 
 
-struct connection_t
+struct ap_sector_t
 {
-    int sector;
-    std::vector<int64_t> required_items; // OR
-};
-
-
-struct level_sector_t
-{
-    bool visited = false;
-    std::vector<connection_t> connections;
     std::vector<int> locations;
 };
 
@@ -110,8 +99,7 @@ struct level_t
     level_index_t idx;
     std::string name;
     std::string group_name; //lump_name
-    std::vector<level_sector_t> sectors;
-    int starting_sector = -1;
+    std::vector<ap_sector_t> sectors;
     bool keys[3] = {false};
     int location_count = 0;
     bool use_skull[3] = {false};
@@ -120,8 +108,6 @@ struct level_t
 };
 
 static GroupedOutput *world = nullptr;
-
-int64_t location_next_id = 0;
 
 std::vector<ap_item_t> ap_items;
 std::vector<ap_location_t> ap_locations;
@@ -198,7 +184,7 @@ void add_loc(const std::string& name, const map_thing_t& thing, level_t* level, 
     location_t *loc_state = &level->map_state->locations[index];
     // Make sure it's not unreachable
     if (loc_state->unreachable) return;
-    if (location_next_id > 999)
+    if (id > 999)
     {
         OLogE("Maximum number of locations reached for Episode "
             + std::to_string(level->idx.ep + 1)
@@ -729,6 +715,21 @@ int generate(game_t* game)
     std::sort(ap_locations.begin(), ap_locations.end(), [](const ap_location_t& a, const ap_location_t& b) { return a.id < b.id; });
     std::sort(ap_items.begin(), ap_items.end(), [](const ap_item_t& a, const ap_item_t& b) { return a.id < b.id; });
 
+    // Set up bounding box location regions. Bounding box regions override sector regions.
+    for (auto& loc : ap_locations)
+    {
+        if (loc.doom_thing_index < 0) continue;
+        auto level = get_level(loc.idx);
+        for (bb_t& bb : level->map_state->bbs)
+        {
+            if (bb.region > -1 && bb.region < (int)level->map_state->regions.size() && bb.point_inside(loc.x >> 16, loc.y >> 16))
+            {
+                loc.region_name = level->name + " @ " + level->map_state->regions[bb.region].name;
+                break;
+            }
+        }
+    }
+
     // Fill in locations into level's sectors
     for (int i = 0, len = (int)ap_locations.size(); i < len; ++i)
     {
@@ -739,7 +740,7 @@ int generate(game_t* game)
         if (subsector)
         {
             level->sectors[subsector->sector].locations.push_back(i);
-            loc.sector = subsector->sector;
+            //loc.sector = subsector->sector; // removed: never used
         }
         else
         {
@@ -845,9 +846,8 @@ int generate(game_t* game)
                 allregions_json.append(region_json);
             }
 
-            for (std::size_t region_i = 0; region_i < level->map_state->regions.size(); ++region_i)
+            for (const region_t& region : level->map_state->regions)
             {
-                const region_t& region = level->map_state->regions[region_i];
                 Json::Value region_json;
                 const std::string region_name = level_name + " @ " + region.name;
 
@@ -855,7 +855,10 @@ int generate(game_t* game)
                 for (auto sectori : region.sectors)
                 {
                     for (auto loci : level->sectors[sectori].locations)
-                        ap_locations[loci].region_name = region_name;
+                    {
+                        if (ap_locations[loci].region_name.empty())
+                            ap_locations[loci].region_name = region_name;
+                    }
                 }
 
                 // Gather all connections.

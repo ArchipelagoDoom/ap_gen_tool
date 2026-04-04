@@ -90,6 +90,7 @@ static map_history_t* map_history = nullptr;
 static OTextureRef ap_icon;
 static OTextureRef ap_deathlogic_icon;
 static OTextureRef ap_unreachable_icon;
+static OTextureRef ap_region_override_icon;
 static OTextureRef ap_check_sanity_icon;
 static OTextureRef ap_player_start_icon;
 static OTextureRef ap_wing_icon;
@@ -568,6 +569,7 @@ void init()
     ap_icon = OGetTexture("ap.png");
     ap_deathlogic_icon = OGetTexture("deathlogic.png");
     ap_unreachable_icon = OGetTexture("unreachable.png");
+    ap_region_override_icon = OGetTexture("override.png");
     ap_check_sanity_icon = OGetTexture("check_sanity.png");
     ap_player_start_icon = OGetTexture("player_start.png");
     ap_wing_icon = OGetTexture("wings.png");
@@ -1121,11 +1123,13 @@ void update()
                     }
 #endif
 
+#if 0 // Conflicts with keys 1-4 for tools
                     for (int i = 0; i < 9; ++i)
                         if (OInputJustPressed((onut::Input::State)((int)OKey1 + i)) && map_state->selected_bb != -1)
                             map_state->bbs[map_state->selected_bb].region = i;
                     if (OInputJustPressed(OKey0) && map_state->selected_bb != -1)
                         map_state->bbs[map_state->selected_bb].region = -1;
+#endif
 
                     if (OInputJustPressed(OMouse1))
                     {
@@ -1653,12 +1657,6 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
     // Geometry
     pb->begin(OPrimitiveLineList, nullptr, transform);
 
-    // Bounding box
-    //pb->draw(Vector2(map->bb[0], -map->bb[1]), bb_color); pb->draw(Vector2(map->bb[0], -map->bb[3]), bb_color);
-    //pb->draw(Vector2(map->bb[0], -map->bb[3]), bb_color); pb->draw(Vector2(map->bb[2], -map->bb[3]), bb_color);
-    //pb->draw(Vector2(map->bb[2], -map->bb[3]), bb_color); pb->draw(Vector2(map->bb[2], -map->bb[1]), bb_color);
-    //pb->draw(Vector2(map->bb[2], -map->bb[1]), bb_color); pb->draw(Vector2(map->bb[0], -map->bb[1]), bb_color);
-
     // Geometry
     int i = 0;
     bool is_heretic = game->iwad_name == "HERETIC.WAD";
@@ -1768,26 +1766,9 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
         pb->draw(arrow.to, arrow.color); pb->draw(arrow.to - dir * ARROW_HEAD_SIZE + right * ARROW_HEAD_SIZE, arrow.color);
     }
 
-    // Bounding boxes
-    if (draw_tools && tool == tool_t::bb)
-    {
-        int i = 0;
-        for (const auto& bb : map_state->bbs)
-        {
-            Color color = bb_color;
-            if (bb.region != -1 && bb.region < (int)map_state->regions.size()) color = map_state->regions[bb.region].tint;
-            //if (i == map_state->selected_bb) color = Color(1, 0, 0);
-            pb->draw(Vector2(bb.x1, -bb.y1), color); pb->draw(Vector2(bb.x1, -bb.y2), color);
-            pb->draw(Vector2(bb.x1, -bb.y2), color); pb->draw(Vector2(bb.x2, -bb.y2), color);
-            pb->draw(Vector2(bb.x2, -bb.y2), color); pb->draw(Vector2(bb.x2, -bb.y1), color);
-            pb->draw(Vector2(bb.x2, -bb.y1), color); pb->draw(Vector2(bb.x1, -bb.y1), color);
-            ++i;
-        }
-    }
-
     pb->end();
 
-    // Selected bb
+    // Bounding boxes -- selected
     if (draw_tools && tool == tool_t::bb)
     {
         sb->begin(transform);
@@ -1798,6 +1779,17 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
         }
         sb->end();
     }
+
+    // Bounding boxes -- all
+    sb->begin(transform);
+    for (const auto& bb : map_state->bbs)
+    {
+        Color color = bb_color;
+        if (bb.region > -1 && bb.region < (int)map_state->regions.size()) color = map_state->regions[bb.region].tint;
+        sb->drawOutterOutlineRect(Rect(bb.x1, -bb.y1 - (bb.y2 - bb.y1), bb.x2 - bb.x1, bb.y2 - bb.y1), 2.0f / map_view->cam_zoom, color);
+    }
+    sb->end();
+
 
     // Selected location
     if (draw_tools && tool == tool_t::locations)
@@ -1845,6 +1837,15 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
                 sb->drawSprite(ap_unreachable_icon, Vector2(thing.x, -thing.y), Color::White, 0.0f, 1.0f);
             else if (map_state->locations[i].check_sanity)
                 sb->drawSprite(ap_check_sanity_icon, Vector2(thing.x, -thing.y), Color::White, 0.0f, 1.0f);
+
+            for (const auto& bb : map_state->bbs)
+            {
+                if (bb.region > -1 && bb.region < (int)map_state->regions.size() && bb.point_inside(thing.x, thing.y))
+                {
+                    sb->drawSprite(ap_region_override_icon, Vector2(thing.x, -thing.y), map_state->regions[bb.region].tint, 0.0f, 1.0f);
+                    break;
+                }
+            }
         }
         else if (thing.type == 1) // Player start
         {
@@ -2156,9 +2157,6 @@ void renderUI()
                     }
                     if (map_state->selected_region == i)
                     {
-                        ImGui::SameLine(); if (ImGui::Button(" ^ ")) to_move_up = i;
-                        ImGui::SameLine(); if (ImGui::Button(" v ")) to_move_down = i;
-                        ImGui::SameLine(); if (ImGui::Button("X")) to_delete = i;
                         if (map_state->selected_bb != -1 && tool == tool_t::bb)
                         {
                             ImGui::SameLine();
@@ -2166,6 +2164,12 @@ void renderUI()
                             {
                                 map_state->bbs[map_state->selected_bb].region = i;
                             }
+                        }
+                        else
+                        {
+                            ImGui::SameLine(); if (ImGui::Button("^")) to_move_up = i;
+                            ImGui::SameLine(); if (ImGui::Button("v")) to_move_down = i;
+                            ImGui::SameLine(); if (ImGui::Button("X")) to_delete = i;
                         }
                     }
                 }

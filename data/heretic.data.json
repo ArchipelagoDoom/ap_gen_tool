@@ -20808,7 +20808,9 @@
       },
       {
          "accesses" : [],
-         "bbs" : [],
+         "bbs" : [
+            [ 1183, -294, 1504, 30, 0 ]
+         ],
          "ep" : 4,
          "exit_rules" : {
             "connections" : [],
