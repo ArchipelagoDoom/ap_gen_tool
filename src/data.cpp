@@ -143,6 +143,7 @@ void init_data()
         for (const auto &episode_json : game_json["episodes"])
         {
             game.episode_info[ep].name = episode_json.get("name", "Episode " + std::to_string(ep + 1)).asString();
+            game.episode_info[ep].description = episode_json.get("description", "").asString();
             game.episode_info[ep].is_minor_episode = episode_json.get("minor", false).asBool();
             game.episode_info[ep].default_enabled = episode_json.get("default", true).asBool();
 

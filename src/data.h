@@ -205,6 +205,8 @@ struct meta_t // Bad name, but everything about a level
 struct episode_info_t // separate struct because I didn't want to redo everything using the above
 {
     std::string name;
+    std::string description; // Rarely used, provides extra text in the option
+
     int starting_level = 0; // Only applies for major episodes, the map given at the start
     int boss_level = 0; // The default level added to "complete_specific_levels", roughly old boss levels
     bool is_minor_episode; // e.g. secret levels, too short to be a "real" episode

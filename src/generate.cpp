@@ -1086,6 +1086,8 @@ int generate(game_t* game)
             opt_ep.option_group = "Episodes to Play";
             opt_ep.docstring.push_back(game->episode_info[ep].name + ".");
             opt_ep.docstring.push_back("");
+            if (!game->episode_info[ep].description.empty())
+                opt_ep.docstring.push_back(game->episode_info[ep].description);
             if (game->episode_info[ep].is_minor_episode)
                 opt_ep.docstring.push_back("This is a minor episode. Another episode must be played alongside this one.");
             opt_ep.docstring.push_back("This episode includes the following levels:");
