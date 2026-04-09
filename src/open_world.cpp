@@ -296,6 +296,8 @@ void save(game_t* game)
             _map_json["world_rules"] = serialize_rules(state->world_rules);
             _map_json["exit_rules"] = serialize_rules(state->exit_rules);
 
+            _map_json["_lump"] = meta.lump_name;
+            // Kept for backwards compatibility
             _map_json["ep"] = ep;
             _map_json["map"] = lvl;
 
@@ -328,26 +330,34 @@ void load(game_t* game)
         return;
     }
 
+    // Lump name: <game, ep, map>
+    // We prefer using lump name to canonically refer to a saved map's data,
+    // because otherwise moving maps around between episodes gets messy.
+    std::map<std::string, level_index_t> lumpname_to_index;
+    for (int ep = 0; ep < game->episodes.size(); ++ep)
+        for (int lvl = 0; lvl < game->episodes[ep].size(); ++lvl)
+            lumpname_to_index.emplace(game->episodes[ep][lvl].lump_name, level_index_t{game->short_name, ep, lvl});
+
     Json::Value json_maps = json["maps"];
 
     for (const auto& _map_json : json_maps)
     {
-        int ep = _map_json["ep"].asInt();
-        int lvl = _map_json["map"].asInt();
-        if (ep == 0 && lvl >= (int)game->episodes[ep].size())
+        meta_t* meta = nullptr;
+
+        std::string lumpname = _map_json.get("_lump", "INVALIDNAME").asString();
+        if (lumpname_to_index.count(lumpname) > 0)
         {
-            // Could be in DOOM2's old format, remap it
-            for (auto& episode : game->episodes)
-            {
-                if (lvl < (int)episode.size())
-                {
-                    break;
-                }
-                lvl -= (int)episode.size();
-                ++ep;
-            }
+            meta = get_meta(lumpname_to_index[lumpname]);
         }
-        auto meta = get_meta({game->short_name, ep, lvl});
+        else // Fallback to using ep/map from before
+        {
+            int ep = _map_json["ep"].asInt();
+            int lvl = _map_json["map"].asInt();
+            meta = get_meta({game->short_name, ep, lvl});
+        }
+        if (!meta)
+            continue;
+
         auto _map_state = &meta->state;
 
         const auto& bbs_json = _map_json["bbs"];
