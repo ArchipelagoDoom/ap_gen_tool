@@ -797,7 +797,7 @@ void update_shortcuts()
 
 bool test_bb(const bb_t& bb, const Vector2& pos, float zoom, int &edge)
 {
-    float edge_size = 32.0f / zoom;
+    float edge_size = 8.0f / zoom;
     if (pos.x >= bb.x1 - edge_size && pos.x <= bb.x1 + edge_size && pos.y <= -bb.y1 && pos.y >= -bb.y2)
     {
         edge = 0;
@@ -1276,30 +1276,34 @@ void update()
         }
         case state_t::move_bb:
         {
+            bb_t &sel_bb = map_state->bbs[map_state->selected_bb];
             auto diff = (OGetMousePos() - mouse_pos_on_down) / map_view->cam_zoom;
             switch (moving_edge)
             {
                 case -1:
-                    map_state->bbs[map_state->selected_bb].x1 = bb_on_down.x1 + (int)diff.x;
-                    map_state->bbs[map_state->selected_bb].x2 = bb_on_down.x2 + (int)diff.x;
-                    map_state->bbs[map_state->selected_bb].y1 = bb_on_down.y1 - (int)diff.y;
-                    map_state->bbs[map_state->selected_bb].y2 = bb_on_down.y2 - (int)diff.y;
+                    sel_bb.x1 = bb_on_down.x1 + (int)diff.x;
+                    sel_bb.x2 = bb_on_down.x2 + (int)diff.x;
+                    sel_bb.y1 = bb_on_down.y1 - (int)diff.y;
+                    sel_bb.y2 = bb_on_down.y2 - (int)diff.y;
                     break;
                 case 0:
-                    map_state->bbs[map_state->selected_bb].x1 = bb_on_down.x1 + (int)diff.x;
+                    sel_bb.x1 = bb_on_down.x1 + (int)diff.x;
                     break;
                 case 1:
-                    map_state->bbs[map_state->selected_bb].y1 = bb_on_down.y1 - (int)diff.y;
+                    sel_bb.y1 = bb_on_down.y1 - (int)diff.y;
                     break;
                 case 2:
-                    map_state->bbs[map_state->selected_bb].x2 = bb_on_down.x2 + (int)diff.x;
+                    sel_bb.x2 = bb_on_down.x2 + (int)diff.x;
                     break;
                 case 3:
-                    map_state->bbs[map_state->selected_bb].y2 = bb_on_down.y2 - (int)diff.y;
+                    sel_bb.y2 = bb_on_down.y2 - (int)diff.y;
                     break;
             }
             if (OInputJustReleased(OMouse1))
             {
+                // If bounding box would be inverted, correct it
+                if (sel_bb.x2 < sel_bb.x1) std::swap(sel_bb.x1, sel_bb.x2);
+                if (sel_bb.y2 < sel_bb.y1) std::swap(sel_bb.y1, sel_bb.y2);
                 push_undo();
                 state = state_t::idle;
             }
