@@ -7,7 +7,9 @@
     "authors": ["Daivuk", "Kaito Sinclaire", "Devil's Advocado"],
 
 	"iwad": "DOOM2.WAD",
-    "settings": {},
+    "settings": {
+        "extended_names": true
+    },
 
     "episodes": [
         {
@@ -121,6 +123,20 @@
                 "316":{"lower": "SUPPORT2"},
                 "318":{"lower": "SUPPORT2"},
                 "366":{"lower": "SUPPORT2"}
+            }
+        },
+        "MAP24":{
+            "things":{
+                // As the ending room is an inescapable death pit, make the enemies flying only.
+                "247":{"flying_enemies_only": true},
+                "248":{"flying_enemies_only": true},
+                "249":{"flying_enemies_only": true},
+                "255":{"flying_enemies_only": true},
+                "256":{"flying_enemies_only": true},
+                "257":{"flying_enemies_only": true},
+                "258":{"flying_enemies_only": true},
+                "259":{"flying_enemies_only": true},
+                "260":{"flying_enemies_only": true}
             }
         },
         "MAP27":{

@@ -1,6 +1,7 @@
 {
    "maps" : [
       {
+         "_lump" : "MAP01",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -15,7 +16,7 @@
                "death_logic" : true,
                "description" : "",
                "index" : 17,
-               "name" : "",
+               "name" : "Tech Room Switches",
                "unreachable" : false
             },
             {
@@ -23,7 +24,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 37,
-               "name" : "",
+               "name" : "Outside",
                "unreachable" : false
             },
             {
@@ -31,7 +32,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 52,
-               "name" : "",
+               "name" : "Secret Compartment",
                "unreachable" : false
             },
             {
@@ -39,7 +40,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 68,
-               "name" : "",
+               "name" : "Balcony",
                "unreachable" : false
             }
          ],
@@ -140,6 +141,7 @@
          }
       },
       {
+         "_lump" : "MAP02",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -154,7 +156,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 31,
-               "name" : "",
+               "name" : "Brown Building",
                "unreachable" : false
             },
             {
@@ -162,7 +164,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 44,
-               "name" : "",
+               "name" : "Sewer",
                "unreachable" : false
             },
             {
@@ -170,7 +172,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 116,
-               "name" : "",
+               "name" : "Brown Building, Secret",
                "unreachable" : false
             },
             {
@@ -178,7 +180,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 127,
-               "name" : "",
+               "name" : "Tech Side Room",
                "unreachable" : false
             }
          ],
@@ -376,6 +378,7 @@
          }
       },
       {
+         "_lump" : "MAP03",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -390,7 +393,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "Opening Room",
                "unreachable" : false
             },
             {
@@ -398,7 +401,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 6,
-               "name" : "",
+               "name" : "Opening Room",
                "unreachable" : false
             },
             {
@@ -406,7 +409,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 85,
-               "name" : "",
+               "name" : "Water Bridge",
                "unreachable" : false
             },
             {
@@ -414,7 +417,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 86,
-               "name" : "",
+               "name" : "Water Bridge, Isolated Platform",
                "unreachable" : false
             },
             {
@@ -422,7 +425,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 96,
-               "name" : "",
+               "name" : "Water Pit Secret",
                "unreachable" : false
             },
             {
@@ -430,7 +433,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 97,
-               "name" : "",
+               "name" : "Water Pit Secret",
                "unreachable" : false
             },
             {
@@ -438,7 +441,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 98,
-               "name" : "",
+               "name" : "Water Pit Secret",
                "unreachable" : false
             },
             {
@@ -446,7 +449,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 104,
-               "name" : "",
+               "name" : "Grass Pit",
                "unreachable" : false
             },
             {
@@ -454,7 +457,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 122,
-               "name" : "",
+               "name" : "Water Bridge, Showcase",
                "unreachable" : false
             },
             {
@@ -462,7 +465,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 146,
-               "name" : "",
+               "name" : "Water Bridge, Nook",
                "unreachable" : false
             }
          ],
@@ -681,6 +684,7 @@
          }
       },
       {
+         "_lump" : "MAP04",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -695,7 +699,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "Waste Pit Escape",
                "unreachable" : false
             },
             {
@@ -703,7 +707,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 21,
-               "name" : "",
+               "name" : "Opening Showcase",
                "unreachable" : false
             },
             {
@@ -711,7 +715,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 32,
-               "name" : "",
+               "name" : "Crate Showcase",
                "unreachable" : false
             },
             {
@@ -719,7 +723,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 59,
-               "name" : "",
+               "name" : "Exit Bridge",
                "unreachable" : false
             }
          ],
@@ -946,6 +950,7 @@
          }
       },
       {
+         "_lump" : "MAP05",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -960,7 +965,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 45,
-               "name" : "",
+               "name" : "Brown Rock Cubby",
                "unreachable" : false
             },
             {
@@ -968,7 +973,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 46,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -976,7 +981,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 50,
-               "name" : "",
+               "name" : "Baron Stairs Room",
                "unreachable" : false
             },
             {
@@ -984,7 +989,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 53,
-               "name" : "",
+               "name" : "\"S\" Hallway Showcase",
                "unreachable" : false
             },
             {
@@ -992,7 +997,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 55,
-               "name" : "",
+               "name" : "Ambush Gate Showcase",
                "unreachable" : false
             },
             {
@@ -1000,7 +1005,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 56,
-               "name" : "",
+               "name" : "\"S\" Hallway",
                "unreachable" : false
             },
             {
@@ -1008,7 +1013,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 57,
-               "name" : "",
+               "name" : "Triple Switch Nooks",
                "unreachable" : false
             },
             {
@@ -1016,7 +1021,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 78,
-               "name" : "",
+               "name" : "Exit Bridge",
                "unreachable" : false
             },
             {
@@ -1024,7 +1029,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 151,
-               "name" : "",
+               "name" : "Northwest Trap Floor",
                "unreachable" : false
             },
             {
@@ -1032,7 +1037,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 170,
-               "name" : "",
+               "name" : "Trap Floor Room",
                "unreachable" : false
             },
             {
@@ -1040,7 +1045,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 202,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -1048,7 +1053,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 215,
-               "name" : "",
+               "name" : "\"S\" Hallway",
                "unreachable" : false
             }
          ],
@@ -1336,6 +1341,7 @@
          }
       },
       {
+         "_lump" : "MAP06",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -1350,7 +1356,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 0,
-               "name" : "",
+               "name" : "Spiral Stairs",
                "unreachable" : false
             },
             {
@@ -1358,7 +1364,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 1,
-               "name" : "",
+               "name" : "Four Teleporters Showcase",
                "unreachable" : false
             },
             {
@@ -1366,7 +1372,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 36,
-               "name" : "",
+               "name" : "Crusher Room Lift",
                "unreachable" : false
             },
             {
@@ -1374,7 +1380,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 55,
-               "name" : "",
+               "name" : "Crusher Room Alcove",
                "unreachable" : false
             },
             {
@@ -1382,7 +1388,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 59,
-               "name" : "",
+               "name" : "Crusher",
                "unreachable" : false
             },
             {
@@ -1390,7 +1396,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 74,
-               "name" : "",
+               "name" : "Crusher",
                "unreachable" : false
             },
             {
@@ -1398,7 +1404,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 75,
-               "name" : "",
+               "name" : "Lift Switch Platform",
                "unreachable" : false
             },
             {
@@ -1406,7 +1412,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 94,
-               "name" : "",
+               "name" : "Pillar Secret",
                "unreachable" : false
             },
             {
@@ -1414,7 +1420,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 130,
-               "name" : "",
+               "name" : "Post-Crusher Trap Closet",
                "unreachable" : false
             },
             {
@@ -1422,7 +1428,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 134,
-               "name" : "",
+               "name" : "Spiral Stairs, Revenant Closet",
                "unreachable" : false
             },
             {
@@ -1430,7 +1436,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 222,
-               "name" : "",
+               "name" : "Secret Barrel Room",
                "unreachable" : false
             },
             {
@@ -1438,7 +1444,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 223,
-               "name" : "",
+               "name" : "Secret Barrel Room",
                "unreachable" : false
             },
             {
@@ -1446,7 +1452,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 225,
-               "name" : "",
+               "name" : "Secret Barrel Room",
                "unreachable" : false
             },
             {
@@ -1454,7 +1460,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 246,
-               "name" : "",
+               "name" : "Secret Barrel Room",
                "unreachable" : false
             }
          ],
@@ -1746,6 +1752,7 @@
          }
       },
       {
+         "_lump" : "MAP07",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -1760,7 +1767,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "Mancubus Arena, Inner",
                "unreachable" : false
             },
             {
@@ -1768,7 +1775,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "Mancubus Arena, Inner",
                "unreachable" : false
             },
             {
@@ -1776,7 +1783,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 7,
-               "name" : "",
+               "name" : "Mancubus Arena, Outer",
                "unreachable" : false
             },
             {
@@ -1784,7 +1791,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 8,
-               "name" : "",
+               "name" : "Spawn Compartment",
                "unreachable" : false
             },
             {
@@ -1792,7 +1799,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 9,
-               "name" : "",
+               "name" : "Mancubus Arena, Inner",
                "unreachable" : false
             },
             {
@@ -1800,7 +1807,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 10,
-               "name" : "",
+               "name" : "Mancubus Arena, Inner",
                "unreachable" : false
             },
             {
@@ -1808,7 +1815,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 43,
-               "name" : "",
+               "name" : "Spawn Compartment",
                "unreachable" : false
             },
             {
@@ -1816,7 +1823,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 44,
-               "name" : "",
+               "name" : "Mancubus Arena, Inner",
                "unreachable" : false
             },
             {
@@ -1848,7 +1855,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 60,
-               "name" : "",
+               "name" : "Mancubus Arena, Outer",
                "unreachable" : false
             },
             {
@@ -1864,7 +1871,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 73,
-               "name" : "",
+               "name" : "Mancubus Arena, Outer",
                "unreachable" : false
             },
             {
@@ -1872,13 +1879,13 @@
                "death_logic" : false,
                "description" : "",
                "index" : 74,
-               "name" : "",
+               "name" : "Mancubus Arena, Outer",
                "unreachable" : false
             },
             {
                "check_sanity" : false,
                "death_logic" : false,
-               "description" : "",
+               "description" : "Only reachable by a Deathmatch start.",
                "index" : 87,
                "name" : "",
                "unreachable" : true
@@ -2009,6 +2016,7 @@
          }
       },
       {
+         "_lump" : "MAP08",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -2023,7 +2031,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 14,
-               "name" : "",
+               "name" : "Don't Make A Sound",
                "unreachable" : false
             },
             {
@@ -2031,7 +2039,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 17,
-               "name" : "",
+               "name" : "Chevron Stairs",
                "unreachable" : false
             },
             {
@@ -2039,7 +2047,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 36,
-               "name" : "",
+               "name" : "Chevron Stairs",
                "unreachable" : false
             },
             {
@@ -2047,7 +2055,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 48,
-               "name" : "",
+               "name" : "Monitor Hall",
                "unreachable" : false
             },
             {
@@ -2055,7 +2063,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 87,
-               "name" : "",
+               "name" : "Imp Ambush",
                "unreachable" : false
             },
             {
@@ -2063,7 +2071,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 119,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2071,7 +2079,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 120,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2079,7 +2087,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 122,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2087,7 +2095,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 123,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2095,7 +2103,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 133,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2103,7 +2111,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 134,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2111,7 +2119,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 135,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2119,7 +2127,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 136,
-               "name" : "",
+               "name" : "Cyberdemon's Pit",
                "unreachable" : false
             },
             {
@@ -2127,7 +2135,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 161,
-               "name" : "",
+               "name" : "Marble Gunshot Secret",
                "unreachable" : false
             },
             {
@@ -2135,7 +2143,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 162,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2143,7 +2151,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 163,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2151,7 +2159,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 164,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2159,7 +2167,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 168,
-               "name" : "",
+               "name" : "Baron Trap Hall",
                "unreachable" : false
             },
             {
@@ -2167,7 +2175,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 176,
-               "name" : "",
+               "name" : "Yellow Door Trap Room",
                "unreachable" : false
             },
             {
@@ -2175,7 +2183,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 202,
-               "name" : "",
+               "name" : "Yellow Door Trap Room",
                "unreachable" : false
             },
             {
@@ -2183,7 +2191,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 220,
-               "name" : "",
+               "name" : "Baron Trap Hall",
                "unreachable" : false
             },
             {
@@ -2191,7 +2199,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 226,
-               "name" : "",
+               "name" : "Secret Branches",
                "unreachable" : false
             },
             {
@@ -2199,7 +2207,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 235,
-               "name" : "",
+               "name" : "Monitor Hall, Waste Pit",
                "unreachable" : false
             }
          ],
@@ -2386,6 +2394,7 @@
          }
       },
       {
+         "_lump" : "MAP09",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -2400,7 +2409,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "Switch Trap Lift",
                "unreachable" : false
             },
             {
@@ -2408,7 +2417,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 21,
-               "name" : "",
+               "name" : "Spawn Pit, North Lift",
                "unreachable" : false
             },
             {
@@ -2416,7 +2425,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 26,
-               "name" : "",
+               "name" : "Spawn Pit",
                "unreachable" : false
             },
             {
@@ -2424,7 +2433,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 78,
-               "name" : "",
+               "name" : "Narrow Passageway",
                "unreachable" : false
             },
             {
@@ -2432,7 +2441,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 90,
-               "name" : "",
+               "name" : "Black Square Closet",
                "unreachable" : false
             },
             {
@@ -2440,7 +2449,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 92,
-               "name" : "",
+               "name" : "Trapped Bridge",
                "unreachable" : false
             },
             {
@@ -2448,7 +2457,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 184,
-               "name" : "",
+               "name" : "Poison Pit Lift",
                "unreachable" : false
             },
             {
@@ -2456,7 +2465,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 185,
-               "name" : "",
+               "name" : "Lift to Concealed Stairway",
                "unreachable" : false
             },
             {
@@ -2464,7 +2473,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 226,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Southwest",
                "unreachable" : false
             },
             {
@@ -2472,7 +2481,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 244,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Northwest",
                "unreachable" : false
             },
             {
@@ -2480,7 +2489,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 245,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Northwest",
                "unreachable" : false
             },
             {
@@ -2488,7 +2497,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 250,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Northeast",
                "unreachable" : false
             },
             {
@@ -2496,7 +2505,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 251,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Northeast",
                "unreachable" : false
             },
             {
@@ -2504,7 +2513,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 309,
-               "name" : "",
+               "name" : "Tri-Switch Branch, Northeast",
                "unreachable" : false
             },
             {
@@ -2512,7 +2521,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 348,
-               "name" : "",
+               "name" : "Concealed Stairway",
                "unreachable" : false
             }
          ],
@@ -2736,6 +2745,7 @@
          }
       },
       {
+         "_lump" : "MAP10",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
@@ -2750,7 +2760,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 17,
-               "name" : "",
+               "name" : "Light in the Darkness",
                "unreachable" : false
             },
             {
@@ -2758,7 +2768,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 28,
-               "name" : "",
+               "name" : "Twin Lift Alcove",
                "unreachable" : false
             },
             {
@@ -2766,7 +2776,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 29,
-               "name" : "",
+               "name" : "Twin Lift Alcove",
                "unreachable" : false
             },
             {
@@ -2774,7 +2784,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 50,
-               "name" : "",
+               "name" : "Nested Nooks",
                "unreachable" : false
             },
             {
@@ -2782,7 +2792,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 99,
-               "name" : "",
+               "name" : "Spawn Secret Closet",
                "unreachable" : false
             },
             {
@@ -2790,7 +2800,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 158,
-               "name" : "",
+               "name" : "Vine Platform",
                "unreachable" : false
             },
             {
@@ -2798,7 +2808,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 172,
-               "name" : "",
+               "name" : "Central Area",
                "unreachable" : false
             },
             {
@@ -2806,7 +2816,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 291,
-               "name" : "",
+               "name" : "Small Tech Room",
                "unreachable" : false
             },
             {
@@ -2814,7 +2824,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 359,
-               "name" : "",
+               "name" : "UAC Hallways, Gunshot Secrets",
                "unreachable" : false
             },
             {
@@ -2822,7 +2832,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 368,
-               "name" : "",
+               "name" : "UAC Hallways, Gunshot Secrets",
                "unreachable" : false
             },
             {
@@ -2830,7 +2840,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 392,
-               "name" : "",
+               "name" : "UAC Hallways, Gunshot Secrets",
                "unreachable" : false
             },
             {
@@ -2838,7 +2848,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 395,
-               "name" : "",
+               "name" : "UAC Hallways, Gunshot Secrets",
                "unreachable" : false
             },
             {
@@ -2846,7 +2856,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 396,
-               "name" : "",
+               "name" : "Cyberdemon Panopticon",
                "unreachable" : false
             },
             {
@@ -2854,7 +2864,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 398,
-               "name" : "",
+               "name" : "Cyberdemon Panopticon, Secret Alcove",
                "unreachable" : false
             },
             {
@@ -2862,7 +2872,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 400,
-               "name" : "",
+               "name" : "Small Tech Room",
                "unreachable" : false
             },
             {
@@ -2870,7 +2880,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 441,
-               "name" : "",
+               "name" : "Armor Cache",
                "unreachable" : false
             },
             {
@@ -2878,7 +2888,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 470,
-               "name" : "",
+               "name" : "Large Stone Pillars",
                "unreachable" : false
             },
             {
@@ -2886,7 +2896,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 472,
-               "name" : "",
+               "name" : "Nukage Pillars",
                "unreachable" : false
             },
             {
@@ -2894,7 +2904,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 473,
-               "name" : "",
+               "name" : "UAC Hallways",
                "unreachable" : false
             },
             {
@@ -2902,7 +2912,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 507,
-               "name" : "",
+               "name" : "Secret Nukage Hallway",
                "unreachable" : false
             }
          ],
@@ -3166,13 +3176,14 @@
          }
       },
       {
+         "_lump" : "MAP11",
          "accesses" : [],
          "bbs" : [],
          "ep" : 0,
          "exit_rules" : {
             "connections" : [],
-            "x" : -2383,
-            "y" : 3847
+            "x" : -3554,
+            "y" : 3478
          },
          "locations" : [
             {
@@ -3180,7 +3191,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 1,
-               "name" : "",
+               "name" : "Center of the \"O\"",
                "unreachable" : false
             },
             {
@@ -3188,7 +3199,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 14,
-               "name" : "",
+               "name" : "Vile Stairway, Secret Lift",
                "unreachable" : false
             },
             {
@@ -3196,7 +3207,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 23,
-               "name" : "",
+               "name" : "Vile Stairway, Fake Wall",
                "unreachable" : false
             },
             {
@@ -3204,7 +3215,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 30,
-               "name" : "",
+               "name" : "Arch-Vile Reveal",
                "unreachable" : false
             },
             {
@@ -3212,7 +3223,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 40,
-               "name" : "",
+               "name" : "Arch-Vile Reveal, Showcase",
                "unreachable" : false
             },
             {
@@ -3220,7 +3231,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 42,
-               "name" : "",
+               "name" : "Vile Stairway",
                "unreachable" : false
             },
             {
@@ -3228,7 +3239,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 50,
-               "name" : "",
+               "name" : "Nukage Escape Stairs",
                "unreachable" : false
             },
             {
@@ -3236,7 +3247,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 58,
-               "name" : "",
+               "name" : "Blue Door Alcove",
                "unreachable" : false
             },
             {
@@ -3244,7 +3255,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 70,
-               "name" : "",
+               "name" : "Ledge from Vile Stairway",
                "unreachable" : false
             },
             {
@@ -3252,7 +3263,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 83,
-               "name" : "",
+               "name" : "Red Door Nukage Pool",
                "unreachable" : false
             },
             {
@@ -3260,7 +3271,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 86,
-               "name" : "",
+               "name" : "Red Door Showcase",
                "unreachable" : false
             },
             {
@@ -3268,7 +3279,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 88,
-               "name" : "",
+               "name" : "Walkway to Dark Cave",
                "unreachable" : false
             },
             {
@@ -3276,7 +3287,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 108,
-               "name" : "",
+               "name" : "Dark Cave, Teleport Ledge",
                "unreachable" : false
             },
             {
@@ -3284,7 +3295,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 110,
-               "name" : "",
+               "name" : "Dark Cave",
                "unreachable" : false
             }
          ],
@@ -3313,6 +3324,11 @@
                         "requirements_and" : [ -2 ],
                         "requirements_or" : [],
                         "target_region" : 3
+                     },
+                     {
+                        "requirements_and" : [ -3 ],
+                        "requirements_or" : [],
+                        "target_region" : 4
                      }
                   ],
                   "x" : -3571,
@@ -3329,7 +3345,6 @@
                   38,
                   39,
                   45,
-                  46,
                   47,
                   48,
                   49,
@@ -3401,9 +3416,14 @@
                         "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 4
                      }
                   ],
-                  "x" : -3564,
+                  "x" : -3571,
                   "y" : 1030
                },
                "sectors" : [ 36, 37, 40, 41, 42, 43, 44, 52, 53, 54, 55, 56, 57, 58 ],
@@ -3424,8 +3444,8 @@
                         "target_region" : 3
                      }
                   ],
-                  "x" : -4701,
-                  "y" : 3068
+                  "x" : -5070,
+                  "y" : 1916
                },
                "sectors" : [
                   6,
@@ -3476,8 +3496,8 @@
                         "target_region" : 0
                      }
                   ],
-                  "x" : -2386,
-                  "y" : 3063
+                  "x" : -3566,
+                  "y" : 2804
                },
                "sectors" : [
                   3,
@@ -3510,6 +3530,22 @@
                   139
                ],
                "tint" : [ 1, 0.55882352590560913, 0.55882352590560913, 1 ]
+            },
+            {
+               "name" : "O Center",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 0
+                     }
+                  ],
+                  "x" : -5070,
+                  "y" : 1028
+               },
+               "sectors" : [ 46 ],
+               "tint" : [ 0.12399078905582428, 0.5258668065071106, 0.84313726425170898, 1 ]
             }
          ],
          "world_rules" : {
@@ -3525,6 +3561,7 @@
          }
       },
       {
+         "_lump" : "MAP12",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -3539,7 +3576,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 14,
-               "name" : "",
+               "name" : "Outdoors",
                "unreachable" : false
             },
             {
@@ -3547,7 +3584,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 35,
-               "name" : "",
+               "name" : "South Brick Building",
                "unreachable" : false
             },
             {
@@ -3555,7 +3592,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 38,
-               "name" : "",
+               "name" : "South Brick Building",
                "unreachable" : false
             },
             {
@@ -3563,7 +3600,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 52,
-               "name" : "",
+               "name" : "Main Building, Imp Box",
                "unreachable" : false
             },
             {
@@ -3571,7 +3608,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 54,
-               "name" : "",
+               "name" : "Main Building, South Hallway",
                "unreachable" : false
             },
             {
@@ -3579,7 +3616,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 63,
-               "name" : "",
+               "name" : "Main Building, Trap Floor",
                "unreachable" : false
             },
             {
@@ -3587,7 +3624,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 70,
-               "name" : "",
+               "name" : "Main Building, Trap Floor",
                "unreachable" : false
             },
             {
@@ -3595,7 +3632,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 83,
-               "name" : "",
+               "name" : "Main Building, Imp Box",
                "unreachable" : false
             },
             {
@@ -3603,7 +3640,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 92,
-               "name" : "",
+               "name" : "Blood Tower",
                "unreachable" : false
             },
             {
@@ -3611,7 +3648,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 93,
-               "name" : "",
+               "name" : "Blood Tower",
                "unreachable" : false
             },
             {
@@ -3619,7 +3656,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 107,
-               "name" : "",
+               "name" : "Main Building, North Hallway",
                "unreachable" : false
             },
             {
@@ -3627,7 +3664,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 123,
-               "name" : "",
+               "name" : "Main Building, Red Banner Room",
                "unreachable" : false
             },
             {
@@ -3635,7 +3672,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 135,
-               "name" : "",
+               "name" : "Main Building, Dark Corridor",
                "unreachable" : false
             },
             {
@@ -3643,7 +3680,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 189,
-               "name" : "",
+               "name" : "Skull Door",
                "unreachable" : false
             },
             {
@@ -3651,7 +3688,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 192,
-               "name" : "",
+               "name" : "Main Building, Erratic Floor Room",
                "unreachable" : false
             }
          ],
@@ -3927,6 +3964,7 @@
          }
       },
       {
+         "_lump" : "MAP13",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -3941,7 +3979,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "Hell Vines Building",
                "unreachable" : false
             },
             {
@@ -3949,7 +3987,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 42,
-               "name" : "",
+               "name" : "Southern Brick Building",
                "unreachable" : false
             },
             {
@@ -3957,7 +3995,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 73,
-               "name" : "",
+               "name" : "Open Window Building",
                "unreachable" : false
             },
             {
@@ -3965,7 +4003,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 131,
-               "name" : "",
+               "name" : "Southern Stairway",
                "unreachable" : false
             },
             {
@@ -3973,7 +4011,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 158,
-               "name" : "",
+               "name" : "Alleyway Secret",
                "unreachable" : false
             },
             {
@@ -3981,7 +4019,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 183,
-               "name" : "",
+               "name" : "Giant Lift Building",
                "unreachable" : false
             },
             {
@@ -3989,7 +4027,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 195,
-               "name" : "",
+               "name" : "West Building",
                "unreachable" : false
             },
             {
@@ -3997,7 +4035,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 201,
-               "name" : "",
+               "name" : "Red Door Lift Building",
                "unreachable" : false
             },
             {
@@ -4005,7 +4043,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 207,
-               "name" : "",
+               "name" : "Red Door Lift Building",
                "unreachable" : false
             },
             {
@@ -4013,7 +4051,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 231,
-               "name" : "",
+               "name" : "Northwest Crusher Trap",
                "unreachable" : false
             },
             {
@@ -4021,7 +4059,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 249,
-               "name" : "",
+               "name" : "Outside",
                "unreachable" : false
             },
             {
@@ -4029,7 +4067,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 250,
-               "name" : "",
+               "name" : "West Building Ledge",
                "unreachable" : false
             },
             {
@@ -4037,7 +4075,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 257,
-               "name" : "",
+               "name" : "Blue Door Crate Building",
                "unreachable" : false
             },
             {
@@ -4045,7 +4083,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 258,
-               "name" : "",
+               "name" : "Ledge Drop Down",
                "unreachable" : false
             },
             {
@@ -4053,7 +4091,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 269,
-               "name" : "",
+               "name" : "Blue Door Crate Building",
                "unreachable" : false
             },
             {
@@ -4061,7 +4099,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 280,
-               "name" : "",
+               "name" : "Alleyways",
                "unreachable" : false
             },
             {
@@ -4069,7 +4107,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 281,
-               "name" : "",
+               "name" : "Alleyways",
                "unreachable" : false
             },
             {
@@ -4077,7 +4115,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 282,
-               "name" : "",
+               "name" : "Alleyways",
                "unreachable" : false
             },
             {
@@ -4085,7 +4123,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 283,
-               "name" : "",
+               "name" : "Sniping Perch",
                "unreachable" : false
             },
             {
@@ -4093,7 +4131,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 296,
-               "name" : "",
+               "name" : "Exit Building",
                "unreachable" : false
             },
             {
@@ -4101,7 +4139,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 298,
-               "name" : "",
+               "name" : "Giant Lift Building",
                "unreachable" : false
             }
          ],
@@ -4437,6 +4475,7 @@
          }
       },
       {
+         "_lump" : "MAP14",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -4451,7 +4490,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 13,
-               "name" : "",
+               "name" : "Spawn Building",
                "unreachable" : false
             },
             {
@@ -4459,7 +4498,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 16,
-               "name" : "",
+               "name" : "Arachnotron Gate",
                "unreachable" : false
             },
             {
@@ -4467,7 +4506,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 22,
-               "name" : "",
+               "name" : "Spawn Building",
                "unreachable" : false
             },
             {
@@ -4475,7 +4514,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 78,
-               "name" : "",
+               "name" : "Spawn Building",
                "unreachable" : false
             },
             {
@@ -4483,7 +4522,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 80,
-               "name" : "",
+               "name" : "Central Building",
                "unreachable" : false
             },
             {
@@ -4491,7 +4530,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 81,
-               "name" : "",
+               "name" : "North Balcony",
                "unreachable" : false
             },
             {
@@ -4499,7 +4538,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 119,
-               "name" : "",
+               "name" : "North Balcony",
                "unreachable" : false
             },
             {
@@ -4507,7 +4546,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 123,
-               "name" : "",
+               "name" : "Spawn Building, Crusher Room",
                "unreachable" : false
             },
             {
@@ -4515,7 +4554,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 130,
-               "name" : "",
+               "name" : "South Building",
                "unreachable" : false
             },
             {
@@ -4523,7 +4562,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 138,
-               "name" : "",
+               "name" : "South Building, Chaingunner Tower",
                "unreachable" : false
             }
          ],
@@ -5003,6 +5042,7 @@
          }
       },
       {
+         "_lump" : "MAP15",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -5017,7 +5057,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "North Crate Building",
                "unreachable" : false
             },
             {
@@ -5025,7 +5065,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 11,
-               "name" : "",
+               "name" : "Spiral Staircase Tower",
                "unreachable" : false
             },
             {
@@ -5033,7 +5073,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 13,
-               "name" : "",
+               "name" : "Spawn Lift",
                "unreachable" : false
             },
             {
@@ -5041,7 +5081,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 14,
-               "name" : "",
+               "name" : "Red Door Balcony",
                "unreachable" : false
             },
             {
@@ -5049,7 +5089,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 24,
-               "name" : "",
+               "name" : "Red Door Balcony, Secret Cave",
                "unreachable" : false
             },
             {
@@ -5057,7 +5097,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 48,
-               "name" : "",
+               "name" : "Central Tower, Showcase",
                "unreachable" : false
             },
             {
@@ -5065,7 +5105,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 56,
-               "name" : "",
+               "name" : "Central Tower",
                "unreachable" : false
             },
             {
@@ -5073,7 +5113,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 57,
-               "name" : "",
+               "name" : "Central Tower",
                "unreachable" : false
             },
             {
@@ -5081,7 +5121,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 59,
-               "name" : "",
+               "name" : "Central Tower",
                "unreachable" : false
             },
             {
@@ -5089,7 +5129,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 71,
-               "name" : "",
+               "name" : "Central Tower",
                "unreachable" : false
             },
             {
@@ -5097,7 +5137,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 74,
-               "name" : "",
+               "name" : "Northwest Building Shaft",
                "unreachable" : false
             },
             {
@@ -5105,7 +5145,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 86,
-               "name" : "",
+               "name" : "Southwest Building, Secret Lift",
                "unreachable" : false
             },
             {
@@ -5113,7 +5153,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 91,
-               "name" : "",
+               "name" : "Southwest Building, Fight Pit",
                "unreachable" : false
             },
             {
@@ -5121,7 +5161,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 93,
-               "name" : "",
+               "name" : "Southwest Building",
                "unreachable" : false
             },
             {
@@ -5129,7 +5169,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 94,
-               "name" : "",
+               "name" : "Secret Lava Room",
                "unreachable" : false
             },
             {
@@ -5137,7 +5177,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 100,
-               "name" : "",
+               "name" : "North Crate Building",
                "unreachable" : false
             },
             {
@@ -5145,7 +5185,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 103,
-               "name" : "",
+               "name" : "Southwest Building, Fight Pit",
                "unreachable" : false
             },
             {
@@ -5153,7 +5193,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 113,
-               "name" : "",
+               "name" : "Southeast Building, Secret Balcony",
                "unreachable" : false
             },
             {
@@ -5161,7 +5201,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 125,
-               "name" : "",
+               "name" : "Southeast Building, Timed Door",
                "unreachable" : false
             },
             {
@@ -5169,7 +5209,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 178,
-               "name" : "",
+               "name" : "Southeast Building",
                "unreachable" : false
             },
             {
@@ -5177,7 +5217,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 337,
-               "name" : "",
+               "name" : "Southwest Building, Secret Closet",
                "unreachable" : false
             },
             {
@@ -5185,7 +5225,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 361,
-               "name" : "",
+               "name" : "\"S\"-Shaped Stone",
                "unreachable" : false
             }
          ],
@@ -5624,6 +5664,7 @@
          }
       },
       {
+         "_lump" : "MAP16",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -5638,7 +5679,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 7,
-               "name" : "",
+               "name" : "Central Building, Gunshot Flame",
                "unreachable" : false
             },
             {
@@ -5646,7 +5687,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 11,
-               "name" : "",
+               "name" : "Central Building",
                "unreachable" : false
             },
             {
@@ -5654,7 +5695,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 15,
-               "name" : "",
+               "name" : "Spawn Building",
                "unreachable" : false
             },
             {
@@ -5662,7 +5703,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 53,
-               "name" : "",
+               "name" : "Central Building, Gunshot Eyes",
                "unreachable" : false
             },
             {
@@ -5670,7 +5711,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 59,
-               "name" : "",
+               "name" : "North Building, Behind Gate",
                "unreachable" : false
             },
             {
@@ -5678,7 +5719,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 60,
-               "name" : "",
+               "name" : "North Building, Behind Gate",
                "unreachable" : false
             },
             {
@@ -5686,7 +5727,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 62,
-               "name" : "",
+               "name" : "Four Pillars",
                "unreachable" : false
             },
             {
@@ -5694,7 +5735,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 63,
-               "name" : "",
+               "name" : "Four Pillars",
                "unreachable" : false
             },
             {
@@ -5702,7 +5743,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 64,
-               "name" : "",
+               "name" : "Four Pillars",
                "unreachable" : false
             },
             {
@@ -5710,7 +5751,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 65,
-               "name" : "",
+               "name" : "Four Pillars",
                "unreachable" : false
             },
             {
@@ -5718,7 +5759,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 169,
-               "name" : "",
+               "name" : "Corpse Building",
                "unreachable" : false
             },
             {
@@ -5726,7 +5767,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 182,
-               "name" : "",
+               "name" : "Towers Behind North Building",
                "unreachable" : false
             },
             {
@@ -5734,7 +5775,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 185,
-               "name" : "",
+               "name" : "Towers Behind North Building",
                "unreachable" : false
             },
             {
@@ -5742,7 +5783,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 186,
-               "name" : "",
+               "name" : "Trapped Spiral Tower",
                "unreachable" : false
             },
             {
@@ -5750,7 +5791,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 221,
-               "name" : "",
+               "name" : "Western Alcoves",
                "unreachable" : false
             },
             {
@@ -5758,7 +5799,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 231,
-               "name" : "",
+               "name" : "Western Alcoves",
                "unreachable" : false
             },
             {
@@ -5766,7 +5807,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 236,
-               "name" : "",
+               "name" : "North Building, In Window",
                "unreachable" : false
             }
          ],
@@ -6001,6 +6042,7 @@
          }
       },
       {
+         "_lump" : "MAP17",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -6015,7 +6057,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 1,
-               "name" : "",
+               "name" : "Pool Overlook West",
                "unreachable" : false
             },
             {
@@ -6023,7 +6065,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 7,
-               "name" : "",
+               "name" : "Central Pool, Top of Pillar",
                "unreachable" : false
             },
             {
@@ -6031,7 +6073,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 18,
-               "name" : "",
+               "name" : "Pool Overlook East",
                "unreachable" : false
             },
             {
@@ -6039,7 +6081,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 34,
-               "name" : "",
+               "name" : "Zigzag Chasm",
                "unreachable" : false
             },
             {
@@ -6047,7 +6089,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 69,
-               "name" : "",
+               "name" : "Nukage Bridges, Showcase",
                "unreachable" : false
             },
             {
@@ -6055,7 +6097,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 75,
-               "name" : "",
+               "name" : "Nukage Pit Closet",
                "unreachable" : false
             },
             {
@@ -6063,7 +6105,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 76,
-               "name" : "",
+               "name" : "West Nukage Pit",
                "unreachable" : false
             },
             {
@@ -6071,7 +6113,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 77,
-               "name" : "",
+               "name" : "West Nukage Pit",
                "unreachable" : false
             },
             {
@@ -6079,7 +6121,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 81,
-               "name" : "",
+               "name" : "Nukage Pit Closet, From River",
                "unreachable" : false
             },
             {
@@ -6087,7 +6129,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 92,
-               "name" : "",
+               "name" : "Nukage Bridges, Underground Lift",
                "unreachable" : false
             },
             {
@@ -6095,7 +6137,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 102,
-               "name" : "",
+               "name" : "North Secret Cavern",
                "unreachable" : false
             },
             {
@@ -6103,7 +6145,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 114,
-               "name" : "",
+               "name" : "Exit Branches",
                "unreachable" : false
             },
             {
@@ -6111,7 +6153,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 168,
-               "name" : "",
+               "name" : "Nukage Bridges",
                "unreachable" : false
             },
             {
@@ -6119,7 +6161,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 179,
-               "name" : "",
+               "name" : "Central Pool",
                "unreachable" : false
             },
             {
@@ -6127,7 +6169,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 218,
-               "name" : "",
+               "name" : "Underground Passageway",
                "unreachable" : false
             },
             {
@@ -6135,7 +6177,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 261,
-               "name" : "",
+               "name" : "West River",
                "unreachable" : false
             },
             {
@@ -6143,7 +6185,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 419,
-               "name" : "",
+               "name" : "Hidden Path from Exit Lift",
                "unreachable" : false
             }
          ],
@@ -6530,13 +6572,14 @@
          }
       },
       {
+         "_lump" : "MAP18",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
          "exit_rules" : {
             "connections" : [],
-            "x" : -5994,
-            "y" : -1295
+            "x" : -5870,
+            "y" : -1338
          },
          "locations" : [
             {
@@ -6544,7 +6587,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 12,
-               "name" : "",
+               "name" : "Nukage River",
                "unreachable" : false
             },
             {
@@ -6552,7 +6595,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 36,
-               "name" : "",
+               "name" : "Teleporting Trap Room",
                "unreachable" : false
             },
             {
@@ -6560,7 +6603,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 48,
-               "name" : "",
+               "name" : "Nukage River",
                "unreachable" : false
             },
             {
@@ -6568,7 +6611,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 52,
-               "name" : "",
+               "name" : "Marble Maze, Entrance",
                "unreachable" : false
             },
             {
@@ -6576,7 +6619,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 95,
-               "name" : "",
+               "name" : "Marble Maze",
                "unreachable" : false
             },
             {
@@ -6584,7 +6627,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 130,
-               "name" : "",
+               "name" : "Alcove Near Plus-Shaped Pillar",
                "unreachable" : false
             },
             {
@@ -6592,7 +6635,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 170,
-               "name" : "",
+               "name" : "Square Metal Box",
                "unreachable" : false
             },
             {
@@ -6600,7 +6643,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 171,
-               "name" : "",
+               "name" : "Square Metal Box",
                "unreachable" : false
             },
             {
@@ -6608,7 +6651,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 198,
-               "name" : "",
+               "name" : "Main Courtyard, South Alcove",
                "unreachable" : false
             },
             {
@@ -6616,7 +6659,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 218,
-               "name" : "",
+               "name" : "Dark Room Trap",
                "unreachable" : false
             },
             {
@@ -6624,7 +6667,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 228,
-               "name" : "",
+               "name" : "Main Courtyard, Skull Pillar",
                "unreachable" : false
             },
             {
@@ -6632,7 +6675,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 229,
-               "name" : "",
+               "name" : "Main Courtyard, Plus-Shaped Pillar",
                "unreachable" : false
             },
             {
@@ -6640,7 +6683,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 254,
-               "name" : "",
+               "name" : "Main Courtyard",
                "unreachable" : false
             },
             {
@@ -6648,7 +6691,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 268,
-               "name" : "",
+               "name" : "Isolated Green Pillar Room",
                "unreachable" : false
             },
             {
@@ -6656,7 +6699,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 400,
-               "name" : "",
+               "name" : "Spiral Vine Hallway",
                "unreachable" : false
             },
             {
@@ -6664,7 +6707,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 458,
-               "name" : "",
+               "name" : "Marble Maze, Secret Ledge",
                "unreachable" : false
             },
             {
@@ -6672,7 +6715,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 461,
-               "name" : "",
+               "name" : "Main Courtyard",
                "unreachable" : false
             }
          ],
@@ -6683,23 +6726,18 @@
                "rules" : {
                   "connections" : [
                      {
-                        "requirements_and" : [],
-                        "requirements_or" : [],
-                        "target_region" : -1
-                     },
-                     {
                         "requirements_and" : [ 39 ],
                         "requirements_or" : [],
                         "target_region" : 2
                      },
                      {
-                        "requirements_and" : [ 40 ],
+                        "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : 1
+                        "target_region" : 3
                      }
                   ],
-                  "x" : -4360,
-                  "y" : -513
+                  "x" : -4350,
+                  "y" : 516
                },
                "sectors" : [
                   0,
@@ -6716,6 +6754,7 @@
                   11,
                   12,
                   13,
+                  14,
                   15,
                   16,
                   17,
@@ -6739,7 +6778,6 @@
                   37,
                   38,
                   39,
-                  42,
                   43,
                   44,
                   45,
@@ -6750,15 +6788,10 @@
                   50,
                   51,
                   52,
-                  53,
-                  54,
-                  55,
                   57,
                   58,
                   59,
                   60,
-                  61,
-                  62,
                   63,
                   64,
                   65,
@@ -6797,20 +6830,20 @@
                "rules" : {
                   "connections" : [
                      {
-                        "requirements_and" : [ 40 ],
+                        "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : 0
+                        "target_region" : -2
                      },
                      {
                         "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : -2
+                        "target_region" : 3
                      }
                   ],
-                  "x" : -5962,
-                  "y" : -519
+                  "x" : -5866,
+                  "y" : -610
                },
-               "sectors" : [ 14, 40, 41, 56 ],
+               "sectors" : [ 40, 41, 42, 56 ],
                "tint" : [ 0, 0, 1, 1 ]
             },
             {
@@ -6818,13 +6851,13 @@
                "rules" : {
                   "connections" : [
                      {
-                        "requirements_and" : [ 39 ],
+                        "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
                      }
                   ],
-                  "x" : -5515,
-                  "y" : 316
+                  "x" : -5845,
+                  "y" : 500
                },
                "sectors" : [
                   28,
@@ -6846,21 +6879,48 @@
                   107
                ],
                "tint" : [ 1, 1, 0, 1 ]
+            },
+            {
+               "name" : "Start",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : -1
+                     },
+                     {
+                        "requirements_and" : [ 2001, 2002, 82 ],
+                        "requirements_or" : [ 2004, 2003, 2006 ],
+                        "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [ 40 ],
+                        "requirements_or" : [],
+                        "target_region" : 1
+                     }
+                  ],
+                  "x" : -4349,
+                  "y" : -606
+               },
+               "sectors" : [ 53, 54, 55, 61, 62 ],
+               "tint" : [ 0, 0.97058844566345215, 1, 1 ]
             }
          ],
          "world_rules" : {
             "connections" : [
                {
-                  "requirements_and" : [ 2001, 2002, 82 ],
-                  "requirements_or" : [ 2003, 2004, 2006 ],
-                  "target_region" : 0
+                  "requirements_and" : [],
+                  "requirements_or" : [],
+                  "target_region" : 3
                }
             ],
-            "x" : -4352,
-            "y" : -1340
+            "x" : -4348,
+            "y" : -1344
          }
       },
       {
+         "_lump" : "MAP19",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -6875,7 +6935,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 64,
-               "name" : "",
+               "name" : "Outer Perimeter",
                "unreachable" : false
             },
             {
@@ -6883,7 +6943,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 99,
-               "name" : "",
+               "name" : "Citadel East Branch",
                "unreachable" : false
             },
             {
@@ -6891,7 +6951,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 116,
-               "name" : "",
+               "name" : "Citadel Northwest Turret",
                "unreachable" : false
             },
             {
@@ -6899,7 +6959,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 127,
-               "name" : "",
+               "name" : "Outer Perimeter",
                "unreachable" : false
             },
             {
@@ -6907,7 +6967,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 174,
-               "name" : "",
+               "name" : "Teleport Trap",
                "unreachable" : false
             },
             {
@@ -6915,7 +6975,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 223,
-               "name" : "",
+               "name" : "Secret UAC Lift",
                "unreachable" : false
             },
             {
@@ -6923,7 +6983,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 232,
-               "name" : "",
+               "name" : "Double Switch Room",
                "unreachable" : false
             },
             {
@@ -6931,7 +6991,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 315,
-               "name" : "",
+               "name" : "Red Brick Building",
                "unreachable" : false
             },
             {
@@ -6939,7 +6999,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 370,
-               "name" : "",
+               "name" : "Citadel Northeast Turret",
                "unreachable" : false
             },
             {
@@ -6947,7 +7007,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 403,
-               "name" : "",
+               "name" : "Citadel West Window",
                "unreachable" : false
             },
             {
@@ -6955,7 +7015,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 404,
-               "name" : "",
+               "name" : "Citadel Courtyard, Balcony ",
                "unreachable" : false
             },
             {
@@ -6963,7 +7023,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 405,
-               "name" : "",
+               "name" : "Citadel Southwest Turret",
                "unreachable" : false
             },
             {
@@ -6971,7 +7031,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 415,
-               "name" : "",
+               "name" : "Red Brick Building",
                "unreachable" : false
             },
             {
@@ -6979,7 +7039,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 416,
-               "name" : "",
+               "name" : "Citadel Courtyard, Teleport In",
                "unreachable" : false
             },
             {
@@ -6987,7 +7047,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 431,
-               "name" : "",
+               "name" : "Citadel Courtyard",
                "unreachable" : false
             }
          ],
@@ -7314,6 +7374,7 @@
          }
       },
       {
+         "_lump" : "MAP20",
          "accesses" : [],
          "bbs" : [],
          "ep" : 1,
@@ -7328,7 +7389,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 9,
-               "name" : "",
+               "name" : "Heavyweight Championship Match",
                "unreachable" : false
             },
             {
@@ -7336,7 +7397,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 10,
-               "name" : "",
+               "name" : "Heavyweight Championship Match",
                "unreachable" : false
             },
             {
@@ -7344,7 +7405,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 12,
-               "name" : "",
+               "name" : "Heavyweight Championship Match",
                "unreachable" : false
             },
             {
@@ -7352,7 +7413,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 33,
-               "name" : "",
+               "name" : "Northeast Structure",
                "unreachable" : false
             },
             {
@@ -7360,7 +7421,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 43,
-               "name" : "",
+               "name" : "Secret Teleport from Northeast Structure",
                "unreachable" : false
             },
             {
@@ -7368,7 +7429,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 47,
-               "name" : "",
+               "name" : "South Structure",
                "unreachable" : false
             },
             {
@@ -7376,7 +7437,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 54,
-               "name" : "",
+               "name" : "South Structure",
                "unreachable" : false
             },
             {
@@ -7384,7 +7445,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 70,
-               "name" : "",
+               "name" : "Sigil Eye Stairs",
                "unreachable" : false
             },
             {
@@ -7392,7 +7453,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 96,
-               "name" : "",
+               "name" : "Northeast Structure",
                "unreachable" : false
             },
             {
@@ -7400,7 +7461,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 109,
-               "name" : "",
+               "name" : "East Lava Structure",
                "unreachable" : false
             },
             {
@@ -7408,7 +7469,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 119,
-               "name" : "",
+               "name" : "Sigil Eye Stairs, Secret Closet",
                "unreachable" : false
             },
             {
@@ -7416,7 +7477,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 122,
-               "name" : "",
+               "name" : "In East Lava",
                "unreachable" : false
             },
             {
@@ -7424,7 +7485,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 142,
-               "name" : "",
+               "name" : "Northwest Structure, Gunshot Secret",
                "unreachable" : false
             },
             {
@@ -7432,7 +7493,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 145,
-               "name" : "",
+               "name" : "Northwest Structure, Behind Teleporter",
                "unreachable" : false
             }
          ],
@@ -7665,6 +7726,7 @@
          }
       },
       {
+         "_lump" : "MAP21",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -7679,7 +7741,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 70,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -7687,7 +7749,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 76,
-               "name" : "",
+               "name" : "Stair Switches",
                "unreachable" : false
             },
             {
@@ -7695,7 +7757,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 108,
-               "name" : "",
+               "name" : "Ambush Room",
                "unreachable" : false
             },
             {
@@ -7703,7 +7765,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 109,
-               "name" : "",
+               "name" : "Ambush Room",
                "unreachable" : false
             },
             {
@@ -7711,7 +7773,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 112,
-               "name" : "",
+               "name" : "Ambush Room",
                "unreachable" : false
             },
             {
@@ -7719,7 +7781,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 194,
-               "name" : "",
+               "name" : "Nukage Rocks",
                "unreachable" : false
             },
             {
@@ -7727,7 +7789,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 199,
-               "name" : "",
+               "name" : "Nukage Rocks",
                "unreachable" : false
             },
             {
@@ -7735,7 +7797,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 215,
-               "name" : "",
+               "name" : "Nukage Rocks",
                "unreachable" : false
             }
          ],
@@ -7951,8 +8013,11 @@
          }
       },
       {
+         "_lump" : "MAP22",
          "accesses" : [],
-         "bbs" : [],
+         "bbs" : [
+            [ -756, -391, -314, -228, 0 ]
+         ],
          "ep" : 2,
          "exit_rules" : {
             "connections" : [],
@@ -7965,7 +8030,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "Rising Bridge",
                "unreachable" : false
             },
             {
@@ -7973,7 +8038,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "Teleport Ledge",
                "unreachable" : false
             },
             {
@@ -7981,7 +8046,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 12,
-               "name" : "",
+               "name" : "Northeast Barred Hallway",
                "unreachable" : false
             },
             {
@@ -7989,7 +8054,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 28,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -7997,7 +8062,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 45,
-               "name" : "",
+               "name" : "Northwest Lava Pool",
                "unreachable" : false
             },
             {
@@ -8005,7 +8070,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 83,
-               "name" : "",
+               "name" : "Spawn, Side Room",
                "unreachable" : false
             },
             {
@@ -8013,7 +8078,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 118,
-               "name" : "",
+               "name" : "Spawn, Secret Nook",
                "unreachable" : false
             },
             {
@@ -8021,7 +8086,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 119,
-               "name" : "",
+               "name" : "Spawn, Secret Nook",
                "unreachable" : false
             }
          ],
@@ -8290,6 +8355,7 @@
          }
       },
       {
+         "_lump" : "MAP23",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -8304,7 +8370,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 136,
-               "name" : "",
+               "name" : "Behind Spawn",
                "unreachable" : false
             },
             {
@@ -8312,7 +8378,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 222,
-               "name" : "",
+               "name" : "Key-Shaped Room",
                "unreachable" : false
             },
             {
@@ -8320,7 +8386,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 223,
-               "name" : "",
+               "name" : "Key-Shaped Room",
                "unreachable" : false
             },
             {
@@ -8328,7 +8394,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 224,
-               "name" : "",
+               "name" : "Key-Shaped Room",
                "unreachable" : false
             },
             {
@@ -8336,7 +8402,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 249,
-               "name" : "",
+               "name" : "Key-Shaped Room",
                "unreachable" : false
             },
             {
@@ -8344,7 +8410,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 264,
-               "name" : "",
+               "name" : "Open-Air Area",
                "unreachable" : false
             },
             {
@@ -8352,7 +8418,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 266,
-               "name" : "",
+               "name" : "Open-Air Area, Nook",
                "unreachable" : false
             },
             {
@@ -8360,7 +8426,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 277,
-               "name" : "",
+               "name" : "Spiderdemon's Lair",
                "unreachable" : false
             },
             {
@@ -8368,7 +8434,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 301,
-               "name" : "",
+               "name" : "Key-Shaped Room",
                "unreachable" : false
             },
             {
@@ -8376,7 +8442,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 307,
-               "name" : "",
+               "name" : "Spiderdemon's Lair",
                "unreachable" : false
             },
             {
@@ -8384,7 +8450,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 342,
-               "name" : "",
+               "name" : "Eye Switch Lift",
                "unreachable" : false
             }
          ],
@@ -8511,6 +8577,7 @@
          }
       },
       {
+         "_lump" : "MAP24",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -8525,7 +8592,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 5,
-               "name" : "",
+               "name" : "West Chasm",
                "unreachable" : false
             },
             {
@@ -8533,7 +8600,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 6,
-               "name" : "",
+               "name" : "Starting Chasm, Balance Test",
                "unreachable" : false
             },
             {
@@ -8541,7 +8608,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 12,
-               "name" : "",
+               "name" : "West Chasm, Drop Down",
                "unreachable" : false
             },
             {
@@ -8549,7 +8616,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 22,
-               "name" : "",
+               "name" : "Starting Chasm, Blind Drop",
                "unreachable" : false
             },
             {
@@ -8557,7 +8624,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 23,
-               "name" : "",
+               "name" : "Nukage Wall Room",
                "unreachable" : false
             },
             {
@@ -8565,7 +8632,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 31,
-               "name" : "",
+               "name" : "West Chasm",
                "unreachable" : false
             },
             {
@@ -8573,7 +8640,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 79,
-               "name" : "",
+               "name" : "Dark Room Ambush",
                "unreachable" : false
             },
             {
@@ -8581,7 +8648,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 155,
-               "name" : "",
+               "name" : "Northwest Caches",
                "unreachable" : false
             },
             {
@@ -8589,7 +8656,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 169,
-               "name" : "",
+               "name" : "West Chasm",
                "unreachable" : false
             },
             {
@@ -8597,7 +8664,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 261,
-               "name" : "",
+               "name" : "Mainframe",
                "unreachable" : false
             },
             {
@@ -8605,7 +8672,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 295,
-               "name" : "",
+               "name" : "Starting Chasm Cave",
                "unreachable" : false
             },
             {
@@ -8613,7 +8680,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 353,
-               "name" : "",
+               "name" : "Central Base",
                "unreachable" : false
             },
             {
@@ -8621,7 +8688,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 355,
-               "name" : "",
+               "name" : "West Chasm",
                "unreachable" : false
             },
             {
@@ -8629,7 +8696,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 362,
-               "name" : "",
+               "name" : "Central Base",
                "unreachable" : false
             }
          ],
@@ -8659,8 +8726,6 @@
                   "y" : -954
                },
                "sectors" : [
-                  14,
-                  15,
                   19,
                   21,
                   23,
@@ -8825,6 +8890,8 @@
                   11,
                   12,
                   13,
+                  14,
+                  15,
                   16,
                   17,
                   18,
@@ -8906,6 +8973,7 @@
          }
       },
       {
+         "_lump" : "MAP25",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -8920,7 +8988,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 6,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -8928,7 +8996,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 7,
-               "name" : "",
+               "name" : "Watery Alcove",
                "unreachable" : false
             },
             {
@@ -8936,7 +9004,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 23,
-               "name" : "",
+               "name" : "North Blood Pit",
                "unreachable" : false
             },
             {
@@ -8944,7 +9012,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 34,
-               "name" : "",
+               "name" : "Stone Closet",
                "unreachable" : false
             },
             {
@@ -8952,7 +9020,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 103,
-               "name" : "",
+               "name" : "Fake Blood Wall",
                "unreachable" : false
             },
             {
@@ -8960,7 +9028,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 104,
-               "name" : "",
+               "name" : "Fake Blood Wall",
                "unreachable" : false
             },
             {
@@ -8968,7 +9036,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 106,
-               "name" : "",
+               "name" : "North Blood Pit",
                "unreachable" : false
             },
             {
@@ -8976,7 +9044,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 150,
-               "name" : "",
+               "name" : "Fake Blood Wall",
                "unreachable" : false
             },
             {
@@ -8984,7 +9052,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 169,
-               "name" : "",
+               "name" : "Cave Behind Courtyard",
                "unreachable" : false
             },
             {
@@ -8992,7 +9060,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 186,
-               "name" : "",
+               "name" : "Courtyard Blood Fountain",
                "unreachable" : false
             },
             {
@@ -9000,7 +9068,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 236,
-               "name" : "",
+               "name" : "Courtyard Ledge",
                "unreachable" : false
             }
          ],
@@ -9227,6 +9295,7 @@
          }
       },
       {
+         "_lump" : "MAP26",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -9241,7 +9310,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 20,
-               "name" : "",
+               "name" : "Lava River, Showcase",
                "unreachable" : false
             },
             {
@@ -9249,7 +9318,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 21,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -9257,7 +9326,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 49,
-               "name" : "",
+               "name" : "Outdoor Area",
                "unreachable" : false
             },
             {
@@ -9265,7 +9334,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 95,
-               "name" : "",
+               "name" : "Lava River, Secret Lift",
                "unreachable" : false
             },
             {
@@ -9273,7 +9342,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 107,
-               "name" : "",
+               "name" : "Caged Walkway",
                "unreachable" : false
             },
             {
@@ -9281,7 +9350,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 154,
-               "name" : "",
+               "name" : "Water from Lava River",
                "unreachable" : false
             },
             {
@@ -9289,7 +9358,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 155,
-               "name" : "",
+               "name" : "Tripwire Room",
                "unreachable" : false
             },
             {
@@ -9297,7 +9366,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 159,
-               "name" : "",
+               "name" : "Outdoor Area",
                "unreachable" : false
             },
             {
@@ -9305,7 +9374,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 170,
-               "name" : "",
+               "name" : "Flickering Light Ledge",
                "unreachable" : false
             },
             {
@@ -9313,7 +9382,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 182,
-               "name" : "",
+               "name" : "Flickering Light Ledge",
                "unreachable" : false
             },
             {
@@ -9321,7 +9390,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 229,
-               "name" : "",
+               "name" : "Lava Chasms",
                "unreachable" : false
             },
             {
@@ -9329,7 +9398,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 254,
-               "name" : "",
+               "name" : "Under Spawn",
                "unreachable" : false
             }
          ],
@@ -9551,6 +9620,7 @@
          }
       },
       {
+         "_lump" : "MAP27",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -9565,7 +9635,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 4,
-               "name" : "",
+               "name" : "Main Room, Central Pillar",
                "unreachable" : false
             },
             {
@@ -9573,7 +9643,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 51,
-               "name" : "",
+               "name" : "Trap-Filled Library",
                "unreachable" : false
             },
             {
@@ -9581,7 +9651,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 58,
-               "name" : "",
+               "name" : "Trap-Filled Library",
                "unreachable" : false
             },
             {
@@ -9589,7 +9659,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 60,
-               "name" : "",
+               "name" : "Trap-Filled Library",
                "unreachable" : false
             },
             {
@@ -9597,7 +9667,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 86,
-               "name" : "",
+               "name" : "Trap-Filled Library",
                "unreachable" : false
             },
             {
@@ -9605,7 +9675,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 105,
-               "name" : "",
+               "name" : "Hidden Alcove",
                "unreachable" : false
             },
             {
@@ -9613,7 +9683,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 107,
-               "name" : "",
+               "name" : "Hidden Alcove",
                "unreachable" : false
             },
             {
@@ -9621,7 +9691,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 122,
-               "name" : "",
+               "name" : "Main Room, Sigil Eye Light",
                "unreachable" : false
             },
             {
@@ -9629,7 +9699,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 236,
-               "name" : "",
+               "name" : "Slaughter Room, Basement",
                "unreachable" : false
             },
             {
@@ -9637,7 +9707,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 239,
-               "name" : "",
+               "name" : "Slaughter Room",
                "unreachable" : false
             },
             {
@@ -9645,7 +9715,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 251,
-               "name" : "",
+               "name" : "Main Room",
                "unreachable" : false
             },
             {
@@ -9653,7 +9723,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 279,
-               "name" : "",
+               "name" : "Slaughter Room, Upper Ledge",
                "unreachable" : false
             },
             {
@@ -9661,7 +9731,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 285,
-               "name" : "",
+               "name" : "Slaughter Room, Basement",
                "unreachable" : false
             },
             {
@@ -9669,7 +9739,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 286,
-               "name" : "",
+               "name" : "Slaughter Room, Basement",
                "unreachable" : false
             },
             {
@@ -9677,7 +9747,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 287,
-               "name" : "",
+               "name" : "Slaughter Room, Basement",
                "unreachable" : false
             },
             {
@@ -9685,7 +9755,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 310,
-               "name" : "",
+               "name" : "Trap-Filled Library",
                "unreachable" : false
             },
             {
@@ -9693,7 +9763,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 364,
-               "name" : "",
+               "name" : "Blue Switch Platform",
                "unreachable" : false
             },
             {
@@ -9701,7 +9771,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 365,
-               "name" : "",
+               "name" : "Blue Switch Platform",
                "unreachable" : false
             },
             {
@@ -9709,7 +9779,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 382,
-               "name" : "",
+               "name" : "Twin Rooms, Pre-Teleport",
                "unreachable" : false
             },
             {
@@ -9717,7 +9787,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 392,
-               "name" : "",
+               "name" : "Twin Rooms, Pre-Teleport",
                "unreachable" : false
             },
             {
@@ -9725,7 +9795,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 393,
-               "name" : "",
+               "name" : "Twin Rooms, Pre-Teleport",
                "unreachable" : false
             },
             {
@@ -9733,7 +9803,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 394,
-               "name" : "",
+               "name" : "Twin Rooms, Pre-Teleport",
                "unreachable" : false
             },
             {
@@ -9741,7 +9811,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 414,
-               "name" : "",
+               "name" : "Twin Rooms, Post-Teleport",
                "unreachable" : false
             },
             {
@@ -9749,7 +9819,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 424,
-               "name" : "",
+               "name" : "Twin Rooms, Post-Teleport",
                "unreachable" : false
             },
             {
@@ -9757,7 +9827,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 425,
-               "name" : "",
+               "name" : "Twin Rooms, Post-Teleport",
                "unreachable" : false
             },
             {
@@ -9765,7 +9835,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 426,
-               "name" : "",
+               "name" : "Twin Rooms, Post-Teleport",
                "unreachable" : false
             },
             {
@@ -9773,7 +9843,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 454,
-               "name" : "",
+               "name" : "Twin Rooms Hallway",
                "unreachable" : false
             },
             {
@@ -9781,7 +9851,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 455,
-               "name" : "",
+               "name" : "Twin Rooms Hallway",
                "unreachable" : false
             },
             {
@@ -9789,7 +9859,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 460,
-               "name" : "",
+               "name" : "Slaughter Room",
                "unreachable" : false
             },
             {
@@ -9797,7 +9867,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 470,
-               "name" : "",
+               "name" : "Left Arrow",
                "unreachable" : false
             }
          ],
@@ -10083,6 +10153,7 @@
          }
       },
       {
+         "_lump" : "MAP28",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -10097,7 +10168,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 19,
-               "name" : "",
+               "name" : "Hellfire Cracks, Fake Wall",
                "unreachable" : false
             },
             {
@@ -10105,7 +10176,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 66,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10113,7 +10184,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 76,
-               "name" : "",
+               "name" : "Throne Room",
                "unreachable" : false
             },
             {
@@ -10121,7 +10192,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 87,
-               "name" : "",
+               "name" : "Throne Room, Exit",
                "unreachable" : false
             },
             {
@@ -10129,7 +10200,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 95,
-               "name" : "",
+               "name" : "Five Pillar Room, South Closet",
                "unreachable" : false
             },
             {
@@ -10137,7 +10208,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 96,
-               "name" : "",
+               "name" : "Wooden Ambush Room",
                "unreachable" : false
             },
             {
@@ -10145,7 +10216,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 124,
-               "name" : "",
+               "name" : "Gunshot Pillar Room",
                "unreachable" : false
             },
             {
@@ -10153,7 +10224,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 155,
-               "name" : "",
+               "name" : "Five Pillar Room, East Closet",
                "unreachable" : false
             },
             {
@@ -10161,7 +10232,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 156,
-               "name" : "",
+               "name" : "Five Pillar Room, East Closet",
                "unreachable" : false
             },
             {
@@ -10169,7 +10240,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 157,
-               "name" : "",
+               "name" : "Five Pillar Room, East Closet",
                "unreachable" : false
             },
             {
@@ -10177,7 +10248,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 158,
-               "name" : "",
+               "name" : "Five Pillar Room, East Closet",
                "unreachable" : false
             },
             {
@@ -10185,7 +10256,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 159,
-               "name" : "",
+               "name" : "Five Pillar Room, North Closet",
                "unreachable" : false
             },
             {
@@ -10193,7 +10264,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 163,
-               "name" : "",
+               "name" : "Ribbed Hallway",
                "unreachable" : false
             },
             {
@@ -10201,7 +10272,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 179,
-               "name" : "",
+               "name" : "Hellfire Room, Blood Sea",
                "unreachable" : false
             },
             {
@@ -10209,7 +10280,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 180,
-               "name" : "",
+               "name" : "Hellfire Room, Blood Sea",
                "unreachable" : false
             },
             {
@@ -10217,7 +10288,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 181,
-               "name" : "",
+               "name" : "Hellfire Room",
                "unreachable" : false
             },
             {
@@ -10225,7 +10296,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 183,
-               "name" : "",
+               "name" : "Pit Trap Room",
                "unreachable" : false
             },
             {
@@ -10233,7 +10304,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 185,
-               "name" : "",
+               "name" : "Throne Room",
                "unreachable" : false
             },
             {
@@ -10241,7 +10312,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 186,
-               "name" : "",
+               "name" : "Throne Room",
                "unreachable" : false
             },
             {
@@ -10249,7 +10320,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 195,
-               "name" : "",
+               "name" : "Hellfire Room",
                "unreachable" : false
             },
             {
@@ -10257,7 +10328,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 214,
-               "name" : "",
+               "name" : "Green Torch Ledge",
                "unreachable" : false
             },
             {
@@ -10265,7 +10336,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 216,
-               "name" : "",
+               "name" : "Revenant Ambush Room",
                "unreachable" : false
             }
          ],
@@ -10454,6 +10525,7 @@
          }
       },
       {
+         "_lump" : "MAP29",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -10468,7 +10540,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 85,
-               "name" : "",
+               "name" : "Going Down...",
                "unreachable" : false
             },
             {
@@ -10476,7 +10548,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 124,
-               "name" : "",
+               "name" : "Walkway Ambush Corridor",
                "unreachable" : false
             },
             {
@@ -10484,7 +10556,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 179,
-               "name" : "",
+               "name" : "Satyr Switch Platform",
                "unreachable" : false
             },
             {
@@ -10492,7 +10564,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 195,
-               "name" : "",
+               "name" : "Lava Bridges",
                "unreachable" : false
             },
             {
@@ -10500,7 +10572,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 216,
-               "name" : "",
+               "name" : "Lava Bridges",
                "unreachable" : false
             },
             {
@@ -10508,7 +10580,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 224,
-               "name" : "",
+               "name" : "Starting Walkway",
                "unreachable" : false
             },
             {
@@ -10516,7 +10588,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 235,
-               "name" : "",
+               "name" : "Walkway to First Teleporter",
                "unreachable" : false
             },
             {
@@ -10524,7 +10596,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 237,
-               "name" : "",
+               "name" : "Green Torch Tower",
                "unreachable" : false
             },
             {
@@ -10532,7 +10604,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 241,
-               "name" : "",
+               "name" : "Hanged Man",
                "unreachable" : false
             },
             {
@@ -10540,7 +10612,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 263,
-               "name" : "",
+               "name" : "Wooden Stair Room",
                "unreachable" : false
             }
          ],
@@ -10787,6 +10859,7 @@
          }
       },
       {
+         "_lump" : "MAP30",
          "accesses" : [],
          "bbs" : [],
          "ep" : 2,
@@ -10801,7 +10874,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 25,
-               "name" : "",
+               "name" : "Arena, Bottom Layer",
                "unreachable" : false
             },
             {
@@ -10809,7 +10882,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 26,
-               "name" : "",
+               "name" : "Arena, Middle Layer",
                "unreachable" : false
             },
             {
@@ -10817,7 +10890,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 28,
-               "name" : "",
+               "name" : "Arena, Top Layer",
                "unreachable" : false
             },
             {
@@ -10825,7 +10898,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 29,
-               "name" : "",
+               "name" : "Arena, Waste Pit",
                "unreachable" : false
             },
             {
@@ -10833,7 +10906,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 30,
-               "name" : "",
+               "name" : "Arena, Waste Pit",
                "unreachable" : false
             },
             {
@@ -10841,7 +10914,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 31,
-               "name" : "",
+               "name" : "Arena, Waste Pit",
                "unreachable" : false
             },
             {
@@ -10849,7 +10922,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 32,
-               "name" : "",
+               "name" : "Arena, Waste Pit",
                "unreachable" : false
             },
             {
@@ -10857,7 +10930,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 40,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10865,7 +10938,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 41,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10873,7 +10946,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 42,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10881,7 +10954,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 43,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10889,7 +10962,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 44,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10897,7 +10970,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 45,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10905,7 +10978,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 46,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10913,7 +10986,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 47,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10921,7 +10994,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 64,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -10929,7 +11002,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 85,
-               "name" : "",
+               "name" : "Arena, Icon's Platform",
                "unreachable" : false
             },
             {
@@ -10937,7 +11010,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 94,
-               "name" : "",
+               "name" : "Arena, Icon's Platform",
                "unreachable" : false
             }
          ],
@@ -10999,6 +11072,7 @@
          }
       },
       {
+         "_lump" : "MAP31",
          "accesses" : [],
          "bbs" : [],
          "ep" : 3,
@@ -11013,7 +11087,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 110,
-               "name" : "",
+               "name" : "Wooden Hallway Pushwall",
                "unreachable" : false
             },
             {
@@ -11021,7 +11095,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 139,
-               "name" : "",
+               "name" : "Wooden Side Room",
                "unreachable" : false
             },
             {
@@ -11029,7 +11103,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 263,
-               "name" : "",
+               "name" : "Last Hallway Side Room",
                "unreachable" : false
             },
             {
@@ -11037,7 +11111,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 278,
-               "name" : "",
+               "name" : "Secret Exit Pushwall",
                "unreachable" : false
             },
             {
@@ -11045,7 +11119,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 305,
-               "name" : "",
+               "name" : "Blue Stone Hall",
                "unreachable" : false
             },
             {
@@ -11053,7 +11127,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 308,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11061,7 +11135,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 309,
-               "name" : "",
+               "name" : "Blue Stone Cells",
                "unreachable" : false
             },
             {
@@ -11069,7 +11143,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 310,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11077,7 +11151,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 311,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11085,7 +11159,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 312,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11093,7 +11167,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 313,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11101,7 +11175,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 314,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11109,7 +11183,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 315,
-               "name" : "",
+               "name" : "Hell's Secret Intrusion",
                "unreachable" : false
             },
             {
@@ -11117,7 +11191,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 316,
-               "name" : "",
+               "name" : "Stone Room Pushwall",
                "unreachable" : false
             }
          ],
@@ -11239,6 +11313,7 @@
          }
       },
       {
+         "_lump" : "MAP32",
          "accesses" : [],
          "bbs" : [],
          "ep" : 3,
@@ -11253,7 +11328,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 33,
-               "name" : "",
+               "name" : "West Pushwall Room",
                "unreachable" : false
             },
             {
@@ -11261,7 +11336,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 57,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             },
             {
@@ -11269,7 +11344,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 70,
-               "name" : "",
+               "name" : "East Pushwall Room",
                "unreachable" : false
             },
             {
@@ -11277,7 +11352,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 74,
-               "name" : "",
+               "name" : "Northeast Pillar",
                "unreachable" : false
             },
             {
@@ -11285,7 +11360,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 75,
-               "name" : "",
+               "name" : "Northwest Pillar",
                "unreachable" : false
             },
             {
@@ -11293,7 +11368,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 78,
-               "name" : "",
+               "name" : "Southeast Pillar",
                "unreachable" : false
             },
             {
@@ -11301,7 +11376,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 79,
-               "name" : "",
+               "name" : "Southwest Pillar",
                "unreachable" : false
             },
             {
@@ -11309,7 +11384,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 80,
-               "name" : "",
+               "name" : "Southwest Pillar",
                "unreachable" : false
             },
             {
@@ -11317,7 +11392,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 81,
-               "name" : "",
+               "name" : "Southwest Pillar",
                "unreachable" : false
             },
             {
@@ -11325,7 +11400,7 @@
                "death_logic" : false,
                "description" : "",
                "index" : 82,
-               "name" : "",
+               "name" : "Spawn",
                "unreachable" : false
             }
          ],
