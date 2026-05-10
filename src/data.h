@@ -285,6 +285,13 @@ struct game_t
     Json::Value json_game_info;
     Json::Value json_map_tweaks;
     Json::Value json_level_select;
+
+    // Warnings tracked when generating
+    struct {
+        int unknown_world_option;
+        int location_no_region;
+        int no_exit_connection;
+    } warnings;
 };
 
 

@@ -581,9 +581,9 @@ int generate(game_t* game)
     level_to_keycards.clear();
     item_map.clear();
 
-    int warning_count_no_exit = 0;
-    int warning_count_empty_region = 0;
-    int warning_count_unknown_world_options = WorldOptions_Init(game);
+    game->warnings.unknown_world_option = WorldOptions_Init(game);
+    game->warnings.no_exit_connection = 0;
+    game->warnings.location_no_region = 0;
 
     ap_locations.reserve(600);
     ap_items.reserve(300);
@@ -681,7 +681,7 @@ int generate(game_t* game)
         }
         OLogW(level->name + " has no region that connects to the Exit.");
         complete_loc.region_name = "Hub @ Entrance to " + level->name;
-        ++warning_count_no_exit;
+        ++game->warnings.no_exit_connection;
 
     found_exit_connection:
         ap_locations.push_back(complete_loc);
@@ -938,7 +938,7 @@ int generate(game_t* game)
             {
                 OLogW("Location '" + location.name + "' is not marked as unreachable, and is not associated with a region.");
                 region_name = "Hub @ Entrance to " + level_name;
-                ++warning_count_empty_region;
+                ++game->warnings.location_no_region;
             }
 
             // Location data
@@ -1157,12 +1157,12 @@ int generate(game_t* game)
 
     long runtime_end = get_runtime_us();
 
-    if (warning_count_unknown_world_options)
-        OnScreenMessages::AddWarning(std::to_string(warning_count_unknown_world_options) + " unknown world option(s) found.");        
-    if (warning_count_no_exit)
-        OnScreenMessages::AddWarning(std::to_string(warning_count_no_exit) + " level(s) are missing Exit connections.");
-    if (warning_count_empty_region)
-        OnScreenMessages::AddWarning(std::to_string(warning_count_empty_region) + " location(s) are not associated with any regions.");
+    if (game->warnings.unknown_world_option)
+        OnScreenMessages::AddWarning(std::to_string(game->warnings.unknown_world_option) + " unknown world option(s) found.");        
+    if (game->warnings.no_exit_connection)
+        OnScreenMessages::AddWarning(std::to_string(game->warnings.no_exit_connection) + " level(s) are missing Exit connections.");
+    if (game->warnings.location_no_region)
+        OnScreenMessages::AddWarning(std::to_string(game->warnings.location_no_region) + " location(s) are not associated with any regions.");
 
     if (!world->Finalize())
         OnScreenMessages::AddError("Couldn't create '" + world->GetOutputPathName() + "'.");

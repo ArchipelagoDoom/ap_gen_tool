@@ -465,6 +465,21 @@ std::vector<std::string>& WorldOptions_GetAllHooks(game_t *game, const std::stri
 
     content.clear();
 
+    // Warn on generation for missing / incomplete logic
+    if (hook_type == "generate_early" &&
+        (game->warnings.location_no_region || game->warnings.no_exit_connection))
+    {
+        content.push_back("######## World generation warnings begin here ########");
+        content.push_back("self.warning(\"The logic for this game (" + game->ap_name + ") is likely incomplete.\\n\"");
+        if (game->warnings.location_no_region)
+            content.push_back("             \"- " + std::to_string(game->warnings.location_no_region) + " location(s) were not assigned to a region.\\n\"");
+        if (game->warnings.no_exit_connection)
+            content.push_back("             \"- " + std::to_string(game->warnings.no_exit_connection) + " level exit(s) were not reachable.\\n\"");
+        content.push_back("             \"Use with caution.\")");
+        content.push_back("######## World generation warnings end here ########");
+        content.resize(content.size() + line_breaks, "");
+    }
+
     // Mix in hooks from the game itself
     if (game->world_hooks.count(hook_type))
     {
