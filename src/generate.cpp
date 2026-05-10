@@ -230,17 +230,17 @@ void add_loc(const std::string& name, const map_thing_t& thing, level_t* level, 
 void add_item_name_groups(const std::string name, const std::vector<std::string> groups, level_t *level = nullptr)
 {
     std::string replacement = (level) ? level->group_name : "NULL";
+    constexpr std::string_view map_str{"%MAP%"};
 
     for (const std::string &group : groups)
     {
         if (group.empty())
             continue;
-
         std::string new_group = group;
-        size_t map_marker = new_group.find("%MAP%");
-        if (map_marker != std::string::npos)
-            new_group.replace(map_marker, 5, replacement);
+        size_t map_marker = new_group.find(map_str);
 
+        if (map_marker != std::string::npos)
+            new_group.replace(map_marker, map_str.size(), replacement);
         item_name_groups[new_group].insert(name);
     }
 }
@@ -983,23 +983,23 @@ int generate(game_t* game)
         //world->AddJson(zip_world_path + "start.json", ap_json, false);
     }
     { // World info
-        Json::Value customratio_json = Json::objectValue;
-        Json::Value filleritem_json = Json::objectValue;
+        Json::Value itempoolratio_json = Json::objectValue;
+        Json::Value helpfulweight_json = Json::objectValue;
 
-        for (const auto& pool : game->custom_pool_ratio)
+        for (const auto& pool : game->item_pool_ratio)
         {
             std::string key = std::to_string(pool.first);
-            customratio_json[key] = Json::arrayValue;
-            customratio_json[key][0] = pool.second[0];
-            customratio_json[key][1] = pool.second[1];
+            itempoolratio_json[key] = Json::arrayValue;
+            itempoolratio_json[key][0] = pool.second[0];
+            itempoolratio_json[key][1] = pool.second[1];
         }
-        for (const auto& weight : game->filler_item_weight)
-            filleritem_json[weight.first] = weight.second;
+        for (const auto& weight : game->helpful_item_weight)
+            helpfulweight_json[weight.first] = weight.second;
 
-        if (!customratio_json.empty())
-            ap_json["custom_pool_ratio"] = customratio_json;
-        if (!filleritem_json.empty())
-            ap_json["filler_item_weight"] = filleritem_json;
+        if (!itempoolratio_json.empty())
+            ap_json["item_pool_ratio"] = itempoolratio_json;
+        if (!helpfulweight_json.empty())
+            ap_json["helpful_item_weight"] = helpfulweight_json;
         //world->AddJson(zip_world_path + "filler.json", ap_json, false);
     }
     world->AddJson(zip_world_path + game->short_name + ".data.json", ap_json, false);

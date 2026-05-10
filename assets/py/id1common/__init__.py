@@ -30,10 +30,10 @@ DOOM_TYPE_LEVEL_UNLOCK = -1
 DOOM_TYPE_LEVEL_COMPLETE = -2
 
 
-class FillerPoolRatio(typing.NamedTuple):
+class ItemPoolRatio(typing.NamedTuple):
     helpful: int
     random: int
-    # junk is implied to be whatever's left out ot 100
+    # junk is implied to be whatever's left out of 100
 
 
 class ConnectionCriteriaData(typing.NamedTuple):
@@ -147,9 +147,9 @@ class AutoLoadJsonData(AutoWorldRegister):
             dct["starting_levels_by_episode"] = {int(idx): name
                                                  for (idx, name) in json_data["starting_levels_by_episode"].items()}
 
-            dct["filler_item_weight"] = json_data.get("filler_item_weight", {})
-            dct["custom_pool_ratio"] = {int(idx): FillerPoolRatio(*data)
-                                         for (idx, data) in json_data.get("custom_pool_ratio", {}).items()}
+            dct["helpful_item_weight"] = json_data.get("helpful_item_weight", {})
+            dct["item_pool_ratio"] = {(int(idx) - 1): ItemPoolRatio(*data)
+                                         for (idx, data) in json_data.get("item_pool_ratio", {}).items()}
         return super().__new__(cls, name, bases, dct)
 
 
@@ -165,8 +165,8 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
     death_logic_excluded_locations: typing.ClassVar[list[str]]
     starting_levels_by_episode: typing.ClassVar[dict[int, str]]
 
-    filler_item_weight: typing.ClassVar[dict[str, int]]
-    custom_pool_ratio: typing.ClassVar[dict[int, FillerPoolRatio]]
+    helpful_item_weight: typing.ClassVar[dict[str, int]]
+    item_pool_ratio: typing.ClassVar[dict[int, ItemPoolRatio]]
 
     options_dataclass: typing.ClassVar[type["PerGameCommonOptions"]] = id1CommonOptions
     options: id1CommonOptions  # type: ignore
@@ -193,18 +193,6 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
     # These are only related to certain goals, and are only populated if those goals are chosen.
     _required_level_complete_list: list[str]
     _required_level_complete_count: int
-
-    # If a custom_pool_ratio isn't set, these are the defaults. For each difficulty:
-    #   "helpful" is the percentage of total item pool to be filled with powerups
-    #   "random" is the percentage of total item pool with unweighted filler
-    #   (all items after that are Junk)
-    default_pool_ratio: typing.ClassVar[dict[int, FillerPoolRatio]] = {
-        0: FillerPoolRatio(helpful=51, random=4),  # I'm Too Young To Die (55%)
-        1: FillerPoolRatio(helpful=47, random=8),  # Hey, Not Too Rough (55%)
-        2: FillerPoolRatio(helpful=41, random=9),  # Hurt Me Plenty (50%)
-        3: FillerPoolRatio(helpful=36, random=7),  # Ultra-Violence (43%)
-        4: FillerPoolRatio(helpful=36, random=7),  # Nightmare! (43%)
-    }
 
     origin_region_name = "Hub"
 
@@ -519,23 +507,28 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
         if rest_items == 0:
             return
 
-        # The weighted filler pool is allowed to be empty. If it is, we only place "Junk".
-        if len(self.filler_item_weight) > 0:
-            diff = int(self.options.difficulty.value)
-            pool_weight = self.custom_pool_ratio.get(diff, self.default_pool_ratio[diff])
-
+        # If the current difficulty isn't in the item pool ratio list (or if that list is empty), place only "Junk".
+        if pool_weight := self.item_pool_ratio.get(int(self.options.difficulty.value), None):
             helpful_count = min(round(size * pool_weight.helpful / 100), rest_items)
             random_count = min(round(size * pool_weight.random / 100), rest_items - helpful_count)
 
-            # Mix in powerups into the item pool, weighted based on the filler item ratio.
-            item_pool.extend(self.random.choices(population=list(self.filler_item_weight.keys()),
-                                                 weights=list(self.filler_item_weight.values()),
-                                                 k=helpful_count))
+            # If helpful item weights are empty, then we can't place any "helpful" items.
+            # So substitute them ALL for "random".
+            if len(self.helpful_item_weight) == 0:
+                random_count += helpful_count
+                helpful_count = 0
+
+            # Mix in helpful powerups into the item pool, weighted based on the helpful item ratio.
+            if helpful_count > 0:
+                item_pool.extend(self.random.choices(population=list(self.helpful_item_weight.keys()),
+                                                     weights=list(self.helpful_item_weight.values()),
+                                                     k=helpful_count))
 
             # Now mix in a bit of completely random, unweighted filler, for extra spice.
-            set_filler = set(self.filler_item_weight.keys()) | set(self.item_name_groups["Junk"])
-            all_filler = sorted(set_filler)
-            item_pool.extend(self.random.choice(all_filler) for _ in range(random_count))
+            if random_count > 0:
+                set_filler = set(self.helpful_item_weight.keys()) | set(self.item_name_groups["Junk"])
+                all_filler = sorted(set_filler)
+                item_pool.extend(self.random.choice(all_filler) for _ in range(random_count))
 
         # Any remaining slots get filled with items in the "Junk" group.
         item_pool.extend(self.get_filler_item_name() for _ in range(size - len(item_pool)))

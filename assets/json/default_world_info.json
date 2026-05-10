@@ -1,0 +1,128 @@
+{
+    "DOOM.WAD": {
+        "description":[
+            "%NAME% is a PWAD for DOOM 1993,",
+            "playable with Archipelago Doom version 2.0."
+        ],
+        "world_options":[
+            {"name": "Difficulty", "preset": "Doom"}
+        ],
+        "item_pool_ratio":{
+            "1": {"helpful": 42, "random": 8},
+            "2": {"helpful": 39, "random": 6},
+            "3": {"helpful": 33, "random": 3},
+            "4": {"helpful": 29, "random": 1},
+            "5": {"helpful": 29, "random": 1}
+        },
+        "helpful_item_weight":{
+            "Armor": 41,
+            "Mega Armor": 25,
+            "Berserk": 13,
+            "Invulnerability": 9,
+            "Partial invisibility": 18,
+            "Supercharge": 28
+        }
+    },
+    "DOOM2.WAD": {
+        "description":[
+            "%NAME% is a PWAD for DOOM II,",
+            "playable with Archipelago Doom version 2.0."
+        ],
+        "world_options":[
+            {"name": "Difficulty", "preset": "Doom"}
+        ],
+        "item_pool_ratio":{
+            "1": {"helpful": 42, "random": 8},
+            "2": {"helpful": 39, "random": 6},
+            "3": {"helpful": 33, "random": 3},
+            "4": {"helpful": 29, "random": 1},
+            "5": {"helpful": 29, "random": 1}
+        },
+        "helpful_item_weight":{
+            "Armor": 39,
+            "Mega Armor": 23,
+            "Berserk": 11,
+            "Invulnerability": 9,
+            "Partial invisibility": 18,
+            "Supercharge": 26,
+            "Megasphere": 8
+        }
+    },
+    "TNT.WAD": {
+        "description":[
+            "%NAME% is a PWAD for Final Doom (TNT Evilution),",
+            "playable with Archipelago Doom version 2.0."
+        ],
+        "world_options":[
+            {"name": "Difficulty", "preset": "Doom"}
+        ],
+        "item_pool_ratio":{
+            "1": {"helpful": 42, "random": 8},
+            "2": {"helpful": 39, "random": 6},
+            "3": {"helpful": 33, "random": 3},
+            "4": {"helpful": 29, "random": 1},
+            "5": {"helpful": 29, "random": 1}
+        },
+        "helpful_item_weight":{
+            "Armor": 39,
+            "Mega Armor": 23,
+            "Berserk": 11,
+            "Invulnerability": 9,
+            "Partial invisibility": 18,
+            "Supercharge": 26,
+            "Megasphere": 8
+        }
+    },
+    "PLUTONIA.WAD": {
+        "description":[
+            "%NAME% is a PWAD for Final Doom (The Plutonia Experiment),",
+            "playable with Archipelago Doom version 2.0."
+        ],
+        "world_options":[
+            {"name": "Difficulty", "preset": "Doom"}
+        ],
+        "item_pool_ratio":{
+            "1": {"helpful": 42, "random": 8},
+            "2": {"helpful": 39, "random": 6},
+            "3": {"helpful": 33, "random": 3},
+            "4": {"helpful": 29, "random": 1},
+            "5": {"helpful": 29, "random": 1}
+        },
+        "helpful_item_weight":{
+            "Armor": 39,
+            "Mega Armor": 23,
+            "Berserk": 11,
+            "Invulnerability": 9,
+            "Partial invisibility": 18,
+            "Supercharge": 26,
+            "Megasphere": 8
+        }
+    },
+    "HERETIC.WAD": {
+        "description":[
+            "%NAME% is a PWAD for Heretic,",
+            "playable with Archipelago Doom version 2.0."
+        ],
+        "world_options":[
+            {"name": "Difficulty", "preset": "Heretic"}
+        ],
+        "item_pool_ratio":{
+            "1": {"helpful": 31, "random": 9},
+            "2": {"helpful": 25, "random": 5},
+            "3": {"helpful": 22, "random": 3},
+            "4": {"helpful": 18, "random": 2},
+            "5": {"helpful": 18, "random": 2}
+        },
+        "helpful_item_weight":{
+            "Tome of Power": 25,
+            "Silver Shield": 20,
+            "Enchanted Shield": 12,
+            "Torch": 12,
+            "Morph Ovum": 9,
+            "Mystic Urn": 9,
+            "Chaos Device": 6,
+            "Shadowsphere": 4,
+            "Ring of Invincibility": 3
+        }
+    }
+}

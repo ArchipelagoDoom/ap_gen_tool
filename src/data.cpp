@@ -69,10 +69,13 @@ void init_data()
 
     // Load default game info
     Json::Value default_game_infos;
+    Json::Value default_world_infos;
     Json::Value default_items;
 
     if (!onut::loadJson(default_game_infos, "./assets/json/default_game_info.json"))
         OnScreenMessages::AddError("default_game_info.json couldn't be loaded, expect issues.");
+    if (!onut::loadJson(default_world_infos, "./assets/json/default_world_info.json"))
+        OnScreenMessages::AddError("default_world_info.json couldn't be loaded, expect issues.");
     if (!onut::loadJson(default_items, "./assets/json/default_items.json"))
         OnScreenMessages::AddError("default_items.json couldn't be loaded, expect issues.");
 
@@ -208,10 +211,15 @@ void init_data()
         for (const auto& key : game.keys)
             game.item_requirements.push_back(key.item);
 
+        // Merge in default world data for iwad
+        Json::Value world_json = default_world_infos.get(game.iwad_name, Json::objectValue);
         if (game_json["world_info"].isObject())
         {
-            Json::Value& world_json = game_json["world_info"];
-
+            for (const auto &element : game_json["world_info"].getMemberNames())
+                world_json[element] = game_json["world_info"][element];
+        }
+        if (!world_json.empty())
+        {
             // World description: used as the docstring for the world class
             stringarray_to_vector(game.description, world_json["description"]);
 
@@ -228,30 +236,42 @@ void init_data()
                     stringarray_to_vector(game.world_hooks[hook_type], world_json["hooks"][hook_type]);
             }
 
-            // Filler item weights: Lets worlds have a weighted "helpful" filler pool
-            if (world_json["filler_item_weight"].isObject())
+            // Helpful item weights: Lets worlds have a weighted "helpful" filler pool
+            if (world_json["helpful_item_weight"].isObject())
             {
-                const auto& item_names = world_json["filler_item_weight"].getMemberNames();
+                const auto& item_names = world_json["helpful_item_weight"].getMemberNames();
                 for (const auto& item_name : item_names)
-                    game.filler_item_weight.try_emplace(item_name, world_json["filler_item_weight"][item_name].asInt());
+                    game.helpful_item_weight.try_emplace(item_name, world_json["helpful_item_weight"][item_name].asInt());
             }
 
-            // Custom pool ratio: Size of the helpful and random pools relative to number of locations
-            if (world_json["custom_pool_ratio"].isObject())
+            // Item pool ratio: Size of the helpful and random pools relative to number of locations
+            if (world_json["item_pool_ratio"].isObject())
             {
-                const auto& difficulties = world_json["custom_pool_ratio"].getMemberNames();
+                const auto& difficulties = world_json["item_pool_ratio"].getMemberNames();
                 for (const auto& diff : difficulties)
                 {
-                    const Json::Value& customratio = world_json["custom_pool_ratio"][diff];
+                    const Json::Value& customratio = world_json["item_pool_ratio"][diff];
                     int diff_int = std::stoi(diff);
 
-                    game.custom_pool_ratio[diff_int].push_back(customratio.get("helpful", 0).asInt());
-                    game.custom_pool_ratio[diff_int].push_back(customratio.get("random", 0).asInt());
+                    game.item_pool_ratio[diff_int].push_back(customratio.get("helpful", 0).asInt());
+                    game.item_pool_ratio[diff_int].push_back(customratio.get("random", 0).asInt());
                 }
             }
         }
         if (game.description.empty())
-            game.description.push_back(game.ap_name + " is a game playable with APDoom version 2.0.0.");
+            game.description.push_back("%NAME% is a game playable with APDoom version 2.0.0.");
+
+        // Substitute %NAME% in the description with the game's name.
+        for (std::string &descline : game.description)
+        {
+            if (descline.empty())
+                continue;
+            constexpr std::string_view name_str{"%NAME%"};
+            size_t name_marker = descline.find(name_str);
+
+            if (name_marker != std::string::npos)
+                descline.replace(name_marker, name_str.size(), game.full_name);
+        }
 
         // Merge in default game data for iwad with whatever is present in game json
         game.json_game_info = default_game_infos.get(game.iwad_name, Json::objectValue);

@@ -123,10 +123,11 @@ void Difficulty_InsertPyOptions(game_t *game, std::vector<PyOption>& options)
         {
             std::string full_name = diff_info.json[i].get("full_name", "").asString();
             std::string opt_name = diff_info.json[i].get("option_name", diff_strings[i].name).asString();
+            std::string description = diff_info.json[i].get("description", diff_strings[i].description).asString();
             if (full_name == "")
                 continue;
 
-            opt.docstring.push_back("- **" + opt_name + "**: (" + full_name + ") - " + diff_strings[i].description);
+            opt.docstring.push_back("- **" + opt_name + "**: (" + full_name + ") - " + description);
             choices.push_back("option_" + to_snake_case(opt_name) + " = " + std::to_string(i));
             for (const auto& alias : diff_info.json[i].get("aliases", Json::arrayValue))
                 aliases.push_back("alias_" + to_snake_case(alias.asString()) + " = " + std::to_string(i));

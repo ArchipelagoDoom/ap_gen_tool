@@ -254,8 +254,8 @@ struct game_t
     std::vector<std::string> authors; // Stored in the manifest
     std::vector<std::string> description; // Docstring for the world class
     std::map<std::string, std::vector<std::string>> world_hooks;
-    std::map<std::string, int> filler_item_weight;
-    std::map<int, std::vector<int>> custom_pool_ratio;
+    std::map<std::string, int> helpful_item_weight;
+    std::map<int, std::vector<int>> item_pool_ratio;
     // Not stored in a map because we want to preserve order.
     Json::Value json_world_options;
 
