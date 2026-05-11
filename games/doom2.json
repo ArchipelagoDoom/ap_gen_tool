@@ -152,8 +152,8 @@
         "defaults":{
             "base":{
                 "x": 30,
-                "cursor": {"display": "individual", "graphic": "M_SKULL1", "x": -30, "y": -11},
-                "map_name": {"x": 10, "y": -5},
+                "cursor": {"graphic": "M_SKULL1", "x": -30, "y": -11},
+                "map_name": {"display": "individual", "x": 10, "y": -5},
                 "keys": {"relative_to": "map-name-right", "x": 3, "y": 2, "spacing_x": 12},
                 "checks": {"relative_to": "keys-last", "x": 8, "y": 2}
             },
