@@ -103,25 +103,7 @@
             {"name": "Start with Maps"},
             {"name": "Capacity Upgrades", "combined_plural_name": "Bags of Holding"},
             {"name": "Custom Ammo Capacity"}
-        ],
-        "custom_pool_ratio":{
-            "0": {"helpful": 31, "random": 9},
-            "1": {"helpful": 25, "random": 5},
-            "2": {"helpful": 22, "random": 3},
-            "3": {"helpful": 18, "random": 2},
-            "4": {"helpful": 18, "random": 2}
-        },
-        "filler_item_weight":{
-            "Tome of Power": 25,
-            "Silver Shield": 20,
-            "Enchanted Shield": 12,
-            "Torch": 12,
-            "Morph Ovum": 9,
-            "Mystic Urn": 9,
-            "Chaos Device": 6,
-            "Shadowsphere": 4,
-            "Ring of Invincibility": 3
-        }
+        ]
     },
 
     "map_tweaks":{
@@ -157,94 +139,99 @@
 
     "level_select":{
         "defaults":{
-            "map_name_position": "bottom",
-            "maps":{
-                "x": 40,
-                "map_name":{"x": 20, "y": -10},
+            "base":{
+                "map_text":{"display": "bottom", "size": 1},
                 "cursor":{"graphic": "IN_YAH", "x": 2, "y": -2},
                 "keys": {"x": 9, "y": 4, "spacing_y": 5, "align_y": -4},
                 "checks": {"x": -4, "y": 8}
+            },
+            "e4e5e6":{
+                "defaults": "base",
+                "x": 40,
+                "map_text":{"display": "individual", "size": 1, "x": 20, "y": -10},
+                "cursor":{"graphic": "M_SLCTR2", "x": -35, "y": -13}, 
+                "checks":{"relative_to": "map-name-right", "x": 13, "y": 9} 
             }
         },
         "episodes":[
             {
                 "background_image": "MAPE1",
                 "maps":[
-                    {"x":172, "y": 76, "map_name":{"text":"THE DOCKS - E1M1"} },
-                    {"x": 87, "y": 93, "map_name":{"text":"THE DUNGEONS - E1M2"} },
-                    {"x": 73, "y": 66, "map_name":{"text":"THE GATEHOUSE - E1M3"} },
-                    {"x":155, "y":100, "map_name":{"text":"THE GUARD TOWER - E1M4"} },
-                    {"x":147, "y":127, "map_name":{"text":"THE CITADEL - E1M5"} },
-                    {"x":126, "y": 51, "map_name":{"text":"THE CATHEDRAL - E1M6"} },
-                    {"x":127, "y": 82, "map_name":{"text":"THE CRYPTS - E1M7"} },
-                    {"x":207, "y":138, "map_name":{"text":"HELL'S MAW - E1M8"} },
-                    {"x": 53, "y":104, "map_name":{"text":"THE GRAVEYARD - E1M9"} }
+                    {"x":172, "y": 76, "map_text":{"text":"THE DOCKS - E1M1"} },
+                    {"x": 87, "y": 93, "map_text":{"text":"THE DUNGEONS - E1M2"} },
+                    {"x": 73, "y": 66, "map_text":{"text":"THE GATEHOUSE - E1M3"} },
+                    {"x":155, "y":100, "map_text":{"text":"THE GUARD TOWER - E1M4"} },
+                    {"x":147, "y":127, "map_text":{"text":"THE CITADEL - E1M5"} },
+                    {"x":126, "y": 51, "map_text":{"text":"THE CATHEDRAL - E1M6"} },
+                    {"x":127, "y": 82, "map_text":{"text":"THE CRYPTS - E1M7"} },
+                    {"x":207, "y":138, "map_text":{"text":"HELL'S MAW - E1M8"} },
+                    {"x": 53, "y":104, "map_text":{"text":"THE GRAVEYARD - E1M9"} }
                 ]
             },
             {
                 "background_image": "MAPE2",
                 "maps":[
-                    {"x":218, "y": 57, "map_name":{"text":"THE CRATER - E2M1"} },
-                    {"x":137, "y": 76, "map_name":{"text":"THE LAVA PITS - E2M2"} },
-                    {"x":155, "y":124, "map_name":{"text":"THE RIVER OF FIRE - E2M3"} },
-                    {"x":171, "y": 68, "map_name":{"text":"THE ICE GROTTO - E2M4"} },
-                    {"x":250, "y": 86, "map_name":{"text":"THE CATACOMBS - E2M5"} },
-                    {"x":136, "y":103, "map_name":{"text":"THE LABYRINTH - E2M6"} },
-                    {"x":203, "y": 90, "map_name":{"text":"THE GREAT HALL - E2M7"} },
-                    {"x":220, "y":140, "map_name":{"text":"THE PORTALS OF CHAOS - E2M8"} },
-                    {"x":279, "y":106, "map_name":{"text":"THE GLACIER - E2M9"} }
+                    {"x":218, "y": 57, "map_text":{"text":"THE CRATER - E2M1"} },
+                    {"x":137, "y": 76, "map_text":{"text":"THE LAVA PITS - E2M2"} },
+                    {"x":155, "y":124, "map_text":{"text":"THE RIVER OF FIRE - E2M3"} },
+                    {"x":171, "y": 68, "map_text":{"text":"THE ICE GROTTO - E2M4"} },
+                    {"x":250, "y": 86, "map_text":{"text":"THE CATACOMBS - E2M5"} },
+                    {"x":136, "y":103, "map_text":{"text":"THE LABYRINTH - E2M6"} },
+                    {"x":203, "y": 90, "map_text":{"text":"THE GREAT HALL - E2M7"} },
+                    {"x":220, "y":140, "map_text":{"text":"THE PORTALS OF CHAOS - E2M8"} },
+                    {"x":279, "y":106, "map_text":{"text":"THE GLACIER - E2M9"} }
                 ]
             },
             {
                 "background_image": "MAPE3",
                 "maps":[
-                    {"x": 86, "y": 99, "map_name":{"text":"THE STOREHOUSE - E3M1"} },
-                    {"x":124, "y":103, "map_name":{"text":"THE CESSPOOL - E3M2"} },
-                    {"x":154, "y": 83, "map_name":{"text":"THE CONFLUENCE - E3M3"} },
-                    {"x":198, "y": 86, "map_name":{"text":"THE AZURE FORTRESS - E3M4"} },
-                    {"x":178, "y": 59, "map_name":{"text":"THE OPHIDIAN LAIR - E3M5"} },
-                    {"x":142, "y": 57, "map_name":{"text":"THE HALLS OF FEAR - E3M6"} },
-                    {"x":219, "y": 66, "map_name":{"text":"THE CHASM - E3M7"} },
-                    {"x":249, "y": 56, "map_name":{"text":"D'SPARIL'S KEEP - E3M8"} },
-                    {"x":107, "y": 80, "map_name":{"text":"THE AQUIFER - E3M9"} }
+                    {"x": 86, "y": 99, "map_text":{"text":"THE STOREHOUSE - E3M1"} },
+                    {"x":124, "y":103, "map_text":{"text":"THE CESSPOOL - E3M2"} },
+                    {"x":154, "y": 83, "map_text":{"text":"THE CONFLUENCE - E3M3"} },
+                    {"x":198, "y": 86, "map_text":{"text":"THE AZURE FORTRESS - E3M4"} },
+                    {"x":178, "y": 59, "map_text":{"text":"THE OPHIDIAN LAIR - E3M5"} },
+                    {"x":142, "y": 57, "map_text":{"text":"THE HALLS OF FEAR - E3M6"} },
+                    {"x":219, "y": 66, "map_text":{"text":"THE CHASM - E3M7"} },
+                    {"x":249, "y": 56, "map_text":{"text":"D'SPARIL'S KEEP - E3M8"} },
+                    {"x":107, "y": 80, "map_text":{"text":"THE AQUIFER - E3M9"} }
                 ]
             },
             {
-                "map_name_position": "individual",
+                "defaults": "e4e5e6",
                 "background_image": "MAPE4",
                 "maps":[
-                    {"y": 15, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"CATAFALQUE"} },
-                    {"y": 36, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"BLOCKHOUSE"} },
-                    {"y": 57, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"AMBULATORY"} },
-                    {"y": 78, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"SEPULCHER"} },
-                    {"y": 99, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"GREAT STAIR"} },
-                    {"y":120, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"HALLS OF THE APOSTATE"} },
-                    {"y":141, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"RAMPARTS OF PERDITION"} },
-                    {"y":162, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"SHATTERED BRIDGE"} },
-                    {"y":183, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"MAUSOLEUM"} }
+                    {"y": 15, "map_text":{"text":"CATAFALQUE"} },
+                    {"y": 36, "map_text":{"text":"BLOCKHOUSE"} },
+                    {"y": 57, "map_text":{"text":"AMBULATORY"} },
+                    {"y": 78, "map_text":{"text":"SEPULCHER"} },
+                    {"y": 99, "map_text":{"text":"GREAT STAIR"} },
+                    {"y":120, "map_text":{"text":"HALLS OF THE APOSTATE"} },
+                    {"y":141, "map_text":{"text":"RAMPARTS OF PERDITION"} },
+                    {"y":162, "map_text":{"text":"SHATTERED BRIDGE"} },
+                    {"y":183, "map_text":{"text":"MAUSOLEUM"} }
                 ]
             },
             {
-                "map_name_position": "individual",
+                "defaults": "e4e5e6",
                 "background_image": "MAPE5",
                 "maps":[
-                    {"y": 15, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"OCHRE CLIFFS"} },
-                    {"y": 36, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"RAPIDS"} },
-                    {"y": 57, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"QUAY"} },
-                    {"y": 78, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"COURTYARD"} },
-                    {"y": 99, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"HYDRATYR"} },
-                    {"y":120, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"COLONNADE"} },
-                    {"y":141, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"FOETID MANSE"} },
-                    {"y":162, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"FIELD OF JUDGEMENT"} },
-                    {"y":183, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"SKEIN OF D'SPARIL"} }
+                    {"y": 15, "map_text":{"text":"OCHRE CLIFFS"} },
+                    {"y": 36, "map_text":{"text":"RAPIDS"} },
+                    {"y": 57, "map_text":{"text":"QUAY"} },
+                    {"y": 78, "map_text":{"text":"COURTYARD"} },
+                    {"y": 99, "map_text":{"text":"HYDRATYR"} },
+                    {"y":120, "map_text":{"text":"COLONNADE"} },
+                    {"y":141, "map_text":{"text":"FOETID MANSE"} },
+                    {"y":162, "map_text":{"text":"FIELD OF JUDGEMENT"} },
+                    {"y":183, "map_text":{"text":"SKEIN OF D'SPARIL"} }
                 ]
             },
             {
-                "map_name_position": "individual",
+                "defaults": "e4e5e6",
                 "background_image": "MAPE6",
                 "maps":[
-                    {"y": 15, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"RAVEN'S LAIR"} },
-                    {"y": 36, "cursor":{"graphic":"M_SLCTR2","x":-35,"y":-13}, "checks":{"relative_to":"map-name-right","x":13,"y":9}, "map_name":{"text":"THE WATER SHRINE"} }
+                    {"y": 15, "map_text":{"text":"RAVEN'S LAIR"} },
+                    {"y": 36, "map_text":{"text":"THE WATER SHRINE"} }
                 ]
             }
         ]

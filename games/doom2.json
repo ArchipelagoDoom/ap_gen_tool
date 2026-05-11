@@ -88,16 +88,7 @@
             {"name": "Invis as Trap"},
             {"name": "Capacity Upgrades"},
             {"name": "Custom Ammo Capacity"}
-        ],
-        "filler_item_weight":{
-            "Armor": 39,
-            "Mega Armor": 23,
-            "Berserk": 11,
-            "Invulnerability": 10,
-            "Partial invisibility": 18,
-            "Supercharge": 26,
-            "Megasphere": 7
-        }
+        ]
     },
 
     "map_tweaks":{
@@ -159,14 +150,14 @@
 
     "level_select":{
         "defaults":{
-            "map_name_position": "individual",
-            "maps":{
+            "base":{
                 "x": 30,
-                "cursor": {"graphic": "M_SKULL1", "x": -30, "y": -11},
+                "cursor": {"display": "individual", "graphic": "M_SKULL1", "x": -30, "y": -11},
                 "map_name": {"x": 10, "y": -5},
                 "keys": {"relative_to": "map-name-right", "x": 3, "y": 2, "spacing_x": 12},
                 "checks": {"relative_to": "keys-last", "x": 8, "y": 2}
-            }
+            },
+            "e2":{ "defaults": "base", "x": 40 }
         },
         "episodes":[
             {
@@ -186,17 +177,18 @@
                 ]
             },
             {
+                "defaults": "e2",
                 "background_image": "D2INTER2",
                 "maps":[
-                    { "x": 40, "y":  15, "map_name": {"graphic": "CWILV11"} },
-                    { "x": 40, "y":  36, "map_name": {"graphic": "CWILV12"} },
-                    { "x": 40, "y":  57, "map_name": {"graphic": "CWILV13"} },
-                    { "x": 40, "y":  78, "map_name": {"graphic": "CWILV14"} },
-                    { "x": 40, "y":  99, "map_name": {"graphic": "CWILV15"} },
-                    { "x": 40, "y": 120, "map_name": {"graphic": "CWILV16"} },
-                    { "x": 40, "y": 141, "map_name": {"graphic": "CWILV17"} },
-                    { "x": 40, "y": 162, "map_name": {"graphic": "CWILV18"} },
-                    { "x": 40, "y": 183, "map_name": {"graphic": "CWILV19"} }
+                    { "y":  15, "map_name": {"graphic": "CWILV11"} },
+                    { "y":  36, "map_name": {"graphic": "CWILV12"} },
+                    { "y":  57, "map_name": {"graphic": "CWILV13"} },
+                    { "y":  78, "map_name": {"graphic": "CWILV14"} },
+                    { "y":  99, "map_name": {"graphic": "CWILV15"} },
+                    { "y": 120, "map_name": {"graphic": "CWILV16"} },
+                    { "y": 141, "map_name": {"graphic": "CWILV17"} },
+                    { "y": 162, "map_name": {"graphic": "CWILV18"} },
+                    { "y": 183, "map_name": {"graphic": "CWILV19"} }
                 ]
             },
             {

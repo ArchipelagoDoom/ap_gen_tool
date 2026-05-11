@@ -93,15 +93,7 @@
             {"name": "Invis as Trap"},
             {"name": "Capacity Upgrades"},
             {"name": "Custom Ammo Capacity"}
-        ],
-        "filler_item_weight":{
-            "Armor": 41,
-            "Mega Armor": 25,
-            "Berserk": 12,
-            "Invulnerability": 10,
-            "Partial invisibility": 18,
-            "Supercharge": 28
-        }
+        ]
     },
 
     "map_tweaks":{
@@ -136,9 +128,9 @@
 
     "level_select":{
         "defaults":{
-            "map_name_position": "top",
-            "maps":{
+            "base":{
                 "keys": {"use_checkmark": true, "spacing_y": 8, "align_y": -4, "checkmark_x": 12, "checkmark_y": -1},
+                "map_name": {"display": "top"},
                 "checks": {"x": -4, "y": 10}
             }
         },
@@ -146,57 +138,57 @@
             {
                 "background_image": "WIMAP0",
                 "maps":[
-                    {"x":185, "y":174, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV00"}, "keys":{"x": 22} },
-                    {"x":148, "y":143, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV01"}, "keys":{"x": 18} },
-                    {"x": 69, "y":122, "cursor":{"graphic":"WIURH1", "x":-2, "y":-2}, "map_name":{"graphic":"WILV02"}, "keys":{"x": 18} },
-                    {"x":229, "y":102, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV03"}, "keys":{"x": 22} },
-                    {"x":116, "y": 89, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV04"}, "keys":{"x": 26} },
-                    {"x":176, "y": 53, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV05"}, "keys":{"x": 22} },
-                    {"x": 71, "y": 56, "cursor":{"graphic":"WIURH1", "x":-2, "y":-2}, "map_name":{"graphic":"WILV06"}, "keys":{"x": 18} },
-                    {"x":135, "y": 29, "cursor":{"graphic":"WIURH0", "x": 0, "y": 2}, "map_name":{"graphic":"WILV07"}, "keys":{"x": 18} },
-                    {"x": 70, "y": 24, "cursor":{"graphic":"WIURH1", "x":-2, "y":-2}, "map_name":{"graphic":"WILV08"}, "keys":{"x": 22} }
+                    {"x":185, "y":174, "cursor":{"graphic":"WIURH0", "x": 2, "y": -2}, "map_name":{"graphic":"WILV00"}, "keys":{"x": 22} },
+                    {"x":148, "y":143, "cursor":{"graphic":"WIURH0", "x": 2, "y": -6}, "map_name":{"graphic":"WILV01"}, "keys":{"x": 18} },
+                    {"x": 69, "y":122, "cursor":{"graphic":"WIURH1", "x":-2, "y": -2}, "map_name":{"graphic":"WILV02"}, "keys":{"x": 18} },
+                    {"x":229, "y":102, "cursor":{"graphic":"WIURH0", "x": 2, "y":-10}, "map_name":{"graphic":"WILV03"}, "keys":{"x": 22} },
+                    {"x":116, "y": 89, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV04"}, "keys":{"x": 26} },
+                    {"x":176, "y": 53, "cursor":{"graphic":"WIURH0", "x": 2, "y":-14}, "map_name":{"graphic":"WILV05"}, "keys":{"x": 22} },
+                    {"x": 71, "y": 56, "cursor":{"graphic":"WIURH1", "x":-2, "y": -2}, "map_name":{"graphic":"WILV06"}, "keys":{"x": 18} },
+                    {"x":135, "y": 29, "cursor":{"graphic":"WIURH0", "x": 0, "y":  2}, "map_name":{"graphic":"WILV07"}, "keys":{"x": 18} },
+                    {"x": 70, "y": 24, "cursor":{"graphic":"WIURH1", "x":-2, "y": -2}, "map_name":{"graphic":"WILV08"}, "keys":{"x": 22} }
                 ]
             },
             {
                 "background_image": "WIMAP1",
                 "maps":[
-                    {"x":254, "y": 25, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV10"}, "keys":{"x": 18} },
-                    {"x": 97, "y": 50, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV11"}, "keys":{"x": 22} },
-                    {"x":188, "y": 64, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV12"}, "keys":{"x": 18} },
-                    {"x":128, "y": 83, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV13"}, "keys":{"x": 22} },
-                    {"x":214, "y": 92, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV14"}, "keys":{"x": 22} },
-                    {"x":133, "y":130, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV15"}, "keys":{"x": 20} },
-                    {"x":208, "y":135, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV16"}, "keys":{"x": 18} },
-                    {"x":148, "y":160, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV17"}, "keys":{"x": 22} },
-                    {"x":235, "y":168, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV18"}, "keys":{"x": 18} }
+                    {"x":254, "y": 25, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV10"}, "keys":{"x": 18} },
+                    {"x": 97, "y": 50, "cursor":{"graphic":"WIURH0", "x": 2, "y":-14}, "map_name":{"graphic":"WILV11"}, "keys":{"x": 22} },
+                    {"x":188, "y": 64, "cursor":{"graphic":"WIURH0", "x": 2, "y": -6}, "map_name":{"graphic":"WILV12"}, "keys":{"x": 18} },
+                    {"x":128, "y": 83, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV13"}, "keys":{"x": 22} },
+                    {"x":214, "y": 92, "cursor":{"graphic":"WIURH0", "x": 2, "y": -2}, "map_name":{"graphic":"WILV14"}, "keys":{"x": 22} },
+                    {"x":133, "y":130, "cursor":{"graphic":"WIURH0", "x": 2, "y":-14}, "map_name":{"graphic":"WILV15"}, "keys":{"x": 20} },
+                    {"x":208, "y":135, "cursor":{"graphic":"WIURH0", "x": 2, "y":-14}, "map_name":{"graphic":"WILV16"}, "keys":{"x": 18} },
+                    {"x":148, "y":160, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV17"}, "keys":{"x": 22} },
+                    {"x":235, "y":168, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV18"}, "keys":{"x": 18} }
                 ]
             },
             {
                 "background_image": "WIMAP2",
                 "maps":[
-                    {"x":156, "y":168, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV20"}, "keys":{"x": 22} },
-                    {"x": 48, "y":154, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV21"}, "keys":{"x": 22} },
-                    {"x":174, "y": 95, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV22"}, "keys":{"x":-26, "checkmark_x":-12} },
-                    {"x":265, "y": 75, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV23"}, "keys":{"x": 22} },
-                    {"x":130, "y": 52, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV24"}, "keys":{"x":-24, "checkmark_x":-12} },
-                    {"x":279, "y": 23, "cursor":{"graphic":"WIURH1", "x": 6, "y":-2}, "map_name":{"graphic":"WILV25"}, "keys":{"x":-26, "checkmark_x":-12} },
-                    {"x":198, "y": 48, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV26"}, "keys":{"x": 18} },
-                    {"x":140, "y": 25, "cursor":{"graphic":"WIURH1", "x":-2, "y":-2}, "map_name":{"graphic":"WILV27"}, "keys":{"x": 22} },
-                    {"x":281, "y":136, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV28"}, "keys":{"x":-26, "checkmark_x":-12} }
+                    {"x":156, "y":168, "cursor":{"graphic":"WIURH0", "x": 2, "y": -2}, "map_name":{"graphic":"WILV20"}, "keys":{"x": 22} },
+                    {"x": 48, "y":154, "cursor":{"graphic":"WIURH0", "x": 2, "y": -6}, "map_name":{"graphic":"WILV21"}, "keys":{"x": 22} },
+                    {"x":174, "y": 95, "cursor":{"graphic":"WIURH0", "x": 2, "y": -2}, "map_name":{"graphic":"WILV22"}, "keys":{"x":-26, "checkmark_x":-12} },
+                    {"x":265, "y": 75, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV23"}, "keys":{"x": 22} },
+                    {"x":130, "y": 52, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV24"}, "keys":{"x":-24, "checkmark_x":-12} },
+                    {"x":279, "y": 23, "cursor":{"graphic":"WIURH1", "x": 6, "y": -6}, "map_name":{"graphic":"WILV25"}, "keys":{"x":-26, "checkmark_x":-12} },
+                    {"x":198, "y": 48, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV26"}, "keys":{"x": 18} },
+                    {"x":140, "y": 25, "cursor":{"graphic":"WIURH1", "x":-2, "y": -2}, "map_name":{"graphic":"WILV27"}, "keys":{"x": 22} },
+                    {"x":281, "y":136, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV28"}, "keys":{"x":-26, "checkmark_x":-12} }
                 ]
             },
             {
                 "background_image": "WIMAP3",
                 "maps":[
-                    {"x":101, "y":177, "cursor":{"graphic":"WIURH1", "x":-2, "y":-2}, "map_name":{"graphic":"WILV30"}, "keys":{"x": 22} },
-                    {"x":183, "y":148, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV31"}, "keys":{"x": 18} },
-                    {"x":172, "y": 97, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV32"}, "keys":{"x": 18} },
-                    {"x": 78, "y": 86, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV33"}, "keys":{"x": 22} },
-                    {"x":251, "y": 85, "cursor":{"graphic":"WIURH2", "x": 2, "y":16}, "map_name":{"graphic":"WILV34"}, "keys":{"x": 26} },
-                    {"x": 37, "y": 24, "cursor":{"graphic":"WIURH2", "x": 5, "y":-4}, "map_name":{"graphic":"WILV35"}, "keys":{"x":-24, "checkmark_x":-12} },
-                    {"x":260, "y": 47, "cursor":{"graphic":"WIURH0", "x":-3, "y":-6}, "map_name":{"graphic":"WILV36"}, "keys":{"x": 18} },
-                    {"x":194, "y": 25, "cursor":{"graphic":"WIURH3", "x": 2, "y":16}, "map_name":{"graphic":"WILV37"}, "keys":{"x": 24} },
-                    {"x": 88, "y": 58, "cursor":{"graphic":"WIURH0", "x": 2, "y":-2}, "map_name":{"graphic":"WILV38"}, "keys":{"x": 17} }
+                    {"x":101, "y":177, "cursor":{"graphic":"WIURH1", "x":-2, "y": -2}, "map_name":{"graphic":"WILV30"}, "keys":{"x": 22} },
+                    {"x":183, "y":148, "cursor":{"graphic":"WIURH0", "x": 2, "y":-10}, "map_name":{"graphic":"WILV31"}, "keys":{"x": 18} },
+                    {"x":172, "y": 97, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV32"}, "keys":{"x": 18} },
+                    {"x": 78, "y": 86, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV33"}, "keys":{"x": 22} },
+                    {"x":251, "y": 85, "cursor":{"graphic":"WIURH2", "x": 2, "y": 16}, "map_name":{"graphic":"WILV34"}, "keys":{"x": 26} },
+                    {"x": 37, "y": 24, "cursor":{"graphic":"WIURH2", "x": 5, "y": -4}, "map_name":{"graphic":"WILV35"}, "keys":{"x":-24, "checkmark_x":-12} },
+                    {"x":260, "y": 47, "cursor":{"graphic":"WIURH0", "x":-3, "y":-18}, "map_name":{"graphic":"WILV36"}, "keys":{"x": 18} },
+                    {"x":194, "y": 25, "cursor":{"graphic":"WIURH3", "x": 2, "y": 16}, "map_name":{"graphic":"WILV37"}, "keys":{"x": 24} },
+                    {"x": 88, "y": 58, "cursor":{"graphic":"WIURH0", "x": 2, "y": -6}, "map_name":{"graphic":"WILV38"}, "keys":{"x": 17} }
                 ]
             }
         ]
