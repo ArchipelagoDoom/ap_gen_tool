@@ -100,6 +100,7 @@ struct level_t
     level_index_t idx;
     std::string name;
     std::string group_name; //lump_name
+    std::string music_override;
     std::vector<ap_sector_t> sectors;
     bool keys[3] = {false};
     int location_count = 0;
@@ -443,6 +444,9 @@ Json::Value generate_game_defs_json(game_t *game, level_map_t& levels_map)
             json_level["use_skull"][1] = level->use_skull[1];
             json_level["use_skull"][2] = level->use_skull[2];
 
+            if (!level->music_override.empty())
+                json_level["music"] = level->music_override;
+
             // Split out lump name into gameepisode/gamemap that can easily be used by APDoom
             const char *lump_name = meta.lump_name.c_str();
             if (strncmp(lump_name, "MAP", 3) == 0)
@@ -609,6 +613,7 @@ int generate(game_t* game)
             level->idx = {game->short_name, ep, map};
             level->name = meta.name;
             level->group_name = get_group_name(meta);
+            level->music_override = meta.music_override;
             level->map = &meta.map;
             level->map_state = &meta.state;
             levels.push_back(level);

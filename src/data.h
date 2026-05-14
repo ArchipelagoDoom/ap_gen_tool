@@ -194,6 +194,8 @@ struct meta_t // Bad name, but everything about a level
     std::string wad_name; // Which WAD it comes from
     std::string lump_name; // The lump name in the above WAD
 
+    std::string music_override; // If nonzero, this music lump will be used (must be one the game recognizes)
+
     map_t map; // As loaded from the wad
     map_state_t state; // What we play with
     map_state_t state_new; // For diffing

@@ -160,6 +160,7 @@ void init_data()
                     game.episodes[ep][map].name = mapname_json["name"].asString();
                     game.episodes[ep][map].lump_name = mapname_json["lump"].asString();
                     game.episodes[ep][map].wad_name = (mapname_json["wad"].isNull() ? primary_wad : mapname_json["wad"].asString());
+                    game.episodes[ep][map].music_override = mapname_json.get("music", "").asString();
                     ++map;
                 }
                 if (!game.episode_info[ep].is_minor_episode)
