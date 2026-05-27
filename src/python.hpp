@@ -239,3 +239,4 @@ extern std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption>
 extern int WorldOptions_Init(game_t *game);
 extern std::vector<std::string>& WorldOptions_GetAllHooks(game_t *game, const std::string& hook_type, int line_breaks = 1);
 extern void WorldOptions_MixinPyOptions(game_t *game, std::vector<PyOption>& opts);
+extern void WorldOptions_Deinit(void);

@@ -290,7 +290,6 @@ struct game_t
 
     // Warnings tracked when generating
     struct {
-        int unknown_world_option;
         int location_no_region;
         int no_exit_connection;
     } warnings;
@@ -335,3 +334,6 @@ const std::string& get_item_name(game_t* game, int doom_num);
 
 long get_runtime_us(void);
 const std::string compare_runtime(long start, long end = get_runtime_us());
+
+// helper functions
+void stringarray_to_vector(std::vector<std::string> &entry, const Json::Value &json);

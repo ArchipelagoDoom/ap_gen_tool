@@ -585,7 +585,8 @@ int generate(game_t* game)
     level_to_keycards.clear();
     item_map.clear();
 
-    game->warnings.unknown_world_option = WorldOptions_Init(game);
+    WorldOptions_Init(game);
+
     game->warnings.no_exit_connection = 0;
     game->warnings.location_no_region = 0;
 
@@ -787,6 +788,7 @@ int generate(game_t* game)
             OnScreenMessages::AddError(error);
         }
 
+        WorldOptions_Deinit();
         delete world;
         for (auto level : levels) delete level;
         return 1;
@@ -1162,8 +1164,6 @@ int generate(game_t* game)
 
     long runtime_end = get_runtime_us();
 
-    if (game->warnings.unknown_world_option)
-        OnScreenMessages::AddWarning(std::to_string(game->warnings.unknown_world_option) + " unknown world option(s) found.");        
     if (game->warnings.no_exit_connection)
         OnScreenMessages::AddWarning(std::to_string(game->warnings.no_exit_connection) + " level(s) are missing Exit connections.");
     if (game->warnings.location_no_region)
@@ -1182,6 +1182,7 @@ int generate(game_t* game)
     // TODO: Pop tracker logic
 
     // Clean up
+    WorldOptions_Deinit();
     delete world;
     for (auto level : levels) delete level;
     return 0;
