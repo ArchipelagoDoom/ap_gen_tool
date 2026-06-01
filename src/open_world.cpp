@@ -325,8 +325,14 @@ void load(game_t* game)
     std::string filename = "data/" + game->short_name + ".data.json";
     if (!onut::loadJson(json, filename))
     {
-        OnScreenMessages::Add("WARNING: " + filename + " not found.\n(If you just created this game, then it's fine. Otherwise, scream.)", ImColor(0.3f, 0.3f, 0.0f));
-        //onut::showMessageBox("Warning", "Warning: File not found. (If you just created this game, then it's fine. Otherwise, scream).\n" + filename);
+        OnScreenMessages::AddWarning("WARNING: " + filename + " not found.\n(If you just created this game, then it's fine. Otherwise, scream.)");
+
+        // Initialize level's Hub and Exit "regions" to reasonable places
+        void first_init_level(game_t*, int, int);
+        for (int ep = 0; ep < game->episodes.size(); ++ep)
+            for (int lvl = 0; lvl < game->episodes[ep].size(); ++lvl)
+                first_init_level(game, ep, lvl);
+
         return;
     }
 
@@ -683,6 +689,29 @@ void delete_selected()
         default:
             break;
     }
+}
+
+
+void first_init_level(game_t* game, int ep, int lvl)
+{
+    auto state = get_state({game->short_name, ep, lvl});
+    auto map = get_map({game->short_name, ep, lvl});
+
+    state->bbs.clear();
+    state->selected_bb = -1;
+    state->selected_region = -1;
+    state->selected_location = -1;
+    state->accesses.clear();
+    state->regions.clear();
+
+    Point rules_pos = {
+        (int)map->bb[0] - RULES_W * 2,
+        (int)map->bb[1] + ((int)map->bb[3] - (int)map->bb[1]) / 2
+    };
+    state->exit_rules.x = rules_pos.x;
+    state->exit_rules.y = rules_pos.y + RULES_H;
+    state->world_rules.x = rules_pos.x;
+    state->world_rules.y = rules_pos.y - RULES_H;
 }
 
 
