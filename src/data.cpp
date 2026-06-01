@@ -71,6 +71,7 @@ void init_data()
     Json::Value default_game_infos;
     Json::Value default_world_infos;
     Json::Value default_items;
+    Json::Value default_locations;
 
     if (!onut::loadJson(default_game_infos, "./assets/json/default_game_info.json"))
         OnScreenMessages::AddError("default_game_info.json couldn't be loaded, expect issues.");
@@ -78,6 +79,8 @@ void init_data()
         OnScreenMessages::AddError("default_world_info.json couldn't be loaded, expect issues.");
     if (!onut::loadJson(default_items, "./assets/json/default_items.json"))
         OnScreenMessages::AddError("default_items.json couldn't be loaded, expect issues.");
+    if (!onut::loadJson(default_locations, "./assets/json/default_locations.json"))
+        OnScreenMessages::AddError("default_locations.json couldn't be loaded, expect issues.");
 
     // Load game files
     auto game_json_files = onut::findAllFiles("./games/", "json", false);
@@ -172,11 +175,11 @@ void init_data()
             ++ep;
         }
 
-        const auto& doom_types_ids = game_json["location_doom_types"].getMemberNames();
-        for (const auto& doom_types_id : doom_types_ids)
-        {
-            game.location_doom_types[std::stoi(doom_types_id)] = game_json["location_doom_types"][doom_types_id].asString();
-        }
+        const Json::Value& doomtype_to_location = (game_json["location_doom_types"].isObject())
+            ? (game_json["location_doom_types"])
+            : (default_locations[game.iwad_name]);
+        for (const auto& doomtype : doomtype_to_location.getMemberNames())
+            game.location_doom_types[std::stoi(doomtype)] = doomtype_to_location[doomtype].asString();
 
         // Merge in default items for iwad
         Json::Value item_json = default_items.get(game.iwad_name, Json::objectValue);

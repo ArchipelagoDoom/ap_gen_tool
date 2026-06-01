@@ -235,28 +235,5 @@
                 ]
             }
         ]
-    },
-
-    "location_doom_types": {
-        "79": "Blue key",
-        "80": "Yellow key",
-        "73": "Green key",
-        "53": "Dragon Claw",
-        "2001": "Ethereal Crossbow",
-        "2002": "Firemace",
-        "2005": "Gauntlets of the Necromancer",
-        "2004": "Hellstaff",
-        "2003": "Phoenix Rod",
-        "8": "Bag of Holding",
-        "35": "Map Scroll",
-        "36": "Chaos Device",
-        "30": "Morph Ovum",
-        "32": "Mystic Urn",
-        "84": "Ring of Invincibility",
-        "75": "Shadowsphere",
-        "86": "Tome of Power",
-        "33": "Torch",
-        "85": "Silver Shield",
-        "31": "Enchanted Shield"
     }
 }
