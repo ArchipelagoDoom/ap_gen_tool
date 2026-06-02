@@ -996,23 +996,21 @@ Vector2 get_rect_edge_pos(Vector2 from, Vector2 to, float side_offset, bool inve
 }
 
 
-// Thanks, chatGPT
-double segment_point_distance(const Vector2& p1, const Vector2& p2, const Vector2& point)
+double dist_to_line(const Vector2& p1, const Vector2& p2, const Vector2& point)
 {
-    double segmentLength = sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
-    double u = ((point.x - p1.x) * (p2.x - p1.x) + (point.y - p1.y) * (p2.y - p1.y)) / (segmentLength * segmentLength);
+#define square(x) ((x)*(x))
+    const double dist_line = sqrt(square(p2.x - p1.x) + square(p2.y - p1.y));
+    const double dist_p1 = sqrt(square(point.x - p1.x) + square(point.y - p1.y));
+    const double dist_p2 = sqrt(square(point.x - p2.x) + square(point.y - p2.y));
 
-    if (u < 0.0) {
-        return sqrt(pow(point.x - p1.x, 2) + pow(point.y - p1.y, 2));
-    }
-    if (u > 1.0) {
-        return sqrt(pow(point.x - p2.x, 2) + pow(point.y - p2.y, 2));
-    }
+    if ((square(dist_line) + square(dist_p1) - square(dist_p2)) / (2 * dist_line * dist_p1) < 0)
+        return dist_p1; // Past the line on point 1's side
+    if ((square(dist_line) + square(dist_p2) - square(dist_p1)) / (2 * dist_line * dist_p2) < 0)
+        return dist_p2; // Past the line on point 2's side
 
-    double intersectionX = p1.x + u * (p2.x - p1.x);
-    double intersectionY = p1.y + u * (p2.y - p1.y);
-
-    return sqrt(pow(point.x - intersectionX, 2) + pow(point.y - intersectionY, 2));
+    const Vector2 adj_p1 = {p1.x - point.x, p1.y - point.y};
+    const Vector2 adj_p2 = {p2.x - point.x, p2.y - point.y};
+    return abs((adj_p1.x * adj_p2.y) - (adj_p2.x * adj_p1.y)) / dist_line;
 }
 
 
@@ -1030,7 +1028,7 @@ int get_connection_at(const Vector2& pos, const rule_region_t& rules)
         Vector2 other_center((float)other_rules->x, -(float)other_rules->y);
         Vector2 from = get_rect_edge_pos(center, other_center, RULE_CONNECTION_OFFSET, false);
         Vector2 to = get_rect_edge_pos(other_center, center, RULE_CONNECTION_OFFSET, true);
-        auto d = segment_point_distance(from, to, {pos.x, pos.y});
+        double d = dist_to_line(from, to, {pos.x, pos.y});
         if (d <= 24.0f / map_view->cam_zoom) return i;
         i++;
     }
