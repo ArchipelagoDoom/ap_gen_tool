@@ -1064,14 +1064,16 @@ int generate(game_t* game)
     std::vector<PyOption> opts;
     { // Insert goal options
         PyOption& opt_numlevels = opts.emplace_back("goal_num_levels", "Goal: Number of Levels", PyOptionType::Range);
-        opt_numlevels.docstring.push_back("If 'Complete Some Levels' or 'Complete Random Levels' are chosen as the goal, this is how many levels must be completed.");
+        opt_numlevels.docstring.push_back("If the goal is 'Complete Some Levels', 'Complete Random Levels', or 'Complete Some And Specific Levels',");
+        opt_numlevels.docstring.push_back("this is how many levels must be completed.");
         opt_numlevels.option_group = "Goal Options";
         opt_numlevels.range_start = 1;
         opt_numlevels.range_end = levels.size();
         opt_numlevels.default_int = levels.size();
 
         PyOption& opt_speclevels = opts.emplace_back("goal_specific_levels", "Goal: Specific Levels", PyOptionType::OptionSet);
-        opt_speclevels.docstring.push_back("If 'Complete Specific Levels' is chosen as the goal, all levels chosen here must be completed.");
+        opt_speclevels.docstring.push_back("If the goal is 'Complete Specific Levels', or 'Complete Some And Specific Levels',");
+        opt_speclevels.docstring.push_back("all levels chosen here must be completed.");
         opt_speclevels.option_group = "Goal Options";
         for (auto level : levels)
             opt_speclevels.option_list.push_back(level->name);
@@ -1106,8 +1108,8 @@ int generate(game_t* game)
         }
     }
 
-    // Heretic doesn't support level flipping.
-    if (game->iwad_name == "HERETIC.WAD")
+    // Only Doom supports level flipping.
+    if (game->iwad_name == "HERETIC.WAD" || game->iwad_name == "HEXEN.WAD")
         opts.emplace_back("flip_levels", PyOptionType::Removed);
 
     // Add in "check sanity" option if the game uses it.

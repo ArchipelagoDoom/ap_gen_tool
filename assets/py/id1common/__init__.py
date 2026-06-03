@@ -29,6 +29,12 @@ if typing.TYPE_CHECKING:
 DOOM_TYPE_LEVEL_UNLOCK = -1
 DOOM_TYPE_LEVEL_COMPLETE = -2
 
+GOAL_COMPLETE_ALL = 0
+GOAL_COMPLETE_SOME = 1
+GOAL_COMPLETE_RANDOM = 2
+GOAL_COMPLETE_SPECIFIC = 3
+GOAL_COMPLETE_HYBRID = 4
+
 
 class ItemPoolRatio(typing.NamedTuple):
     helpful: int
@@ -271,6 +277,9 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
     def rule_complete_specific_levels(self, state: "CollectionState") -> bool:
         return state.has_all(self._required_level_complete_list, self.player)
 
+    def rule_complete_hybrid_levels(self, state: "CollectionState") -> bool:
+        return self.rule_complete_specific_levels(state) and self.rule_complete_some_levels(state)
+
     # -------------------------------------------------------------------------
     # World construction methods
     def init_episodes(self) -> None:
@@ -407,7 +416,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
         # The completion condition is also a rule, so we'll set up the goals here.
         level_unlock_list: list[str] = []  # Only used for specific or random levels
 
-        if self.options.goal == "complete_specific_levels":
+        if self.options.goal.value in [GOAL_COMPLETE_SPECIFIC, GOAL_COMPLETE_HYBRID]:
             if levelset_opt := getattr(self.options, "goal_specific_levels", None):
                 if typing.TYPE_CHECKING:
                     assert type(levelset_opt) is OptionSet
@@ -420,11 +429,13 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
                         self._required_level_complete_list.append(item_data.name)
 
             if len(self._required_level_complete_list) == 0:
-                self.warning("Either the goal level list was empty, or all levels in it were disabled.\n"
-                             "Goal changed to 'Complete All Levels'.")
-                self.options.goal.value = self.options.goal.option_complete_all_levels
+                new_goal = GOAL_COMPLETE_SOME if self.options.goal.value == GOAL_COMPLETE_HYBRID else GOAL_COMPLETE_ALL
+                new_goal_str = "Complete Some Levels" if new_goal == GOAL_COMPLETE_SOME else "Complete All Levels"
+                self.warning(f"Either the goal level list was empty, or all levels in it were disabled.\n"
+                             f"Goal changed to '{new_goal_str}'.")
+                self.options.goal.value = new_goal
 
-        elif self.options.goal == "complete_random_levels":
+        if self.options.goal.value == GOAL_COMPLETE_RANDOM:
             # We basically treat this as "specific levels" where we choose the levels instead of the player.
             if count_opt := getattr(self.options, "goal_num_levels", None):
                 if typing.TYPE_CHECKING:
@@ -441,9 +452,9 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
             if len(self._required_level_complete_list) == 0:
                 self.warning("Attempted to use a 'Complete Random Levels' goal, but rolled no levels.\n"
                              "Goal changed to 'Complete All Levels'.")
-                self.options.goal.value = self.options.goal.option_complete_all_levels
+                self.options.goal.value = GOAL_COMPLETE_ALL
 
-        elif self.options.goal == "complete_some_levels":
+        if self.options.goal.value in [GOAL_COMPLETE_SOME, GOAL_COMPLETE_HYBRID]:
             # Silently limit the number of levels required to the number of levels available.
             if count_opt := getattr(self.options, "goal_num_levels", None):
                 if typing.TYPE_CHECKING:
@@ -454,17 +465,19 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
             if self._required_level_complete_count == 0:
                 self.warning("Attempted to use a 'Complete Some Levels' goal with a count of zero.\n"
                              "Goal changed to 'Complete All Levels'.")
-                self.options.goal.value = self.options.goal.option_complete_all_levels
+                self.options.goal.value = GOAL_COMPLETE_ALL
 
-        if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":
+        if self.options.goal.value == GOAL_COMPLETE_HYBRID:
+            self.multiworld.completion_condition[self.player] = lambda state: self.rule_complete_hybrid_levels(state)
+        elif self.options.goal.value in [GOAL_COMPLETE_RANDOM, GOAL_COMPLETE_SPECIFIC]:
             self.multiworld.completion_condition[self.player] = lambda state: self.rule_complete_specific_levels(state)
-        elif self.options.goal == "complete_some_levels":
+        elif self.options.goal.value == GOAL_COMPLETE_SOME:
             self.multiworld.completion_condition[self.player] = lambda state: self.rule_complete_some_levels(state)
-        else:  # implied complete_all_levels
+        else:  # Implied GOAL_COMPLETE_ALL
             self.multiworld.completion_condition[self.player] = lambda state: self.rule_complete_all_levels(state)
 
         # While we're here... if we have a goal with set levels, make those levels skip balancing.
-        if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":
+        if self.options.goal.value in [GOAL_COMPLETE_RANDOM, GOAL_COMPLETE_SPECIFIC, GOAL_COMPLETE_HYBRID]:
             unlock_items = [item for item in self.multiworld.itempool
                             if item.player == self.player and item.name in level_unlock_list]
             for item in unlock_items:
@@ -554,10 +567,10 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
         )
 
         goal_data: dict[str, typing.Any] = { "type": int(self.options.goal.value) }
-        if self.options.goal == "complete_random_levels" or self.options.goal == "complete_specific_levels":
+        if self.options.goal.value in [GOAL_COMPLETE_RANDOM, GOAL_COMPLETE_SPECIFIC, GOAL_COMPLETE_HYBRID]:
             goal_data["levels"] = [[item.episode, item.gamemap] for item in self.item_table.values()
                                   if item.name in self._required_level_complete_list]
-        elif self.options.goal == "complete_some_levels":
+        if self.options.goal.value in [GOAL_COMPLETE_SOME, GOAL_COMPLETE_HYBRID]:
             goal_data["count"] = self._required_level_complete_count
         slot_data["goal"] = goal_data
 
@@ -571,7 +584,7 @@ class id1CommonWorld(World, metaclass=AutoLoadJsonData):  # noqa: N801
         return slot_data
 
     def write_spoiler_header(self, spoiler_handle: typing.TextIO):
-        if self.options.goal == "complete_random_levels":
+        if self.options.goal.value == GOAL_COMPLETE_RANDOM:
             # This gets them in order from first to last.
             levels = [i.name for i in self.item_table.values() if i.name in self._required_level_complete_list]
 
