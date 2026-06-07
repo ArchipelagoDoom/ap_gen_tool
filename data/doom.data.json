@@ -5327,8 +5327,8 @@
          "ep" : 1,
          "exit_rules" : {
             "connections" : [],
-            "x" : -3367,
-            "y" : -948
+            "x" : -3376,
+            "y" : -485
          },
          "locations" : [
             {
@@ -5495,6 +5495,11 @@
                         "requirements_and" : [ 2003, -4 ],
                         "requirements_or" : [],
                         "target_region" : 5
+                     },
+                     {
+                        "requirements_and" : [ -2 ],
+                        "requirements_or" : [],
+                        "target_region" : 6
                      }
                   ],
                   "x" : -3375,
@@ -5718,10 +5723,15 @@
                         "requirements_and" : [],
                         "requirements_or" : [],
                         "target_region" : 0
+                     },
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 6
                      }
                   ],
-                  "x" : -5458,
-                  "y" : 1096
+                  "x" : -5085,
+                  "y" : 1109
                },
                "sectors" : [
                   4,
@@ -5743,8 +5753,6 @@
                   186,
                   187,
                   188,
-                  224,
-                  226,
                   228,
                   229,
                   257,
@@ -5796,8 +5804,8 @@
                         "target_region" : 0
                      }
                   ],
-                  "x" : -1742,
-                  "y" : 496
+                  "x" : -1721,
+                  "y" : 1104
                },
                "sectors" : [
                   35,
@@ -5856,16 +5864,11 @@
                      {
                         "requirements_and" : [],
                         "requirements_or" : [],
-                        "target_region" : -2
-                     },
-                     {
-                        "requirements_and" : [],
-                        "requirements_or" : [],
                         "target_region" : 5
                      }
                   ],
-                  "x" : -3382,
-                  "y" : -96
+                  "x" : -1732,
+                  "y" : 223
                },
                "sectors" : [ 26, 27, 28, 33, 34, 72, 73, 292, 293 ],
                "tint" : [ 1, 0, 0, 1 ]
@@ -5880,8 +5883,8 @@
                         "target_region" : 0
                      }
                   ],
-                  "x" : -2757,
-                  "y" : 2299
+                  "x" : -5079,
+                  "y" : 212
                },
                "sectors" : [ 294, 295 ],
                "tint" : [ 1, 0, 0.97058820724487305, 1 ]
@@ -5896,11 +5899,27 @@
                         "target_region" : -2
                      }
                   ],
-                  "x" : -4713,
-                  "y" : -103
+                  "x" : -3373,
+                  "y" : 214
                },
                "sectors" : [ 56, 57, 58, 59, 60 ],
                "tint" : [ 0.46568626165390015, 0, 0, 1 ]
+            },
+            {
+               "name" : "Blue Platform",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [],
+                        "requirements_or" : [],
+                        "target_region" : 0
+                     }
+                  ],
+                  "x" : -5086,
+                  "y" : 1908
+               },
+               "sectors" : [ 224, 226 ],
+               "tint" : [ 0, 0.5000002384185791, 1, 1 ]
             }
          ],
          "world_rules" : {
@@ -5911,8 +5930,8 @@
                   "target_region" : 0
                }
             ],
-            "x" : -3815,
-            "y" : 2319
+            "x" : -3373,
+            "y" : 2250
          }
       },
       {
