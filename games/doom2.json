@@ -102,6 +102,12 @@
                 "589":{"middle": "SHAWN2"}
             }
         },
+        "MAP08":{
+            // Always allow opening the door to the stairs room from the main hub room
+            "linedefs":{
+                "76":{"special": 61}
+            }
+        },
         "MAP12":{
             // We need to turn the balcony you jump down from into the building, into a lift
             "linedefs":{
