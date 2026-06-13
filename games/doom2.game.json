@@ -1,8 +1,8 @@
 {
     "full_name": "DOOM II: Hell on Earth",
     "short_name": "doom2",
-    "ap_name": "DOOM II (Beta)",
-    "ap_world_name": "doom_ii_beta",
+    "ap_name": "DOOM II",
+    "ap_world_name": "doom_ii",
     "ap_class_name": "DOOM2",
     "authors": ["Daivuk", "Kaito Sinclaire", "Devil's Advocado"],
 
@@ -150,6 +150,12 @@
             // Allow opening a wall that traps you in from behind
             "linedefs":{
                 "554":{"special": 61, "tag": 7}
+            }
+        },
+        "MAP30":{
+            // Let the Megasphere spawn as normal, for repeatable health for the Icon fight.
+            "things":{
+                "64":{"dont_randomize": true}
             }
         }
     },

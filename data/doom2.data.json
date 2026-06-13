@@ -10993,14 +10993,6 @@
                "check_sanity" : false,
                "death_logic" : false,
                "description" : "",
-               "index" : 64,
-               "name" : "Spawn",
-               "unreachable" : false
-            },
-            {
-               "check_sanity" : false,
-               "death_logic" : false,
-               "description" : "",
                "index" : 85,
                "name" : "Arena, Icon's Platform",
                "unreachable" : false
