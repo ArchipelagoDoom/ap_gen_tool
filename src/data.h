@@ -241,6 +241,7 @@ struct ap_key_def_t
 
 struct game_t
 {
+    std::string path; // Path to the .game.json file.
     std::string full_name; // Game's canonical full name, used in the launcher
     std::string short_name; // Short name for the game, used for '-game' param
 
@@ -293,6 +294,7 @@ struct game_t
         int location_no_region;
         int no_exit_connection;
     } warnings;
+    bool loaded; // load() was attempted on this world
 };
 
 
@@ -325,6 +327,7 @@ extern std::map<std::string, game_t> games;
 
 
 void init_data();
+void init_worlds(std::vector<std::string> game_json_file, bool summarize = true);
 game_t* get_game(const level_index_t& idx);
 meta_t* get_meta(const level_index_t& idx, active_source_t source = active_source_t::current);
 map_state_t* get_state(const level_index_t& idx, active_source_t source = active_source_t::current);
@@ -334,6 +337,9 @@ const std::string& get_item_name(game_t* game, int doom_num);
 
 long get_runtime_us(void);
 const std::string compare_runtime(long start, long end = get_runtime_us());
+
+// actually defined in open_world.cpp
+void update_window_title(std::string override = "");
 
 // helper functions
 void stringarray_to_vector(std::vector<std::string> &entry, const Json::Value &json);

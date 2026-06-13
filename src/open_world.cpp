@@ -1,4 +1,6 @@
 #include <onut/onut.h>
+#include <onut/Files.h>
+#include <onut/Strings.h>
 #include <onut/Settings.h>
 #include <onut/Renderer.h>
 #include <onut/PrimitiveBatch.h>
@@ -118,6 +120,30 @@ static int set_rule_connection = -1;
 //static int mouse_hover_access = -1;
 static int mouse_hover_location = -1;
 static uint8_t disable_arrows = 0x00;
+
+
+void update_window_title(std::string override)
+{
+    std::string title;
+
+    if (!override.empty())
+    {
+        title += override;
+        title += " - ";
+    }
+    else if (active_level.ep != -1)
+    {
+        game_t *game = get_game(active_level);
+        meta_t *meta = get_meta(active_level);
+        title += game->full_name;
+        title += " - ";
+        title += meta->name;
+        title += " - ";
+    }
+    title += oSettings->getGameName();
+
+    oWindow->setCaption(title.c_str());
+}
 
 
 map_view_t* get_view(const level_index_t& idx)
@@ -321,6 +347,8 @@ void save(game_t* game)
 
 void load(game_t* game)
 {
+    game->loaded = true;
+
     Json::Value json;
     std::string filename = "data/" + game->short_name + ".data.json";
     if (!onut::loadJson(json, filename))
@@ -441,22 +469,50 @@ void load(game_t* game)
 }
 
 
-void update_window_title()
+void open_single_world_dialog(void)
 {
-    std::string title;
+    std::string res = onut::showOpenDialog("Open ap_gen_tool game Json",
+        {{"ap_gen_tool game Json files (*.game.json)", "*.game.json"}},
+        "./games/*");
+    if (res.empty()) return;
 
-    if (active_level.ep != -1)
+    init_worlds({res}, false);
+
+    update_window_title("Loading world data and logic...");
+    for (auto& kv : games)
     {
-        game_t *game = get_game(active_level);
-        meta_t *meta = get_meta(active_level);
-        title += game->full_name;
-        title += " - ";
-        title += meta->name;
-        title += " - ";
+        auto game = &kv.second;
+        if (!game->loaded) load(game);
     }
-    title += oSettings->getGameName();
+    update_window_title();
+}
 
-    oWindow->setCaption(title.c_str());
+
+void open_all_worlds_dialog(void)
+{
+    std::string res = onut::showOpenFolderDialog("Select folder to open", "./games/*");
+    if (res.empty()) return;
+
+    constexpr std::string_view extension{".GAME.JSON"};
+    std::vector<std::string> allFiles = onut::findAllFiles(res, "*", false);
+    std::vector<std::string> filteredFiles;
+    for (auto file : allFiles)
+    {
+        if (file.size() > extension.size() &&
+            onut::toUpper(file.substr(file.size() - extension.size())) == extension)
+        {
+            filteredFiles.emplace_back(file);
+        }
+    }
+    init_worlds(filteredFiles);
+
+    update_window_title("Loading world data and logic...");
+    for (auto& kv : games)
+    {
+        auto game = &kv.second;
+        if (!game->loaded) load(game);
+    }
+    update_window_title();
 }
 
 
@@ -545,30 +601,8 @@ void initSettings()
     oSettings->setShowFPS(false);
     oSettings->setAntiAliasing(true);
     oSettings->setShowOnScreenLog(false);
-#ifdef WIN32
-    oSettings->setIsResizableWindow(true);
-    oSettings->setStartMaximized(true);
-#else
     oSettings->setIsResizableWindow(false);
     oSettings->setStartMaximized(false);
-#endif
-}
-
-
-void regen() // Doom1 only
-{
-    //gen_step_count = 0;
-    //generating = true;
-
-    //for (int ep = 0; ep < EP_COUNT; ++ep)
-    //{
-    //    for (int lvl = 0; lvl < MAP_COUNT; ++lvl)
-    //    {
-    //        auto map = &maps[ep][lvl];
-    //        auto mid = Vector2((float)(map->bb[2] + map->bb[0]) / 2, (float)(map->bb[3] + map->bb[1]) / 2);
-    //        get_state({ep, lvl, -1})->pos = -mid + onut::rand2f(Vector2(-1000, -1000), Vector2(1000, 1000));
-    //    }
-    //}
 }
 
 
@@ -610,14 +644,6 @@ void init()
     //    }
     //}
 
-    // Load states
-    for (auto& kv : games)
-    {
-        auto game = &kv.second;
-        load(game);
-    }
-    //load("regions_new.json", &metas_new);
-
     // Mark dirty levels
     //auto levels_idx = get_all_levels_idx();
     //for (const auto& idx : levels_idx)
@@ -629,8 +655,6 @@ void init()
 
     clear_map();
     //select_map(&games.begin()->second, 0, 0);
-
-    regen();
 
     OnScreenMessages::Add("Welcome to the APDoom Gen Tool - version " APGENTOOL_VERSION);
 }
@@ -799,12 +823,12 @@ void reset_level()
 
 void update_shortcuts()
 {
-    if (active_level.ep == -1)
-        return;
-
     auto ctrl = OInputPressed(OKeyLeftControl);
     auto shift = OInputPressed(OKeyLeftShift);
     auto alt = OInputPressed(OKeyLeftAlt);
+
+    if (ctrl && !shift && !alt && OInputJustPressed(OKeyO)) open_single_world_dialog();
+    if (ctrl && shift && !alt && OInputJustPressed(OKeyO)) open_all_worlds_dialog();
 
     if (!ctrl && !shift && !alt && OInputJustPressed(OKey1)) { tool = tool_t::bb;        OnScreenMessages::Add("New tool: Bounding Box"); }
     if (!ctrl && !shift && !alt && OInputJustPressed(OKey2)) { tool = tool_t::region;    OnScreenMessages::Add("New tool: Region");       }
@@ -814,12 +838,14 @@ void update_shortcuts()
     if (!ctrl && !shift && !alt && OInputJustPressed(OKey5)) { tool = tool_t::access;    OnScreenMessages::Add("New tool: Access");       }
 #endif
 
+    if (active_level.ep == -1)
+        return;
+
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyZ)) undo();
     if (ctrl && shift && !alt && OInputJustPressed(OKeyZ)) redo();
     if (!ctrl && !shift && !alt && OInputJustPressed(OKeyB)) add_bounding_box();
     if (!ctrl && !shift && !alt && OInputJustPressed(OKeyDelete)) delete_selected();
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyS)) save(get_game(active_level));
-    if (!ctrl && !shift && !alt && OInputJustPressed(OKeySpaceBar)) regen();
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyR)) reset_level();
     if (!ctrl && !shift && !alt && OInputJustPressed(OKeyF1))
     {
@@ -1108,7 +1134,13 @@ void update_gen()
 void update()
 {
     if (map_view == nullptr)
+    {
+        if (!ImGui::GetIO().WantCaptureKeyboard)
+        {
+            update_shortcuts();
+        }
         return;
+    }
 
     // Update mouse pos in world
     auto cam_matrix = Matrix::Create2DTranslationZoom(OScreenf, map_view->cam_pos, map_view->cam_zoom);
@@ -2000,6 +2032,7 @@ static void GetVpSize(void)
     xscale = vp->Size.x;
     ystart = 20.0f; // Compensate for menu bar
     yscale = vp->Size.y - 20.0f;
+    vp_size_got = true;
 }
 
 static ImVec2 PosVec(float x, float y)
@@ -2068,10 +2101,15 @@ void renderUI()
     ImGui::BeginMainMenuBar();
     if (ImGui::BeginMenu("File"))
     {
-        //ImGui::MenuItem("Open...", "Ctrl+O", false, false);
+        if (ImGui::MenuItem("Open Game...", "Ctrl+O"))
+            open_single_world_dialog();
+        if (ImGui::MenuItem("Open All Games...", "Ctrl+Shift+O"))
+            open_all_worlds_dialog();
+
+        ImGui::Separator();
 
         if (!game_loaded)
-            ImGui::MenuItem("Save", "Ctrl+S", false, false);
+            ImGui::MenuItem("Save Data", "Ctrl+S", false, false);
         else if (ImGui::MenuItem(("Save " + get_game(active_level)->full_name).c_str(), "Ctrl+S"))
             save(get_game(active_level));
 
@@ -2171,7 +2209,9 @@ void renderUI()
 
     ImGui::Separator();
     ImVec4 info_colored(0.6f, 0.6f, 0.6f, 1.0f);
-    ImGui::TextColored(info_colored, "Maps:");
+
+    if (games.size() > 0)
+        ImGui::TextColored(info_colored, "Maps:");
 
     if (games.size() >= 8)
     {

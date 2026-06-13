@@ -63,16 +63,14 @@ void stringarray_to_vector(std::vector<std::string> &entry, const Json::Value &j
     }
 }
 
+// Default game info
+static Json::Value default_game_infos;
+static Json::Value default_world_infos;
+static Json::Value default_items;
+static Json::Value default_locations;
+
 void init_data()
 {
-    long start_time = get_runtime_us();
-
-    // Load default game info
-    Json::Value default_game_infos;
-    Json::Value default_world_infos;
-    Json::Value default_items;
-    Json::Value default_locations;
-
     if (!onut::loadJson(default_game_infos, "./assets/json/default_game_info.json"))
         OnScreenMessages::AddError("default_game_info.json couldn't be loaded, expect issues.");
     if (!onut::loadJson(default_world_infos, "./assets/json/default_world_info.json"))
@@ -81,11 +79,18 @@ void init_data()
         OnScreenMessages::AddError("default_items.json couldn't be loaded, expect issues.");
     if (!onut::loadJson(default_locations, "./assets/json/default_locations.json"))
         OnScreenMessages::AddError("default_locations.json couldn't be loaded, expect issues.");
+}
 
-    // Load game files
-    auto game_json_files = onut::findAllFiles("./games/", "json", false);
+void init_worlds(std::vector<std::string> game_json_files, bool summarize)
+{
+    long start_time = (summarize ? get_runtime_us() : 0);
+    int loaded_count = 0;
+
     for (const auto& game_json_file : game_json_files)
     {
+        if (!summarize)
+            start_time = get_runtime_us();
+
         Json::Value game_json;
         if (!onut::loadJson(game_json, game_json_file))
         {
@@ -94,6 +99,7 @@ void init_data()
                 "The terminal may have further information about this error.");
             continue;
         }
+
         if (
             // Test required fields
             !game_json["short_name"].isString()
@@ -115,13 +121,24 @@ void init_data()
 
         game_t game;
 
+        // The short name is used as a key, so check its value first. Don't load duplicate games.
+        game.short_name = game_json["short_name"].asString();
+        if (games.count(game.short_name))
+        {
+            OnScreenMessages::AddError(
+                "Can't load '" + game_json_file + "': Game is already loaded.\n"
+                "(" + games[game.short_name].path + " has the same short name.)");
+            continue;
+        }
+        game.path = game_json_file;
+
         // The name of the game, in various forms.
         game.ap_name = game_json.get("ap_name", "Unnamed id1 Game").asString();
         game.ap_world_name = game_json.get("ap_world_name", "id1_game").asString();
         game.ap_class_name = game_json.get("ap_class_name", "id1Game").asString();
         game.full_name = game_json.get("full_name", game.ap_name).asString();
-        game.short_name = game_json["short_name"].asString();
         stringarray_to_vector(game.authors, game_json["authors"]);
+        update_window_title("Loading " + game.full_name + "...");
 
         game.iwad_name = game_json["iwad"].asString(); // The IWAD, lumps get loaded from this if missing in PWAD
         stringarray_to_vector(game.required_wads, game_json["required_wads"]);
@@ -289,9 +306,15 @@ void init_data()
         game.json_rename_lumps = game_json["rename_lumps"];
         game.json_map_tweaks = game_json["map_tweaks"];
         game.json_level_select = game_json["level_select"];
+        game.loaded = false; // .data.json isn't loaded yet
 
         if (init_maps(game))
+        {
             games[game.short_name] = game;
+            if (!summarize)
+                OnScreenMessages::AddNotice("Loaded game '" + game.full_name + "' (" + compare_runtime(start_time) + " sec)");
+            ++loaded_count;
+        }
         else
         {
             OnScreenMessages::AddError(
@@ -299,8 +322,8 @@ void init_data()
                 "The terminal may have further information about this error.");
         }
     }
-
-    OnScreenMessages::AddNotice("Game loading complete (" + compare_runtime(start_time) + " sec)");
+    if (summarize)
+        OnScreenMessages::AddNotice("Loaded " + std::to_string(loaded_count) + " game(s) (" + compare_runtime(start_time) + " sec)");
 }
 
 
