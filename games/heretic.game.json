@@ -145,7 +145,7 @@
                 "keys": {"x": 9, "y": 4, "spacing_y": 5, "align_y": -4},
                 "checks": {"x": -4, "y": 8}
             },
-            "e4e5e6":{
+            "list":{
                 "defaults": "base",
                 "x": 40,
                 "map_text":{"display": "individual", "size": 1, "x": 20, "y": -10},
@@ -197,38 +197,36 @@
                 ]
             },
             {
-                "defaults": "e4e5e6",
                 "background_image": "MAPE4",
                 "maps":[
-                    {"y": 15, "map_text":{"text":"CATAFALQUE"} },
-                    {"y": 36, "map_text":{"text":"BLOCKHOUSE"} },
-                    {"y": 57, "map_text":{"text":"AMBULATORY"} },
-                    {"y": 78, "map_text":{"text":"SEPULCHER"} },
-                    {"y": 99, "map_text":{"text":"GREAT STAIR"} },
-                    {"y":120, "map_text":{"text":"HALLS OF THE APOSTATE"} },
-                    {"y":141, "map_text":{"text":"RAMPARTS OF PERDITION"} },
-                    {"y":162, "map_text":{"text":"SHATTERED BRIDGE"} },
-                    {"y":183, "map_text":{"text":"MAUSOLEUM"} }
+                    {"x":279, "y":150, "map_text":{"text":"CATAFALQUE - E4M1"} },
+                    {"x":235, "y":161, "map_text":{"text":"BLOCKHOUSE - E4M2"} },
+                    {"x":183, "y":154, "map_text":{"text":"AMBULATORY - E4M3"} },
+                    {"x":123, "y":150, "map_text":{"text":"SEPULCHER - E4M4"} },
+                    {"x":143, "y":115, "map_text":{"text":"GREAT STAIR - E4M5"} },
+                    {"x":180, "y": 73, "map_text":{"text":"HALLS OF THE APOSTATE - E4M6"} },
+                    {"x":126, "y": 52, "map_text":{"text":"RAMPARTS OF PERDITION - E4M7"} },
+                    {"x": 78, "y": 52, "map_text":{"text":"SHATTERED BRIDGE - E4M8"} },
+                    {"x":103, "y":123, "map_text":{"text":"MAUSOLEUM - E4M9"} }
                 ]
             },
             {
-                "defaults": "e4e5e6",
                 "background_image": "MAPE5",
                 "maps":[
-                    {"y": 15, "map_text":{"text":"OCHRE CLIFFS"} },
-                    {"y": 36, "map_text":{"text":"RAPIDS"} },
-                    {"y": 57, "map_text":{"text":"QUAY"} },
-                    {"y": 78, "map_text":{"text":"COURTYARD"} },
-                    {"y": 99, "map_text":{"text":"HYDRATYR"} },
-                    {"y":120, "map_text":{"text":"COLONNADE"} },
-                    {"y":141, "map_text":{"text":"FOETID MANSE"} },
-                    {"y":162, "map_text":{"text":"FIELD OF JUDGEMENT"} },
-                    {"y":183, "map_text":{"text":"SKEIN OF D'SPARIL"} }
+                    {"x":29,  "y": 62, "map_text":{"text":"OCHRE CLIFFS - E5M1"} },
+                    {"x":101, "y": 74, "map_text":{"text":"RAPIDS - E5M2"} },
+                    {"x":128, "y":129, "map_text":{"text":"QUAY - E5M3"} },
+                    {"x":187, "y":132, "map_text":{"text":"COURTYARD - E5M4"} },
+                    {"x":208, "y": 79, "map_text":{"text":"HYDRATYR - E5M5"} },
+                    {"x":263, "y": 94, "map_text":{"text":"COLONNADE - E5M6"} },
+                    {"x":269, "y":148, "map_text":{"text":"FOETID MANSE - E5M7"} },
+                    {"x":301, "y":129, "map_text":{"text":"FIELD OF JUDGEMENT - E5M8"} },
+                    {"x":162, "y": 94, "map_text":{"text":"SKEIN OF D'SPARIL - E5M9"} }
                 ]
             },
             {
-                "defaults": "e4e5e6",
-                "background_image": "MAPE6",
+                "defaults": "list",
+                "background_image": "MAPGENER",
                 "maps":[
                     {"y": 15, "map_text":{"text":"RAVEN'S LAIR"} },
                     {"y": 36, "map_text":{"text":"THE WATER SHRINE"} }
