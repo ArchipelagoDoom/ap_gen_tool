@@ -16,6 +16,7 @@
 
 #include <imgui/imgui.h>
 
+#include <filesystem>
 #include <vector>
 #include <set>
 
@@ -471,9 +472,11 @@ void load(game_t* game)
 
 void open_single_world_dialog(void)
 {
+    std::filesystem::path base_path = std::filesystem::current_path() / "games" / "";
     std::string res = onut::showOpenDialog("Open ap_gen_tool game Json",
         {{"ap_gen_tool game Json files (*.game.json)", "*.game.json"}},
-        "./games/*");
+        base_path.string());
+
     if (res.empty()) return;
 
     init_worlds({res}, false);
@@ -490,7 +493,9 @@ void open_single_world_dialog(void)
 
 void open_all_worlds_dialog(void)
 {
-    std::string res = onut::showOpenFolderDialog("Select folder to open", "./games/*");
+    std::filesystem::path base_path = std::filesystem::current_path() / "games" / "";
+    std::string res = onut::showOpenFolderDialog("Select folder to open", base_path.string());
+
     if (res.empty()) return;
 
     constexpr std::string_view extension{".GAME.JSON"};
