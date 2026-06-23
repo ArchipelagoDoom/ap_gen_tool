@@ -41,6 +41,15 @@ enum class state_t
 };
 
 
+enum class connection_status_t
+{
+    valid,
+    duplicate,
+    error_two_exits,
+    error_hub_to_exit,
+    error_exit_is_source
+};
+
 enum class tool_t : int
 {
     bb,
@@ -1404,30 +1413,70 @@ void update()
             {
                 if (mouse_hover_rule != -3 && connecting_rule_from != mouse_hover_rule)
                 {
-                    auto rules_from = get_rules(connecting_rule_from);
-                    //auto rules_to = get_rules(mouse_hover_rule); // Unnecessary
+                    connection_status_t connection_status = connection_status_t::valid;
 
-                    // Check if connection not already there
-                    bool already_connected = false;
-                    for (const auto& connection : rules_from->connections)
+                    if (connecting_rule_from == -2)
+                        connection_status = connection_status_t::error_exit_is_source;
+                    else if (connecting_rule_from == -1 && mouse_hover_rule == -2)
+                        connection_status = connection_status_t::error_hub_to_exit;
+                    else if (mouse_hover_rule == -2)
                     {
-                        if (connection.target_region == mouse_hover_rule)
+                        int i = 0;
+                        for (const auto& region : map_state->regions)
                         {
-                            already_connected = true;
-                            break;
+                            for (const auto& connection : region.rules.connections)
+                            {
+                                if (i == connecting_rule_from && connection.target_region == -2)
+                                    connection_status = connection_status_t::duplicate;
+                                else if (connection.target_region == -2)
+                                    connection_status = connection_status_t::error_two_exits;
+                            }
+                            if (connection_status != connection_status_t::valid)
+                                break;
+                            ++i;
+                        }
+                    }
+                    else
+                    {
+                        for (const auto& connection : get_rules(connecting_rule_from)->connections)
+                        {
+                            // Check if connection not already there
+                            if (connection.target_region == mouse_hover_rule)
+                            {
+                                connection_status = connection_status_t::duplicate;
+                                break;
+                            }
                         }
                     }
 
-                    if (!already_connected)
+                    switch (connection_status)
                     {
-                        rule_connection_t connection;
-                        connection.target_region = mouse_hover_rule;
-                        rules_from->connections.push_back(connection);
-                        push_undo();
+                    case connection_status_t::valid:
+                        { // Make new connection
+                            auto rules_from = get_rules(connecting_rule_from);
+                            rule_connection_t connection;
+    
+                            connection.target_region = mouse_hover_rule;
+                            rules_from->connections.push_back(connection);
+                            push_undo();
 
-                        set_rule_rule = connecting_rule_from;
-                        set_rule_connection = (int)rules_from->connections.size() - 1;
+                            set_rule_rule = connecting_rule_from;
+                            set_rule_connection = (int)rules_from->connections.size() - 1;
+                            break;
+                        }
+                    case connection_status_t::duplicate:
+                        break;
+                    case connection_status_t::error_two_exits:
+                        OnScreenMessages::AddError("Only one region can connect to the Exit.");
+                        break;
+                    case connection_status_t::error_exit_is_source:
+                        OnScreenMessages::AddError("The Exit cannot have any outgoing connections.");
+                        break;
+                    case connection_status_t::error_hub_to_exit:
+                        OnScreenMessages::AddError("The Hub cannot connect directly to the Exit.\n(Make an intermediary region first.)");
+                        break;
                     }
+
                 }
                 state = state_t::idle;
             }
@@ -1567,6 +1616,38 @@ void draw_connections(const rule_region_t& rules, int rule_idx)
         pb->draw(to, color); pb->draw(to - dir * 32.0f + right * 32.0f, color);
 
         ++i;
+    }
+
+    if (state == state_t::connecting_rule &&
+        connecting_rule_from == rule_idx && mouse_hover_rule != rule_idx)
+    {
+        Vector2 from, to;
+        if (mouse_hover_rule == -3)
+        {
+            from = get_rect_edge_pos(center, mouse_pos, RULE_CONNECTION_OFFSET, false);
+            to = mouse_pos;
+        }
+        else
+        {
+            auto other_rules = get_rules(mouse_hover_rule);
+            if (!other_rules) return;
+
+            Rect other_rect(other_rules->x - RULES_W * 0.5f, -other_rules->y - RULES_H * 0.5f, RULES_W, RULES_H);
+            other_rect.Grow(128);
+
+            Vector2 other_center((float)other_rules->x, -(float)other_rules->y);
+            from = get_rect_edge_pos(center, other_center, RULE_CONNECTION_OFFSET, false);
+            to = get_rect_edge_pos(other_center, center, RULE_CONNECTION_OFFSET, true);
+        }
+
+        Vector2 dir = to - from;
+        dir.Normalize();
+        Vector2 right(-dir.y, dir.x);
+        Color color = Color(0, 1, 0);
+
+        pb->draw(from, color); pb->draw(to, color);
+        pb->draw(to, color); pb->draw(to - dir * 32.0f - right * 32.0f, color);
+        pb->draw(to, color); pb->draw(to - dir * 32.0f + right * 32.0f, color);
     }
 }
 
@@ -2385,7 +2466,9 @@ void renderUI()
                         set_rule_connection = -1;
                         push_undo();
                     }
-                    else
+                    // Exit connections cannot have logic.
+                    // So we hide everything but the "Remove" button for them.
+                    else if (rules->connections[set_rule_connection].target_region != -2)
                     {
                         auto& connection = rules->connections[set_rule_connection];
                         auto game = get_game(active_level);
