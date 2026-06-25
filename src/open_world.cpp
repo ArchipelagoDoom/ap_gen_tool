@@ -837,9 +837,9 @@ void reset_level()
 
 void update_shortcuts()
 {
-    auto ctrl = OInputPressed(OKeyLeftControl);
-    auto shift = OInputPressed(OKeyLeftShift);
-    auto alt = OInputPressed(OKeyLeftAlt);
+    auto ctrl = OInputPressed(OKeyLeftControl) || OInputPressed(OKeyRightControl);
+    auto shift = OInputPressed(OKeyLeftShift) || OInputPressed(OKeyRightShift);
+    auto alt = OInputPressed(OKeyLeftAlt) || OInputPressed(OKeyRightAlt);
 
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyO)) open_single_world_dialog();
     if (ctrl && shift && !alt && OInputJustPressed(OKeyO)) open_all_worlds_dialog();
@@ -1398,6 +1398,11 @@ void update()
             auto rules = get_rules(moving_rule);
             rules->x = rule_pos_on_down.x + (int)diff.x;
             rules->y = rule_pos_on_down.y - (int)diff.y;
+            if (OInputPressed(OKeyLeftShift) || OInputPressed(OKeyRightShift))
+            {
+                rules->x = std::round(rules->x / 64) * 64;
+                rules->y = std::round(rules->y / 64) * 64;
+            }
             if (OInputJustReleased(OMouse1))
             {
                 push_undo();
