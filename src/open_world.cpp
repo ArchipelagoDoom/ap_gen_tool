@@ -34,6 +34,7 @@ enum class state_t
     panning,
     //gen,
     //gen_panning,
+    create_bb,
     move_bb,
     move_rule,
     connecting_rule,
@@ -96,6 +97,7 @@ static Vector2 mouse_pos;
 static Vector2 mouse_pos_on_down;
 static Vector2 cam_pos_on_down;
 static bb_t bb_on_down;
+static bb_t bb_new;
 static map_state_t* map_state = nullptr;
 static map_view_t* map_view = nullptr;
 static map_history_t* map_history = nullptr;
@@ -679,15 +681,6 @@ void shutdown() // lol
 }
 
 
-void add_bounding_box()
-{
-    auto map = get_map(active_level);
-    map_state->bbs.push_back({map->bb[0], map->bb[1], map->bb[2], map->bb[3]});
-    map_state->selected_bb = (int)map_state->bbs.size() - 1;
-    push_undo();
-}
-
-
 rule_region_t* get_rules(int idx)
 {
     switch (idx)
@@ -857,7 +850,6 @@ void update_shortcuts()
 
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyZ)) undo();
     if (ctrl && shift && !alt && OInputJustPressed(OKeyZ)) redo();
-    if (!ctrl && !shift && !alt && OInputJustPressed(OKeyB)) add_bounding_box();
     if (!ctrl && !shift && !alt && OInputJustPressed(OKeyDelete)) delete_selected();
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyS)) save(get_game(active_level));
     if (ctrl && !shift && !alt && OInputJustPressed(OKeyR)) reset_level();
@@ -1230,6 +1222,14 @@ void update()
                             push_undo();
                         }
                     }
+                    else if (OInputJustPressed(OMouse2))
+                    {
+                        state = state_t::create_bb;
+                        mouse_pos_on_down = OGetMousePos();
+                        bb_new.x1 = bb_new.x2 = mouse_pos.x;
+                        bb_new.y1 = bb_new.y2 = -mouse_pos.y;
+                        map_state->selected_bb = -1;
+                    }
                 }
                 else if (tool == tool_t::region)
                 {
@@ -1355,6 +1355,29 @@ void update()
             map_view->cam_pos = cam_pos_on_down - diff / map_view->cam_zoom;
             if (OInputJustReleased(OMouse3) || OInputJustReleased(OKeySpaceBar))
                 state = state_t::idle;
+            break;
+        }
+        case state_t::create_bb:
+        {
+            auto diff = (OGetMousePos() - mouse_pos_on_down) / map_view->cam_zoom;
+            bb_new.x2 = bb_new.x1 + (int)diff.x;
+            bb_new.y2 = bb_new.y1 - (int)diff.y;
+
+            if (OInputJustReleased(OMouse2))
+            {
+                // Don't actually create the bounding box if it's too small
+                if (abs(bb_new.x1 - bb_new.x2) >= 32 || abs(bb_new.y1 - bb_new.y2) >= 32)
+                {
+                    // If bounding box would be inverted, correct it
+                    if (bb_new.x2 < bb_new.x1) std::swap(bb_new.x1, bb_new.x2);
+                    if (bb_new.y2 < bb_new.y1) std::swap(bb_new.y1, bb_new.y2);
+                    map_state->bbs.push_back((const bb_t&)bb_new);
+                    map_state->selected_bb = (int)map_state->bbs.size() - 1;
+                    push_undo();
+                }
+
+                state = state_t::idle;
+            }
             break;
         }
         case state_t::move_bb:
@@ -1967,6 +1990,14 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
     }
     sb->end();
 
+    // Bounding box -- being created
+    if (draw_tools && tool == tool_t::bb && state == state_t::create_bb)
+    {
+        Color color = Color(0, 1, 0);
+        sb->begin(transform);
+        sb->drawOutterOutlineRect(Rect(bb_new.x1, -bb_new.y1 - (bb_new.y2 - bb_new.y1), bb_new.x2 - bb_new.x1, bb_new.y2 - bb_new.y1), 2.0f / map_view->cam_zoom, color);
+        sb->end();
+    }
 
     // Selected location
     if (draw_tools && tool == tool_t::locations)
@@ -2246,8 +2277,6 @@ void renderUI()
     {
         if (ImGui::MenuItem("Undo", "Ctrl+Z",             false, game_loaded)) undo();
         if (ImGui::MenuItem("Redo", "Ctrl+Shift+Z",       false, game_loaded)) redo();
-        ImGui::Separator();
-        if (ImGui::MenuItem("Add Bounding Box", "B",      false, game_loaded)) add_bounding_box();
         ImGui::Separator();
         if (ImGui::MenuItem("Initialize Level", "Ctrl-R", false, game_loaded)) reset_level();
 
