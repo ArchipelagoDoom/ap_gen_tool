@@ -2219,6 +2219,7 @@ void renderUI()
 {
     static bool imgui_drag = false;
     bool game_loaded = (active_level.ep != -1);
+    bool imgui_reset = false;
 
     ImGui::BeginMainMenuBar();
     if (ImGui::BeginMenu("File"))
@@ -2281,7 +2282,8 @@ void renderUI()
         if (ImGui::MenuItem("Initialize Level", "Ctrl-R", false, game_loaded)) reset_level();
 
         ImGui::Separator();
-        if (ImGui::MenuItem("Allow Window Movement", "", imgui_drag)) imgui_drag = !imgui_drag;
+        if (ImGui::MenuItem("Allow Window Movement",  "", imgui_drag)) imgui_drag = !imgui_drag;
+        if (ImGui::MenuItem("Reset Window Positions", ""))             imgui_reset = true;
 
         ImGui::EndMenu();
     }
@@ -2351,11 +2353,12 @@ void renderUI()
     ImGui::EndMainMenuBar();
 
     int window_flags = (imgui_drag ? 0 : ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoResize);
+    int window_cond = (imgui_reset ? 0 : ImGuiCond_FirstUseEver);
 
     //if (state != state_t::gen && state != state_t::gen_panning)
     {
-        ImGui::SetNextWindowPos (PosVec (0.00f, 0.55f), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.35f), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowPos (PosVec (0.00f, 0.55f), window_cond);
+        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.35f), window_cond);
         if (ImGui::Begin("Regions", nullptr, window_flags) && game_loaded)
         {
             static char region_name[260] = {'\0'};
@@ -2462,8 +2465,8 @@ void renderUI()
         }
         ImGui::End();
 
-        ImGui::SetNextWindowPos (PosVec (0.00f, 0.90f), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.10f), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowPos (PosVec (0.00f, 0.90f), window_cond);
+        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.10f), window_cond);
         if (ImGui::Begin("Region", nullptr, window_flags) && game_loaded)
         {
             if (map_state->selected_region != -1)
@@ -2484,8 +2487,8 @@ void renderUI()
         }
         ImGui::End();
 
-        ImGui::SetNextWindowPos (PosVec (0.88f, 0.25f), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(SizeVec(0.12f, 0.75f), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowPos (PosVec (0.88f, 0.25f), window_cond);
+        ImGui::SetNextWindowSize(SizeVec(0.12f, 0.75f), window_cond);
         if (ImGui::Begin("Connection", nullptr, window_flags) && game_loaded)
         {
             if (set_rule_rule != -3 && set_rule_connection != -1)
@@ -2592,8 +2595,8 @@ void renderUI()
         }
         ImGui::End();
 
-        ImGui::SetNextWindowPos (PosVec (0.00f, 0.00f), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.55f), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowPos (PosVec (0.00f, 0.00f), window_cond);
+        ImGui::SetNextWindowSize(SizeVec(0.15f, 0.55f), window_cond);
         if (ImGui::Begin("Map", nullptr, window_flags) && game_loaded)
         {
             auto map = get_map(active_level);
@@ -2653,8 +2656,8 @@ void renderUI()
         ImGui::End();
 #endif
 
-        ImGui::SetNextWindowPos (PosVec (0.80f, 0.00f), ImGuiCond_FirstUseEver);
-        ImGui::SetNextWindowSize(SizeVec(0.20f, 0.25f), ImGuiCond_FirstUseEver);
+        ImGui::SetNextWindowPos (PosVec (0.80f, 0.00f), window_cond);
+        ImGui::SetNextWindowSize(SizeVec(0.20f, 0.25f), window_cond);
         if (ImGui::Begin("Location", nullptr, window_flags) && game_loaded)
         {
             if (map_state->selected_location != -1)
