@@ -20,9 +20,19 @@ static std::string Py_AutoGenHeader(const std::string &game_name)
 
 static std::string Py_id1Common(const std::string &import)
 {
+    std::stringstream header;
     if (vendored_id1common)
-        return std::string("from .id1common ") + import;
-    return std::string("from worlds._id1common ") + import;
+    {
+        header << "try:" << std::endl;
+        header << "    from worlds._id1common " << import << std::endl;
+        header << "except ImportError:" << std::endl;
+        header << "    from .id1common " << import << std::endl;
+    }
+    else
+    {
+        header << "from worlds._id1common " << std::endl;
+    }
+    return header.str();
 }
 
 std::string Py_IndentJoin(std::vector<std::string> lines, int indent_level)
