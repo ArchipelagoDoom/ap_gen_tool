@@ -27,10 +27,11 @@ static std::string Py_id1Common(const std::string &import)
         header << "    from worlds._id1common " << import << std::endl;
         header << "except ImportError:" << std::endl;
         header << "    from .id1common " << import << std::endl;
+        header << std::endl;
     }
     else
     {
-        header << "from worlds._id1common " << std::endl;
+        header << "from worlds._id1common " << import << std::endl;
     }
     return header.str();
 }
@@ -91,7 +92,7 @@ std::stringstream& Py_CreateInitPy(game_t *game, bool include_tutorials)
     pystream << "import typing" << std::endl;
     pystream << std::endl;
     pystream << "import BaseClasses as AP  # noqa: N814" << std::endl;
-    pystream << Py_id1Common("import id1CommonWorld") << std::endl;
+    pystream << Py_id1Common("import id1CommonWorld");
     pystream << "from worlds.AutoWorld import WebWorld" << std::endl;
     pystream << std::endl;
     pystream << "from .options import " << game->ap_class_name << "OptionGroups, " << game->ap_class_name << "Options" << std::endl;
@@ -213,7 +214,7 @@ std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption> &opts)
     pystream << "from dataclasses import dataclass" << std::endl;
     pystream << std::endl;
     pystream << "import Options as BaseOptions" << std::endl;
-    pystream << Py_id1Common("import options as id1Options  # noqa: N812") << std::endl;
+    pystream << Py_id1Common("import options as id1Options  # noqa: N812");
     pystream << std::endl << std::endl;
 
     for (const auto& option : opts)
