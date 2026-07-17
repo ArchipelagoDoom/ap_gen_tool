@@ -8,22 +8,6 @@
 #include "python.hpp"
 #include "message.hpp"
 
-static std::string to_snake_case(const std::string& name)
-{
-    std::string ret;
-    for (char c : name)
-    {
-        if (!(c >= '0' && c <= '9') && !(c >= 'A' && c <= 'Z') && !(c >= 'a' && c <= 'z'))
-        {
-            if (ret.empty() || ret.back() != '_')
-                ret += '_';
-        }
-        else
-            ret += (char)tolower((unsigned char)c);
-    }
-    return ret;
-}
-
 static std::string to_title_case(const std::string& name)
 {
     std::string ret;

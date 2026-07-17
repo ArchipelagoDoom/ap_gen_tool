@@ -93,6 +93,10 @@
             {"name": "Invis as Trap"},
             {"name": "Capacity Upgrades"},
             {"name": "Custom Ammo Capacity"}
+        ],
+        "spawn_trap_amounts":
+        [
+          {"name": "Lost Soul Trap", "default": 8, "max": 16}
         ]
     },
 

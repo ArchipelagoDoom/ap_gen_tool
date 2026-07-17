@@ -109,6 +109,16 @@ struct level_t
     map_state_t* map_state = nullptr;
 };
 
+struct spawntrap_t
+{
+    std::string data_name;
+    std::string display_name;
+    std::string description;
+    int doom_type;
+    int range_end;
+    int default_int;
+};
+
 static GroupedOutput *world = nullptr;
 
 std::vector<ap_item_t> ap_items;
@@ -116,6 +126,7 @@ std::vector<ap_location_t> ap_locations;
 std::map<std::string, std::set<std::string>> item_name_groups;
 std::map<uintptr_t, std::map<int, int64_t>> level_to_keycards;
 std::map<std::string, ap_item_t*> item_map;
+std::vector<spawntrap_t> spawn_traps;
 
 static bool use_extended_names = false; // gross hack, but whatever
 
@@ -493,6 +504,8 @@ Json::Value generate_game_defs_json(game_t *game, level_map_t& levels_map)
             defs_json["type_sprites"][std::to_string(item.doom_type)] = item.sprite;
         for (const auto& item : game->unique_filler)
             defs_json["type_sprites"][std::to_string(item.doom_type)] = item.sprite;
+        for (const auto& item : game->traps)
+            defs_json["type_sprites"][std::to_string(item.doom_type)] = item.sprite;
         for (const auto& key : game->keys)
             defs_json["type_sprites"][std::to_string(key.item.doom_type)] = key.item.sprite;
     }
@@ -535,6 +548,71 @@ Json::Value generate_game_defs_json(game_t *game, level_map_t& levels_map)
         defs_json["rename_lumps"] = game->json_rename_lumps;
 
     return defs_json;
+}
+
+// --------------
+
+void FillSpawnTrapsData(const game_t* game)
+{
+    for (ap_item_def_t trap : game->traps)
+    {
+        spawntrap_t newtrap;
+        newtrap.display_name = trap.name;
+        newtrap.data_name = to_snake_case(trap.name);
+        newtrap.doom_type = trap.doom_type;
+        newtrap.description = trap.description;
+        newtrap.range_end = 0;
+
+        if (auto search = game->spawn_trap_amounts.find(trap.name); search != game->spawn_trap_amounts.end())
+        {
+            newtrap.default_int = search->second.first;
+            newtrap.range_end = search->second.second;
+        }
+
+        if (newtrap.range_end == 0)
+        {
+            continue; // do not show this trap to user if the max value is 0
+        }
+
+        spawn_traps.push_back(newtrap);
+    }
+}
+
+std::vector<std::string>& SpawnTrapsPyInit()
+{
+    static std::vector<std::string> content;
+
+    content.clear();
+
+    if (spawn_traps.size() <= 0) { return content; }
+
+    content.push_back("# Add Spawn Trap items");
+
+    for (spawntrap_t trap : spawn_traps)
+    {
+        // turns out I'm not great at writing python
+        content.push_back(trap.data_name + "_items = list(self.matching_items(doom_type=" + std::to_string(trap.doom_type) + ").values())");
+        content.push_back(trap.data_name + "_item_names = [i.name for i in " + trap.data_name + "_items]");
+        content.push_back("itempool = [n for n in itempool if n not in " + trap.data_name + "_item_names]");
+        content.push_back("itempool += [i.name for i in " + trap.data_name + "_items for _ in range(self.options." + trap.data_name + "s.value)]");
+    }
+
+    content.push_back("");
+
+    return content;
+}
+
+void SpawnTrapsPyOptions(std::vector<PyOption>& options)
+{
+    for (spawntrap_t trap : spawn_traps)
+    {
+        PyOption& added_opt = options.emplace_back(trap.data_name + "s", trap.display_name + "s", PyOptionType::Range);
+        added_opt.docstring.push_back("Sets the number of " + trap.display_name + "s that will appear in the item pool. " + trap.description);
+        added_opt.option_group = "Traps";
+        added_opt.range_start = 0;
+        added_opt.range_end = trap.range_end;
+        added_opt.default_int = trap.default_int;
+    }
 }
 
 // --------------
@@ -584,8 +662,10 @@ int generate(game_t* game)
     item_name_groups.clear();
     level_to_keycards.clear();
     item_map.clear();
+    spawn_traps.clear();
 
     WorldOptions_Init(game);
+    FillSpawnTrapsData(game);
 
     game->warnings.no_exit_connection = 0;
     game->warnings.location_no_region = 0;
@@ -601,6 +681,8 @@ int generate(game_t* game)
         add_item(def, USEFUL);
     for (const auto& def : game->filler)
         add_item(def, FILLER);
+    for (const auto& def : game->traps)
+        add_item(def, TRAP);
     
     std::vector<level_t*> levels;
     std::map<int, std::vector<level_t*>> levels_map;
@@ -1117,6 +1199,7 @@ int generate(game_t* game)
         opts.emplace_back("check_sanity", PyOptionType::CheckSanity);
 
     WorldOptions_MixinPyOptions(game, opts);
+    SpawnTrapsPyOptions(opts);
 
     bool vendor_id1common = !is_world_folder; // May be an independent option later
     Py_SetCommonLibVendored(vendor_id1common);

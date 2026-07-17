@@ -17,6 +17,7 @@ void parse_item(ap_item_def_t &item, const Json::Value &json)
     item.doom_type = json["doom_type"].asInt();
     item.name = json["name"].asString();
     item.sprite = json["sprite"].asString();
+    item.description = json["description"].asString();
     item.count = json.get("count", 1).asInt();
     item.buyable = json.get("buyable", false).asBool();
 
@@ -210,6 +211,7 @@ void init_worlds(std::vector<std::string> game_json_files, bool summarize)
         parse_items(game.progression, item_json["progression"]);
         parse_items(game.useful, item_json["useful"]);
         parse_items(game.filler, item_json["filler"]);
+        parse_items(game.traps, item_json["traps"]);
         parse_items(game.unique_progression, item_json["unique_progression"]);
         parse_items(game.unique_useful, item_json["unique_useful"]);
         parse_items(game.unique_filler, item_json["unique_filler"]);
@@ -276,6 +278,20 @@ void init_worlds(std::vector<std::string> game_json_files, bool summarize)
 
                     game.item_pool_ratio[diff_int].push_back(customratio.get("helpful", 0).asInt());
                     game.item_pool_ratio[diff_int].push_back(customratio.get("random", 0).asInt());
+                }
+            }
+
+            // Spawn trap amounts: Lets worlds define the default and max number of each trap that should exist in the pool
+            if (world_json["spawn_trap_amounts"].isArray())
+            {
+                for (const Json::Value& option : world_json["spawn_trap_amounts"])
+                {
+                    std::string name = option["name"].asString();
+                    int defaultValue = option.get("default", 0).asInt();
+                    int maxValue = option.get("max", defaultValue != 0 ? defaultValue * 2 : 16).asInt();
+
+                    auto value = std::pair<int, int>(defaultValue, maxValue);
+                    game.spawn_trap_amounts.try_emplace(name, value);
                 }
             }
         }
@@ -403,6 +419,8 @@ const std::string& get_item_name(game_t *game, int doom_type)
         return game->unique_useful[ret].name;
     if ((ret = get_item_index(game->unique_filler, doom_type)) != -1)
         return game->unique_filler[ret].name;
+    if ((ret = get_item_index(game->traps, doom_type)) != -1)
+        return game->traps[ret].name;
     return no_item_str;
 }
 

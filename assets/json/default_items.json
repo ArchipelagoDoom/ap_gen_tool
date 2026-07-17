@@ -47,6 +47,9 @@
             {"doom_type": 39, "name": "Yellow skull key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": true,  "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YSKUB0"},
             {"doom_type": 13, "name": "Red keycard",      "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"},
             {"doom_type": 38, "name": "Red skull key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": true,  "region_name": "Red",    "color": [1, 0, 0], "sprite": "RSKUB0"}
+        ],
+        "traps": [
+            {"doom_type": 65902, "name": "Lost Soul Trap", "group": ["Traps"], "sprite": "SKULC1", "description": "When this trap is triggered, 8 Lost Souls will spawn across the current map."}
         ]
     },
     "DOOM2.WAD": {
@@ -99,6 +102,11 @@
             {"doom_type": 39, "name": "Yellow skull key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": true,  "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YSKUB0"},
             {"doom_type": 13, "name": "Red keycard",      "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"},
             {"doom_type": 38, "name": "Red skull key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": true,  "region_name": "Red",    "color": [1, 0, 0], "sprite": "RSKUB0"}
+        ],
+        "traps": [
+            {"doom_type": 65900, "name": "Archvile Trap", "group": ["Traps"], "sprite": "VILEI1", "description": "When this trap is triggered, 1 Archvile will spawn somewhere in the current map."},
+            {"doom_type": 65901, "name": "Revenant Trap", "group": ["Traps"], "sprite": "SKELJ1", "description": "When this trap is triggered, 3 Revenants will spawn together somewhere in the current map."},
+            {"doom_type": 65902, "name": "Lost Soul Trap", "group": ["Traps"], "sprite": "SKULC1", "description": "When this trap is triggered, 8 Lost Souls will spawn across the current map."}
         ]
     },
     "TNT.WAD": {
@@ -151,6 +159,11 @@
             {"doom_type": 39, "name": "Yellow skull key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": true,  "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YSKUB0"},
             {"doom_type": 13, "name": "Red keycard",      "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"},
             {"doom_type": 38, "name": "Red skull key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": true,  "region_name": "Red",    "color": [1, 0, 0], "sprite": "RSKUB0"}
+        ],
+        "traps": [
+            {"doom_type": 65900, "name": "Archvile Trap", "group": ["Traps"], "sprite": "VILEI1", "description": "When this trap is triggered, 1 Archvile will spawn somewhere in the current map."},
+            {"doom_type": 65901, "name": "Revenant Trap", "group": ["Traps"], "sprite": "SKELJ1", "description": "When this trap is triggered, 3 Revenants will spawn together somewhere in the current map."},
+            {"doom_type": 65902, "name": "Lost Soul Trap", "group": ["Traps"], "sprite": "SKULC1", "description": "When this trap is triggered, 8 Lost Souls will spawn across the current map."}
         ]
     },
     "PLUTONIA.WAD": {
@@ -203,6 +216,11 @@
             {"doom_type": 39, "name": "Yellow skull key", "group": ["Keys", "%MAP% Keys", "%MAP% Yellow"], "key": 1, "use_skull": true,  "region_name": "Yellow", "color": [1, 1, 0], "sprite": "YSKUB0"},
             {"doom_type": 13, "name": "Red keycard",      "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": false, "region_name": "Red",    "color": [1, 0, 0], "sprite": "RKEYB0"},
             {"doom_type": 38, "name": "Red skull key",    "group": ["Keys", "%MAP% Keys", "%MAP% Red"],    "key": 2, "use_skull": true,  "region_name": "Red",    "color": [1, 0, 0], "sprite": "RSKUB0"}
+        ],
+        "traps": [
+            {"doom_type": 65900, "name": "Archvile Trap", "group": ["Traps"], "sprite": "VILEI1", "description": "When this trap is triggered, 1 Archvile will spawn somewhere in the current map."},
+            {"doom_type": 65901, "name": "Revenant Trap", "group": ["Traps"], "sprite": "SKELJ1", "description": "When this trap is triggered, 3 Revenants will spawn together somewhere in the current map."},
+            {"doom_type": 65902, "name": "Lost Soul Trap", "group": ["Traps"], "sprite": "SKULC1", "description": "When this trap is triggered, 8 Lost Souls will spawn across the current map."}
         ]
     },
     "HERETIC.WAD": {

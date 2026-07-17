@@ -221,6 +221,7 @@ struct ap_item_def_t
     int doom_type = -1;
     std::string name;
     std::string sprite;
+    std::string description; // Rarely used, for user facing text about item
     OTextureRef icon;
 
     std::vector<std::string> groups;
@@ -259,6 +260,7 @@ struct game_t
     std::map<std::string, std::vector<std::string>> world_hooks;
     std::map<std::string, int> helpful_item_weight;
     std::map<int, std::vector<int>> item_pool_ratio;
+    std::map<std::string, std::pair<int, int>> spawn_trap_amounts;
     // Not stored in a map because we want to preserve order.
     Json::Value json_world_options;
 
@@ -270,6 +272,7 @@ struct game_t
     std::vector<ap_item_def_t> unique_progression;
     std::vector<ap_item_def_t> unique_useful;
     std::vector<ap_item_def_t> unique_filler;
+    std::vector<ap_item_def_t> traps;
     std::vector<ap_key_def_t> keys;
 
     Color key_colors[3];
@@ -343,3 +346,19 @@ void update_window_title(std::string override = "");
 
 // helper functions
 void stringarray_to_vector(std::vector<std::string> &entry, const Json::Value &json);
+
+static std::string to_snake_case(const std::string& name)
+{
+    std::string ret;
+    for (char c : name)
+    {
+        if (!(c >= '0' && c <= '9') && !(c >= 'A' && c <= 'Z') && !(c >= 'a' && c <= 'z'))
+        {
+            if (ret.empty() || ret.back() != '_')
+                ret += '_';
+        }
+        else
+            ret += (char)tolower((unsigned char)c);
+    }
+    return ret;
+}

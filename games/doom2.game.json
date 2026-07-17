@@ -88,6 +88,12 @@
             {"name": "Invis as Trap"},
             {"name": "Capacity Upgrades"},
             {"name": "Custom Ammo Capacity"}
+        ],
+        "spawn_trap_amounts":
+        [
+          {"name": "Archvile Trap", "default": 5, "max": 10},
+          {"name": "Revenant Trap", "default": 9, "max": 18},
+          {"name": "Lost Soul Trap", "default": 4, "max": 8}
         ]
     },
 

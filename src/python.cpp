@@ -187,6 +187,7 @@ std::stringstream& Py_CreateInitPy(game_t *game, bool include_tutorials)
     pystream << "        [self.multiworld.push_precollected(self.create_item(n)) for n in map_items if n is not None]" << std::endl;
     pystream << std::endl;
     pystream << Py_IndentJoin(WorldOptions_GetAllHooks(game, "create_items"), 8);
+    pystream << Py_IndentJoin(SpawnTrapsPyInit(), 8);
     pystream << "        # Fill remainder with filler, and submit" << std::endl;
     pystream << "        self.fill_item_pool(itempool, location_count)" << std::endl;
     pystream << "        self.multiworld.itempool.extend(self.create_item(item) for item in itempool)" << std::endl;
@@ -235,6 +236,7 @@ std::stringstream& Py_CreateOptionsPy(game_t *game, std::vector<PyOption> &opts)
     option_groups.try_emplace("Goal Options");            group_order.push_back("Goal Options");
     option_groups.try_emplace("Difficulty Options");      group_order.push_back("Difficulty Options");
     option_groups.try_emplace("Randomizer Options");      group_order.push_back("Randomizer Options");
+    option_groups.try_emplace("Traps");                   group_order.push_back("Traps");
     option_groups.try_emplace("Item & Location Options"); // Deliberately leave out of group order until the end
     for (const auto &option : opts)
     {
