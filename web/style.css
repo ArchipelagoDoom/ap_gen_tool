@@ -1,0 +1,172 @@
+body {
+  font-family: "Ubuntu";
+  background: #F3F3F3;
+  color: #000000;
+  font-size: 14pt;
+  line-height: 1.25em;
+  margin: 0em;
+  padding: 0em;
+}
+
+@media screen and (max-width: 940px) {
+  .hide-minimal {
+    display: none;
+  }
+}
+
+.overlay {
+  box-sizing: border-box;
+  width: 270px;
+  max-height: 100vh;
+  padding: 10px;
+  overflow-x: clip;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.ov-navigation {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  line-height: 1.5em;
+}
+.ov-navigation h1 {
+  font-size: 18pt;
+  margin: 0px 0 5px 0;
+}
+.ov-navigation h2 {
+  font-size: 16pt;
+  margin: 0em;
+  margin: 10px 0 5px 0;
+}
+.ov-navigation ul {
+  font-size: 12pt;
+  margin: 0px 20px 30px 0;
+  line-height: 1em;
+}
+li.selected {
+  font-weight: bold;
+}
+
+.ov-credits {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  line-height: 1.25em;
+  font-size: 10pt;
+}
+.ov-credits div {
+  margin-top: 1em;
+}
+
+div.base {
+  display: flex;
+  overflow: hidden;
+  margin: 0em;
+}
+div.navbar {
+  flex: 0 0 230px;
+  width: 230px;
+  min-height: 100vh;
+  margin: 0em;
+  padding: 0 20px 0 20px;
+  background: #E0E0E0;
+}
+div.content {
+  flex: 1 1 0px;
+  padding: 0em 6em 0em 4em;
+  width: 200px;
+}
+.content h1 {
+  font-size: 26pt;
+  padding-left: 0.25em;
+  clear: both;
+}
+.content h2 {
+  font-size: 20pt;
+  margin: 1em 0em 1em 0em;
+  padding-left: 0.25em;
+  clear: both;
+}
+.content hr {
+  margin: 4em 1em 4em 1em;
+  clear: both;
+}
+.content div {
+  margin: 0em 0em 4em 0em;
+}
+.content pre {
+  overflow: auto;
+}
+
+.code-header {
+  font-family: "Ubuntu Mono";
+  color: #246464;
+}
+
+img {
+  margin: 0em 0em 0.5em 1em;
+  clear: right;
+  float: right;
+  width: 30%;
+  min-width: 150px;
+  max-width: 300px;
+}
+.clear-img {
+  clear: both;
+}
+
+a {
+  color: #5555C0;
+  text-decoration: none;
+}
+a:visited {
+  color: #8844C0;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+ul > li:not(:last-child) {
+  padding-bottom: 0.5em;
+}
+
+.inline-code {
+  font-family: "Ubuntu Mono";
+  background: #E0E0E0;
+  padding: 2px;
+}
+
+pre {
+  font-family: "Ubuntu Mono";
+  background: #E0E0E0;
+  padding: 8px;
+  margin: 10px 0px 0px 0px;
+  flex-shrink: 1;
+}
+
+.comment {
+  font-style: italic;
+  color: #767676;
+}
+.key {
+  color: #246464;
+}
+.string {
+  color: #349034;
+}
+.bool {
+  font-style: italic;
+  color: #C04040;
+}
+.int {
+  color: #A07040;
+}
+
+.clarify {
+  text-decoration: underline dotted 2px #C040C0;
+  cursor: help;
+}

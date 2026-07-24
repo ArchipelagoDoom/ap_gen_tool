@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>Advanced game JSONs: Overview - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+  <li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li><a href="/ap_gen_tool/basic/creating-json.html">Creating a game JSON</a></li>
+  <li><a href="/ap_gen_tool/basic/navigating.html">Navigating <i>ap_gen_tool</i></a></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li class="selected">Overview</li>
+  <li><a href="/ap_gen_tool/advanced/episodes.html">Episodes</a></li>
+  <li><a href="/ap_gen_tool/advanced/game_info.html">Game Info</a></li>
+  <li><a href="/ap_gen_tool/advanced/world_info.html">World Info</a></li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="overlay ov-credits hide-minimal">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<h1>Required Fields</h1>
+<div>
+All of these fields must be present for a Game Json file to be considered valid.
+</div>
+
+<h2 id="short_name" class="code-header">"short_name"</h2>
+<div>
+This is a short, unique name for the game, used to identify the game throughout <i>ap_gen_tool</i> and <i>Archipelago Doom</i>. This affects where the logic files will be saved, where player's save files will be kept, and what the command line option to play this game will be, among many other things.
+<br><br>
+The filename of the WAD, without its extension, is generally the best thing to use here.
+<br><br>
+Examples:
+<pre>
+<span class="key">"short_name"</span>: <span class="string">"doom"</span>
+</pre>
+<pre>
+<span class="key">"short_name"</span>: <span class="string">"zone300"</span>
+</pre>
+</div>
+
+
+<h2 id="full_name" class="code-header">"full_name"</h2>
+<div>
+This is the full name of the game, complete with subtitles. It is shown in the <i>Archipelago Doom Launcher</i> when selecting a game.
+<br><br>
+Examples:
+<pre>
+<span class="key">"full_name"</span>: <span class="string">"Doom (1993)"</span>
+</pre>
+<pre>
+<span class="key">"full_name"</span>: <span class="string">"Zone 300"</span>
+</pre>
+</div>
+
+
+<h2 id="ap_name" class="code-header">"ap_name"</h2>
+<div>
+This is the name that Archipelago will refer to the world by. It should not contain subtitles, but for PWADs it <b>should</b> contain the name of the base game along with the name of the PWAD itself.
+<br><br>
+Examples:
+<pre>
+<span class="key">"ap_name"</span>: <span class="string">"DOOM 1993"</span>
+</pre>
+<pre>
+<span class="key">"ap_name"</span>: <span class="string">"DOOM II - Zone 300"</span>
+</pre>
+</div>
+
+
+<h2 id="ap_world_name" class="code-header">"ap_world_name"</h2>
+<div>
+This is what the resulting APWorld file will be named after it is generated; <b>do not</b> include the ".apworld" extension.
+<br><br>
+For the sake of quickly determining what the base game for each world is, I like to use the short name of the base game, followed by the short name of the game being worked on; but you can use some other naming scheme if preferred.
+<br><br>
+Examples:
+<pre>
+<span class="key">"ap_world_name"</span>: <span class="string">"doom1993"</span>
+</pre>
+<pre>
+<span class="key">"ap_world_name"</span>: <span class="string">"doom2_zone300"</span>
+</pre>
+</div>
+
+
+<h2 id="iwad" class="code-header">"iwad"</h2>
+<div>
+This is the IWAD that the game needs to function. For most games, this will be the name of the WAD file that the base game uses. <span class="inline-code string">"DOOM.WAD"</span> is the IWAD for Doom (1993), <span class="inline-code string">"DOOM2.WAD"</span> is Doom 2's IWAD, <span class="inline-code string">"HERETIC.WAD"</span> is Heretic's IWAD, etc.
+<br><br>
+If the game is entirely standalone and does not rely on <b>any</b> other game's assets to function (e.g. HacX, REKKR, Chex Quest), then that game's WAD file <b>is</b> the IWAD, and should be placed here.
+<br><br>
+Examples:
+<pre>
+<span class="key">"iwad"</span>: <span class="string">"DOOM.WAD"</span>
+</pre>
+<pre>
+<span class="comment">// -- Chex Quest 3: Vanilla Edition --</span>
+<span class="comment">// Does not require any other game's assets to function</span>
+<span class="key">"iwad"</span>: <span class="string">"chex3v.wad"</span>
+</pre>
+</div>
+
+
+<h2 id="episodes" class="code-header">"episodes"</h2>
+<div>
+This structure contains information about all episodes in the game, including information about all maps contained within them. Even if the game isn't normally episodic, it should be split up into mulitple "episode" chunks so that players can choose sets of levels to play.
+<br><br>
+See the <a href="/ap_gen_tool/advanced/episodes.html">Episodes</a> page for more information.
+</div>
+
+
+<hr>
+
+
+<h1>WAD-Related Fields</h1>
+<div>
+These fields are optional, but are extremely likely to be important to making new games, so they've been separated out from the rest.
+</div>
+
+
+<h2 id="required_wads" class="code-header">"required_wads"</h2>
+<div>
+Any additional files that the game must have in order to function should be placed here. Ordering is important; <i>Archipelago Doom</i> will load files in the order that is specified here.
+<br><br>
+If only one file is present, a string may be used instead. (Omit the square brackets.)
+<br><br>
+Examples:
+<pre>
+<span class="key">"required_wads"</span>: <span class="string">"zone300.wad"</span>
+</pre>
+<pre>
+<span class="comment">// -- STRAIN --</span>
+<span class="comment">// Needs its DEHACKED file added, alongside the actual WAD</span>
+<span class="key">"required_wads"</span>: [<span class="string">"STRAIN.WAD"</span>, <span class="string">"STRAIN.DEH"</span>]
+</pre>
+</div>
+
+
+<h2 id="optional_wads" class="code-header">"optional_wads"</h2>
+<div>
+Any additional files that would be nice to have automatically loaded, but are not required for the game to function should be placed here; for example, community music packs. WAD files in here <i>must not</i> modify any maps that are specified in <a href="#episodes"><span class="inline-code key">"episodes"</span></a>, as that could cause issues.
+<br><br>
+If only one file is present, a string may be used instead. (Omit the square brackets.)
+<br><br>
+Example:
+<pre>
+<span class="comment">// -- No Rest for the Living --</span>
+<span class="comment">// If the community MIDI pack is present, load it</span>
+<span class="key">"optional_wads"</span>: <span class="string">"nrftl_midipack_prboomplus.wad"</span>
+</pre>
+</div>
+
+
+<h2 id="included_wads" class="code-header">"included_wads"</h2>
+<div>
+Any additional files that should be bundled inside the APWorld itself and automatically loaded alongside the game. The intended use case for this is if additional graphics, music, scripts, etc. need to be created for this game; by creating a new WAD file with those additions and placing its name in here, it will be included inside the resulting APWorld and automatically loaded without players needing to download any additional files.
+<br><br>
+If only one file is present, a string may be used instead. (Omit the square brackets.)
+<br><br>
+Example:
+<pre>
+<span class="key">"included_wads"</span>: <span class="string">"MyExtraGameData.wad"</span>
+</pre>
+</div>
+
+
+<hr>
+
+
+<h1>Optional Fields</h1>
+<div>
+These fields are not required, but add additional functionality to worlds, if desired.
+</div>
+
+
+<h2 id="settings" class="code-header">"settings"</h2>
+<div>
+An extra settings object that enables some additional behaviors if desired. The following options are available:
+<ul>
+<li><span class="inline-code key">"extended_names"</span>: If set to <span class="inline-code bool">true</span>, the given "name" of each location in ap_gen_tool will be appended to the name of every location in Archipelago. This makes location names a little longer, and is a considerable amount of work, but tends to ease player confusion about what location is what.</li>
+<li><span class="inline-code key">"check_sanity"</span>: If set to <span class="inline-code bool">true</span>, Check Sanity will be available as an option in the world, and locations can be disabled by default by marking them with the Check Sanity flag. This is recommended for games with excessively high location counts, like Heretic.</li>
+</ul>
+Example:
+<pre>
+<span class="key">"settings"</span>: {
+  <span class="key">"extended_names"</span>: <span class="bool">true</span>
+}
+</pre>
+</div>
+
+
+<h2 id="class_name" class="code-header">"class_name"</h2>
+<div>
+Changes the name prefix given to classes inside of the APWorld.
+<br><br>
+The default class name is fine for almost all use cases, but this exists for the purpose of managing worlds that are core-verified in Archipelago.
+<br><br>
+Example:
+<pre>
+<span class="key">"class_name"</span>: <span class="string">"Doom1993"</span>
+</pre>
+</div>
+
+
+<h2 id="authors" class="code-header">"authors"</h2>
+<div>
+This is the name of people that have worked on the world for this game. Whatever names put here are saved in the APWorld manifest, to be shown by Archipelago and other tools. The launcher will also display them when selecting a game.
+<br><br>
+If only one person needs to be credited, a string may be used instead. (Omit the square brackets.)
+<br><br>
+Examples:
+<pre>
+<span class="key">"authors"</span>: <span class="string">"Kaito Sinclaire"</span>
+</pre>
+<pre>
+<span class="key">"authors"</span>: [<span class="string">"Daivuk"</span>, <span class="string">"Kaito Sinclaire"</span>, <span class="string">"Devil's Advocado"</span>]
+</pre>
+</div>
+
+
+<h2 id="location_doom_types" class="code-header">"location_doom_types"</h2>
+<div>
+This is a list of key-value pairs, containing the <span class="clarify" title="Editor thing number.">doomednum</span> of every item that should be included in the randomizer, and the name of that item that will be used when generating locations. This list determines what locations will be available.
+<br><br>
+If omitted, a reasonable default list for the IWAD in use will be provided.
+<br><br>
+Example:
+<pre>
+<span class="key">"location_doom_types"</span>: {
+  <span class="key">"5"</span>: <span class="string">"Blue keycard"</span>,
+  <span class="key">"40"</span>: <span class="string">"Blue skull key"</span>,
+  <span class="comment">// Skipping many entries for brevity...</span>
+  <span class="key">"2001"</span>: <span class="string">"Shotgun"</span>,
+  <span class="key">"2026"</span>: <span class="string">"Computer area map"</span>
+}
+</pre>
+</div>
+
+
+<h2 id="game_info" class="code-header">"game_info"</h2>
+<div>
+This structure contains extra information used by <i>Archipelago Doom</i> to customize aspects of gameplay. Reasonable defaults are provided on a per-IWAD basis, and this structure only needs to be included if the game in question uses an unrecognized IWAD, or if a PWAD makes modifications to the way the game plays.
+<br><br>
+See the <a href="/ap_gen_tool/advanced/game_info.html">Game Info</a> page for more information.
+</div>
+
+
+<h2 id="world_info" class="code-header">"world_info"</h2>
+<div>
+This structure contains extra information used by <i>ap_gen_tool</i> to customize the generated APWorld. While technically optional, it is usually a good idea to have this structure present to add a <span class="inline-code key">"description"</span> and some <span class="inline-code key">"world_options"</span> to the world, at the bare minimum.
+<br><br>
+See the <a href="/ap_gen_tool/advanced/world_info.html">World Info</a> page for more information.
+</div>
+
+
+<h2 id="map_tweaks" class="code-header">"map_tweaks"</h2>
+<div>
+Map tweaks are an advanced tool for making minor modifications to maps when they're loaded, without needing to include an edited version of the map with the world. It is mostly used for removing potential softlocks from levels; but it is powerful enough to make any change to a map that wouldn't require a nodesbuild, along with enabling some features specific to <i>Archipelago Doom</i>.
+<br><br>
+See the Map Tweaks page (TODO) for more information.
+</div>
+
+
+<h2 id="level_select" class="code-header">"level_select"</h2>
+<div>
+This structure contains the layout and graphics definitions for each Level Select screen; the screens that the players use to choose which map to visit.
+<br><br>
+It is not necessary to create a level select for each world; <i>Archipelago Doom</i> contains a perfectly serviceable basic level select that it will use if no <span class="inline-code key">"level_select"</span> structure is present.
+<br><br>
+See the Level Select page (TODO) for more information.
+</div>
+
+
+<h2 id="items" class="code-header">"items"</h2>
+<div>
+TODO
+</div>
+
+
+<h2 id="rename_lumps" class="code-header">"rename_lumps"</h2>
+<div>
+In rare instances, it may be necessary to rename lumps inside of a WAD file so that they don't conflict with others; the <span class="inline-code key">"rename_lumps"</span> structure exists to facilitate this on a per-WAD basis. For each WAD name that needs lumps adjusted, there should be a list of key-value pairs of an input (original) name, and an output (new desired) name.
+<br><br>
+Question marks in the input string will match any character; question marks in the output string will output whatever character was in the position of the first (or second, etc.) question mark in the input string. This can be used to mass-rename lumps that all fit a specific naming scheme.
+<br><br>
+Example:
+<pre>
+<span class="key">"rename_lumps"</span>: {
+  <span class="key">"nerve.wad"</span>: {
+    <span class="comment">// -- No Rest For The Living --</span>
+    <span class="comment">// NRFTL in DOOM + DOOM II loads its maps over regular DOOM II. We need to fix that.</span>
+    <span class="comment">// Internally we treat them as MAP41-49, but name them as NERVE01-09.</span>
+    <span class="key">"MAP0?"</span>: <span class="string">"MAP4?"</span>,
+    <span class="key">"CWILV??"</span>: <span class="string">"NWILV??"</span>
+  }
+}
+</pre>
+</div>
+
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="navbar hide-minimal"></div>
+</div>
+</body>
+</html>

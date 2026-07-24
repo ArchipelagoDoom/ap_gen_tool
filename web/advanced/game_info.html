@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>Advanced game JSONs: Game Info - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+  <li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li><a href="/ap_gen_tool/basic/creating-json.html">Creating a game JSON</a></li>
+  <li><a href="/ap_gen_tool/basic/navigating.html">Navigating <i>ap_gen_tool</i></a></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li><a href="/ap_gen_tool/advanced/overview.html">Overview</a></li>
+  <li><a href="/ap_gen_tool/advanced/episodes.html">Episodes</a></li>
+  <li class="selected">Game Info</li>
+  <li><a href="/ap_gen_tool/advanced/world_info.html">World Info</a></li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="hide-minimal overlay ov-credits">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<h1>Overview</h1>
+<div>
+Note that every single field here is optional unless the game uses a non-standard IWAD; all of the typical games have well-tested defaults for every option.
+<br><br>
+The following fields are present in the <span class="inline-code key">"game_info"</span> structure:
+</div>
+
+<h2 id="starting_health" class="code-header">"starting_health"</h2>
+<div>
+Changes the amount of health that the player starts with when respawning, or on a new game.
+<br><br>
+The default is <span class="inline-code int">100</span> for all games.
+<br><br>
+Example:
+<pre>
+<span class="key">"starting_health"</span>: <span class="int">200</span>
+</pre>
+</div>
+
+
+<h2 id="starting_armor" class="code-header">"starting_armor"</h2>
+<div>
+Changes the amount of armor that the player starts with when respawning, or on a new game. This is handled as if the player picked up this many armor bonuses immediately when spawning, so it will always be the weakest available armor in your game.
+<br><br>
+The default is <span class="inline-code int">0</span> for all games.
+<br><br>
+Example:
+<pre>
+<span class="key">"starting_armor"</span>: <span class="int">100</span>
+</pre>
+</div>
+
+
+<h2 id="pausepic" class="code-header">"pausepic"</h2>
+<div>
+Sets the background graphic that will be shown when the user opens the Main Menu.  This should either be <span class="inline-code bool">null</span>, or a string that corresponds to an (ideally) 320x200 graphic lump present in one of the loaded WAD files.
+<br><br>
+If set to <span class="inline-code bool">null</span>, no background image will be drawn and the last frame of gameplay will be shown behind the Main Menu.
+<br><br>
+Examples:
+<pre>
+<span class="key">"pausepic"</span>: <span class="bool">null</span>
+</pre>
+<pre>
+<span class="key">"pausepic"</span>: <span class="string">"INTERPIC"</span>
+</pre>
+</div>
+
+
+<h2 id="goalmenuflat" class="code-header">"goalmenuflat"</h2>
+<div>
+Sets the background graphic that gets used for the Goals and EnergyLink menus.  This should either be <span class="inline-code bool">null</span>, or a string that corresponds to a Doom Flat present in one of the loaded WAD files.
+<br><br>
+If set to <span class="inline-code bool">null</span>, neither of these menus will draw a background of their own, either reusing the <span class="inline-code key">"pausepic"</span> background or showing the last frame of gameplay.
+<br><br>
+Examples:
+<pre>
+<span class="key">"goalmenuflat"</span>: <span class="bool">null</span>
+</pre>
+<pre>
+<span class="key">"goalmenuflat"</span>: <span class="string">"SLIME01"</span>
+</pre>
+</div>
+
+
+<h2 id="levelselect_music" class="code-header">"levelselect_music"</h2>
+<div>
+Sets the background music that plays on the level select screen, if the player has the "Play Music on Level Select" option enabled.  This should be a string that corresponds to a music lump in one of the loaded WAD files.
+<br><br>
+Examples:
+<pre>
+<span class="key">"levelselect_music"</span>: <span class="string">"D_E1M1"</span>  <span class="comment">// Doom 1993</span>
+</pre>
+<pre>
+<span class="key">"levelselect_music"</span>: <span class="string">"D_RUNNIN"</span>  <span class="comment">// Doom II</span>
+</pre>
+<pre>
+<span class="key">"levelselect_music"</span>: <span class="string">"MUS_E1M1"</span>  <span class="comment">// Heretic</span>
+</pre>
+</div>
+
+<h2 id="obituaries" class="code-header">"obituaries"</h2>
+<div>
+A list of key-value pairs containing all obituary messages, used as the death "reason" when a player with DeathLink enabled sends a death. The key should be a comma-separated list of obituary tags, and the value should be the message shown to the player and sent to the server.
+<br><br>
+The literal string <span class="inline-code string">"%YOU%"</span> inside of the message will be replaced with the player's name.
+<br><br>
+For more detailed information about what obituary tags are available, see the below section on <a href="#obituaries-and-obituary-tags">Obituaries and Obituary Tags</a>.
+<br><br>
+Example:
+<pre>
+<span class="key">"obituaries"</span>: {
+  <span class="key">"SOURCE_DOOMEDNUM_3004"</span>: <span class="string">"%YOU% was killed by a zombieman."</span>,
+  <span class="key">"SOURCE_DOOMEDNUM_3003,MELEE"</span>: <span class="string">"%YOU% was ripped open by a Baron of Hell."</span>,
+  <span class="key">"SOURCE_DOOMEDNUM_3003,MISSILE"</span>: <span class="string">"%YOU% was bruised by a Baron of Hell."</span>,
+  <span class="key">"SUICIDE,INFLICTOR_MOBJTYPE_33"</span>: <span class="string">"%YOU% should have stood back."</span>
+  <span class="comment">// Many other entries removed for brevity</span>
+}
+</pre>
+</div>
+
+<h2 id="ammo" class="code-header">"ammo"</h2>
+<div>
+An array of objects, each containing <span class="inline-code key">"name"</span> and <span class="inline-code key">"max"</span> fields. The name field is mostly used as a reference for other game info structures, but the max field directly controls the player's default maximum ammo capacity for that ammo type.
+<br><br>
+<b>NOTE:</b> For DOOM 1993 and DOOM II, the positions of Energy Cells and Rockets (or whatever ammo types replace them) are inverted. Energy Cells are the third ammo type, and Rockets are the fourth.
+<br><br>
+Example:
+<pre>
+<span class="key">"ammo"</span>: [  <span class="comment">// Ammo for Doom 1993 and Doom II</span>
+  { <span class="key">"name"</span>: <span class="string">"Bullets"</span>, <span class="key">"max"</span>: <span class="int">200</span> },
+  { <span class="key">"name"</span>: <span class="string">"Shells"</span>, <span class="key">"max"</span>: <span class="int">50</span> },
+  { <span class="key">"name"</span>: <span class="string">"Energy Cells"</span>, <span class="key">"max"</span>: <span class="int">300</span> },
+  { <span class="key">"name"</span>: <span class="string">"Rockets"</span>, <span class="key">"max"</span>: <span class="int">50</span> }
+]
+</pre>
+</div>
+
+
+<h2 id="weapons" class="code-header">"weapons"</h2>
+<div>
+An array of objects, each containing a <span class="inline-code key">"name"</span> field, and optionally <span class="inline-code key">"ammo_type"</span> and <span class="inline-code key">"starting_ammo"</span> fields. The ammo type and starting ammo fields, used together, will give the player that much ammo when respawning, if they both have that weapon available and their ammo total is less than that value.
+<br><br>
+The name field, while currently unused, may be used in the future for a weapon carousel display when switching weapons.
+<br><br>
+Example:
+<pre>
+<span class="key">"weapons"</span>: [  <span class="comment">// Weapons for Doom 1993 and Doom II</span>
+  {<span class="key">"name"</span>: <span class="string">"Fist"</span>},
+  {<span class="key">"name"</span>: <span class="string">"Pistol"</span>, <span class="key">"ammo_type"</span>: <span class="string">"Bullets"</span>, <span class="key">"starting_ammo"</span>: <span class="int">50</span>},
+  {<span class="key">"name"</span>: <span class="string">"Shotgun"</span>, <span class="key">"ammo_type"</span>: <span class="string">"Shells"</span>, <span class="key">"starting_ammo"</span>: <span class="int">30</span>},
+  <span class="comment">// Remaining entries excluded for brevity</span>
+]
+</pre>
+</div>
+
+
+<h2 id="monsters" class="code-header">"monsters"</h2>
+<div>
+An object containing the keys <span class="inline-code key">"small"</span>, <span class="inline-code key">"medium"</span>, <span class="inline-code key">"big"</span>, and <span class="inline-code key">"boss"</span>; each key's value being an array containing an unlimited number of <span class="clarify" title="Editor thing numbers.">doomednums</span>. Any or all of these keys may be omitted. This is used for Monster Rando to control which monsters are randomized by it, and to group monsters together by relative toughness.
+<br><br>
+<b>NOTE:</b> An array with only one monster type is still useful; that monster may still be shuffled around the level in settings that allow for it. A monster that's been omitted entirely will not be subjected to Monster Rando at all.
+<br><br>
+Example:
+<pre>
+<span class="key">"monsters"</span>: {  <span class="comment">// Monsters for Doom 1993</span>
+  <span class="key">"small"</span>: [<span class="int">3004</span>, <span class="int">9</span>, <span class="int">3001</span>],  <span class="comment">// Zombieman, Shotgunner, Imp</span>
+  <span class="key">"medium"</span>: [<span class="int">3002</span>, <span class="int">58</span>, <span class="int">3006</span>, <span class="int">3005</span>],  <span class="comment">// Demon, Spectre, Lost Soul, Cacodemon</span>
+  <span class="key">"big"</span>: [<span class="int">3003</span>],  <span class="comment">// Baron of Hell</span>
+  <span class="key">"boss"</span>: [<span class="int">16</span>, <span class="int">7</span>]  <span class="comment">// Cyberdemon, Spider Mastermind</span>
+}
+</pre>
+</div>
+
+
+<h2 id="pickups" class="code-header">"pickups"</h2>
+<div>
+An object containing the keys <span class="inline-code key">"small"</span>, <span class="inline-code key">"medium"</span>, and <span class="inline-code key">"big"</span>; each key's value being an array containing an unlimited number of <span class="clarify" title="Editor thing numbers.">doomednums</span>. Any or all of these keys may be omitted. This is used for Pickup Rando to control which pickups are randomized by it, and to group pickups together by relative usefulness.
+<br><br>
+Example:
+<pre>
+<span class="key">"pickups"</span>: {  <span class="comment">// Pickups for Doom 1993 and Doom II</span>
+  <span class="key">"small"</span>: [<span class="int">2015</span>, <span class="int">2014</span>],  <span class="comment">// Health bonus, Armor bonus</span>
+  <span class="key">"medium"</span>: [<span class="int">2011</span>, <span class="int">2008</span>, <span class="int">2007</span>, <span class="int">2047</span>, <span class="int">2010</span>],  <span class="comment">// Stimpack, 4 shotgun shells, Clip, Energy cell, Rocket</span>
+  <span class="key">"big"</span>: [<span class="int">2048</span>, <span class="int">2046</span>, <span class="int">2049</span>, <span class="int">17</span>, <span class="int">2012</span>]  <span class="comment">// Box of bullets, Box of rockets, Box of shotgun sells, Energy cell pack, Medikit</span>
+}
+</pre>
+</div>
+
+
+<hr>
+
+
+<h1 id="obituaries-and-obituary-tags">Obituaries and Obituary Tags</h1>
+<div>
+Obituaries use a set of "obituary tags" to associate the actions that cost the player their life with an associated message. For a message to be considered, <b>all</b> of its tags must match the player's death. From all such messages, <i>Archipelago Doom</i> will attempt to pick the most fitting message, <span class="clarify" title="Not always the case; some tags are biased over others.">usually</span> the one with the most tags.
+<br><br>
+When the extra parameter <span class="inline-code">-apdebug</span> is enabled, the console will show the obituary tags associated with every death the player experiences. This can help when determining what tags to use when writing obituary messages.
+<br><br>
+The following obituary tags are supported:
+<ul>
+<li><span class="inline-code key">"SOURCE_DOOMEDNUM_<i>i</i>"</span>, <span class="inline-code key">"SOURCE_MOBJTYPE_<i>i</i>"</span>: The object responsible for the player's death was of the given <span class="clarify" title="Editor thing number.">doomednum</span> <i>i</i>, or <span class="clarify" title="Index in the internal object type list.">mobj type</span> <i>i</i>. Using the doomednum is preferred, but not always possible, e.g. if the object can't normally be placed in the editor.</li>
+<li><span class="inline-code key">"INFLICTOR_DOOMEDNUM_<i>i</i>"</span>, <span class="inline-code key">"INFLICTOR_MOBJTYPE_<i>i</i>"</span>: As above, but for the exact object being used to harm the player, such as a projectile, barrel, etc.</li>
+<li><span class="inline-code key">"MELEE"</span>: The attack that killed the player was a melee (or hitscan) attack.</li>
+<li><span class="inline-code key">"MISSILE"</span>: The attack that killed the player was a missile attack.</li>
+<li><span class="inline-code key">"SPLASH"</span>: The player was killed via splash damage, and not a direct hit.</li>
+<li><span class="inline-code key">"TELEFRAG"</span>: The player was instantly killed by something teleporting or spawning on top of them.</li>
+<li><span class="inline-code key">"POSTHUMOUS"</span>: The object responsible for the player's death was already dead at the time.</li>
+<li><span class="inline-code key">"NO_SOURCE"</span>: <b>Extremely rare.</b> The player was killed by a missile that had no source object.</li>
+<li><span class="inline-code key">"ENVIRONMENT"</span>: The player was killed by some sort of in-level damage, such as a crusher or damaging floor.</li>
+<li><span class="inline-code key">"CRUSHER"</span>: The player was killed by crushing damage.</li>
+<li><span class="inline-code key">"FLOOR_<i>s</i>"</span>: <b>Only for environment deaths.</b> The player died in a sector with the given floor graphic <i>s</i>.</li>
+<li><span class="inline-code key">"CEILING_<i>s</i>"</span>: <b>Only for environment deaths.</b> As above, but for the ceiling graphic.</li>
+<li><span class="inline-code key">"SUICIDE"</span>: The player was responsible for their own death.</li>
+<li><span class="inline-code key">"WAS_CHICKEN"</span>: <b>Heretic only.</b> The player was a chicken at the time of death.</li>
+<li><span class="inline-code key">"CHEAT"</span>: <b>Heretic only.</b> The player died by typing IDDQD.</li>
+</ul>
+It is also possible to change the generic "Player died" message that is used when no obituaries match the way the player died, by adding an obituary with only the tag <span class="inline-code key">"GENERIC"</span>.
+</div>
+
+
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="hide-minimal navbar"></div>
+</div>
+</body>
+</html>

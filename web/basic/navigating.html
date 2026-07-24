@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>The Basics: Navigating ap_gen_tool - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+  <li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li><a href="/ap_gen_tool/basic/creating-json.html">Creating a game JSON</a></li>
+  <li class="selected">Navigating <i>ap_gen_tool</i></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li><a href="/ap_gen_tool/advanced/overview.html">Overview</a></li>
+  <li><a href="/ap_gen_tool/advanced/episodes.html">Episodes</a></li>
+  <li><a href="/ap_gen_tool/advanced/game_info.html">Game Info</a></li>
+  <li><a href="/ap_gen_tool/advanced/world_info.html">World Info</a></li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="hide-minimal overlay ov-credits">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<h1 id="getting-started">Getting started</h1>
+<div>
+<img src="../images/open-game.png" alt="The File menu of ap_gen_tool, with Open Game highlighted">
+Now that we've created our basic game JSON, let's open it up in <i>ap_gen_tool</i> so that we can start making logic for our maps. Note that we also need to have the WAD files present inside the same folder as the <i>ap_gen_tool</i> executable so it can find the game's graphics and level data.
+<br><br>
+Select <b>File</b> &rarr; <b>Open Game...</b>, and then select the JSON file that was made in the previous step. <i>ap_gen_tool</i> will pause for a moment while it loads in all the graphics and map data that it needs. If you get a JSON syntax error at this point, you might want to put your JSON file through a validator such as <a href="https://jsonlint.com">JSONLint</a> to see what's wrong in more detail.
+<br><br class="clear-img">
+<img src="../images/maps-list.png" alt="The menu listing all maps inside Zone 300 (abbreviated)">
+Once <i>ap_gen_tool</i> has parsed all of the data from the WAD, a new menu will appear on the right side of the menu bar, listing every episode and every map contained within those episodes. Next to each map name, the total number of checks in that map will also be displayed.
+<br><br>
+Selecting any map within this new menu will open it up and allow us to start editing logic for that map. For now, we're going to start with <span class="inline-code">MAP01</span>.
+</div>
+
+<h1 id="making-logic">Making logic for a level</h1>
+<div>
+<img src="../images/map01-empty.png" alt="The map of The Spaceport (MAP01), with no regions and no connections yet made">
+With <span class="inline-code">MAP01</span> now open, we should now see something like this; a relatively empty level map with two boxes for the "Hub" and the "Exit". The two boxes are special <b>regions</b> that exist on every map; the "Hub" represents where the player starts and returns to, and the "Exit" represents (naturally) the end of the map that the player is trying to reach.
+<br><br>
+The objective for logic is to make additional <b>regions</b> representing sections of the map, and make <b>connections</b> between those regions to connect them together and enforce conditions between them. We want to have a fully connected graph where the player, starting from the "Hub", can navigate through some regions to reach the "Exit".
+<br><br class="clear-img">
+<img src="../images/region-box-empty.png" alt="The region window, with no regions available">
+The "Regions" window lists all of the regions inside the map, excluding the special "Hub" and "Exit" regions. We currently don't have any regions, so we need to create at least one by typing a name in the box and clicking "Add". Typically, we use "Main" for the name of the first region, but this is just a guideline, not a requirement.
+<br><br>
+As <span class="inline-code">MAP01</span> is a relatively simple level with no keycards and barely any monster resistance, we should not need more than this one region.
+<br><br class="clear-img">
+<img src="../images/map01-rules.png" style="max-width:200px;" alt="The region graph from earlier, now with a new Main region and connections to and from the Hub and to the Exit">
+With this region created, we can now start making <b>connections</b> to and from it. Select the <b>Rules</b> tool (<b>Tools</b> &rarr; <b>Rules</b>, or press the <b>3</b> key) then left click and drag to move the newly created region to wherever you want. Once it's in a good place, right click and drag to start making a connection between two regions; you will see a green arrow indicating where the new connection will go while doing this.
+<br><br>
+Again, due to the simplistic nature of <span class="inline-code">MAP01</span>, all we need to do is make a connection from the "Hub" to our new region, a connection from our new region back to the "Hub" (as the player can return to it from here), and a connection from our new region to the "Exit".
+</div>
+
+<h1 id="assigning-regions">Assigning regions to sectors</h1>
+<div>
+<img src="../images/map01-full.png" alt="The map of The Spaceport (MAP01), now with all of its sectors painted with the Main region">
+Making connections between regions is one half of making logic; the second half is assigning sectors to regions, tying any locations present within them to that region.
+<br><br>
+Select the <b>Region</b> tool (<b>Tools</b> &rarr; <b>Region</b>, or press the <b>2</b> key); this will start highlighting sectors in the map. If it isn't selected already, also make sure the region we made just a moment ago in the "Regions" window is selected.
+<br><br>
+Now, left click and (optionally) drag your mouse over sectors in the map to paint them with that region's color. We'll want to paint over every sector that the player could access in this region; in this case, that's the whole map, but this won't always be the case.
+<br><br>
+After this is done, logic for <span class="inline-code">MAP01</span> is complete! Not surprising, since it's so simple and only needs the barest minimum of logic. In the next step, though, we'll review a more complex map with keycards and potential weapon logic.
+</div>
+<!--
+<br><br>
+Note that you are allowed to make as many regions as you deem necessary. If there's a considerable portion of the map that can be accessed from the start with no real threat to the player, you may want to have an extra "Start" region with no logic requirements at all. Or, if there is a section of the map that is considerably harder than the rest, you may want to put it in a separate region so that you can gate it behind having additional weapons.-->
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="navbar hide-minimal"></div>
+</div>
+</body>
+</html>

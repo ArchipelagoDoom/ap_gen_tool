@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>Advanced game JSONs: World Info - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+	<li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li><a href="/ap_gen_tool/basic/creating-json.html">Creating a game JSON</a></li>
+  <li><a href="/ap_gen_tool/basic/navigating.html">Navigating <i>ap_gen_tool</i></a></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li><a href="/ap_gen_tool/advanced/overview.html">Overview</a></li>
+  <li><a href="/ap_gen_tool/advanced/episodes.html">Episodes</a></li>
+  <li><a href="/ap_gen_tool/advanced/game_info.html">Game Info</a></li>
+  <li class="selected">World Info</li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="hide-minimal overlay ov-credits">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<br>
+<div>
+<span class="inline-code key">"world_info"</span> contains some additional controls for the Python (Archipelago-facing) side of the APWorld.
+<br><br>
+While <span class="inline-code key">"world_info"</span> is technically optional, it is usually a good idea to at <b>least</b> specify a description, and perhaps some World Options as well. Unspecified fields will receive defaults based on the IWAD of the game.
+</div>
+
+
+<h1>Field Overview</h1>
+<div></div>
+
+
+<h2 id="description" class="code-header">"description"</h2>
+<div>
+This is the description of the game, as would be displayed on the "Supported Games" page on <i>archipelago.gg</i>. It is usually a good idea to fill this out with some basic information about the game. At some point, the description might also be displayed in the <i>Archipelago Doom Launcher</i>, though this is currently not the case.
+<br><br>
+The description may either be written out with a single string, or as an array of strings. If the latter is used, a new line is implicitly placed after every string.
+<br><br>
+Examples:
+<pre>
+<span class="key">"description"</span>: <span class="string">"This is a simple, one line description."</span>
+</pre>
+<pre>
+<span class="key">"description"</span>: [
+  <span class="string">"DOOM II: Hell on Earth is a first-person shooter released by id Software in 1994."</span>,
+  <span class="string">"The sequel to DOOM (1993), it introduces the Super Shotgun, and has larger levels and"</span>,
+  <span class="string">"a significantly larger, more balanced monster bestiary."</span>
+]
+</pre>
+</div>
+
+
+<h2 id="item_pool_ratio" class="code-header">"item_pool_ratio"</h2>
+<div>
+This structure controls how filler items are placed in the world. For each of the five main difficulties, where <span class="inline-code key">"1"</span> is "I'm too young to die" and <span class="inline-code key">"5"</span> is "Nightmare!" (or their equivalents, if changed):
+<ul>
+<li><span class="inline-code key">"helpful"</span> is the percentage of the item pool that is filled with helpful items.</li>
+<li><span class="inline-code key">"random"</span> is the percentage of the item pool filed with random unweighted helpful or junk items.</li>
+</ul>
+Example:
+<pre>
+<span class="key">"item_pool_ratio"</span>: {
+  <span class="key">"1"</span>: { <span class="key">"helpful"</span>: <span class="int">42</span>, <span class="key">"random"</span>: <span class="int">8</span> },
+  <span class="key">"2"</span>: { <span class="key">"helpful"</span>: <span class="int">39</span>, <span class="key">"random"</span>: <span class="int">6</span> },
+  <span class="key">"3"</span>: { <span class="key">"helpful"</span>: <span class="int">33</span>, <span class="key">"random"</span>: <span class="int">3</span> },
+  <span class="key">"4"</span>: { <span class="key">"helpful"</span>: <span class="int">29</span>, <span class="key">"random"</span>: <span class="int">1</span> },
+  <span class="key">"5"</span>: { <span class="key">"helpful"</span>: <span class="int">29</span>, <span class="key">"random"</span>: <span class="int">1</span> }
+}
+</pre>
+</div>
+
+
+<h2 id="helpful_item_weight" class="code-header">"helpful_item_weight"</h2>
+<div>
+This object contains a weighted list of items, used to determine what "helpful" items should be placed in the seed. An item with a higher weight is more likely to be selected than an item with a lower weight.
+<br><br>
+Item names are used as the keys, while the integer weights are used as the values. While <b>any</b> non-unique item name can be used as a "helpful" item, it is best to stick to items that are either filler, or useful.
+<br><br>
+Example:
+<pre>
+<span class="key">"helpful_item_weight"</span>: {
+  <span class="key">"Armor"</span>: <span class="int">10</span>,  <span class="comment">// . . . . 63% chance to be selected ( 10 chances / 16 total )</span>
+  <span class="key">"Mega Armor"</span>: <span class="int">5</span>,  <span class="comment">// . . 31% chance to be selected ( 5 chances / 16 total )</span>
+  <span class="key">"Invulnerability"</span>: <span class="int">1</span>  <span class="comment">//  6% chance to be selected ( 1 chance / 16 total )</span>
+}
+</pre>
+</div>
+
+
+<h2 id="world_options" class="code-header">"world_options"</h2>
+<div>
+TODO
+There are many different world options available for use; to see a list of them, and available options for configuring them, see the below section on <a href="#world-option-details">World Option Details</a>.
+<br><br>
+Example:
+<pre>
+<span class="key">"world_options"</span>: [
+  { <span class="key">"name"</span>: <span class="string">"Difficulty"</span>, <span class="key">"preset"</span>: <span class="string">"Doom"</span> },
+  { <span class="key">"name"</span>: <span class="string">"Start with Maps"</span> },
+  { <span class="key">"name"</span>: <span class="string">"Capacity Upgrades"</span> },
+  { <span class="key">"name"</span>: <span class="string">"Custom Ammo Capacity"</span> }
+]
+</pre>
+</div>
+
+
+<h2 id="hooks" class="code-header">"hooks"</h2>
+<div>
+There are occasions where some extra code specific to this game may need to be inserted into the APWorld; for instance, workarounds for restrictive starts.  Hooks provide a way to accomplish this.  Note that this also gives you an unprecedented ability to break your APWorld if you aren't careful; with great power comes great responsibility.
+<br><br>
+The following hooks are available:
+<ul>
+<li><span class="inline-code key">"class"</span>: <b>Rarely used.</b> For creating extra arbitrary methods or class vars.</li>
+<li><span class="inline-code key">"extra_connection_requirements"</span>: <b>Rarely used.</b> For creating additional options/restrictions for connections.</li>
+<li><span class="inline-code key">"create_item"</span>: For changing/overwriting an item's information or settings as it's being created.</li>
+<li><span class="inline-code key">"generate_early"</span>: For basically anything; usually used to handle easing restrictive starts or custom options.</li>
+<li><span class="inline-code key">"create_regions"</span>: For modifying the world's region information.</li>
+<li><span class="inline-code key">"set_rules"</span>: <b>Rarely used.</b> For changing rules on the fly.</li>
+<li><span class="inline-code key">"create_items"</span>: For modifying the item pool before it's finalized.</li>
+<li><span class="inline-code key">"fill_slot_data"</span>: <b>Rarely used.</b> For adding additional information to the game's slot data.</li>
+</ul>
+Example:
+<pre>
+<span class="key">"hooks"</span>: {
+  <span class="key">"generate_early"</span>: [
+    <span class="string">"# If soloing MAP21-MAP30, we need to mark a weapon as early to help generation succeed"</span>,
+    <span class="string">"if self.solo_episode(3):"</span>,
+    <span class="string">"    early_weapon = self.random.choice([\"Super Shotgun\", \"Plasma Gun\"])"</span>,
+    <span class="string">"    self.multiworld.early_items[self.player][early_weapon] = 1"</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h1 id="world-option-details">World Option Details</h1>
+<div>
+TODO
+</div>
+
+
+<h2>Difficulty</h2>
+<div>
+This world option specifies what difficulty options are available for the game.
+<br><br>
+The following additional fields are recognized:
+<ul>
+<li><span class="inline-code key">"preset"</span>: Overrides all settings and sets up the default difficulty settings for the given game. Accepted values are <span class="inline-code string">"Doom"</span> and <span class="inline-code string">"Heretic"</span>.</li>
+<li><span class="inline-code key">"skill_5_warning"</span>: This should be set to the same string the game gives when trying to choose skill 5. ("Nightmare!") This is used for a cheeky reminder that players can change the difficulty inside the <i>Archipelago Doom Launcher</i> if they find it too difficult.</li>
+<li><span class="inline-code key">"list"</span>: An array of five difficulty settings for the player to choose from. Each difficulty is an object that should contain, at minimum, a <span class="inline-code key">"full_name"</span>. Optionally, it may also contain an <span class="inline-code key">"option_name"</span>, a <span class="inline-code key">"description"</span> and a list of <span class="inline-code key">"aliases"</span>.</li>
+</ul>
+Examples:
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Difficulty"</span>, <span class="key">"preset"</span>: <span class="string">"Doom"</span> }
+</pre>
+<pre>
+<span class="comment">// -- HacX --</span>
+{
+  <span class="key">"name"</span>: <span class="string">"Difficulty"</span>, 
+  <span class="key">"skill_5_warning"</span>: <span class="string">"Are you sure? You can't handle this skill, hacker!"</span>,
+  <span class="key">"list"</span>: [
+    { <span class="key">"full_name"</span>: <span class="string">"Please don't shoot!"</span>, <span class="key">"aliases"</span>: [ <span class="string">"itytd"</span>, <span class="string">"pds"</span> ] },
+    { <span class="key">"full_name"</span>: <span class="string">"Arrgh, I need health!"</span>, <span class="key">"aliases"</span>: [ <span class="string">"hntr"</span>, <span class="string">"ainh"</span> ] },
+    { <span class="key">"full_name"</span>: <span class="string">"Let's rip them apart!"</span>, <span class="key">"aliases"</span>: [ <span class="string">"hmp"</span>, <span class="string">"lrta"</span> ] },
+    { <span class="key">"full_name"</span>: <span class="string">"I am immportal"</span>, <span class="key">"aliases"</span>: [ <span class="string">"uv"</span>, <span class="string">"iai"</span> ] },
+    { <span class="key">"full_name"</span>: <span class="string">"Insanity!"</span>, <span class="key">"option_name"</span>: <span class="string">"insanity"</span>, <span class="key">"aliases"</span>: [ <span class="string">"nm"</span> ] }
+  ]
+}
+</pre>
+</div>
+
+
+<h2>Start with Maps</h2>
+<div>
+Including this World Option adds the option to start the player with all full-map powerup items instead of shuffling them into the Multiworld, so that the player can see the entirety of the automap for every level from the beginning of the game.
+<br><br>
+The following additional fields are recognized:
+<ul>
+<li><span class="inline-code key">"plural_name"</span>: Sets the pluralized item name for the full-map item, if just adding an "s" to the standard item name won't suffice.</li>
+<li><span class="inline-code key">"doom_type"</span>: The <span class="clarify" title="Editor thing number.">doomednum</span> of the full-map powerup item. Defaults to <span class="inline-code int">2026</span> for Doom and <span class="inline-code int">35</span> for Heretic, and almost never needs to be changed.</li>
+</ul>
+Example:
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Start with Maps"</span> }
+</pre>
+</div>
+
+
+<h2>Invis as Trap</h2>
+<div>
+Including this World Option adds the option to mark all invisibility-granting items as traps. This doesn't change their behavior, but indicates to other players in the multiworld that the player would prefer not having them picked up if possible.
+<br><br>
+The following additional field is recognized:
+<ul>
+<li><span class="inline-code key">"doom_type"</span>: The <span class="clarify" title="Editor thing number.">doomednum</span> of the invisibility item. Almost always <span class="inline-code int">2024</span>.</li>
+</ul>
+Example:
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Invis as Trap"</span> }
+</pre>
+</div>
+
+
+<h2>Capacity Upgrades</h2>
+<div>
+Including this World Option adds the option to split up capacity upgrades into multiple items, and control how many of them are placed in the world. Note that this is distinct from customizing the actual ammo capacity values, which is handled by the Custom Ammo Capacity option below.
+<br><br>
+The following additional fields are recognized:
+<ul>
+<li><span class="inline-code key">"combined_plural_name"</span>: Sets the pluralized item name for combined capacity upgrades used in the description, if just adding an "s" to the standard item name won't suffice.</li>
+<li><span class="inline-code key">"doom_type"</span>: The <span class="clarify" title="Editor thing number.">doomednum</span> of the combined capacity upgrade item. Almost always <span class="inline-code int">8</span>.</li>
+<li><span class="inline-code key">"item_count"</span>: Sets the number of items that capacity upgrades will be split into. Defaults to <span class="inline-code int">4</span> for Doom and <span class="inline-code int">6</span> for Heretic, and almost never needs to be changed.</li>
+</ul>
+
+Examples:
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Capacity Upgrades"</span> }
+</pre>
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Capacity Upgrades"</span>, <span class="key">"combined_plural_name"</span>: <span class="string">"Bags of Holding"</span> }
+</pre>
+</div>
+
+
+<h2>Custom Ammo Capacity</h2>
+<div>
+Including this World Option adds the options for custom ammo capacity to the world.
+<br><br>
+No additional fields are recognized; the names, values, and ranges for each option will be automatically determined from the ammo types set in <span class="inline-code key">"game_info"</span>.
+<br><br>
+Example:
+<pre>
+{ <span class="key">"name"</span>: <span class="string">"Custom Ammo Capacity"</span> }
+</pre>
+</div>
+
+
+<h2>Custom Option</h2>
+<div>
+Including this World Option adds an extra, arbitrary option to the world, that you can customize the behavior of using <a href="#hooks"><span class="inline-code key">"hooks"</span></a>. This World Option may be added multiple times, to add multiple such custom options.
+<br><br>
+The following additional fields are recognized:
+<ul>
+<li><span class="inline-code key">"type"</span>: <b>Required.</b> One of <span class="inline-code string">"Toggle"</span>, <span class="inline-code string">"Choice"</span>, or <span class="inline-code string">"Range"</span>. Sets the type of option to be created.</li>
+<li><span class="inline-code key">"display_name"</span>: <b>Required.</b> Sets the name of the option as displayed to players in the WebHost and Options Creator.</li>
+<li><span class="inline-code key">"option_name"</span>: Sets the name of the option that's used in player YAMLs and in the code. Defaults to the display name converted to <span class="inline-code">snake_case</span>.</li>
+<li><span class="inline-code key">"option_group"</span>: Sets the group in which this option will appear. The default is "Randomizer Options".</li>
+<li><span class="inline-code key">"description"</span>: Sets the description of the option, usually informing the player of what the option does. It may either be written out with a single string, or with an array of multiple strings.</li>
+<li><span class="inline-code key">"default"</span>: Sets the default value for the option.</li>
+<li><span class="inline-code key">"range_start"</span>, <span class="inline-code key">"range_end"</span>: <b>Range type only.</b> Sets the lower and upper bounds of the option's range.</li>
+<li><span class="inline-code key">"options"</span>: <b>Choice type only.</b> An array of possible options that the player can choose from. Each option is an object that should contain a <span class="inline-code key">"name"</span>, an integer <span class="inline-code key">"value"</span>, and optionally a list of <span class="inline-code key">"aliases"</span>.</li>
+</ul>
+Examples:
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Custom Option"</span>,
+  <span class="key">"type"</span>: <span class="string">"Choice"</span>,
+  <span class="key">"display_name"</span>: <span class="string">"Example Choice Option"</span>,
+  <span class="key">"description"</span>: <span class="string">"Quick test of a custom Choice option."</span>,
+  <span class="key">"options"</span>: [
+    { <span class="key">"name"</span>: <span class="string">"None"</span>, <span class="key">"value"</span>: <span class="int">0</span> },
+    { <span class="key">"name"</span>: <span class="string">"Primary"</span>, <span class="key">"value"</span>: <span class="int">1</span>, <span class="key">"aliases"</span>: [ <span class="string">"first"</span> ] },
+    { <span class="key">"name"</span>: <span class="string">"Secondary"</span>, <span class="key">"value"</span>: <span class="int">2</span>, <span class="key">"aliases"</span>: [ <span class="string">"second"</span> ] },
+    { <span class="key">"name"</span>: <span class="string">"Tertiary"</span>, <span class="key">"value"</span>: <span class="int">3</span>, <span class="key">"aliases"</span>: [ <span class="string">"third"</span> ] }
+  ]
+}
+</pre>
+<pre>
+<span class="comment">// -- Chex Quest 3: Vanilla Edition --</span>
+<span class="comment">// The Super Large Zorcher is available, despite never being placed in any levels.</span>
+<span class="comment">// So if this option is toggled on, we add it to the pool in a later hook.</span>
+{
+  <span class="key">"name"</span>: <span class="string">"Custom Option"</span>,
+  <span class="key">"type"</span>: <span class="string">"Toggle"</span>,
+  <span class="key">"display_name"</span>: <span class="string">"Add Super Large Zorcher"</span>,
+  <span class="key">"description"</span>: [
+    <span class="string">"If enabled, the Super Large Zorcher will be added to be item pool,"</span>,
+    <span class="string">"even though it is not normally obtainable."</span>
+  ]
+}
+</pre>
+</div>
+
+
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="hide-minimal navbar"></div>
+</div>
+</body>
+</html>

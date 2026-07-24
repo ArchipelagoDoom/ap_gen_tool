@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>The Basics: Creating a game JSON - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+  <li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li class="selected">Creating a game JSON</li>
+  <li><a href="/ap_gen_tool/basic/navigating.html">Navigating <i>ap_gen_tool</i></a></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li><a href="/ap_gen_tool/advanced/overview.html">Overview</a></li>
+  <li><a href="/ap_gen_tool/advanced/episodes.html">Episodes</a></li>
+  <li><a href="/ap_gen_tool/advanced/game_info.html">Game Info</a></li>
+  <li><a href="/ap_gen_tool/advanced/world_info.html">World Info</a></li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="hide-minimal overlay ov-credits">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<h1 id="creating-the-game-json-file">Creating the game JSON file</h1>
+<div>
+Before we can get started with loading a game into <i>ap_gen_tool</i>, we first need to create a JSON file to tell it what the name of the game is, and what WAD files and levels it should be looking for. Though game JSONs are relatively versatile (and thus, relatively complex), for now we're just going to focus on the bare minimum we need to get something loaded into <i>ap_gen_tool</i>.
+<br><br>
+Let's get started by creating an empty file named <span class="inline-code">"zone300.game.json"</span>. Zone 300 is the game we're going to be working with for this tutorial, and <span class="inline-code">".game.json"</span> is the extension for game JSON files.
+<br><br>
+After creating the new file, open it in a text editor and add a set of curly braces, <span class="inline-code">{ }</span>; like so:
+
+<pre>
+{
+  <span class="comment">// When adding things, they should go between these outer braces</span>
+  <span class="comment">// Remember to add commas after every element except the last one</span>
+}
+</pre>
+
+<br>
+Now, we need to start adding some fields to this object.
+</div>
+
+<h2 id="names">Names</h2>
+<div>
+The first four fields we need to add are various names for the game, used to help identify it throughout Archipelago, <i>Archipelago Doom</i>, and <i>ap_gen_tool</i>.
+
+<ul>
+<li><span class="inline-code key">"short_name"</span>: A short, unique name for the game; usually the name of the wad file itself.<br>Determines where save files are stored, among many other things.</li>
+<li><span class="inline-code key">"full_name"</span>: The full name of the game, complete with subtitles, if any are present.<br>This is the name shown to players in the launcher.</li>
+<li><span class="inline-code key">"ap_name"</span>: The name that Archipelago will refer to the game by.<br>It should be prefixed with the name of the base game, and shouldn't contain subtitles.</li>
+<li><span class="inline-code key">"ap_world_name"</span>: The name of the generated APWorld file, without the <span class="inline-code">.apworld</span> extension.<br>It should also be prefixed with the short name of the base game.</li>
+</ul>
+
+After adding these four fields, the game JSON file should look something like this:
+
+<pre>
+{
+  <span class="key">"short_name"</span>: <span class="string">"zone300"</span>,
+  <span class="key">"full_name"</span>: <span class="string">"Zone 300"</span>,
+  <span class="key">"ap_name"</span>: <span class="string">"DOOM II - Zone 300"</span>,
+  <span class="key">"ap_world_name"</span>: <span class="string">"doom2_zone300"</span>
+}
+</pre>
+</div>
+
+
+<h2 id="wad-files">WAD Files</h2>
+<div>
+The next two fields we need to add to the game JSON file tell <i>Archipelago Doom</i> and <i>ap_gen_tool</i> what files contain the game data for our game.
+
+<ul>
+<li><span class="inline-code key">"iwad"</span>: The WAD file of the base game.<br>This would be <span class="inline-code string">"DOOM.WAD"</span> for Doom 1993, <span class="inline-code string">"DOOM2.WAD"</span> for Doom 2, etc.</li>
+<li><span class="inline-code key">"required_wads"</span>: Which additional WAD file (or files) are necessary for your game.<br>Can either be a single string, or if more than one file is necessary, an array of strings.</li>
+</ul>
+
+After adding these two fields as well, the game JSON file looks something like this now:
+
+<pre>
+{
+  <span class="key">"short_name"</span>: <span class="string">"zone300"</span>,
+  <span class="key">"full_name"</span>: <span class="string">"Zone 300"</span>,
+  <span class="key">"ap_name"</span>: <span class="string">"DOOM II - Zone 300"</span>,
+  <span class="key">"ap_world_name"</span>: <span class="string">"doom2_zone300"</span>,
+  <span class="key">"iwad"</span>: <span class="string">"DOOM2.WAD"</span>,
+  <span class="key">"required_wads"</span>: <span class="string">"zone300.wad"</span>
+}
+</pre>
+</div>
+
+<h2 id="episodes">Episodes</h2>
+<div>
+The last bit of information that we need to load a new game into <i>ap_gen_tool</i> is a list of episodes and their containing levels. To do this, we'll need to lay out our episodes and maps in the <span class="inline-code key">"episodes"</span> field.
+<br><br>
+The <span class="inline-code key">"episodes"</span> field is an array containing Episode objects. Inside each of those objects is a <span class="inline-code key">"maps"</span> field containing an array of Map objects; these indicate what maps get loaded (<span class="inline-code key">"lump"</span>) and what their level names are (<span class="inline-code key">"name"</span>).
+<br><br>
+For example:
+
+<pre>
+<span class="key">"episodes"</span>: [
+  {
+    <span class="key">"maps"</span>: [
+      { <span class="key">"lump"</span>: <span class="string">"E1M1"</span>, <span class="key">"name"</span>: <span class="string">"Hangar (E1M1)"</span> },
+      { <span class="key">"lump"</span>: <span class="string">"E1M2"</span>, <span class="key">"name"</span>: <span class="string">"Nuclear Plant (E1M2)"</span> }
+      <span class="comment">// ... insert more maps here ...</span>
+    ]
+  },
+  {
+    <span class="key">"maps"</span>: [
+      { <span class="key">"lump"</span>: <span class="string">"E2M1"</span>, <span class="key">"name"</span>: <span class="string">"Deimos Anomaly (E2M1)"</span> },
+      { <span class="key">"lump"</span>: <span class="string">"E2M2"</span>, <span class="key">"name"</span>: <span class="string">"Containment Area (E2M2)"</span> }
+      <span class="comment">// ... insert more maps here ...</span>
+    ]
+  }
+  <span class="comment">// ... insert more episodes here ...</span>
+]
+</pre>
+
+<br>
+As you might expect, Episode and Map objects have more fields for special cases and advanced uses, but this is all we need for <i>ap_gen_tool</i> to load our new game.
+<br><br>
+In almost all cases, the level name should also include the lump name in parenthesis at the end of it. This not only helps players figure out which level name corresponds to which map slot, but it is also used for a few things like item name groups.
+<br><br>
+Some games may not have clean "episodes" that you can break up their levels into, like Doom 2. It is still best to separate levels out into smaller episodes regardless, but there isn't a single "correct" way to do that. A few ideas are:
+<ul>
+<li>Split up maps based on intermission screens; Maps 01-11, 12-20, 21-30, and then any secret maps.<br>This is how the Doom 2 world in Archipelago handles episodes.</li>
+<li>Split up maps into 10 level chunks; Maps 01-10, 11-20, 21-30.<br>This mimics how DSDA handles single episode speedruns when no other episode information is provided.</li>
+<li>Split up maps where there are forced death exits / pistol starts.<br>Some games may do this to make "fake" episodes.
+<li>Split up maps arbitrarily based on what levels feel best to play from a pistol start.</li>
+</ul>
+
+There is realistically no limit to the number of episodes that you can have, nor to the number of maps that can be in one episode. The built-in default level select is only designed to hold about 16 maps, however.
+</div>
+
+<h1 id="putting-it-all-together">Putting it all together</h1>
+<div>
+Once we add in all of the episode information for Zone 300, we should get a JSON file that looks something like this:
+
+<pre>
+{
+  <span class="key">"short_name"</span>: <span class="string">"zone300"</span>,
+  <span class="key">"full_name"</span>: <span class="string">"Zone 300"</span>,
+  <span class="key">"ap_name"</span>: <span class="string">"DOOM II - Zone 300"</span>,
+  <span class="key">"ap_world_name"</span>: <span class="string">"doom2_zone300"</span>,
+  <span class="key">"iwad"</span>: <span class="string">"DOOM2.WAD"</span>,
+  <span class="key">"required_wads"</span>: <span class="string">"zone300.wad",</span>
+
+  <span class="key">"episodes"</span>: [
+    {  <span class="comment">// Episode 1</span>
+      <span class="key">"maps"</span>: [
+        { <span class="key">"lump"</span>: <span class="string">"MAP01"</span>, <span class="key">"name"</span>: <span class="string">"The Spaceport (MAP01)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP02"</span>, <span class="key">"name"</span>: <span class="string">"Control Facility (MAP02)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP03"</span>, <span class="key">"name"</span>: <span class="string">"The Alleyway (MAP03)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP04"</span>, <span class="key">"name"</span>: <span class="string">"Canyon Hub (MAP04)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP05"</span>, <span class="key">"name"</span>: <span class="string">"Skybase 300 (MAP05)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP06"</span>, <span class="key">"name"</span>: <span class="string">"Whispering Corridor (MAP06)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP07"</span>, <span class="key">"name"</span>: <span class="string">"Heavyweight (MAP07)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP08"</span>, <span class="key">"name"</span>: <span class="string">"Waste Disposal Plant (MAP08)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP09"</span>, <span class="key">"name"</span>: <span class="string">"Nuclear Power Station (MAP09)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP10"</span>, <span class="key">"name"</span>: <span class="string">"Cargo Bay (MAP10)"</span> }
+      ]
+    },
+    {  <span class="comment">// Episode 2</span>
+      <span class="key">"maps"</span>: [
+        { <span class="key">"lump"</span>: <span class="string">"MAP11"</span>, <span class="key">"name"</span>: <span class="string">"Simbattle (MAP11)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP12"</span>, <span class="key">"name"</span>: <span class="string">"Villa of Pain (MAP12)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP13"</span>, <span class="key">"name"</span>: <span class="string">"Dark Crypt (MAP13)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP14"</span>, <span class="key">"name"</span>: <span class="string">"The Circle (MAP14)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP15"</span>, <span class="key">"name"</span>: <span class="string">"Trouble Town (MAP15)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP16"</span>, <span class="key">"name"</span>: <span class="string">"Bruiser Fortress (MAP16)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP17"</span>, <span class="key">"name"</span>: <span class="string">"Constriction (MAP17)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP18"</span>, <span class="key">"name"</span>: <span class="string">"Zombie Hideout (MAP18)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP19"</span>, <span class="key">"name"</span>: <span class="string">"The Invasion (MAP19)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP20"</span>, <span class="key">"name"</span>: <span class="string">"Death Row (MAP20)"</span> }
+      ]
+    },
+    {  <span class="comment">// Episode 3</span>
+      <span class="key">"maps"</span>: [
+        { <span class="key">"lump"</span>: <span class="string">"MAP21"</span>, <span class="key">"name"</span>: <span class="string">"Blood Lust (MAP21)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP22"</span>, <span class="key">"name"</span>: <span class="string">"Firestorm Tomb (MAP22)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP23"</span>, <span class="key">"name"</span>: <span class="string">"Dungeon of Inferno (MAP23)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP24"</span>, <span class="key">"name"</span>: <span class="string">"Cavern of the Evil Spirit (MAP24)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP25"</span>, <span class="key">"name"</span>: <span class="string">"Hellucination (MAP25)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP26"</span>, <span class="key">"name"</span>: <span class="string">"Valley of Brimstone (MAP26)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP27"</span>, <span class="key">"name"</span>: <span class="string">"Dissect (MAP27)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP28"</span>, <span class="key">"name"</span>: <span class="string">"Unholy Demise (MAP28)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP29"</span>, <span class="key">"name"</span>: <span class="string">"Den of Torture (MAP29)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP30"</span>, <span class="key">"name"</span>: <span class="string">"Eternal Core (MAP30)"</span> }
+      ]
+    },
+    {  <span class="comment">// Episode 4</span>
+      <span class="key">"maps"</span>: [
+        { <span class="key">"lump"</span>: <span class="string">"MAP31"</span>, <span class="key">"name"</span>: <span class="string">"Creepy (MAP31)"</span> },
+        { <span class="key">"lump"</span>: <span class="string">"MAP32"</span>, <span class="key">"name"</span>: <span class="string">"Condemnation (MAP32)"</span> }
+      ]
+    }
+  ]  <span class="comment">// End of Episodes</span>
+}
+</pre>
+<br>
+As you might expect, there are lots more things that we can do with game JSON files; but for now, this is all we need to start creating logic within <i>ap_gen_tool</i>. We should now be able to open it up and load our new game through the menu.
+</div>
+
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="navbar hide-minimal"></div>
+</div>
+</body>
+</html>

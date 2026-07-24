@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital@0;1&family=Ubuntu:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet" />
+  <title>Advanced game JSONs: Episodes - ap_gen_tool Documentation</title>
+</head>
+
+<body>
+
+<div class="overlay ov-navigation">
+<!-- ---------------------------------------------------------------------- -->
+<h1><i>ap_gen_tool</i> Documentation</h1>
+<ul>
+  <li><a href="/ap_gen_tool/">Index</a></li>
+</ul>
+<h2>The Basics</h2>
+<ul>
+  <li><a href="/ap_gen_tool/basic/creating-json.html">Creating a game JSON</a></li>
+  <li><a href="/ap_gen_tool/basic/navigating.html">Navigating <i>ap_gen_tool</i></a></li>
+  <li>Logical conditions</li>
+</ul>
+<h2>Advanced game JSONs</h2>
+<ul>
+  <li><a href="/ap_gen_tool/advanced/overview.html">Overview</a></li>
+  <li class="selected">Episodes</li>
+  <li><a href="/ap_gen_tool/advanced/game_info.html">Game Info</a></li>
+  <li><a href="/ap_gen_tool/advanced/world_info.html">World Info</a></li>
+  <li>Level Select</li>
+  <li>Map Tweaks</li>
+</ul>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+
+<div class="hide-minimal overlay ov-credits">
+<div><i>ap_gen_tool</i> is &copy; Daivuk & Kaito Sinclaire, and is open source software released under the terms of the <a href="https://raw.githubusercontent.com/ArchipelagoDoom/ap_gen_tool/refs/heads/main/COPYING">GNU GPL v2</a>.</div>
+<div><a href="https://github.com/ArchipelagoDoom/ap_gen_tool/web/">Website Source</a></div>
+</div>
+
+
+<div class="base">
+<div class="navbar"></div>
+<div class="content">
+<!-- ---------------------------------------------------------------------- -->
+<h1 id="episode-structure">Episode Structure</h1>
+<div></div>
+
+<h2 id="episode-name" class="code-header">"name"</h2>
+<div>
+This controls what the name of the episode is, as shown on the options page of Archipelago.
+<br><br>
+If omitted, the default of <span class="inline-code string">"Episode <i>n</i>"</span>, where <i>n</i> is the episode number, is used.
+<br><br>
+Example:
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Knee Deep in the Dead"</span>,
+  <span class="key">"boss_level"</span>: <span class="int">8</span>,
+  <span class="key">"maps"</span>: [ 
+    { <span class="key">"lump"</span>: <span class="string">"E1M1"</span>, <span class="key">"name"</span>: <span class="string">"Hangar (E1M1)"</span> }
+    <span class="comment">// Remaining levels omitted for brevity</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="description" class="code-header">"description"</h2>
+<div>
+This is optional extra text added to the episode option's description just before the list of maps the episode contains. Use this if there's something extra you need to specify about the maps contained in an episode.
+<br><br>
+Example:
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Spaceflight to Io"</span>,
+  <span class="key">"description"</span>: <span class="string">"MAP31 and MAP32 are part of the normal level progression."</span>,
+  <span class="key">"maps"</span>: [ 
+    { <span class="key">"lump"</span>: <span class="string">"MAP12"</span>, <span class="key">"name"</span>: <span class="string">"The Cargo Hold (MAP12)"</span> }
+    <span class="comment">// Remaining levels omitted for brevity</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="is_minor_episode" class="code-header">"is_minor_episode"</h2>
+<div>
+"Minor" episodes are short (usually three maps or less) collections of maps that are not intended to be played on their own, like Doom II's secret levels. The world will prevent playing such an episode on its own, and won't start the player with any levels from it.
+<br><br>
+The default is <span class="inline-code bool">false</span>.
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Secret Levels"</span>,
+  <span class="key">"is_minor_episode"</span>: <span class="bool">true</span>,
+  <span class="key">"maps"</span>: [ 
+    { <span class="key">"lump"</span>: <span class="string">"MAP31"</span>, <span class="key">"name"</span>: <span class="string">"Wolfenstein (MAP31)"</span> },
+    { <span class="key">"lump"</span>: <span class="string">"MAP32"</span>, <span class="key">"name"</span>: <span class="string">"Grosse (MAP32)"</span> }
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="default_enabled" class="code-header">"default_enabled"</h2>
+<div>
+Sets whether the option for this episode will be enabled by default.
+<br><br>
+The default is <span class="inline-code bool">true</span>.
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Thy Flesh Consumed"</span>,
+  <span class="key">"default_enabled"</span>: <span class="bool">false</span>,
+  <span class="key">"maps"</span>: [ 
+    { <span class="key">"lump"</span>: <span class="string">"E4M1"</span>, <span class="key">"name"</span>: <span class="string">"Hell Beneath (E4M1)"</span> }
+    <span class="comment">// Remaining levels omitted for brevity</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="start_level" class="code-header">"start_level"</h2>
+<div>
+Defines which level should be given to players at the start of the game. This is ignored for minor episodes, as the player isn't given a level of those episodes to start with anyway.
+<br><br>
+The default is <span class="inline-code int">1</span>.
+<pre>
+{
+  <span class="key">"start_level"</span>: <span class="int">2</span>,
+  <span class="key">"maps"</span>: [ 
+    <span class="comment">// I dunno, I didn't actually have any episodes that used this</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="boss_level" class="code-header">"boss_level"</h2>
+<div>
+Defines which level is considered the "boss" level of the episode. The only effect this has is to populate the defaults for the "Complete Specific Levels" goal. It is also ignored for minor episodes.
+<br><br>
+The default is whatever the number of the last map is.
+<br><br>
+Example:
+<pre>
+{
+  <span class="key">"name"</span>: <span class="string">"Knee Deep in the Dead"</span>,
+  <span class="key">"boss_level"</span>: <span class="int">8</span>,
+  <span class="key">"maps"</span>: [ 
+    { <span class="key">"lump"</span>: <span class="string">"E1M1"</span>, <span class="key">"name"</span>: <span class="string">"Hangar (E1M1)"</span> }
+    <span class="comment">// Remaining levels omitted for brevity</span>
+  ]
+}
+</pre>
+</div>
+
+
+<h2 id="maps" class="code-header">"maps"</h2>
+<div>
+This is where the actual meat of an Episode lies. This is a list of map structures; see <a href="#map-structure">Map Structure</a> just below for more information.
+</div>
+
+
+<h1 id="map-structure">Map Structure</h1>
+<div>
+There is realistically no limit to how many levels may be in a single episode, but you might have trouble fitting more than 16 onto the same level select screen.
+</div>
+
+
+<h2 id="lump" class="code-header">"lump"</h2>
+<div>
+This is the actual name of the lump that <i>ap_gen_tool</i> and <i>Archipelago Doom</i> will load. For Doom and Heretic, this will be of the format <span class="inline-code string">"E#M#"</span>, and for Doom II, it will be <span class="inline-code string">"MAP##"</span>.
+<br><br>
+Note that <i>Archipelago Doom</i> does not have the same limits as vanilla when it comes to which maps can be played. <span class="inline-code string">"E1M0"</span>, <span class="inline-code string">"E9M6"</span>, <span class="inline-code string">"E3M11"</span>, and <span class="inline-code string">"MAP99"</span>, among countless others, are all valid lump names that <i>ap_gen_tool</i> and <i>Archipelago Doom</i> will load without issue. (But see <a href="#music"><span class="inline-code key">"music"</span></a> below.)
+<br><br>
+Examples:
+<pre>
+{ <span class="key">"lump"</span>: <span class="string">"E1M1"</span>, <span class="key">"name"</span>: <span class="string">"Hangar (E1M1)"</span> }
+</pre>
+<pre>
+{ <span class="key">"lump"</span>: <span class="string">"MAP01"</span>, <span class="key">"name"</span>: <span class="string">"Entryway (MAP01)"</span> }
+</pre>
+</div>
+
+
+<h2 id="wad" class="code-header">"wad"</h2>
+<div>
+This tells <i>ap_gen_tool</i> which WAD file is the one that contains the data for this map. This does not need to be specified unless levels are split across multiple WAD files (e.g.: <span class="inline-code string">"DOOM2.WAD"</span> and <span class="inline-code string">"nerve.wad"</span>).
+<br><br>
+Example:
+<pre>
+<span class="comment">// -- Doom 1993 + SIGIL --</span>
+<span class="comment">// We want to allow playing both SIGIL and the rest of Doom 1993 at the same time</span>
+{ <span class="key">"wad"</span>: <span class="string">"DOOM.WAD"</span>, <span class="key">"lump"</span>: <span class="string">"E3M1"</span>, <span class="key">"name"</span>: <span class="string">"Hell Keep (E3M1)"</span> },
+{ <span class="key">"wad"</span>: <span class="string">"SIGIL_V1_23.wad"</span>, <span class="key">"lump"</span>: <span class="string">"E5M1"</span>, <span class="key">"name"</span>: <span class="string">"Baphomet's Demense (E5M1)"</span> }
+</pre>
+</div>
+
+
+<h2 id="map-name" class="code-header">"name"</h2>
+<div>
+This is the name of the level, as displayed in location names, item names, the automap, the goal display screen, etc. It <b>should</b> end with the lump name in parenthesis, as this is both shown to the player in various spots, and is used to generate item name groups for easier hinting.
+<br><br>
+However, the lump name in parenthesis <b>does not</b> actually need to match the name given in "lump"; it is valid (and sometimes advisable) to use a "fake" lump name for the purposes of organization.
+<br><br>
+Examples:
+<pre>
+{ <span class="key">"lump"</span>: <span class="string">"E1M8"</span>, <span class="key">"name"</span>: <span class="string">"Phobos Anomaly (E1M8)"</span> }
+</pre>
+<pre>
+{ <span class="key">"lump"</span>: <span class="string">"MAP30"</span>, <span class="key">"name"</span>: <span class="string">"Icon of Sin (MAP30)"</span> }
+</pre>
+<pre>
+<span class="comment">// -- Chex Quest 3: Vanilla Edition --</span>
+<span class="comment">// Uses specific, out of order map slots to simulate a shorter episode</span>
+{ <span class="key">"lump"</span>: <span class="string">"E1M9"</span>, <span class="key">"name"</span>: <span class="string">"Landing Zone (CQ1M1)"</span> }
+</pre>
+<pre>
+<span class="comment">// -- No Rest for the Living --</span>
+<span class="comment">// MAP01 - MAP09 are moved to MAP41 - MAP49 via "rename_lumps"</span>
+{ <span class="key">"wad"</span>: <span class="string">"nerve.wad"</span>, <span class="key">"lump"</span>: <span class="string">"MAP41"</span>, <span class="key">"music"</span>: <span class="string">"D_NRFTL1"</span>, <span class="key">"name"</span>: <span class="string">"The Earth Base (NERVE01)"</span> }
+</pre>
+</div>
+
+
+<h2 id="music" class="code-header">"music"</h2>
+<div>
+This sets the music lump that the game will try to play by default, music rando notwithstanding. If unspecified, the game will play the default music.
+<br><br>
+If the map is in an out-of-bounds level slot (e.g. <span class="inline-code string">"MAP33"</span>), you <b>should</b> specify which music it should play by default, because the "default" music may very well cause a crash!
+<br><br>
+Example:
+<pre>
+{ <span class="key">"lump"</span>: <span class="string">"MAP33"</span>, <span class="key">"music"</span>: <span class="string">"D_READ_M"</span>, <span class="key">"name"</span>: <span class="string">"Zerstorung (MAP33)"</span> }
+</pre>
+<pre>
+<span class="comment">// -- No Rest for the Living --</span>
+<span class="comment">// MAP01 - MAP09 are moved to MAP41 - MAP49 via "rename_lumps"</span>
+{ <span class="key">"wad"</span>: <span class="string">"nerve.wad"</span>, <span class="key">"lump"</span>: <span class="string">"MAP41"</span>, <span class="key">"music"</span>: <span class="string">"D_NRFTL1"</span>, <span class="key">"name"</span>: <span class="string">"The Earth Base (NERVE01)"</span> }
+</pre>
+</div>
+
+
+<!-- ---------------------------------------------------------------------- -->
+</div>
+<div class="navbar hide-minimal"></div>
+</div>
+</body>
+</html>
