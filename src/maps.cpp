@@ -409,9 +409,13 @@ static void triangulate_sector(const std::vector<wall_t>& map_walls, map_t* map,
 
     // Translate this into indices to vertexes from mapdef
     sector.vertices.resize(indices.size());
+    sector.triangle_vertices.resize(indices.size());
     for (int i = 0, len = (int)indices.size(); i < len; ++i)
     {
         sector.vertices[i] = map_walls[sector.walls[flatten_loops[indices[i]]]].v1;
+        
+        const auto& v = map->vertexes[sector.vertices[i]];
+        sector.triangle_vertices[i] = Vector2(v.x, -v.y);
     }
 }
 
@@ -830,18 +834,12 @@ bool init_maps(game_t& game)
                         {
                             Vector2 bbmin, bbmax;
                             const auto& sector = map->sectors[k];
-                            if (sector.vertices.empty()) continue;
-                            bbmin = {
-                                (float)map->vertexes[sector.vertices[0]].x,
-                                -(float)map->vertexes[sector.vertices[0]].y
-                            };
+                            if (sector.triangle_vertices.empty()) continue;
+                            bbmin = sector.triangle_vertices[0];
                             bbmax = bbmin;
-                            for (int l = 1; l < (int)sector.vertices.size(); ++l)
+                            for (int l = 1; l < (int)sector.triangle_vertices.size(); ++l)
                             {
-                                Vector2 pt = {
-                                    (float)map->vertexes[sector.vertices[l]].x,
-                                    -(float)map->vertexes[sector.vertices[l]].y
-                                };
+                                Vector2 pt = sector.triangle_vertices[l];
                                 bbmin = onut::min(bbmin, pt);
                                 bbmax = onut::max(bbmax, pt);
                             }

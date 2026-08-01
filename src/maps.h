@@ -105,6 +105,7 @@ struct sector_t
 {
     std::vector<int> vertices;
     std::vector<int> walls;
+    std::vector<Vector2> triangle_vertices;
 };
 
 
