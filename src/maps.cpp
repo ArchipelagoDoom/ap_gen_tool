@@ -5,32 +5,11 @@
 #include <onut/Strings.h>
 #include <onut/Point.h>
 
-#include "earcut.hpp"
-
 #include <stdio.h>
 #include <algorithm>
 
 #include "data.h"
 #include "defs.h"
-
-
-// For earcut to work
-namespace mapbox {
-namespace util {
-template <>
-struct nth<0, Point> {
-    inline static auto get(const Point &t) {
-        return t.x;
-    };
-};
-template <>
-struct nth<1, Point> {
-    inline static auto get(const Point &t) {
-        return t.y;
-    };
-};
-} // namespace util
-} // namespace mapbox
 
 
 // ============================================================================
