@@ -419,6 +419,110 @@ static void triangulate_sector(const std::vector<wall_t>& map_walls, map_t* map,
     }
 }
 
+// Replace convex polygon with right side of convex polygon cut by infinite line at point with ray delta
+std::vector<Vector2> cut_convex_polygon(const std::vector<Vector2>& polygon, Vector2 point, Vector2 delta)
+{
+  std::vector<Vector2> cut;
+
+  for (int j = 0, len = (int)polygon.size(), i = len - 1; j < len; i = j++)
+  {
+    Vector2 a = polygon[i];
+    Vector2 b = polygon[j];
+
+    bool a_side = delta.Cross(a - point).z > 0.0;
+    bool b_side = delta.Cross(b - point).z > 0.0;
+
+    if (a_side)
+      cut.push_back(a);
+
+    if (a_side != b_side)
+    {
+      // add intersection for a-b and line
+      Vector2 d = b - a;
+      float t = (point - a).Cross(delta).z / d.Cross(delta).z;
+      cut.push_back(a + d * t);
+    }
+  }
+
+  return cut;
+}
+
+
+void triangulate_polygon_for_subsector(map_t* map, const std::vector<Vector2>& polygon, int subsectornum)
+{
+  int sectornum = map->subsectors[subsectornum].sector;
+  const map_subsector_t& subsector = map->map_subsectors[subsectornum];
+
+  // clip against each seg in this subsector
+  std::vector<Vector2> clip = polygon;
+  for (int i = 0; i < subsector.numsegs; ++i)
+  {
+    int segnum = subsector.firstseg + i;
+    const map_seg_t& seg = map->map_segs[segnum];
+
+    const map_vertex_t& v1 = map->vertexes[seg.v1];
+    const map_vertex_t& v2 = map->vertexes[seg.v2];
+
+    Vector2 a = Vector2((float)v1.x, (float)v1.y);
+    Vector2 b = Vector2((float)v2.x, (float)v2.y);
+    clip = cut_convex_polygon(clip, a, a - b);
+  }
+
+  // flip polygon's y coordinate for display
+  for (int j = 0; j < (int)clip.size(); ++j)
+  {
+    clip[j].y = -clip[j].y;
+  }
+
+  // add triangle fan of polygon to sector
+  sector_t& sector = map->sectors[sectornum];
+  for (int j = 2; j < (int)clip.size(); ++j)
+  {
+    sector.triangle_vertices.push_back(clip[0]);
+    sector.triangle_vertices.push_back(clip[j - 1]);
+    sector.triangle_vertices.push_back(clip[j]);
+  }
+}
+
+
+void triangulate_polygon_for_node(map_t* map, const std::vector<Vector2>& polygon, int nodenum)
+{
+  if (nodenum & NF_SUBSECTOR_VANILLA)
+  {
+    triangulate_polygon_for_subsector(map, polygon, nodenum & ~NF_SUBSECTOR_VANILLA);
+    return;
+  }
+
+  const map_node_t& node = map->map_nodes[nodenum];
+
+  Vector2 cut_point(node.x, node.y);
+  Vector2 cut_ray(node.dx, node.dy);
+
+  triangulate_polygon_for_node(map, cut_convex_polygon(polygon, cut_point, -cut_ray), node.children[0]);
+  triangulate_polygon_for_node(map, cut_convex_polygon(polygon, cut_point, cut_ray), node.children[1]);
+}
+
+
+void triangulate_map(map_t* map)
+{
+  // clear all triangulated verts from sectors
+  for (int i = 0, len = (int)map->sectors.size(); i < len; ++i)
+  {
+    map->sectors[i].triangle_vertices.clear();
+  }
+
+  // initial polygon is map bounding box
+  std::vector<Vector2> polygon = {
+    Vector2(map->bb[0], map->bb[1]),
+    Vector2(map->bb[2], map->bb[1]),
+    Vector2(map->bb[2], map->bb[3]),
+    Vector2(map->bb[0], map->bb[3])
+  };
+
+  triangulate_polygon_for_node(map, polygon, (int)map->nodes.size() - 1);
+}
+
+
 OTextureRef load_sprite(const std::vector<game_wad_t>& wad_list, const char* lump_name, const uint8_t* pal)
 {
     auto raw_data = load_lump(wad_list, lump_name);
@@ -811,6 +915,8 @@ bool init_maps(game_t& game)
             {
                 triangulate_sector(map_walls, map, j);
             }
+
+            triangulate_map(map);
 
             // Create arrows
             for (int j = 0; j < (int)map->linedefs.size(); ++j)
