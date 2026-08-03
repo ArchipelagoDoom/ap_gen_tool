@@ -10606,6 +10606,11 @@
                         "requirements_and" : [ -1, -2 ],
                         "requirements_or" : [],
                         "target_region" : 5
+                     },
+                     {
+                        "requirements_and" : [ -2 ],
+                        "requirements_or" : [],
+                        "target_region" : 3
                      }
                   ],
                   "x" : -1986,
@@ -11673,10 +11678,15 @@
                         "requirements_and" : [ 39, 38 ],
                         "requirements_or" : [],
                         "target_region" : 3
+                     },
+                     {
+                        "requirements_and" : [ -4 ],
+                        "requirements_or" : [],
+                        "target_region" : 4
                      }
                   ],
-                  "x" : -5506,
-                  "y" : -3273
+                  "x" : -5504,
+                  "y" : -3264
                },
                "sectors" : [
                   0,
@@ -11854,8 +11864,8 @@
                         "target_region" : 0
                      }
                   ],
-                  "x" : -5494,
-                  "y" : -4141
+                  "x" : -5504,
+                  "y" : -4160
                },
                "sectors" : [ 45, 46 ],
                "tint" : [ 1, 0.97058826684951782, 0, 1 ]
@@ -11870,8 +11880,8 @@
                         "target_region" : 0
                      }
                   ],
-                  "x" : -5507,
-                  "y" : -2351
+                  "x" : -5504,
+                  "y" : -2368
                },
                "sectors" : [ 36, 37, 49, 51, 52 ],
                "tint" : [ 1, 0, 0, 1 ]
@@ -11891,8 +11901,8 @@
                         "target_region" : -2
                      }
                   ],
-                  "x" : -7161,
-                  "y" : -3250
+                  "x" : -7168,
+                  "y" : -3264
                },
                "sectors" : [
                   57,
@@ -11951,6 +11961,22 @@
                   110
                ],
                "tint" : [ 1, 0.5, 0, 1 ]
+            },
+            {
+               "name" : "Rocket Jump",
+               "rules" : {
+                  "connections" : [
+                     {
+                        "requirements_and" : [ 2003, 39 ],
+                        "requirements_or" : [],
+                        "target_region" : 3
+                     }
+                  ],
+                  "x" : -7168,
+                  "y" : -4160
+               },
+               "sectors" : [],
+               "tint" : [ 0, 1, 0, 1 ]
             }
          ],
          "world_rules" : {
@@ -11961,8 +11987,8 @@
                   "target_region" : 0
                }
             ],
-            "x" : -3937,
-            "y" : -3272
+            "x" : -3584,
+            "y" : -3264
          }
       },
       {
