@@ -385,6 +385,10 @@ Json::Value generate_apworld_manifest(game_t *game, const Json::Value &apdoom_js
     {
         json["version"] = 7;
         json["compatible_version"] = 7;        
+
+        // This is for the APWorld Manager
+        // We don't want to include it in source, though
+        json["repo_url"] = "https://archipelagodoom.github.io/worlds/index.json";
     }
     if (!game->authors.empty())
     {
@@ -396,9 +400,6 @@ Json::Value generate_apworld_manifest(game_t *game, const Json::Value &apdoom_js
     json["world_version"] = "2.0." + std::string(buf);
     json["minimum_ap_version"] = "0.6.3";
     json["__apdoom"] = apdoom_json;
-
-    // This is for the APWorld Manager
-    json["repo_url"] = "https://archipelagodoom.github.io/worlds/index.json";
     return json;
 }
 
