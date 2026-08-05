@@ -1826,15 +1826,9 @@ void draw_level(const level_index_t& idx, const Vector2& pos, float angle, bool 
             if (region)
             {
                 Color color = region->tint * 0.5f;
-                for (int i = 0, len = (int)sector.vertices.size(); i < len; i += 3)
+                for (int i = 0, len = (int)sector.triangle_vertices.size(); i < len; ++i)
                 {
-                    const auto& v1 = map->vertexes[sector.vertices[i + 0]];
-                    const auto& v2 = map->vertexes[sector.vertices[i + 1]];
-                    const auto& v3 = map->vertexes[sector.vertices[i + 2]];
-
-                    pb->draw(Vector2(v1.x, -v1.y), color);
-                    pb->draw(Vector2(v2.x, -v2.y), color);
-                    pb->draw(Vector2(v3.x, -v3.y), color);
+                    pb->draw(sector.triangle_vertices[i], color);
                 }
             }
             ++i;

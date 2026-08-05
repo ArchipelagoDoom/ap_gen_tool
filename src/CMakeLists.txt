@@ -11,7 +11,6 @@ add_executable(${PROJECT_NAME} WIN32
                        defs.h
     python.cpp         python.hpp
                        message.hpp
-                       earcut.hpp
                        zip.hpp
 )
 

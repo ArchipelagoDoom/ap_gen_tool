@@ -5,32 +5,11 @@
 #include <onut/Strings.h>
 #include <onut/Point.h>
 
-#include "earcut.hpp"
-
 #include <stdio.h>
 #include <algorithm>
 
 #include "data.h"
 #include "defs.h"
-
-
-// For earcut to work
-namespace mapbox {
-namespace util {
-template <>
-struct nth<0, Point> {
-    inline static auto get(const Point &t) {
-        return t.x;
-    };
-};
-template <>
-struct nth<1, Point> {
-    inline static auto get(const Point &t) {
-        return t.y;
-    };
-};
-} // namespace util
-} // namespace mapbox
 
 
 // ============================================================================
@@ -279,141 +258,120 @@ subsector_t* point_in_subsector(int x, int y, map_t* map)
 }
 
 
-struct wall_t
+// Replace convex polygon with right side of convex polygon cut by infinite line at point with ray delta
+std::vector<Vector2> cut_convex_polygon(const std::vector<Vector2>& polygon, Vector2 point, Vector2 delta)
 {
-    int v1, v2;
-    int sector;
-};
+  std::vector<Vector2> cut;
 
+  Vector2 dnorm = delta;
+  dnorm.Normalize();
+  for (int j = 0, len = (int)polygon.size(), i = len - 1; j < len; i = j++)
+  {
+    Vector2 a = polygon[i];
+    Vector2 b = polygon[j];
 
-static void create_wall(std::vector<wall_t>& map_walls, map_t* map, int16_t linedef_idx, int16_t sidedef_idx)
-{
-    const auto &linedef = map->linedefs[linedef_idx];
-    const auto &sidedef = map->sidedefs[sidedef_idx];
-    //const auto &sectordef = map->sectors[sidedef.sector]; // note: unused?
-
-    auto &sector = map->sectors[sidedef.sector];
-
-    wall_t wall;
-    wall.v1 = linedef.start_vertex;
-    wall.v2 = linedef.end_vertex;
-    
-    // When moving a sector we will need to refer to the sector behind to invalidate it
-    if (linedef.front_sidedef != sidedef_idx)
+    Vector2 a_on_line = point + dnorm * (a - point).Dot(dnorm);
+    Vector2 b_on_line = point + dnorm * (b - point).Dot(dnorm);
+    const float online_epsilon = 0.01f;
+    if (Vector2::Distance(a_on_line, a) < online_epsilon && Vector2::Distance(b_on_line, b) < online_epsilon)
     {
-        // Invert direction of wall if we are behind the linedef
-        std::swap(wall.v1, wall.v2);
+      cut.push_back(a);
+      continue;
     }
 
-    wall.sector = sidedef.sector;
+    bool a_side = delta.Cross(a - point).z > 0.0;
+    bool b_side = delta.Cross(b - point).z > 0.0;
 
-    sector.walls.push_back((int)map_walls.size());
-    map_walls.push_back(wall);
+    if (a_side)
+      cut.push_back(a);
+
+    if (a_side != b_side)
+    {
+      // add intersection for a-b and line
+      Vector2 d = b - a;
+      float t = (point - a).Cross(delta).z / d.Cross(delta).z;
+      cut.push_back(a + d * t);
+    }
+  }
+
+  return cut;
 }
 
 
-static void triangulate_sector(const std::vector<wall_t>& map_walls, map_t* map, int sectori)
+void triangulate_polygon_for_subsector(map_t* map, const std::vector<Vector2>& polygon, int subsectornum)
 {
-    auto& sector = map->sectors[sectori];
+  int sectornum = map->subsectors[subsectornum].sector;
+  const map_subsector_t& subsector = map->map_subsectors[subsectornum];
 
-    std::vector<int> wall_idx_remaining(sector.walls.size());
-    for (int i = 0, len = (int)sector.walls.size(); i < len; ++i)
-        wall_idx_remaining[i] = i;
+  // clip against each seg in this subsector
+  std::vector<Vector2> clip = polygon;
+  for (int i = 0; i < subsector.numsegs; ++i)
+  {
+    int segnum = subsector.firstseg + i;
+    const map_seg_t& seg = map->map_segs[segnum];
 
-    // Build loops
-    std::vector<std::vector<int>> loops;
-    while (wall_idx_remaining.size() >= 3)
-    {
-        // Pick first line, and try to build a loop
-        std::vector<int> loop = { wall_idx_remaining[0] };
-        wall_idx_remaining.erase(wall_idx_remaining.begin());
-        while (true)
-        {
-            auto previous = loop[(int)loop.size() - 1];
-            bool found = false;
-            for (int i = 0, len = (int)wall_idx_remaining.size(); i < len; ++i)
-            {
-                auto idx = wall_idx_remaining[i];
-                const auto &wall = map_walls[sector.walls[idx]];
-                if (map_walls[sector.walls[previous]].v1 == wall.v2)
-                {
-                    loop.push_back(idx);
-                    wall_idx_remaining.erase(wall_idx_remaining.begin() + i);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) break;
-        }
+    const map_vertex_t& v1 = map->vertexes[seg.v1];
+    const map_vertex_t& v2 = map->vertexes[seg.v2];
 
-        if (loop.size() >= 3)
-        {
-            loops.push_back(loop);
-        }
-    }
+    Vector2 a = Vector2((float)v1.x, (float)v1.y);
+    Vector2 b = Vector2((float)v2.x, (float)v2.y);
+    clip = cut_convex_polygon(clip, a, a - b);
+  }
 
-    // Calculate biggest loop, and put it in front. This will be our outside loop. This is what earcut expects.
-    double biggest_area = 0;
-    int biggest_loop = 0;
-    for (int i = 0, len = (int)loops.size(); i < len; ++i)
-    {
-        const auto &loop = loops[i];
-        auto first_wall = loop[0];
-        const auto &vertex = map->vertexes[map_walls[sector.walls[first_wall]].v1];
-        double mins[2] = { (double)vertex.x, (double)vertex.y };
-        double maxs[2] = { (double)vertex.x, (double)vertex.y };
-        for (auto wall_idx : loop)
-        {
-            const auto &vert = map->vertexes[map_walls[sector.walls[wall_idx]].v1];
-            mins[0] = std::min(mins[0], (double)vert.x);
-            mins[1] = std::min(mins[1], (double)vert.y);
-            maxs[0] = std::max(maxs[0], (double)vert.x);
-            maxs[1] = std::max(maxs[1], (double)vert.y);
-        }
-        auto area = (maxs[0] - mins[0]) * (maxs[1] - mins[1]);
-        if (area > biggest_area)
-        {
-            biggest_area = area;
-            biggest_loop = i;
-        }
-    }
-    if (biggest_loop != 0)
-        std::swap(loops[0], loops[biggest_loop]);
+  // flip polygon's y coordinate for display
+  for (int j = 0; j < (int)clip.size(); ++j)
+  {
+    clip[j].y = -clip[j].y;
+  }
 
-    // Construct points that earcut will understand
-    std::vector<std::vector<Point>> point_loops(loops.size());
-    for (int j = 0, len = (int)loops.size(); j < len; ++j)
-    {
-        const auto &loop = loops[j];
-        auto &point_loop = point_loops[j];
-        point_loop.resize(loop.size());
-        for (int i = 0, len = (int)loop.size(); i < len; ++i)
-        {
-            const auto &vertex = map->vertexes[map_walls[sector.walls[loop[i]]].v1];
-            auto &point = point_loop[i];
-            point.x = (int)vertex.x;
-            point.y = (int)vertex.y;
-        }
-    }
-
-    // Triangulate
-    auto indices = mapbox::earcut<int>(point_loops);
-
-    // Flatten loop so we can know which indice match which loop
-    std::vector<int> flatten_loops;
-    for (int j = 0, len = (int)loops.size(); j < len; ++j)
-    {
-        const auto &loop = loops[j];
-        flatten_loops.insert(flatten_loops.end(), loop.begin(), loop.end());
-    }
-
-    // Translate this into indices to vertexes from mapdef
-    sector.vertices.resize(indices.size());
-    for (int i = 0, len = (int)indices.size(); i < len; ++i)
-    {
-        sector.vertices[i] = map_walls[sector.walls[flatten_loops[indices[i]]]].v1;
-    }
+  // add triangle fan of polygon to sector
+  sector_t& sector = map->sectors[sectornum];
+  for (int j = 2; j < (int)clip.size(); ++j)
+  {
+    sector.triangle_vertices.push_back(clip[0]);
+    sector.triangle_vertices.push_back(clip[j - 1]);
+    sector.triangle_vertices.push_back(clip[j]);
+  }
 }
+
+
+void triangulate_polygon_for_node(map_t* map, const std::vector<Vector2>& polygon, int nodenum)
+{
+  if (nodenum & NF_SUBSECTOR_VANILLA)
+  {
+    triangulate_polygon_for_subsector(map, polygon, nodenum & ~NF_SUBSECTOR_VANILLA);
+    return;
+  }
+
+  const map_node_t& node = map->map_nodes[nodenum];
+
+  Vector2 cut_point(node.x, node.y);
+  Vector2 cut_ray(node.dx, node.dy);
+
+  triangulate_polygon_for_node(map, cut_convex_polygon(polygon, cut_point, -cut_ray), node.children[0]);
+  triangulate_polygon_for_node(map, cut_convex_polygon(polygon, cut_point, cut_ray), node.children[1]);
+}
+
+
+void triangulate_map(map_t* map)
+{
+  // clear all triangulated verts from sectors
+  for (int i = 0, len = (int)map->sectors.size(); i < len; ++i)
+  {
+    map->sectors[i].triangle_vertices.clear();
+  }
+
+  // initial polygon is map bounding box
+  std::vector<Vector2> polygon = {
+    Vector2(map->bb[0], map->bb[1]),
+    Vector2(map->bb[2], map->bb[1]),
+    Vector2(map->bb[2], map->bb[3]),
+    Vector2(map->bb[0], map->bb[3])
+  };
+
+  triangulate_polygon_for_node(map, polygon, (int)map->nodes.size() - 1);
+}
+
 
 OTextureRef load_sprite(const std::vector<game_wad_t>& wad_list, const char* lump_name, const uint8_t* pal)
 {
@@ -790,23 +748,8 @@ bool init_maps(game_t& game)
                 map->bb[3] = std::max(map->bb[3], map->vertexes[v].y);
             }
 
-            // Create "walls" used in triangulation step
-            std::vector<wall_t> map_walls;
-            for (int j = 0; j < (int)map->linedefs.size(); ++j)
-            {
-                const auto &linedef = map->linedefs[j];
-
-                if (linedef.front_sidedef != -1)
-                    create_wall(map_walls, map, j, linedef.front_sidedef);
-                if (linedef.back_sidedef != -1)
-                    create_wall(map_walls, map, j, linedef.back_sidedef);
-            }
-
             // Triangulate
-            for (int j = 0; j < (int)map->sectors.size(); ++j)
-            {
-                triangulate_sector(map_walls, map, j);
-            }
+            triangulate_map(map);
 
             // Create arrows
             for (int j = 0; j < (int)map->linedefs.size(); ++j)
@@ -830,18 +773,12 @@ bool init_maps(game_t& game)
                         {
                             Vector2 bbmin, bbmax;
                             const auto& sector = map->sectors[k];
-                            if (sector.vertices.empty()) continue;
-                            bbmin = {
-                                (float)map->vertexes[sector.vertices[0]].x,
-                                -(float)map->vertexes[sector.vertices[0]].y
-                            };
+                            if (sector.triangle_vertices.empty()) continue;
+                            bbmin = sector.triangle_vertices[0];
                             bbmax = bbmin;
-                            for (int l = 1; l < (int)sector.vertices.size(); ++l)
+                            for (int l = 1; l < (int)sector.triangle_vertices.size(); ++l)
                             {
-                                Vector2 pt = {
-                                    (float)map->vertexes[sector.vertices[l]].x,
-                                    -(float)map->vertexes[sector.vertices[l]].y
-                                };
+                                Vector2 pt = sector.triangle_vertices[l];
                                 bbmin = onut::min(bbmin, pt);
                                 bbmax = onut::max(bbmax, pt);
                             }
