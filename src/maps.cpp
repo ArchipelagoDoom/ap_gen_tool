@@ -263,10 +263,21 @@ std::vector<Vector2> cut_convex_polygon(const std::vector<Vector2>& polygon, Vec
 {
   std::vector<Vector2> cut;
 
+  Vector2 dnorm = delta;
+  dnorm.Normalize();
   for (int j = 0, len = (int)polygon.size(), i = len - 1; j < len; i = j++)
   {
     Vector2 a = polygon[i];
     Vector2 b = polygon[j];
+
+    Vector2 a_on_line = point + dnorm * (a - point).Dot(dnorm);
+    Vector2 b_on_line = point + dnorm * (b - point).Dot(dnorm);
+    const float online_epsilon = 0.01f;
+    if (Vector2::Distance(a_on_line, a) < online_epsilon && Vector2::Distance(b_on_line, b) < online_epsilon)
+    {
+      cut.push_back(a);
+      continue;
+    }
 
     bool a_side = delta.Cross(a - point).z > 0.0;
     bool b_side = delta.Cross(b - point).z > 0.0;
